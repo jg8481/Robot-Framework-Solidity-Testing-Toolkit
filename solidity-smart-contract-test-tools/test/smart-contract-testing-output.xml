@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.9 on darwin)" generated="20211224 03:39:14.997" rpa="false" schemaversion="2">
+<suite id="s1" name="Robot Framework Solidity Smart Contract Test" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/test/robot-framework-solidity-tester.robot">
+<test id="s1-t1" name="SMART CONTRACT TEST 1 : Run the Solhint static analysis tool on the target contract. If this fails, then there are possible code security issues or other risks.">
+<kw name="Run Solhint Solidity Static Analysis And Check Output">
+<arg>targetContract.sol</arg>
+<kw name="Run Process" library="Process">
+<arg>solhint -h &amp;&amp; solhint ${PATH}/solidity-smart-contract-test-tools/contracts/${SMART_CONTRACT_FILE_NAME} --config ${PATH}/solidity-smart-contract-test-tools/test/.solhint.json</arg>
+<arg>alias=solhint_output</arg>
+<arg>shell=True</arg>
+<arg>timeout=20s</arg>
+<arg>on_timeout=continue</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20211224 03:39:15.043" level="INFO">Starting process:
+solhint -h &amp;&amp; solhint /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/contracts/targetContract.sol --config /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/test/.solhint.json</msg>
+<msg timestamp="20211224 03:39:15.047" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20211224 03:39:16.171" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20211224 03:39:15.043" endtime="20211224 03:39:16.171"/>
+</kw>
+<kw name="Get Process Result" library="Process">
+<var>${SOLHINT_OUTPUT}</var>
+<arg>solhint_output</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<msg timestamp="20211224 03:39:16.173" level="INFO">${SOLHINT_OUTPUT} = Usage: solhint [options] &lt;file&gt; [...other_files]
+
+Linter for Solidity programming language
+
+Options:
+
+  -V, --version                           output the version number
+  -f, --formatter [name]      ...</msg>
+<status status="PASS" starttime="20211224 03:39:16.172" endtime="20211224 03:39:16.173"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${SOLHINT_RESULT}</var>
+<arg>${SOLHINT_OUTPUT}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20211224 03:39:16.174" level="INFO">${SOLHINT_RESULT} = Usage: solhint [options] &lt;file&gt; [...other_files]
+
+Linter for Solidity programming language
+
+Options:
+
+  -V, --version                           output the version number
+  -f, --formatter [name]      ...</msg>
+<status status="PASS" starttime="20211224 03:39:16.173" endtime="20211224 03:39:16.174"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${SOLHINT_RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20211224 03:39:16.174" level="INFO">Usage: solhint [options] &lt;file&gt; [...other_files]
+
+Linter for Solidity programming language
+
+Options:
+
+  -V, --version                           output the version number
+  -f, --formatter [name]                  report formatter name (stylish, table, tap, unix)
+  -w, --max-warnings [maxWarningsNumber]  number of allowed warnings
+  -c, --config [file_name]                file to use as your .solhint.json
+  -q, --quiet                             report errors only - default: false
+  --ignore-path [file_name]               file to use as your .solhintignore
+  --fix                                   automatically fix problems
+  --init                                  create configuration file for solhint
+  -h, --help                              output usage information
+
+Commands:
+
+  stdin [options]                         linting of source code data provided to STDIN
+
+/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/contracts/targetContract.sol
+   2:1  warning  Compiler version ^0.5.0 does not satisfy the a semver requirement  compiler-version
+  14:3  warning  Provide an error message for require                               reason-string
+
+✖ 2 problems (0 errors, 2 warnings)
+</msg>
+<status status="PASS" starttime="20211224 03:39:16.174" endtime="20211224 03:39:16.175"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${SOLHINT_RESULT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20211224 03:39:16.175" level="INFO">Length is 1253</msg>
+<status status="PASS" starttime="20211224 03:39:16.175" endtime="20211224 03:39:16.175"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${SOLHINT_RESULT}</arg>
+<arg>(0 errors,</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20211224 03:39:16.176" endtime="20211224 03:39:16.176"/>
+</kw>
+<status status="PASS" starttime="20211224 03:39:15.043" endtime="20211224 03:39:16.176"/>
+</kw>
+<tag>Contract_Smoke_Tests</tag>
+<status status="PASS" starttime="20211224 03:39:15.042" endtime="20211224 03:39:16.177"/>
+</test>
+<test id="s1-t2" name="SMART CONTRACT TEST 2 : Run the Surya code property graph analysis tool on the target contract. If this fails, then there are possible code risks or vulnerabilities.">
+<kw name="Run Surya Solidity Graph Analysis And Check Output">
+<arg>targetContract.sol</arg>
+<kw name="Run Process" library="Process">
+<arg>surya graph ${PATH}/solidity-smart-contract-test-tools/contracts/${SMART_CONTRACT_FILE_NAME} --no-color</arg>
+<arg>alias=surya_output</arg>
+<arg>shell=True</arg>
+<arg>timeout=20s</arg>
+<arg>on_timeout=continue</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20211224 03:39:16.180" level="INFO">Starting process:
+surya graph /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/contracts/targetContract.sol --no-color</msg>
+<msg timestamp="20211224 03:39:16.186" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20211224 03:39:16.795" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20211224 03:39:16.179" endtime="20211224 03:39:16.796"/>
+</kw>
+<kw name="Get Process Result" library="Process">
+<var>${SURYA_OUTPUT}</var>
+<arg>surya_output</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<msg timestamp="20211224 03:39:16.798" level="INFO">${SURYA_OUTPUT} = digraph G {
+  graph [ ratio = "auto", page = "100", compound =true ];
+subgraph "clusterBEP20" {
+  graph [ label = "BEP20", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "BEP20.adop...</msg>
+<status status="PASS" starttime="20211224 03:39:16.797" endtime="20211224 03:39:16.798"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${SURYA_RESULT}</var>
+<arg>${SURYA_OUTPUT}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20211224 03:39:16.800" level="INFO">${SURYA_RESULT} = digraph G {
+  graph [ ratio = "auto", page = "100", compound =true ];
+subgraph "clusterBEP20" {
+  graph [ label = "BEP20", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "BEP20.adop...</msg>
+<status status="PASS" starttime="20211224 03:39:16.799" endtime="20211224 03:39:16.800"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${SURYA_RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20211224 03:39:16.801" level="INFO">digraph G {
+  graph [ ratio = "auto", page = "100", compound =true ];
+subgraph "clusterBEP20" {
+  graph [ label = "BEP20", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "BEP20.adopt" [ label = "adopt", color = "green" ];
+  "BEP20.getAdopters" [ label = "getAdopters", color = "green" ];
+}
+
+
+
+rankdir=LR
+node [shape=plaintext]
+subgraph cluster_01 { 
+label = "Legend";
+key [label=&lt;&lt;table border="0" cellpadding="2" cellspacing="0" cellborder="0"&gt;
+  &lt;tr&gt;&lt;td align="right" port="i1"&gt;Internal Call&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td align="right" port="i2"&gt;External Call&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td align="right" port="i3"&gt;Defined Contract&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td align="right" port="i4"&gt;Undefined Contract&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;&gt;]
+key2 [label=&lt;&lt;table border="0" cellpadding="2" cellspacing="0" cellborder="0"&gt;
+  &lt;tr&gt;&lt;td port="i1"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td port="i2"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td port="i3" bgcolor="lightgray"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td port="i4"&gt;
+    &lt;table border="1" cellborder="0" cellspacing="0" cellpadding="7" color="lightgray"&gt;
+      &lt;tr&gt;
+       &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+     &lt;/table&gt;
+  &lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;&gt;]
+key:i1:e -&gt; key2:i1:w [color="green"]
+key:i2:e -&gt; key2:i2:w [color="orange"]
+}
+}
+</msg>
+<status status="PASS" starttime="20211224 03:39:16.800" endtime="20211224 03:39:16.801"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${SURYA_RESULT}</arg>
+<arg>"red"</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20211224 03:39:16.802" endtime="20211224 03:39:16.802"/>
+</kw>
+<status status="PASS" starttime="20211224 03:39:16.178" endtime="20211224 03:39:16.803"/>
+</kw>
+<tag>Contract_Smoke_Tests</tag>
+<status status="PASS" starttime="20211224 03:39:16.177" endtime="20211224 03:39:16.803"/>
+</test>
+<test id="s1-t3" name="SMART CONTRACT TEST 3 : Run the Truffle Compile command and check the output for errors.">
+<kw name="Run Truffle Solidity Compile Command And Check Output">
+<kw name="Run Process" library="Process">
+<arg>cd ${PATH}/solidity-smart-contract-test-tools/ &amp;&amp; truffle compile</arg>
+<arg>alias=truffle_compile</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20211224 03:39:16.807" level="INFO">Starting process:
+cd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/ &amp;&amp; truffle compile</msg>
+<msg timestamp="20211224 03:39:16.815" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20211224 03:39:20.334" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20211224 03:39:16.806" endtime="20211224 03:39:20.334"/>
+</kw>
+<kw name="Get Process Result" library="Process">
+<var>${TRUFFLE_COMPILE_OUTPUT}</var>
+<arg>truffle_compile</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<msg timestamp="20211224 03:39:20.335" level="INFO">${TRUFFLE_COMPILE_OUTPUT} = 
+Compiling your contracts...
+===========================
+&gt; Compiling ./contracts/Migrations.sol
+&gt; Compiling ./contracts/targetContract.sol
+&gt; Artifacts written to /Users/jgorospe/Documents/GitHub/Robot...</msg>
+<status status="PASS" starttime="20211224 03:39:20.335" endtime="20211224 03:39:20.335"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${TRUFFLE_COMPILE_RESULT}</var>
+<arg>${TRUFFLE_COMPILE_OUTPUT}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20211224 03:39:20.336" level="INFO">${TRUFFLE_COMPILE_RESULT} = 
+Compiling your contracts...
+===========================
+&gt; Compiling ./contracts/Migrations.sol
+&gt; Compiling ./contracts/targetContract.sol
+&gt; Artifacts written to /Users/jgorospe/Documents/GitHub/Robot...</msg>
+<status status="PASS" starttime="20211224 03:39:20.335" endtime="20211224 03:39:20.336"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${TRUFFLE_COMPILE_RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20211224 03:39:20.336" level="INFO">
+Compiling your contracts...
+===========================
+&gt; Compiling ./contracts/Migrations.sol
+&gt; Compiling ./contracts/targetContract.sol
+&gt; Artifacts written to /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/build/contracts
+&gt; Compiled successfully using:
+   - solc: 0.5.16+commit.9c3226ce.Emscripten.clang
+</msg>
+<status status="PASS" starttime="20211224 03:39:20.336" endtime="20211224 03:39:20.336"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TRUFFLE_COMPILE_RESULT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211224 03:39:20.336" endtime="20211224 03:39:20.336"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${TRUFFLE_COMPILE_RESULT}</arg>
+<arg>failed</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20211224 03:39:20.337" endtime="20211224 03:39:20.337"/>
+</kw>
+<status status="PASS" starttime="20211224 03:39:16.806" endtime="20211224 03:39:20.337"/>
+</kw>
+<tag>Contract_Smoke_Tests</tag>
+<status status="PASS" starttime="20211224 03:39:16.804" endtime="20211224 03:39:20.337"/>
+</test>
+<test id="s1-t4" name="SMART CONTRACT TEST 4 : Run the Truffle Migrate command and check the output for errors.">
+<kw name="Run Truffle Solidity Migrate Command And Check Output">
+<kw name="Run Process" library="Process">
+<arg>cd ${PATH}/solidity-smart-contract-test-tools/ &amp;&amp; truffle migrate</arg>
+<arg>alias=truffle_migrate</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20211224 03:39:20.339" level="INFO">Starting process:
+cd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/ &amp;&amp; truffle migrate</msg>
+<msg timestamp="20211224 03:39:20.343" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20211224 03:39:27.037" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20211224 03:39:20.338" endtime="20211224 03:39:27.042"/>
+</kw>
+<kw name="Get Process Result" library="Process">
+<var>${TRUFFLE_MIGRATE_OUTPUT}</var>
+<arg>truffle_migrate</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<msg timestamp="20211224 03:39:27.049" level="INFO">${TRUFFLE_MIGRATE_OUTPUT} = 
+Compiling your contracts...
+===========================
+&gt; Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+&gt; Network name:    'development'
+&gt; Ne...</msg>
+<status status="PASS" starttime="20211224 03:39:27.043" endtime="20211224 03:39:27.049"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${TRUFFLE_MIGRATE_RESULT}</var>
+<arg>${TRUFFLE_MIGRATE_OUTPUT}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20211224 03:39:27.051" level="INFO">${TRUFFLE_MIGRATE_RESULT} = 
+Compiling your contracts...
+===========================
+&gt; Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+&gt; Network name:    'development'
+&gt; Ne...</msg>
+<status status="PASS" starttime="20211224 03:39:27.049" endtime="20211224 03:39:27.051"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${TRUFFLE_MIGRATE_RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20211224 03:39:27.055" level="INFO">
+Compiling your contracts...
+===========================
+&gt; Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+&gt; Network name:    'development'
+&gt; Network id:      5777
+&gt; Block gas limit: 6721975 (0x6691b7)
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   &gt; transaction hash:    0x553c896dc5067ba81ec7a7a5c6abf1ea38c3eceff631b079eea35af35f605036
+   &gt; Blocks: 0            Seconds: 0
+   &gt; contract address:    0xe1777893Cbf64DE67ae72b59c5e78557e05C4D4B
+   &gt; block number:        15
+   &gt; block timestamp:     1640335166
+   &gt; account:             0xDf845111CE8774A632135a18F9D53e014e260a6C
+   &gt; balance:             99.9633618
+   &gt; gas used:            191943 (0x2edc7)
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.00383886 ETH
+
+
+   &gt; Saving migration to chain.
+   &gt; Saving artifacts
+   -------------------------------------
+   &gt; Total cost:          0.00383886 ETH
+
+
+Summary
+=======
+&gt; Total deployments:   1
+&gt; Final cost:          0.00383886 ETH
+
+</msg>
+<status status="PASS" starttime="20211224 03:39:27.052" endtime="20211224 03:39:27.055"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TRUFFLE_MIGRATE_RESULT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20211224 03:39:27.061" endtime="20211224 03:39:27.068"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${TRUFFLE_MIGRATE_RESULT}</arg>
+<arg>failed</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20211224 03:39:27.069" endtime="20211224 03:39:27.070"/>
+</kw>
+<status status="PASS" starttime="20211224 03:39:20.338" endtime="20211224 03:39:27.070"/>
+</kw>
+<tag>Contract_Smoke_Tests</tag>
+<status status="PASS" starttime="20211224 03:39:20.337" endtime="20211224 03:39:27.070"/>
+</test>
+<status status="PASS" starttime="20211224 03:39:14.998" endtime="20211224 03:39:27.072"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">Contract_Smoke_Tests</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Robot Framework Solidity Smart Contract Test">Robot Framework Solidity Smart Contract Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

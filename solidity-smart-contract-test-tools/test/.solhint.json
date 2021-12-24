@@ -1,0 +1,8 @@
+{
+  "extends": "solhint:recommended",
+  "plugins": [],
+  "rules": {
+    "max-line-length": "warn",
+    "compiler-version": "warn"
+  }
+}
