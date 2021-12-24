@@ -7,7 +7,7 @@ This toolkit contains automation that helps check BEP-20 or ERC-20 smart contrac
 The following are the basic technical requirements needed to run these automated checks.
 - Python 3 -> https://www.python.org/downloads/
 - NodeJS -> https://nodejs.org/en/ or use https://github.com/nvm-sh/nvm
-- Robot Framework and Robotframework-AppiumLibrary -> https://robotframework.org
+- Robot Framework -> https://robotframework.org
 - Truffle -> http://trufflesuite.com/docs/truffle/quickstart.html
 - Ganache -> https://trufflesuite.com/ganache/
 
