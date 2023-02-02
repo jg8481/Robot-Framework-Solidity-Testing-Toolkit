@@ -69,7 +69,7 @@ From the commands posted above, here is an example workflow (with screenshots) b
 ![Part3](./notes-images-and-demonstrations/robotframework-hardhat-part3.png)
 - In the other terminal, run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network` command then check that the output matches what is circled in the following screenshot. 
 ![Part4](./notes-images-and-demonstrations/robotframework-hardhat-part4.png)
-- This test will interact with someone else's existing token project (contract address: 0x5FbDB2315678afecb367f032d93F642f64180aa3) on Fantom Mainnet called ["PumpNoDump (PND)"](https://ftmscan.com/address/0x5fbdb2315678afecb367f032d93f642f64180aa3). **FYI, the PND token is NOT mine and I am not associated with it at all.**
+- This test will interact with someone else's existing token project (**contract address**: `0x5FbDB2315678afecb367f032d93F642f64180aa3`) on Fantom Mainnet called ["PumpNoDump (PND)"](https://ftmscan.com/address/0x5fbdb2315678afecb367f032d93f642f64180aa3). **FYI, the PND token is NOT mine and I am not associated with it at all.**
 ![Part5](./notes-images-and-demonstrations/robotframework-hardhat-part5.png)
 
 ### Example Workflow 3 - Use Robot Framework RPA to do only the deployment using Hardhat (on MacOS or Linux)
