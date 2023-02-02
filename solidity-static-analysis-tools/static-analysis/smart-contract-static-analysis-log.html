@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 4.1.3 (Python 3.9.9 on darwin)" name="Generator">
+<meta content="Robot Framework 6.0.2 (Python 3.9.12 on darwin)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -318,6 +318,9 @@ th.stats-col-graph:hover {
     top: 0;
     padding: 3px;
     cursor: default;
+}
+.element-header .label {
+    margin-right: 0.5em;
 }
 .name {
     font-weight: bold;
@@ -966,6 +969,7 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
+        var flatTypes = ['RETURN', 'BREAK', 'CONTINUE'];
         kw.libname = data.libname;
         kw.fullName = (kw.libname ? kw.libname + '.' : '') + kw.name;
         kw.type = data.type;
@@ -1350,8 +1354,8 @@ window.testdata = function () {
     var _statistics = null;
     var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL', 'SKIP'];
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
-    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'VAR', 'IF', 'ELSE IF', 'ELSE'];
-    var MESSAGE_TYPE = 8;
+    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF', 'ELSE IF', 'ELSE', 'RETURN',
+                         'TRY', 'EXCEPT', 'FINALLY', 'WHILE', 'CONTINUE', 'BREAK'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -1372,10 +1376,10 @@ window.testdata = function () {
                 elapsed];
     }
     function createMessage(element, strings) {
-        return model.Message(LEVELS[element[2]],
-                             util.timestamp(element[1]),
-                             strings.get(element[3]),
-                             strings.get(element[4]));
+        return model.Message(LEVELS[element[1]],
+                             util.timestamp(element[0]),
+                             strings.get(element[2]),
+                             strings.get(element[3]));
     }
     function parseStatus(stats) {
         return STATUSES[stats[0]];
@@ -1386,7 +1390,7 @@ window.testdata = function () {
         };
     }
     function createBodyItem(parent, element, strings, index) {
-        if (element[0] == MESSAGE_TYPE)
+        if (element.length < 5)
             return createMessage(element, strings);
         var messages = util.filter(parent.children(), function (child) {
             return child.type == 'message';
@@ -1799,31 +1803,31 @@ function stopPropagation(event) {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[1,0,12074],[],[[4,0,0,[5],[1,44,1135],[[0,6,0,0,0,7,0,0,[1,45,1133],[[0,8,9,0,10,11,0,0,[1,45,1128],[[8,45,2,12],[8,49,2,13],[8,1173,2,14]]],[0,15,9,0,16,17,18,0,[1,1174,1],[[8,1175,2,19]]],[0,20,21,0,22,18,23,0,[1,1175,1],[[8,1176,2,24]]],[0,25,21,0,26,23,0,0,[1,1176,1],[[8,1176,2,27]]],[0,28,21,0,29,23,0,0,[1,1177,0],[[8,1177,2,30]]],[0,31,21,0,32,33,0,0,[1,1178,0],[]]]]]],[34,0,0,[5],[1,1179,626],[[0,35,0,0,0,7,0,0,[1,1180,625],[[0,8,9,0,10,36,0,0,[1,1181,617],[[8,1182,2,37],[8,1188,2,13],[8,1797,2,14]]],[0,15,9,0,16,38,39,0,[1,1799,1],[[8,1800,2,40]]],[0,20,21,0,22,39,41,0,[1,1801,1],[[8,1802,2,42]]],[0,25,21,0,26,41,0,0,[1,1802,1],[[8,1803,2,43]]],[0,44,21,0,45,46,0,0,[1,1804,0],[]]]]]],[47,0,0,[5],[1,1806,3533],[[0,48,0,0,0,0,0,0,[1,1808,3531],[[0,8,9,0,10,49,0,0,[1,1808,3528],[[8,1809,2,50],[8,1817,2,13],[8,5336,2,14]]],[0,15,9,0,16,51,52,0,[1,5337,0],[[8,5337,2,53]]],[0,20,21,0,22,52,54,0,[1,5337,1],[[8,5338,2,55]]],[0,25,21,0,26,54,0,0,[1,5338,0],[[8,5338,2,56]]],[0,57,21,0,58,54,0,0,[1,5338,0],[]],[0,44,21,0,45,59,0,0,[1,5339,0],[]]]]]],[60,0,0,[5],[1,5339,6733],[[0,61,0,0,0,0,0,0,[1,5340,6732],[[0,8,9,0,10,62,0,0,[1,5340,6704],[[8,5341,2,63],[8,5345,2,13],[8,12039,2,14]]],[0,15,9,0,16,64,65,0,[1,12045,6],[[8,12051,2,66]]],[0,20,21,0,22,65,67,0,[1,12051,2],[[8,12053,2,68]]],[0,25,21,0,26,67,0,0,[1,12054,3],[[8,12057,2,69]]],[0,57,21,0,58,67,0,0,[1,12063,7],[]],[0,44,21,0,45,70,0,0,[1,12071,1],[]]]]]]],[],[4,4,0,0]];
+window.output["suite"] = [1,2,3,0,[],[1,0,1616],[],[[4,0,0,[5],[1,63,1033],[[0,6,0,0,0,7,0,0,[1,64,1031],[[0,8,9,0,10,11,0,0,[1,64,1028],[[65,2,12],[70,2,13],[1091,2,14]]],[0,15,9,0,16,17,18,0,[1,1092,1],[[1093,2,19]]],[0,20,21,0,22,18,23,0,[1,1093,1],[[1094,2,24]]],[0,25,21,0,26,23,0,0,[1,1094,0],[[1094,2,27]]],[0,28,21,0,29,23,0,0,[1,1095,0],[[1095,2,30]]],[0,31,21,0,32,33,0,0,[1,1095,0],[]]]]]],[34,0,0,[5],[1,1096,519],[[0,35,0,0,0,7,0,0,[1,1097,517],[[0,8,9,0,10,36,0,0,[1,1097,512],[[1097,2,37],[1102,2,13],[1609,2,14]]],[0,15,9,0,16,38,39,0,[1,1610,1],[[1611,2,40]]],[0,20,21,0,22,39,41,0,[1,1612,0],[[1612,2,42]]],[0,25,21,0,26,41,0,0,[1,1613,0],[[1613,2,43]]],[0,44,21,0,45,46,0,0,[1,1613,1],[]]]]]]],[],[2,2,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Robot Framework Solidity Smart Contract Test","*/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/test/robot-framework-solidity-tester.robot","*robot-framework-solidity-tester.robot","*SMART CONTRACT TEST 1 : Run the Solhint static analysis tool on the target contract. If this fails, then there are possible code security issues or other risks.","*Contract_Smoke_Tests","*Run Solhint Solidity Static Analysis And Check Output","*targetContract.sol","*Run Process","*Process","*<p>Runs a process and waits for it to complete.\x3c/p>","eNqVjsEKwjAQRH8lh+IpacSr9BCKomCr1NxDqNFG0qR0Nwcp/XdbaT/AyzDzYHYHgmusR8IastFtt/8JgYUmw03I08inbB8WPwxa3SOrg8de18jQwCQhOOArA54M90JUUuXXUlYil+p4vhxUKYrDSNjcfdrXP5dny9NlUvqG4CnRzmrIFqZCxC4iJdAY5zLZR0MJ2tZMPNttgZLg1ZrnD9ZH8wWmzlrK","eNq9kDEOwjAMRXdOkYnN9Q4jCJhpOUAaQpq2iSvbFeL2pKi9Aotlf/8vP7lWyxpzMBOT8yKHndDYxawGOrO3aTr+itlUfIhnwT4Qk0wez+Tm5LMKXqPe5hbv1JLChW3yb+IBahrjM+oHGi/LIWiIxiEqyraQVBDAUVa2TkGLD7SYBDdNsFAGr6d1rkrWwBJ5xfBfpKXFav1G1QvlLyHcef4=","*Waiting for process to complete.","*Process completed.","*Get Process Result","*<p>Returns the specified `result object` or some of its attributes.\x3c/p>","*solhint_output, stdout=true","*${SOLHINT_OUTPUT}","*${SOLHINT_OUTPUT} = Usage: solhint [options] &lt;file&gt; [...other_files]\n\nLinter for Solidity programming language\n\nOptions:\n\n  -V, --version                           output the version number\n  -f, --formatter [name]      ...","*Convert To String","*BuiltIn","*<p>Converts the given item to a Unicode string.\x3c/p>","*${SOLHINT_RESULT}","*${SOLHINT_RESULT} = Usage: solhint [options] &lt;file&gt; [...other_files]\n\nLinter for Solidity programming language\n\nOptions:\n\n  -V, --version                           output the version number\n  -f, --formatter [name]      ...","*Log","*<p>Logs the given message with the given level.\x3c/p>","eNqFk89OG0EMxu/7FD5VIGWzQNtLOIL6R6poVaA9RBRNst7NwOx4GXsJeZGe+nR9ktrZXYrUEuYSzazzs/358yW7GmfAFFY+CsypFU+Rr+BVkOPKB3xVyzHMp9MpyQrTtT3xVZZ90mhMUFGCcwq+9LKBNlGdXNP4WENwse4UnWWfe+IsywDybxPI83tMrE/w/KFO2k5AM8IYHLtmgckYlTE0cePESphH1+DVv4yELSWBv4EWB3ssm+B5NQFxi4D2006gi/5h39hrYzfuIV+7FLUPhrnevg+Xs20NmqsvBqgCFwKtsYQx3iBLgywpVr6GuQl2/d8S7QsIQccIjmFDXYLpMIjpDVM01p2x7jqPArvO0CymRImBYthADiVWrgsyg8oFRqPlvo6UMG+drHaUtquynrCFVf4BXj6uE9IJ+KVKtQH7j/pEpW+4ryh6eRmyTOgEoRe1S84s1ZdpDhxKM97K9FphaHfzBoN15n7wsTeJMrPshJrGxbL3K0vp45OleO4EE0Zdr4ZgFWtplZYIpRNn3d77Ui2igp5fnH48y7LiktXVxU1NibjF4pSWXYNRuHjv5UO3KL7SgiR/p8uEa0q3+bhi+QWyJcoviMKtl4LHD9y4JGY6SW4puWhcLhrExfjGhbhUo5wMdxuotghHs0MY7Qug7bcqa3rcux8H07fTAygJGSIJsOrE1Wa7mw4YGw1U+6lFE1oPOqsBMe65Jjl8M3v9JMmXXhJwsXcsNMjbSdgwB9YLhlA/6IbkLEmJWfb71084ejQW7B0MqzDR13E197M/00yDiA==","*Should Not Be Empty","*<p>Verifies that the given item is not empty.\x3c/p>","*Length is 1253","*Should Contain","*<p>Fails if <code>container\x3c/code> does not contain <code>item\x3c/code> one or more times.\x3c/p>","*${SOLHINT_RESULT}, (0 errors,","*SMART CONTRACT TEST 2 : Run the Surya code property graph analysis tool on the target contract. If this fails, then there are possible code risks or vulnerabilities.","*Run Surya Solidity Graph Analysis And Check Output","*surya graph ${PATH}/solidity-smart-contract-test-tools/contracts/${SMART_CONTRACT_FILE_NAME} --no-color, alias=surya_output, shell=True, timeout=20s, on_timeout=continue","*Starting process:\nsurya graph /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/contracts/targetContract.sol --no-color","*surya_output, stdout=true","*${SURYA_OUTPUT}","*${SURYA_OUTPUT} = digraph G {\n  graph [ ratio = \"auto\", page = \"100\", compound =true ];\nsubgraph \"clusterBEP20\" {\n  graph [ label = \"BEP20\", color = \"lightgray\", style = \"filled\", bgcolor = \"lightgray\" ];\n  \"BEP20.adop...","*${SURYA_RESULT}","*${SURYA_RESULT} = digraph G {\n  graph [ ratio = \"auto\", page = \"100\", compound =true ];\nsubgraph \"clusterBEP20\" {\n  graph [ label = \"BEP20\", color = \"lightgray\", style = \"filled\", bgcolor = \"lightgray\" ];\n  \"BEP20.adop...","eNq9VMFq3DAQvfsrBh321HbXTqCQRYc2DaWQQyn0tCxFtiZaEUUS8phmCfn3SrJ3Yy8+bGhaG4Nm9ObN+M1IUqsg/A6+wlMB0K83EARpBxyY6Mixd+CFwmSWq1W0GvfgXWclcAodwnZdtF3dh7LGdC1h+HzzvVqxCacRNZpE0u8lGuNCchitdhRh++hsaW9yqjttDMroqdUMMCWFgeqDkM4TG6foPaMUKiDaaZRC+pRgGNpJ7Ng/y/BcxCcIey914Lc/CuskwqbdCY/cG6Et4SNtXzQZJPm1KuEJimOeW1RoJVsX97iHTXbzhaF1+kjUUYXaBYmBsyhkg8Z4IaW2irOqt1svmmwP+y/whaL0o5kpJCOvJIgooOUsJBkZeBeIM11m+LdYdbDCwLUwJsGXJA+Ry57kbMYqM948vh3jRWb8gnfaooRrZymIhv6S9DKT/rTyNbTL3Jq8F79tal71n7o36ddCPPi1rVs/vzpbmUnL3pj0gh0OLx8d3X+Q6PKg2QCZ6F+e6jsr/7E9HxnMlpzZxyUMjt4zKlaeoJdj+HSEjjN1/rBd6fIK4X2yIc1esn/DZii5v6QGYHUCrEZAF+8vhRH5HN8/EPjoww==","*Should Not Contain","*<p>Fails if <code>container\x3c/code> contains <code>item\x3c/code> one or more times.\x3c/p>","*${SURYA_RESULT}, \"red\"","*SMART CONTRACT TEST 3 : Run the Truffle Compile command and check the output for errors.","*Run Truffle Solidity Compile Command And Check Output","*cd ${PATH}/solidity-smart-contract-test-tools/ &amp;&amp; truffle compile, alias=truffle_compile, shell=True","*Starting process:\ncd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/ &amp;&amp; truffle compile","*truffle_compile, stdout=true","*${TRUFFLE_COMPILE_OUTPUT}","eNp9jkELgkAUhO/+ineIjrs/IDyEZQWJIu45VLblie6Tt08iov+eQeSp5jIMfDPM6lGVJk3P+0uSZ8Vp9txUhameEEOU0DBij97BnSaGlrxw3UpQSkXxb0VrJxtYykp/mzpDx7Ug+aAC9f9IqdlZST55obcseH0TcGMUsR6EQJtgOejOEVMYrd5ROw3WzzMHlOPU6JIakvn3C6avUR8=","*${TRUFFLE_COMPILE_RESULT}","eNp9jkELgkAUhO/+ineIjrs/IDyEaQVKYXoOlW15ofvk7ZOI6L+3QeSp5jIMfDPM4lGVdZbl6Tk5FMd98DI91Xn1hBiihIYRe3QW7jQxdOSEm068UiqKfytaWlnBXFb629QFWm4EyXnlqf9HSsPWSPLJM71mwcubgBujiHEgBLr2hr2+WmLyo9Eb6qbBuDCzRdlNrS6pJQm/X5c6UQ0=","eNp9j81OAzEMhO/7FD5xQUmgiEq04oDK34ULlAfYZtPINIlXtqNq354gUZYL+Gb5m/FMt6E8YsISYaLK4Kko917FWtvd/j3dWdQ1zGLrfpTuBSP3ilTECqX/SO05Bt187zN9x4r7LwKOjKqhgBK4dwks7iMSk4zB3ZOvOZRm84T6XHfulXak5pH7HI7EB/NGCQfUyWyDaHtttkTpgOrkdJDcs5pTHqONM9ogcbuKaZiT/i4RBpDqfRDZ15QmqNK8Vx0AGGjOfgUX9tpeLs895Yxqb/zVYrH0wT5k8Yxjq2N96kvsPgF45oWG","*Log To Console","*<p>Logs the given message to the console.\x3c/p>","*${TRUFFLE_COMPILE_RESULT}, failed","*SMART CONTRACT TEST 4 : Run the Truffle Migrate command and check the output for errors.","*Run Truffle Solidity Migrate Command And Check Output","*cd ${PATH}/solidity-smart-contract-test-tools/ &amp;&amp; truffle migrate, alias=truffle_migrate, shell=True","*Starting process:\ncd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-smart-contract-test-tools/ &amp;&amp; truffle migrate","*truffle_migrate, stdout=true","*${TRUFFLE_MIGRATE_OUTPUT}","*${TRUFFLE_MIGRATE_OUTPUT} = \nCompiling your contracts...\n===========================\n&gt; Everything is up to date, there is nothing to compile.\n\n\n\nStarting migrations...\n======================\n&gt; Network name:    'development'\n&gt; Ne...","*${TRUFFLE_MIGRATE_RESULT}","*${TRUFFLE_MIGRATE_RESULT} = \nCompiling your contracts...\n===========================\n&gt; Everything is up to date, there is nothing to compile.\n\n\n\nStarting migrations...\n======================\n&gt; Network name:    'development'\n&gt; Ne...","eNqNU8Fy0zAQvfsrdCIwAx7JsiQ7DAeapMMFLum9s5bXiagtZyw5bf4e2aFO3CHAHvc97b5d7YtWbXMwtbE7cmr7jujW+g60d3EcR19uR/Ru5z+TzRG7k98Pr40j/YH4lpTg8SPxe+xwSNr2jAdEj60wjkJsPXR+yDdm14E3rf1Lx3OzH+if2+6JWGhwSUIsSjxi3R4atH4x55hyZBAilFJn6K5u9RPZgSO1aYxfEqkSlitB3tMXKXNWqA9BF3s01ngD9eMkLP7pbumKQoc1Hur2NIyy+D7NshiQT3+MARkFhT1bF1Yd+GQPbj8qpi9CcJ3lstSCSlVAxlArUCC0hKJiCDzTHDVWleSsoCrHkBJQcVFJKiiXU/1xYLcklFzFFsMPl0N24r1+OYGy7NC53zqQhdVlOV8VlUzXG6kAVVKIXAtUmRAKqVil6/RuqlOMC7Z9U2C3fO3HxBvcmwadh+ZwpjCZUs4FkxfdoHXbW7+8lh30rKssFYyx1SZTKv0qecLC3Cy7z9eCI2UpJpKCXF36QQ1W47xOnse55FyybOINJ9E7LGdElrM85cNtJFjqcBrX7ENn5nUTSnbPaCbSEeoeicPZFJRsHr5dfr/1UIfduxklppRnPMvkyI0m9haOM7OMdtqDsfFbymCrajDw7Qu8dZAP/yVp2zcNdKdo5s3z03K0wmDH8YjYGbs39t9lfwHzuTOs","*${TRUFFLE_MIGRATE_RESULT}, failed"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Robot Framework Solidity Smart Contract Static Analysis","*/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/static-analysis/robot-framework-solidity-static-analyzer.robot","*robot-framework-solidity-static-analyzer.robot","*SMART CONTRACT STATIC ANALYSIS 1 : Run the Solhint static analysis tool on the target contract. If this fails, then there are possible code security issues or other risks.","*Contract_Smoke_Tests","*Run Solhint Solidity Static Analysis And Check Output","*TargetContract.sol","*Run Process","*Process","*<p>Runs a process and waits for it to complete.\x3c/p>","eNqNjrEKwjAURX8lQ3FKGnGVDqUoCrZKzR5CjfZJmpS+16GU/rtV6uLkcuEcLpeLwdXgiYmarUzTbj/BcLHReEnVYZIzww1oEEiGoBLGGzcgoKAQHMoqeOpMRSij8ZqnpdLZuVBlmim9P552ukjz3cSEmHt3ePy7+mNlvLyKnxg8Z8aBwWRxOvTU9sQZ1ta5RHW95YygsbNPNmvkLHj95fdd8L19Ab67XBc=","eNq9ULsOwjAM3PmKTGxudhiLgJmWGaUhpO4jrmxXqH9PQHThA1hO8vlOd7pKHSumaCYmH0R2G6GhxaQGWrN147T/gFlZe5XAYrtITDIFeyA/jyGp2BPqeW7shRpSOLIbw5O4h4oGvKMuUAd5B0FNNPSot3JmzkYrq0DUKXpwyQ2LoIBmoVhPSdn5HFA7jkHL711knwHI7wfG/9f6YW3xHajohNILmbKBrw==","*Waiting for process to complete.","*Process completed.","*Get Process Result","*<p>Returns the specified `result object` or some of its attributes.\x3c/p>","*solhint_output, stdout=true","*${SOLHINT_OUTPUT}","*${SOLHINT_OUTPUT} = Usage: solhint [options] &lt;file&gt; [...other_files]\n\nLinter for Solidity programming language\n\nOptions:\n\n  -V, --version                           output the version number\n  -f, --formatter [name]      ...","*Convert To String","*BuiltIn","*<p>Converts the given item to a Unicode string.\x3c/p>","*${SOLHINT_RESULT}","*${SOLHINT_RESULT} = Usage: solhint [options] &lt;file&gt; [...other_files]\n\nLinter for Solidity programming language\n\nOptions:\n\n  -V, --version                           output the version number\n  -f, --formatter [name]      ...","*Log","*<p>Logs the given message with the given level.\x3c/p>","eNqFk89OG0EMxu/7FD5VIGUToO0lHEH9I1W0KtAeIoomWe9mYHa8jD2EvEhPfbo+Se3shiK1hLlEM/H+bH/+fMmuwSkwhaWPAjPqxFPkK3gV5Lj2AV81cgyz8XhMssR0bU98VRSfNBoT1JTgnIKvvKyhS9Qk17Y+NhBcbLKii+JzT5wWBUD5bQRleY+J9QmeP5SlywKaEbbBMbdzTMaojaGJWydWwiy6Fq/+ZSTsKAn8DbQ42GNZB8/LEYibB7SfbgQ5+od9Y6+M3bqHcuVS1D4YZnr7PlzONjVorr4YoBpcCLTCCrbxBlkYZEGx9g3MTLDr/5Zo/4AQZEZwDGvKCcbDIMY3TNFYd8a6yx4Fdp2hWUyJEgPFsIYSKqxdDjKF2gVGo5W+iZSw7Jwsd5S2q7KesIHV/gFePi4L6QT8QqVag32jPlHpW+4ril5ehiwSOkHoRc3JmaX6Ms2BQ2nGW5peSwzdbt5gsGzuBx97kyizKE6obV2ser+yVD4+WYrnTjBh1PVqCFaxFlZphVA5cdbtva/UIiro+cXpx7OimFyyunpy01Ai7nBySovcYhSevPfyIc8nX2lOUr7TZcIVpdtyu2LlBbIlKi+Iwq2X65Ockn444W0Ai0lduujCmj2XooE8Ud0kuYUmuHCpQTkZ7jZUbROOpoewtTCAStCptOlx934cjN+OD6AiZIgkwJqD6/VmPx0wthqoFlSbJrQ+dF4DYrvrmuTwzfT1kyRfelnAxd610CJvpmEDHVgvmEI9oVuiLSclFsXvXz/h6NFcsHcwrMNIX7fruV/8AT2hhSQ=","*Should Not Be Empty","*<p>Verifies that the given item is not empty.\x3c/p>","*Length is 1257","*Should Contain","*<p>Fails if <code>container\x3c/code> does not contain <code>item\x3c/code> one or more times.\x3c/p>","*${SOLHINT_RESULT}, (0 errors,","*SMART CONTRACT STATIC ANALYSIS 2 : Run the Surya code property graph analysis tool on the target contract. If this fails, then there are possible code risks or vulnerabilities.","*Run Surya Solidity Graph Analysis And Check Output","*surya graph ${PATH}/solidity-static-analysis-tools/contracts/${SMART_CONTRACT_FILE_NAME} --no-color, alias=surya_output, shell=True, timeout=20s, on_timeout=continue","*Starting process:\nsurya graph /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/contracts/TargetContract.sol --no-color","*surya_output, stdout=true","*${SURYA_OUTPUT}","*${SURYA_OUTPUT} = digraph G {\n  graph [ ratio = \"auto\", page = \"100\", compound =true ];\nsubgraph \"clusterBEP20\" {\n  graph [ label = \"BEP20\", color = \"lightgray\", style = \"filled\", bgcolor = \"lightgray\" ];\n  \"BEP20.adop...","*${SURYA_RESULT}","*${SURYA_RESULT} = digraph G {\n  graph [ ratio = \"auto\", page = \"100\", compound =true ];\nsubgraph \"clusterBEP20\" {\n  graph [ label = \"BEP20\", color = \"lightgray\", style = \"filled\", bgcolor = \"lightgray\" ];\n  \"BEP20.adop...","eNq9VMFq3DAQvfsrBh321HbXTqCQRYc2DaWQQyn0tCxFtiZaEUUS8phmCfn3SrJ3Yy8+bGhaG4Nm9ObN+M1IUqsg/A6+wlMB0K83EARpBxyY6Mixd+CFwmSWq1W0GvfgXWclcAodwnZdtF3dh7LGdC1h+HzzvVqxCacRNZpE0u8lGuNCchitdhRh++hsaW9yqjttDMroqdUMMCWFgeqDkM4TG6foPaMUKiDaaZRC+pRgGNpJ7Ng/y/BcxCcIey914Lc/CuskwqbdCY/cG6Et4SNtXzQZJPm1KuEJimOeW1RoJVsX97iHTXbzhaF1+kjUUYXaBYmBsyhkg8Z4IaW2irOqt1svmmwP+y/whaL0o5kpJCOvJIgooOUsJBkZeBeIM11m+LdYdbDCwLUwJsGXJA+Ry57kbMYqM948vh3jRWb8gnfaooRrZymIhv6S9DKT/rTyNbTL3Jq8F79tal71n7o36ddCPPi1rVs/vzpbmUnL3pj0gh0OLx8d3X+Q6PKg2QCZ6F+e6jsr/7E9HxnMlpzZxyUMjt4zKlaeoJdj+HSEjjN1/rBd6fIK4X2yIc1esn/DZii5v6QGYHUCrEZAF+8vhRH5HN8/EPjoww==","*Should Not Contain","*<p>Fails if <code>container\x3c/code> contains <code>item\x3c/code> one or more times.\x3c/p>","*${SURYA_RESULT}, \"red\""]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:12","fail":0,"label":"All Tests","pass":4,"skip":0}],[{"elapsed":"00:00:12","fail":0,"label":"Contract_Smoke_Tests","pass":4,"skip":0}],[{"elapsed":"00:00:12","fail":0,"id":"s1","label":"Robot Framework Solidity Smart Contract Test","name":"Robot Framework Solidity Smart Contract Test","pass":4,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:02","fail":0,"label":"All Tests","pass":2,"skip":0}],[{"elapsed":"00:00:02","fail":0,"label":"Contract_Smoke_Tests","pass":2,"skip":0}],[{"elapsed":"00:00:02","fail":0,"id":"s1","label":"Robot Framework Solidity Smart Contract Static Analysis","name":"Robot Framework Solidity Smart Contract Static Analysis","pass":2,"skip":0}]];
 </script>
 <script type="text/javascript">
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1640335154998;
+window.output["baseMillis"] = 1675317998747;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 12114;
+window.output["generated"] = 1626;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
 </script>
 <script type="text/javascript">
-window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":null,"rpa":false,"splitLogBase":"smart-contract-testing-log","title":""};
+window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":null,"rpa":false,"splitLogBase":"smart-contract-static-analysis-log","title":""};
 </script>
 <title></title>
 </head>
@@ -2123,7 +2127,7 @@ function addExecutionLog(main) {
     <div class="element-header closed" onclick="toggleKeyword('${id}')">
       <div class="element-header-left" title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label keyword ${status.toLowerCase()}">${type}</span>
+        <span class="label ${status.toLowerCase()}">${type}</span>
         <span>{{html assign}}</span>
         <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
         <span class="arg">{{html arguments}}</span>
@@ -2131,7 +2135,7 @@ function addExecutionLog(main) {
       <div class="element-header-right" onclick="stopPropagation(event)">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this keyword" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" title="Link to this item" href="#${id}" onclick="makeElementVisible('${id}')"></a>
       </div>
       <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>

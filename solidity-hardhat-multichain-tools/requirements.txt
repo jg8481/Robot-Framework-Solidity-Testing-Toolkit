@@ -1,0 +1,5 @@
+robotframework
+robotframework-seleniumlibrary
+robotframework-pabot
+six
+psutil

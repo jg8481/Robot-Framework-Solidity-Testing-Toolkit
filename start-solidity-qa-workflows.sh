@@ -3,38 +3,335 @@
 clear
 TIMESTAMP=$(date)
 
-
-if [ "$1" == "Install-Tools-On-MacOS" ]; then
+if [ "$1" == "Stop-All-Local-Network-Nodes-And-Delete-Logs-On-MacOS-Or-Linux" ]; then
   echo
-  echo "------------------------------------[[[[ Install-Tools-On-MacOS ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Stop-All-Local-Network-Nodes-And-Delete-Logs-On-MacOS-Or-Linux ]]]]------------------------------------"
   echo
-  echo "This command will install all of the required NodeJS packages. This run started on $TIMESTAMP."
+  echo "This command will stop any locally running network nodes and clean up any logs leftover from old runs. Feel free to run this command multiple times to clean up files listed below. This run started on $TIMESTAMP."
   echo
-  npm install -g npm-check-updates
-  ncu -u
-  npm update
-  npm install -g solhint
-  npm install -g solgraph
-  npm install -g surya
-  npm install -g truffle
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  cd ./solidity-hardhat-multichain-tools/logs
+  ls -la
+  rm -rf ./*.log
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
 fi
 
-if [ "$1" == "Run-Solidity-QA-Checks" ]; then
+if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   echo
-  echo "------------------------------------[[[[ Run-Solidity-QA-Checks ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Install-Tools-On-MacOS-Or-Linux ]]]]------------------------------------"
   echo
-  echo "This command will run Robot Framework automation that checks BEP-20 or ERC-20 Solidity Smart Contracts. This run started on $TIMESTAMP."
+  echo "This command will install all of the required NodeJS packages. This run started on $TIMESTAMP."
+  echo
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  nvm install 18
+  nvm use 18
+  nvm alias default 18
+  npm install npm --global 
+  #Un-comment the following 4 lines only as needed.
+  #npm install -g npm-check-updates
+  #ncu -u
+  #npm update
+  #npm audit fix --force
+  npm install -g solhint
+  npm install -g solgraph
+  npm install -g surya
+  npm install --save-dev hardhat
+  npm install --save-dev @nomicfoundation/hardhat-toolbox
+  npm install robotremote
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux" ]; then
+  echo
+  echo "------------------------------------[[[[ Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux ]]]]------------------------------------"
+  echo
+  echo "This command was designed to run a built-in Hardhat Network Ethereum locally running node in its own terminal window. It will also start the node-robotremoteserver. This run started on $TIMESTAMP."
+  echo
+  echo "Please read this documentation to learn more about the Hardhat Network... https://hardhat.org/hardhat-network/docs/overview"
+  echo
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  cd ./solidity-hardhat-multichain-tools
+  rm -rf ./logs/hardhat-default-network-node-standalone-mode.log
+  rm -rf ./logs/robotframework-hardhat-remote-library-standalone-mode.log
+  rm -rf ./logs/hardhat-contract-compile.log
+  echo "Ethereum" > ./logs/blockchain-type.log
+  echo
+  echo
+  npx hardhat compile > ./logs/hardhat-contract-compile.log &&
+  echo
+  echo
+  npx hardhat node > ./logs/hardhat-default-network-node-standalone-mode.log &
+  sleep 10
+  echo
+  echo
+  npx hardhat run --network localhost ./scripts/deploy.js >> ./logs/hardhat-contract-deployment-standalone-mode.log &&
+  echo
+  echo
+  export HARDHAT_NETWORK=localhost && nohup node ./robotframework-hardhat-remote-library.js > ./logs/robotframework-hardhat-remote-library-standalone-mode.log &
+  sleep 10
+  TIMESTAMP2=$(date)
+  echo "------------------------------------[[[[ Hardhat-Network-Ethereum-Node-And-Robotemoteserver-Log-Output ]]]]------------------------------------"
+  echo
+  echo "************************************"
+  echo "The following log output comes from the hardhat-contract-deployment-standalone-mode.log"
+  cat ./logs/hardhat-contract-deployment-standalone-mode.log 
+  echo
+  echo "************************************"
+  echo "The following log output comes from the robotframework-hardhat-remote-library-standalone-mode.log"
+  cat ./logs/robotframework-hardhat-remote-library-standalone-mode.log
+  echo
+  echo "************************************"
+  echo "The following log output comes from the hardhat-default-network-node-standalone-mode.log"
+  tail -F ./logs/hardhat-default-network-node-standalone-mode.log
+  echo
+  echo "This run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux" ]; then
+  echo
+  echo "------------------------------------[[[[ Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux ]]]]------------------------------------"
+  echo
+  echo "This command was designed to run a forked EVM compatible blockchain mainnet on Hardhat Network using a specific configuration in its own terminal window. Ethereum, Fantom, Avalanche and Polygon are included, but many more are possible. It will also start the node-robotremoteserver. This run started on $TIMESTAMP."
+  echo
+  echo "Please read this documentation to learn more about the Hardhat Network... https://hardhat.org/hardhat-network/docs/overview"
+  echo
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  cd ./solidity-hardhat-multichain-tools
+  rm -rf ./logs/hardhat-default-network-node-standalone-mode.log
+  rm -rf ./logs/robotframework-hardhat-remote-library-standalone-mode.log
+  rm -rf ./logs/hardhat-contract-compile.log
+  read -p 'In this prompt please type in (or copy paste) one of the following blockchain options exactly as they are shown here --> Ethereum, Fantom, Polygon, or Avalanche : ' BLOCKCHAIN_TYPE
+  echo "$BLOCKCHAIN_TYPE" > ./logs/blockchain-type.log
+  echo
+  echo
+  npx hardhat compile > ./logs/hardhat-contract-compile.log &&
+  echo
+  echo
+  npx hardhat node --config "$BLOCKCHAIN_TYPE".config.js > ./logs/hardhat-"$BLOCKCHAIN_TYPE"-network-node-standalone-mode.log &
+  sleep 10
+  echo
+  echo
+  npx hardhat run --network hardhat ./scripts/deploy.js >> ./logs/hardhat-"$BLOCKCHAIN_TYPE"-contract-deployment-standalone-mode.log &&
+  echo
+  echo
+  export HARDHAT_NETWORK=localhost && nohup node ./robotframework-hardhat-remote-library.js > ./logs/robotframework-hardhat-remote-library-standalone-mode.log &
+  sleep 10
+  TIMESTAMP2=$(date)
+  echo "------------------------------------[[[[ Hardhat-Network-Node-And-Robotemoteserver-Log-Output ]]]]------------------------------------"
+  echo
+  echo "************************************"
+  echo "The following log output comes from the hardhat-"$BLOCKCHAIN_TYPE"-contract-deployment-standalone-mode.log"
+  cat ./logs/hardhat-"$BLOCKCHAIN_TYPE"-contract-deployment-standalone-mode.log
+  echo
+  echo "************************************"
+  echo "The following log output comes from the robotframework-hardhat-remote-library-standalone-mode.log"
+  cat ./logs/robotframework-hardhat-remote-library-standalone-mode.log
+  echo
+  echo "************************************"
+  echo "The following log output comes from the hardhat-default-network-node-standalone-mode.log"
+  tail -F ./logs/hardhat-"$BLOCKCHAIN_TYPE"-network-node-standalone-mode.log
+  echo
+  echo "This run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network" ]; then
+  clear
+  echo
+  echo "------------------------------------[[[[ Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network ]]]]------------------------------------"
+  echo
+  echo "This command will run Robot Framework Javascript automation that will perform an interactive integration test of Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
+  echo
+  echo "ATTENTION: If you're forking mainnets this seems to only work on the Fantom config provided with this repo. This test will sometimes display only 1 passing test and many failed tests if you attempt to run it on other local forked mainnets in the Hardhat Network Node. If you want to quickly check your local forked mainnet then run the 'Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network' command please."
+  echo 
+  cd ./solidity-hardhat-multichain-tools
+  export BLOCKCHAIN_TYPE=$(cat ./logs/blockchain-type.log)
+  BLOCKCHAIN_TYPE_FILE=./logs/blockchain-type.log
+  if [ -f "$BLOCKCHAIN_TYPE_FILE" ]; then
+    echo
+    echo "BLOCKCHAIN_TYPE_FILE is set and the test will now continue without interuptions."
+    echo
+  else 
+    echo
+    echo "BLOCKCHAIN_TYPE_FILE is not set. Please run the 'Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux' command or 'Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux' command, follow the instructions, and wait until you see a 'Block #1:' appear in the terminal window. This test is going to exit now."
+    echo
+    exit
+  fi
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./requirements.txt > /dev/null 2>&1
+  sleep 5
+  robot --variable BLOCKCHAIN:"$BLOCKCHAIN_TYPE" --report NONE --log smart-contract-hardhat-"$BLOCKCHAIN_TYPE"-tests-log.html --output smart-contract-hardhat-"$BLOCKCHAIN_TYPE"-tests-output.xml -N "Robot Framework Solidity Smart Contract Hardhat Network $BLOCKCHAIN_TYPE Test" -d ./logs ./robotframework-hardhat-test-keywords.robot
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  exit
+fi
+
+if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network" ]; then
+  clear
+  echo
+  echo "------------------------------------[[[[ Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network ]]]]------------------------------------"
+  echo
+  echo "This command will run Robot Framework Javascript automation that will perform an interactive integration test of Solidity Smart Contracts using the built-in Hardhat Network after performing a deployment to a mainnet fork. This run started on $TIMESTAMP."
+  echo
+  echo "ATTENTION: This is only one determistic quick check after a smart contract deployment on a mainnet fork. The provided Token.sol contract has never been deployed to any external EVM compatible blockchain mainnets or testnets. Also any tests run on contract address '0x5fbdb2315678afecb367f032d93f642f64180aa3' on Fantom mainnet will reveal another unrelated token that has zero affiliation with the creator of this Robot Framework project."
+  echo
+  cd ./solidity-hardhat-multichain-tools
+  export BLOCKCHAIN_TYPE=$(cat ./logs/blockchain-type.log)
+  BLOCKCHAIN_TYPE_FILE=./logs/blockchain-type.log
+  if [ -f "$BLOCKCHAIN_TYPE_FILE" ]; then
+    echo
+    echo "BLOCKCHAIN_TYPE_FILE is set and the test will now continue without interuptions."
+    echo
+  else 
+    echo
+    echo "BLOCKCHAIN_TYPE_FILE is not set. Please run the 'Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux' command or 'Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux' command, follow the instructions, and wait until you see a 'Block #1:' appear in the terminal window. This test is going to exit now."
+    echo
+    exit
+  fi
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./requirements.txt > /dev/null 2>&1
+  sleep 5
+  robot --include Forked_Mainnet_Test --variable BLOCKCHAIN:"$BLOCKCHAIN_TYPE" --report NONE --log smart-contract-hardhat-"$BLOCKCHAIN_TYPE"-tests-log.html --output smart-contract-hardhat-"$BLOCKCHAIN_TYPE"-tests-output.xml -N "Robot Framework Solidity Smart Contract Forked Mainnet Hardhat Network $BLOCKCHAIN_TYPE Test" -d ./logs ./robotframework-hardhat-test-keywords.robot
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  exit
+fi
+
+if [ "$1" == "Run-Solidity-Static-Analysis" ]; then
+  echo
+  echo "------------------------------------[[[[ Run-Solidity-Static-Analysis ]]]]------------------------------------"
+  echo
+  echo "This command will run Robot Framework automation that checks BEP-20 or ERC-20 Solidity Smart Contracts using various static analysis tools. This run started on $TIMESTAMP."
   echo
   pip3 install virtualenv --user > /dev/null 2>&1
   virtualenv -p python3 venv > /dev/null 2>&1
   source venv/bin/activate
-  pip3 install -r ./solidity-smart-contract-test-tools/test/requirements.txt > /dev/null 2>&1
-  robot --report NONE --log smart-contract-testing-log.html --output smart-contract-testing-output.xml -N "Robot Framework Solidity Smart Contract Test" -d ./solidity-smart-contract-test-tools/test/ ./solidity-smart-contract-test-tools/test/robot-framework-solidity-tester.robot
+  pip3 install -r ./solidity-static-analysis-tools/static-analysis/requirements.txt > /dev/null 2>&1
+  robot --report NONE --log smart-contract-static-analysis-log.html --output smart-contract-static-analysis-output.xml -N "Robot Framework Solidity Smart Contract Static Analysis" -d ./solidity-static-analysis-tools/static-analysis/ ./solidity-static-analysis-tools/static-analysis/robot-framework-solidity-static-analyzer.robot
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
-  rm -rf ./solidity-smart-contract-test-tools/build > /dev/null 2>&1
+  exit
+fi
+
+if [ "$1" == "Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment" ]; then
+  clear
+  rm -rf ./solidity-hardhat-multichain-tools/logs/blockchain-type.log
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  echo
+  echo "------------------------------------[[[[ Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment ]]]]------------------------------------"
+  echo
+  echo "This command will run Robot Framework RPA automation that compiles and deploys Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
+  echo
+  echo "Ethereum" > ./solidity-hardhat-multichain-tools/logs/blockchain-type.log
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt > /dev/null 2>&1
+  robot --variable BLOCKCHAIN:"Ethereum" --report NONE --log smart-contract-hardhat-deployment-log.html --output smart-contract-hardhat-deployment-output.xml -N "Robot Framework Solidity Smart Contract Hardhat Deployment Ethereum Mainnet Fork" -d ./solidity-hardhat-multichain-tools/logs ./solidity-hardhat-multichain-tools/robotframework-hardhat-deployment-rpa-keywords.robot
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  exit
+fi
+
+if [ "$1" == "Run-Smart-Contract-Hardhat-Fantom-RPA-Deployment" ]; then
+  clear
+  rm -rf ./solidity-hardhat-multichain-tools/logs/blockchain-type.log
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  echo
+  echo "------------------------------------[[[[ Run-Smart-Contract-Hardhat-Fantom-RPA-Deployment ]]]]------------------------------------"
+  echo
+  echo "This command will run Robot Framework RPA automation that compiles and deploys Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
+  echo
+  echo "Fantom" > ./solidity-hardhat-multichain-tools/logs/blockchain-type.log
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt > /dev/null 2>&1
+  robot --variable BLOCKCHAIN:"Fantom" --report NONE --log smart-contract-hardhat-deployment-log.html --output smart-contract-hardhat-deployment-output.xml -N "Robot Framework Solidity Smart Contract Hardhat Deployment Fantom Mainnet Fork" -d ./solidity-hardhat-multichain-tools/logs ./solidity-hardhat-multichain-tools/robotframework-hardhat-deployment-rpa-keywords.robot
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  exit
+fi
+
+if [ "$1" == "Run-Smart-Contract-Hardhat-Polygon-RPA-Deployment" ]; then
+  clear
+  rm -rf ./solidity-hardhat-multichain-tools/logs/blockchain-type.log
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  echo
+  echo "------------------------------------[[[[ Run-Smart-Contract-Hardhat-Polygon-RPA-Deployment ]]]]------------------------------------"
+  echo
+  echo "This command will run Robot Framework RPA automation that compiles and deploys Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
+  echo
+  echo "Polygon" > ./solidity-hardhat-multichain-tools/logs/blockchain-type.log
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt > /dev/null 2>&1
+  robot --variable BLOCKCHAIN:"Polygon" --report NONE --log smart-contract-hardhat-deployment-log.html --output smart-contract-hardhat-deployment-output.xml -N "Robot Framework Solidity Smart Contract Hardhat Deployment Polygon Mainnet Fork" -d ./solidity-hardhat-multichain-tools/logs ./solidity-hardhat-multichain-tools/robotframework-hardhat-deployment-rpa-keywords.robot
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  exit
+fi
+
+if [ "$1" == "Run-Smart-Contract-Hardhat-Avalanche-RPA-Deployment" ]; then
+  clear
+  rm -rf ./solidity-hardhat-multichain-tools/logs/blockchain-type.log
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  echo
+  echo "------------------------------------[[[[ Run-Smart-Contract-Hardhat-Avalanche-RPA-Deployment ]]]]------------------------------------"
+  echo
+  echo "This command will run Robot Framework RPA automation that compiles and deploys Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
+  echo
+  echo "Avalanche" > ./solidity-hardhat-multichain-tools/logs/blockchain-type.log
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt > /dev/null 2>&1
+  robot --variable BLOCKCHAIN:"Avalanche" --report NONE --log smart-contract-hardhat-deployment-log.html --output smart-contract-hardhat-deployment-output.xml -N "Robot Framework Solidity Smart Contract Hardhat Deployment Avalanche Mainnet Fork" -d ./solidity-hardhat-multichain-tools/logs ./solidity-hardhat-multichain-tools/robotframework-hardhat-deployment-rpa-keywords.robot
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
   exit
 fi
 
@@ -46,8 +343,29 @@ usage_explanation() {
   echo
   echo "This tool runner script can be used to run the following commands to test smart contracts written in Solidity."
   echo
-  echo "bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS"
-  echo "bash ./start-solidity-qa-workflows.sh Run-Solidity-QA-Checks"
+  echo "You can view just this help menu again (without triggering any automation) by running 'bash ./start-solidity-qa-workflows.sh -h' or 'bash ./start-solidity-qa-workflows.sh --help'."
+  echo
+  echo "---->>>> Local Solidity Test Environment Setup Commands <<<<----"
+  echo "bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux"
+  echo "bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux"
+  echo "bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux"
+  echo "bash ./start-solidity-qa-workflows.sh Stop-All-Local-Network-Nodes-And-Delete-Logs-On-MacOS-Or-Linux"
+  echo 
+  echo "---->>>> Solidity Static Analysis And Security Testing Commands <<<<----"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Solidity-Static-Analysis"
+  echo 
+  echo "---->>>> Hardhat Deployment Commands Powered by Robot Framework RPA (NOTE: These scripts are capable of deploying to Mainnets or Testnets!) <<<<----"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Fantom-RPA-Deployment"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Polygon-RPA-Deployment"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Avalanche-RPA-Deployment"
+  echo
+  echo "---->>>> Interactive Tests For Deployed Smart Contracts Using Hardhat (NOTE: These tests can run on multiple EVM Compatible Blockchains!) <<<<----"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network" 
+  echo
+  echo
+  cat ./NOTES.md 2> /dev/null
   echo
   echo
 }

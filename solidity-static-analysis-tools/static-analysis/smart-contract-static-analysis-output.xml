@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.12 on darwin)" generated="20230202 01:06:38.746" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Framework Solidity Smart Contract Static Analysis" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/static-analysis/robot-framework-solidity-static-analyzer.robot">
+<test id="s1-t1" name="SMART CONTRACT STATIC ANALYSIS 1 : Run the Solhint static analysis tool on the target contract. If this fails, then there are possible code security issues or other risks." line="13">
+<kw name="Run Solhint Solidity Static Analysis And Check Output">
+<arg>TargetContract.sol</arg>
+<kw name="Run Process" library="Process">
+<arg>solhint -h &amp;&amp; solhint ${PATH}/solidity-static-analysis-tools/contracts/${SMART_CONTRACT_FILE_NAME} --config ${PATH}/solidity-static-analysis-tools/static-analysis/.solhint.json</arg>
+<arg>alias=solhint_output</arg>
+<arg>shell=True</arg>
+<arg>timeout=20s</arg>
+<arg>on_timeout=continue</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230202 01:06:38.812" level="INFO">Starting process:
+solhint -h &amp;&amp; solhint /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/contracts/TargetContract.sol --config /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/static-analysis/.solhint.json</msg>
+<msg timestamp="20230202 01:06:38.817" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230202 01:06:39.838" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230202 01:06:38.811" endtime="20230202 01:06:39.839"/>
+</kw>
+<kw name="Get Process Result" library="Process">
+<var>${SOLHINT_OUTPUT}</var>
+<arg>solhint_output</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<msg timestamp="20230202 01:06:39.840" level="INFO">${SOLHINT_OUTPUT} = Usage: solhint [options] &lt;file&gt; [...other_files]
+
+Linter for Solidity programming language
+
+Options:
+
+  -V, --version                           output the version number
+  -f, --formatter [name]      ...</msg>
+<status status="PASS" starttime="20230202 01:06:39.839" endtime="20230202 01:06:39.840"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${SOLHINT_RESULT}</var>
+<arg>${SOLHINT_OUTPUT}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230202 01:06:39.841" level="INFO">${SOLHINT_RESULT} = Usage: solhint [options] &lt;file&gt; [...other_files]
+
+Linter for Solidity programming language
+
+Options:
+
+  -V, --version                           output the version number
+  -f, --formatter [name]      ...</msg>
+<status status="PASS" starttime="20230202 01:06:39.840" endtime="20230202 01:06:39.841"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${SOLHINT_RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230202 01:06:39.841" level="INFO">Usage: solhint [options] &lt;file&gt; [...other_files]
+
+Linter for Solidity programming language
+
+Options:
+
+  -V, --version                           output the version number
+  -f, --formatter [name]                  report formatter name (stylish, table, tap, unix)
+  -w, --max-warnings [maxWarningsNumber]  number of allowed warnings
+  -c, --config [file_name]                file to use as your .solhint.json
+  -q, --quiet                             report errors only - default: false
+  --ignore-path [file_name]               file to use as your .solhintignore
+  --fix                                   automatically fix problems
+  --init                                  create configuration file for solhint
+  -h, --help                              output usage information
+
+Commands:
+
+  stdin [options]                         linting of source code data provided to STDIN
+
+/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/contracts/TargetContract.sol
+   2:1  warning  Compiler version ^0.5.0 does not satisfy the a semver requirement  compiler-version
+  14:3  warning  Provide an error message for require                               reason-string
+
+✖ 2 problems (0 errors, 2 warnings)
+</msg>
+<status status="PASS" starttime="20230202 01:06:39.841" endtime="20230202 01:06:39.841"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${SOLHINT_RESULT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230202 01:06:39.842" level="INFO">Length is 1257</msg>
+<status status="PASS" starttime="20230202 01:06:39.842" endtime="20230202 01:06:39.842"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${SOLHINT_RESULT}</arg>
+<arg>(0 errors,</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230202 01:06:39.842" endtime="20230202 01:06:39.842"/>
+</kw>
+<status status="PASS" starttime="20230202 01:06:38.811" endtime="20230202 01:06:39.842"/>
+</kw>
+<tag>Contract_Smoke_Tests</tag>
+<status status="PASS" starttime="20230202 01:06:38.810" endtime="20230202 01:06:39.843"/>
+</test>
+<test id="s1-t2" name="SMART CONTRACT STATIC ANALYSIS 2 : Run the Surya code property graph analysis tool on the target contract. If this fails, then there are possible code risks or vulnerabilities." line="17">
+<kw name="Run Surya Solidity Graph Analysis And Check Output">
+<arg>TargetContract.sol</arg>
+<kw name="Run Process" library="Process">
+<arg>surya graph ${PATH}/solidity-static-analysis-tools/contracts/${SMART_CONTRACT_FILE_NAME} --no-color</arg>
+<arg>alias=surya_output</arg>
+<arg>shell=True</arg>
+<arg>timeout=20s</arg>
+<arg>on_timeout=continue</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<msg timestamp="20230202 01:06:39.844" level="INFO">Starting process:
+surya graph /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/contracts/TargetContract.sol --no-color</msg>
+<msg timestamp="20230202 01:06:39.849" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230202 01:06:40.356" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230202 01:06:39.844" endtime="20230202 01:06:40.356"/>
+</kw>
+<kw name="Get Process Result" library="Process">
+<var>${SURYA_OUTPUT}</var>
+<arg>surya_output</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<msg timestamp="20230202 01:06:40.358" level="INFO">${SURYA_OUTPUT} = digraph G {
+  graph [ ratio = "auto", page = "100", compound =true ];
+subgraph "clusterBEP20" {
+  graph [ label = "BEP20", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "BEP20.adop...</msg>
+<status status="PASS" starttime="20230202 01:06:40.357" endtime="20230202 01:06:40.358"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${SURYA_RESULT}</var>
+<arg>${SURYA_OUTPUT}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230202 01:06:40.359" level="INFO">${SURYA_RESULT} = digraph G {
+  graph [ ratio = "auto", page = "100", compound =true ];
+subgraph "clusterBEP20" {
+  graph [ label = "BEP20", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "BEP20.adop...</msg>
+<status status="PASS" starttime="20230202 01:06:40.359" endtime="20230202 01:06:40.359"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${SURYA_RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230202 01:06:40.360" level="INFO">digraph G {
+  graph [ ratio = "auto", page = "100", compound =true ];
+subgraph "clusterBEP20" {
+  graph [ label = "BEP20", color = "lightgray", style = "filled", bgcolor = "lightgray" ];
+  "BEP20.adopt" [ label = "adopt", color = "green" ];
+  "BEP20.getAdopters" [ label = "getAdopters", color = "green" ];
+}
+
+
+
+rankdir=LR
+node [shape=plaintext]
+subgraph cluster_01 { 
+label = "Legend";
+key [label=&lt;&lt;table border="0" cellpadding="2" cellspacing="0" cellborder="0"&gt;
+  &lt;tr&gt;&lt;td align="right" port="i1"&gt;Internal Call&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td align="right" port="i2"&gt;External Call&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td align="right" port="i3"&gt;Defined Contract&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td align="right" port="i4"&gt;Undefined Contract&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;&gt;]
+key2 [label=&lt;&lt;table border="0" cellpadding="2" cellspacing="0" cellborder="0"&gt;
+  &lt;tr&gt;&lt;td port="i1"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td port="i2"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td port="i3" bgcolor="lightgray"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td port="i4"&gt;
+    &lt;table border="1" cellborder="0" cellspacing="0" cellpadding="7" color="lightgray"&gt;
+      &lt;tr&gt;
+       &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+     &lt;/table&gt;
+  &lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;&gt;]
+key:i1:e -&gt; key2:i1:w [color="green"]
+key:i2:e -&gt; key2:i2:w [color="orange"]
+}
+}
+</msg>
+<status status="PASS" starttime="20230202 01:06:40.360" endtime="20230202 01:06:40.360"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${SURYA_RESULT}</arg>
+<arg>"red"</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230202 01:06:40.360" endtime="20230202 01:06:40.361"/>
+</kw>
+<status status="PASS" starttime="20230202 01:06:39.844" endtime="20230202 01:06:40.361"/>
+</kw>
+<tag>Contract_Smoke_Tests</tag>
+<status status="PASS" starttime="20230202 01:06:39.843" endtime="20230202 01:06:40.362"/>
+</test>
+<status status="PASS" starttime="20230202 01:06:38.747" endtime="20230202 01:06:40.363"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Contract_Smoke_Tests</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Robot Framework Solidity Smart Contract Static Analysis">Robot Framework Solidity Smart Contract Static Analysis</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

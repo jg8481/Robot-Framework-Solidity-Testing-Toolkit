@@ -1,0 +1,5 @@
+robotframework
+robotframework-pabot
+six
+psutil
+slither-analyzer
