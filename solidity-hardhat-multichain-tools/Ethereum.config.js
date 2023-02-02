@@ -6,16 +6,16 @@ module.exports = {
   networks: {
     hardhat: {
       forking: {
-        url: "https://mainnet.infura.io/v3/21ec13c1c6e54fa4a7cc6fa086bde158", // To use this RPC, you need to create a free Infura account and replace "<your-infura-api-key-goes-here>".
+        url: "https://mainnet.infura.io/v3/<your-infura-api-key-goes-here>", // To use this RPC, you need to create a free Infura account and replace "<your-infura-api-key-goes-here>".
         chainId: 31337,
         enabled: true,
       },
     rinkeby: {
-      url: "https://rinkeby.infura.io/v3/21ec13c1c6e54fa4a7cc6fa086bde158", // Rinkeby Testnet
+      url: "https://rinkeby.infura.io/v3/<your-infura-api-key-goes-here>", // Rinkeby Testnet
       //accounts: [<Your wallet private key can go here...WARNING, do not use this if you only want to do local testing. ALWAYS PROTECT YOUR PRIVATE KEY!!!>]
     },
     goerli: {
-      url: "https://goerli.infura.io/v3/21ec13c1c6e54fa4a7cc6fa086bde158", // Goerli Testnet
+      url: "https://goerli.infura.io/v3/<your-infura-api-key-goes-here>", // Goerli Testnet
       //accounts: [<Your wallet private key can go here...WARNING, do not use this if you only want to do local testing. ALWAYS PROTECT YOUR PRIVATE KEY!!!>]
     }
   }
