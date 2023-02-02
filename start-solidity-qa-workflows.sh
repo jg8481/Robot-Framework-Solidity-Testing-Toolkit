@@ -365,7 +365,7 @@ usage_explanation() {
   echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network" 
   echo
   echo
-  cat ./NOTES.md 2> /dev/null
+  cat ./notes-images-and-demonstrations/NOTES.md 2> /dev/null
   echo
   echo
 }
