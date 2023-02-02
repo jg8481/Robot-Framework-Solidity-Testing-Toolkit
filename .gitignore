@@ -9,8 +9,6 @@ testlog*.txt
 _pycache_
 *_pycache_
 nohup.*
-*.jpg
-*.png
 *.DS_Store
 *geckodriver.log
 *.log
