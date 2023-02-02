@@ -1,6 +1,6 @@
 # Robot Framework Solidity Testing Toolkit
 
-![Robot](./notes-images-and-demonstrations/robotframework-hardhat-ethereum.png)
+![Robot](./notes-images-and-demonstrations/robotframework-ethereum.png)
 
 ## Disclaimer
 
