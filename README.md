@@ -1,6 +1,6 @@
 # Robot Framework Solidity Testing Toolkit
 
-![Robot](robotframework-hardhat-ethereum.png)
+![Robot](./notes-images-and-demonstrations/robotframework-hardhat-ethereum.png)
 
 ## Disclaimer
 
@@ -56,25 +56,25 @@ bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Fo
 From the commands posted above, here is an example workflow (with screenshots) below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.
 - First, open two terminals and keep both open the entire time.
 - In one of the terminals, run the `bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux` command then check that the output matches what is shown in the following screenshot. 
-![Part1](robotframework-hardhat-part1.png)
+![Part1](./notes-images-and-demonstrations/robotframework-hardhat-part1.png)
 - In the other terminal, run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network` command then check that the output matches what is shown in the following screenshot. 
-![Part2](robotframework-hardhat-part2.png)
+![Part2](./notes-images-and-demonstrations/robotframework-hardhat-part2.png)
 
 ### Example Workflow 2 - Fork Fantom Mainnet, deploy, then test an existing smart contract using the Hardhat Network Fantom fork and node-robotremoteserver (on MacOS or Linux)
 From the commands posted above, here is an example workflow (with screenshots) below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.
 - First, open two terminals and keep both open the entire time.
 - In one of the terminals, run the `bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux` command, follow the instructions by entering `Fantom`, then check that the output matches what is circled in the following screenshot. 
-![Part3](robotframework-hardhat-part3.png)
+![Part3](./notes-images-and-demonstrations/robotframework-hardhat-part3.png)
 - In the other terminal, run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network` command then check that the output matches what is circled in the following screenshot. 
-![Part4](robotframework-hardhat-part4.png)
+![Part4](./notes-images-and-demonstrations/robotframework-hardhat-part4.png)
 - This test will interact with someone else's existing token project (contract address: 0x5FbDB2315678afecb367f032d93F642f64180aa3) on Fantom Mainnet called ["PumpNoDump (PND)"](https://ftmscan.com/address/0x5fbdb2315678afecb367f032d93f642f64180aa3). **FYI, the PND token is NOT mine and I am not associated with it at all.**
-![Part5](robotframework-hardhat-part5.png)
+![Part5](./notes-images-and-demonstrations/robotframework-hardhat-part5.png)
 
 ### Example Workflow 3 - Use Robot Framework RPA to do only the deployment using Hardhat (on MacOS or Linux)
 From the commands posted above, here is an example workflow below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.
 - Only one terminal is needed.
 - Run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment` command then check that the output matches what is shown in the following screenshot. 
-![Part6](robotframework-hardhat-part6.png)
+![Part6](./notes-images-and-demonstrations/robotframework-hardhat-part6.png)
 
 Results for the example workflows above can be found in the `...-log.html` files stored in the `logs` folder.
 
