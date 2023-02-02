@@ -80,4 +80,4 @@ Results for the example workflows above can be found in the `...-log.html` files
 
 ## Windows User Advice
 
-All Windows users should please read my `NOTES.md` file for more details.
+All Windows users should please read my [NOTES.md](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/blob/main/notes-images-and-demonstrations/NOTES.md) file for more details.
