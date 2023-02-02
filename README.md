@@ -25,6 +25,8 @@ The following are the basic technical requirements needed to run these automated
   - If you're using `nvm`, you can run `nvm install 18` to install version 18
   - If you are using a MacOS or Linux machine, the `Install-Tools-On-MacOS-Or-Linux` command below is a quick install
 - Robot Framework -> https://robotframework.org
+- Create your own [free Infura account](https://www.infura.io/) and **set up your own API key**.
+- Replace all instances of `<your-infura-api-key-goes-here>` in the `Avalanche.config.js` and `Ethereum.config.js` configuration files.
 
 ## Quick Start Guide
 
