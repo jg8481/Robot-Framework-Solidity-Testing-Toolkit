@@ -18,14 +18,6 @@ SMART CONTRACT STATIC ANALYSIS 2 : Run the Surya code property graph analysis to
     [Tags]    Contract_Smoke_Tests
     Run Surya Solidity Graph Analysis And Check Output    TargetContract.sol
 
-# SMART CONTRACT TEST 3 : Run the Truffle Compile command and check the output for errors.
-#     [Tags]    Contract_Smoke_Tests
-#     Run Truffle Solidity Compile Command And Check Output
-
-# SMART CONTRACT TEST 4 : Run the Truffle Migrate command and check the output for errors.
-#     [Tags]    Contract_Smoke_Tests
-#     Run Truffle Solidity Migrate Command And Check Output
-
 *** Keywords ***
 
 Run Solhint Solidity Static Analysis And Check Output
