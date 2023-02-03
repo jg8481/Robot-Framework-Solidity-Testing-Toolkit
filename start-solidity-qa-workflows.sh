@@ -35,17 +35,14 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   nvm use 18
   nvm alias default 18
   npm install npm --global 
-  #Un-comment the following 4 lines only as needed.
-  #npm install -g npm-check-updates
-  #ncu -u
-  #npm update
-  #npm audit fix --force
   npm install -g solhint
   npm install -g solgraph
   npm install -g surya
   npm install --save-dev hardhat
   npm install --save-dev @nomicfoundation/hardhat-toolbox
   npm install robotremote
+  npm update
+  npm audit fix --force
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
 fi
