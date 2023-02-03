@@ -2,7 +2,7 @@
 pragma solidity ^0.5.0;
 
 /**
- * Replace every line past this comment with the contract code that needs to be tested.
+ * Replace every line past this comment with the contract code that needs to be checked with static analysis or security tools.
  */
 
 contract BEP20 {
