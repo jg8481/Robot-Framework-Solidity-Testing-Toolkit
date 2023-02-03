@@ -223,7 +223,7 @@ if [ "$1" == "Run-Solidity-Static-Analysis" ]; then
   echo
   echo "------------------------------------[[[[ Run-Solidity-Static-Analysis ]]]]------------------------------------"
   echo
-  echo "This command will run Robot Framework automation that checks BEP-20 or ERC-20 Solidity Smart Contracts using various static analysis tools. This run started on $TIMESTAMP."
+  echo "This command will run Robot Framework automation that checks Solidity Smart Contracts using various static analysis tools. This run started on $TIMESTAMP."
   echo
   pip3 install virtualenv --user > /dev/null 2>&1
   virtualenv -p python3 venv > /dev/null 2>&1
