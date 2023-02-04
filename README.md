@@ -16,6 +16,7 @@ This [toolkit](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolki
 - Create a `robotframework-truffle-remote-library.js` with similar features that are found in  `robotframework-hardhat-remote-library.js`.
 - Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry.
 - Create RPA and `robotframework-hardhat-remote-library.js` powered cross-chain bots utilizing `Infura`, `hardhat`, and `ethers.js`.
+- Create Metamask automation using [SeleniumLibrary](https://github.com/robotframework/SeleniumLibrary) and [robotframework-browser (a Playwright library)](https://github.com/MarketSquare/robotframework-browser).
 
 A lot of the automation in this repo is heavily influenced by my [Robot-Framework-Lone-Tester-Strategies-RoboCon-2019](https://github.com/jg8481/Robot-Framework-Lone-Tester-Strategies-RoboCon-2019) and [Tool-Strategies-Lone-Testers-Test-Leadership-Congress-2019](https://github.com/jg8481/Tool-Strategies-Lone-Testers-Test-Leadership-Congress-2019) workshops. More information about these RoboCon workshops can be found here... https://robocon.io/#workshops
 
