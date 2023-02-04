@@ -24,11 +24,11 @@ This [toolkit](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolki
 - [Parallel tests that require the tester to measure system resources while running various types of tests at the same time](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022)
 
 A lot of the automation in this repo is influenced by my [Robot-Framework-Lone-Tester-Strategies-RoboCon-2019](https://github.com/jg8481/Robot-Framework-Lone-Tester-Strategies-RoboCon-2019), [Tool-Strategies-Lone-Testers-Test-Leadership-Congress-2019](https://github.com/jg8481/Tool-Strategies-Lone-Testers-Test-Leadership-Congress-2019), and [Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022) workshops. More information about these RoboCon workshops can be found on [robocon.io](https://robocon.io/#workshops). In the future I plan to expand this toolkit into the following areas.
-- Create a `robotframework-truffle-remote-library.js` with similar features that are found in  `robotframework-hardhat-remote-library.js`.
-- Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry.
-- Create RPA and `robotframework-hardhat-remote-library.js` powered cross-chain bots utilizing [Infura](https://infura.io/), [hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/).
+- Create a `robotframework-truffle-remote-library.js` with similar features that are found in  `robotframework-hardhat-remote-library.js`
+- Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry
+- Create RPA and `robotframework-hardhat-remote-library.js` powered cross-chain bots utilizing [Infura](https://infura.io/), [hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/)
 - Attempt to create Robot Framework automation utilizing the [foundry toolkit](https://github.com/foundry-rs/foundry)
-- Create Metamask automation using [SeleniumLibrary](https://github.com/robotframework/SeleniumLibrary) and [robotframework-browser (a Playwright library)](https://github.com/MarketSquare/robotframework-browser).
+- Create Metamask automation using [SeleniumLibrary](https://github.com/robotframework/SeleniumLibrary) and [robotframework-browser (a Playwright library)](https://github.com/MarketSquare/robotframework-browser)
 - Create a Robot Framework Model-based Testing example utilizing similar concepts found in my [PaBot-Android-Device-Graphwalker-Examples.robot](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022/blob/main/Workshop-Examples/Tests/Workshop-Part-Two/PaBot-Android-Device-Graphwalker-Examples.robot#L23)
 - Play around with some Chaos Testing ideas for dApps
 
@@ -39,8 +39,8 @@ The following are the basic technical requirements needed to run these automated
   - If you're using `nvm`, you can run `nvm install 18` to install version 18
   - If you are using a MacOS or Linux machine, the `Install-Tools-On-MacOS-Or-Linux` command below is a quick install
 - Robot Framework -> https://robotframework.org
-- Create your own [free Infura account](https://www.infura.io/) and **set up your own API key**.
-- Replace all instances of `<your-infura-api-key-goes-here>` in the `Avalanche.config.js` and `Ethereum.config.js` configuration files.
+- Create your own [free Infura account](https://www.infura.io/) and **set up your own API key**
+- Replace all instances of `<your-infura-api-key-goes-here>` in the `Avalanche.config.js` and `Ethereum.config.js` configuration files
 
 ## Quick Start Guide
 
@@ -70,26 +70,26 @@ bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Fo
 ```
 ### Example Workflow 1 - Deploy then test a smart contract using the built-in Hardhat Network Ethereum Node and node-robotremoteserver (on MacOS or Linux)
 From the commands posted above, here is an example workflow (with screenshots) below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.
-- First, open two terminals and keep both open the entire time.
-- In one of the terminals, run the `bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux` command then check that the output matches what is shown in the following screenshot. 
+- First, open two terminals and keep both open the entire time
+- In one of the terminals, run the `bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux` command then check that the output matches what is shown in the following screenshot 
 ![Part1](./notes-images-and-demonstrations/robotframework-hardhat-part1.png)
-- In the other terminal, run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network` command then check that the output matches what is shown in the following screenshot. 
+- In the other terminal, run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network` command then check that the output matches what is shown in the following screenshot 
 ![Part2](./notes-images-and-demonstrations/robotframework-hardhat-part2.png)
 
 ### Example Workflow 2 - Fork Fantom Mainnet, deploy, then test an existing smart contract using the Hardhat Network Fantom fork and node-robotremoteserver (on MacOS or Linux)
 From the commands posted above, here is an example workflow (with screenshots) below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.
-- First, open two terminals and keep both open the entire time.
-- In one of the terminals, run the `bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux` command, follow the instructions by entering `Fantom`, then check that the output matches what is circled in the following screenshot. 
+- First, open two terminals and keep both open the entire time
+- In one of the terminals, run the `bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux` command, follow the instructions by entering `Fantom`, then check that the output matches what is circled in the following screenshot 
 ![Part3](./notes-images-and-demonstrations/robotframework-hardhat-part3.png)
-- In the other terminal, run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network` command then check that the output matches what is circled in the following screenshot. 
+- In the other terminal, run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network` command then check that the output matches what is circled in the following screenshot 
 ![Part4](./notes-images-and-demonstrations/robotframework-hardhat-part4.png)
-- This test will interact with someone else's existing token project (**contract address**: `0x5FbDB2315678afecb367f032d93F642f64180aa3`) on Fantom Mainnet called ["PumpNoDump (PND)"](https://ftmscan.com/address/0x5fbdb2315678afecb367f032d93f642f64180aa3). **FYI, the PND token is NOT mine and I am not associated with it at all.**
+- This test will interact with someone else's existing token project (**contract address**: `0x5FbDB2315678afecb367f032d93F642f64180aa3`) on Fantom Mainnet called ["PumpNoDump (PND)"](https://ftmscan.com/address/0x5fbdb2315678afecb367f032d93f642f64180aa3). **FYI, the PND token is NOT mine and I am not associated with it at all**
 ![Part5](./notes-images-and-demonstrations/robotframework-hardhat-part5.png)
 
 ### Example Workflow 3 - Use Robot Framework RPA to do only the deployment using Hardhat (on MacOS or Linux)
 From the commands posted above, here is an example workflow below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.
-- Only one terminal is needed.
-- Run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment` command then check that the output matches what is shown in the following screenshot. 
+- Only one terminal is needed
+- Run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment` command then check that the output matches what is shown in the following screenshot 
 ![Part6](./notes-images-and-demonstrations/robotframework-hardhat-part6.png)
 
 Results for the example workflows above can be found in the `...-log.html` files stored in the `logs` folder.
