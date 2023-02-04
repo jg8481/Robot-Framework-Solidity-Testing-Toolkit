@@ -1,4 +1,4 @@
-# General notes, observations, and advice from Josh (this toolkit's creator):
+# General notes, observations, and advice from Josh (this toolkit's creator)
 
 ## [1] Some advice for Windows Users
 
