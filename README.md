@@ -18,13 +18,16 @@ This [toolkit](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolki
 
 [MochaJS](https://mochajs.org/) is a good and flexible test framework, but it's not easy to figure out how it can handle the following types of tests...
 - Model-based Testing
+  - https://www.harryrobinson.net/
+  - https://graphwalker.github.io/
 - [Chaos Testing running in parallel with other tests](https://robocon.io/#online-robot-framework-and-endpoint-detection-agents-at-secureworks)
-- Parallel tests that require the tester to measure system resources while running various types of tests at the same time
+- [Parallel tests that require the tester to measure system resources while running various types of tests at the same time](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022)
 
-A lot of the automation in this repo is heavily influenced by my [Robot-Framework-Lone-Tester-Strategies-RoboCon-2019](https://github.com/jg8481/Robot-Framework-Lone-Tester-Strategies-RoboCon-2019), [Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022) and [Tool-Strategies-Lone-Testers-Test-Leadership-Congress-2019](https://github.com/jg8481/Tool-Strategies-Lone-Testers-Test-Leadership-Congress-2019) workshops. More information about these RoboCon workshops can be found on [robocon.io](https://robocon.io/#workshops). In the future I plan to expand this toolkit into the following areas.
+A lot of the automation in this repo is influenced by my [Robot-Framework-Lone-Tester-Strategies-RoboCon-2019](https://github.com/jg8481/Robot-Framework-Lone-Tester-Strategies-RoboCon-2019), [Tool-Strategies-Lone-Testers-Test-Leadership-Congress-2019](https://github.com/jg8481/Tool-Strategies-Lone-Testers-Test-Leadership-Congress-2019), and [Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022) workshops. More information about these RoboCon workshops can be found on [robocon.io](https://robocon.io/#workshops). In the future I plan to expand this toolkit into the following areas.
 - Create a `robotframework-truffle-remote-library.js` with similar features that are found in  `robotframework-hardhat-remote-library.js`.
 - Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry.
-- Create RPA and `robotframework-hardhat-remote-library.js` powered cross-chain bots utilizing `Infura`, `hardhat`, and `ethers.js`.
+- Create RPA and `robotframework-hardhat-remote-library.js` powered cross-chain bots utilizing [Infura](https://infura.io/), [hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/).
+- Attempt to create Robot Framework automation utilizing the [foundry toolkit](https://github.com/foundry-rs/foundry)
 - Create Metamask automation using [SeleniumLibrary](https://github.com/robotframework/SeleniumLibrary) and [robotframework-browser (a Playwright library)](https://github.com/MarketSquare/robotframework-browser).
 - Create a Robot Framework Model-based Testing example utilizing similar concepts found in my [PaBot-Android-Device-Graphwalker-Examples.robot](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022/blob/main/Workshop-Examples/Tests/Workshop-Part-Two/PaBot-Android-Device-Graphwalker-Examples.robot#L23)
 
