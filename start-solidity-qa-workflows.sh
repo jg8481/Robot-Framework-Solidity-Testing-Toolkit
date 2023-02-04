@@ -155,7 +155,7 @@ if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Ne
   echo
   echo "------------------------------------[[[[ Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network ]]]]------------------------------------"
   echo
-  echo "This command will run Robot Framework Javascript automation that will perform an interactive integration test of Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
+  echo "This command will run Robot Framework Javascript automation that will perform an interactive test on Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
   echo
   echo "ATTENTION: If you're forking mainnets this seems to only work on the Fantom config provided with this repo. This test will sometimes display only 1 passing test and many failed tests if you attempt to run it on other local forked mainnets in the Hardhat Network Node. If you want to quickly check your local forked mainnet then run the 'Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network' command please."
   echo 
@@ -188,7 +188,7 @@ if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Net
   echo
   echo "------------------------------------[[[[ Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network ]]]]------------------------------------"
   echo
-  echo "This command will run Robot Framework Javascript automation that will perform an interactive integration test of Solidity Smart Contracts using the built-in Hardhat Network after performing a deployment to a mainnet fork. This run started on $TIMESTAMP."
+  echo "This command will run Robot Framework Javascript automation that will perform an interactive test on Solidity Smart Contracts using the built-in Hardhat Network after performing a deployment to a mainnet fork. This run started on $TIMESTAMP."
   echo
   echo "ATTENTION: This is only one determistic quick check after a smart contract deployment on a mainnet fork. The provided Token.sol contract has never been deployed to any external EVM compatible blockchain mainnets or testnets. Also any tests run on contract address '0x5fbdb2315678afecb367f032d93f642f64180aa3' on Fantom mainnet will reveal another unrelated token that has zero affiliation with the creator of this Robot Framework project."
   echo
