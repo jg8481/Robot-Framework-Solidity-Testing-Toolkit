@@ -92,7 +92,7 @@ From the commands posted above, here is an example workflow below that will work
 - Run the `bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment` command then check that the output matches what is shown in the following screenshot 
 ![Part6](./notes-images-and-demonstrations/robotframework-hardhat-part6.png)
 
-Results for the example workflows above can be found in the `...-log.html` files stored in the `logs` folder.
+Results for the example workflows above can be found in the `...-log.html` files stored in the [logs](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/tree/main/solidity-hardhat-multichain-tools/logs) folder.
 
 ## Windows User Advice
 
