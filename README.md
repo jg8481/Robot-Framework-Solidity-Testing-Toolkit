@@ -6,7 +6,7 @@
 
 By using this software you understand the risks of Web3 and blockchain technologies. This toolkit is intended for testing and learning concepts in the Web3 and blockchain industry. **You are responsible for your own personal cryptocurrency funds and Web3 wallet private keys, and it is your personal responsibility to protect them.** Any misuse or mishandling of this software on any of the EVM compatible blockchain mainnets or testnets is at your own risk.
 
-Also just a **friendly warning, DO NOT ATTEMPT TO SEND ANY FUNDS to any of the** [**20 test accounts**](https://dev.to/alex_bobes/making-an-ethereum-bot-a-step-by-step-guide-3ol4) provided by `hardhat`. 
+Also just a **friendly warning, DO NOT ATTEMPT TO SEND FUNDS to any of the** [**20 test accounts**](https://dev.to/alex_bobes/making-an-ethereum-bot-a-step-by-step-guide-3ol4) provided by `hardhat`. 
 
 ## General Information
 
