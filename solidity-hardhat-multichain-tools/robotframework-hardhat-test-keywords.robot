@@ -54,7 +54,7 @@ Transfer tokens from a target address to the contract owner address and check th
     Check Smart Contract Results And Log Them    ${TOKEN_ADDRESS}   testTokenAddress
     ${RECEIVING_ADDRESS}=    Get Receiver Target Address
     Check Smart Contract Results And Log Them    ${RECEIVING_ADDRESS}    receivingAddress
-    ${RESULT}=    transferFromTargetAddress
+    ${RESULT}=    Transfer From Target Address
     Check Smart Contract Results And Log Them    ${RESULT}    senderBalanceFormatUnits
 
 Increase the allowance of the spender account and check the result.
