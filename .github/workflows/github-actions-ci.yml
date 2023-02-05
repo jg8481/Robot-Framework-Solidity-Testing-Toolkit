@@ -16,7 +16,7 @@ jobs:
           python3 --version
           ls -la
           pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt
-          robot --version
+          pip freeze
           exit 0
       - name: Install NodeJS and all required Hardhat dependencies
         run: |
