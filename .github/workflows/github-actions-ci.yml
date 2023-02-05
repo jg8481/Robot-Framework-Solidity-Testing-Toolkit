@@ -25,7 +25,7 @@ jobs:
           ls -la
           bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
           node --version
-      # - name: Run all unit tests using the BATS test framework
-      #   run: |
-      #     ls -la
-      #     bash ./start-maintenance-workflows.sh Run-Unit-Tests
+      - name: Run all unit tests using the BATS test framework
+        run: |
+          ls -la
+          bash ./start-maintenance-workflows.sh Run-Unit-Tests
