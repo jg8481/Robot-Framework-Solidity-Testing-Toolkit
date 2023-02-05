@@ -68,8 +68,8 @@ usage_explanation() {
   echo
   echo "You can view just this help menu again (without triggering any automation) by running 'bash ./toolkit-maintenance-workflows.sh -h' or 'bash ./toolkit-maintenance-workflows.sh --help'."
   echo
-  echo "bash ./toolkit-maintenance-workflows.sh Clean-Up-Old-Test-Runs"
-  echo "bash ./toolkit-maintenance-workflows.sh Run-Unit-Tests"
+  echo "bash ./start-maintenance-workflows.sh Clean-Up-Old-Test-Runs"
+  echo "bash ./start-maintenance-workflows.sh Run-Unit-Tests"
   echo
   echo
 }
