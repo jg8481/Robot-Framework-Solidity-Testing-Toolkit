@@ -17,6 +17,8 @@ jobs:
           ls -la
           pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt
           pip freeze
+          robot --nostatusrc --help | grep "Robot Framework is open source software"
+          robot --nostatusrc --version | grep "Robot"
           exit 0
       - name: Install NodeJS and all required Hardhat dependencies
         run: |
