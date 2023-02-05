@@ -1,5 +1,7 @@
 # Robot Framework Solidity Testing Toolkit
 
+[![Toolkit Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml)
+
 ![Robot](./notes-images-and-demonstrations/robotframework-ethereum.png)
 
 ## Disclaimer
