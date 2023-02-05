@@ -2,7 +2,7 @@ name: Build on Ubuntu
 on: push
 
 jobs:
-  build:
+  run-unit-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
@@ -15,9 +15,14 @@ jobs:
           sudo apt install python3.10
           python3 --version
           ls -la
-          pip3 install -r ./requirements.txt
+          pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt
           robot -h
-      - name: Install all required Hardhat dependencies
+      - name: Install NodeJS and all required Hardhat dependencies
         run: |
+          ls -la
           bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
           node --version
+      # - name: Run all unit tests using the BATS test framework
+      #   run: |
+      #     ls -la
+      #     bash ./start-maintenance-workflows.sh Run-Unit-Tests
