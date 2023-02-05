@@ -45,6 +45,7 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   npm audit fix --force
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
+  exit 0
 fi
 
 if [ "$1" == "Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux" ]; then
