@@ -16,7 +16,42 @@ if [ "$1" == "Clean-Up-Old-Test-Runs" ]; then
   pkill npm > /dev/null 2>&1
   pkill robot > /dev/null 2>&1
   rm -rf ./utest/unit-test-resources/*unit-test-log
+  rm -rf ./atest/acceptance-test-resources/*acceptance-test-log
   ls -la ./utest/unit-test-resources
+  ls -la ./atest/acceptance-test-resources
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Run-Acceptance-Tests" ]; then
+  echo
+  echo "------------------------------------[[[[ Run-Acceptance-Tests ]]]]------------------------------------"
+  echo
+  echo "This command will run acceptance tests. This run started on $TIMESTAMP."
+  echo
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  rm -rf ./atest/acceptance-test-resources/*acceptance-test-log
+  export CURRENT_PATH=$(pwd)
+  cd ./solidity-hardhat-multichain-tools
+  cd "$CURRENT_PATH"
+  cd ./atest
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  nvm install 18
+  nvm use 18
+  nvm alias default 18
+  npm install -g bats
+  npm install robotremote
+  npm update
+  npm audit fix --force
+  bats ./acceptance-tests.bats
+  ls -la 
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
 fi
@@ -57,7 +92,6 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   echo "This run ended on $TIMESTAMP2."
 fi
 
-
 usage_explanation() {
   echo
   echo
@@ -70,6 +104,7 @@ usage_explanation() {
   echo
   echo "bash ./start-maintenance-workflows.sh Clean-Up-Old-Test-Runs"
   echo "bash ./start-maintenance-workflows.sh Run-Unit-Tests"
+  echo "bash ./start-maintenance-workflows.sh Run-Acceptance-Tests"
   echo
   echo
 }

@@ -1,127 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.9.12 on darwin)" generated="20230201 16:09:49.128" rpa="true" schemaversion="3">
-<suite id="s1" name="Robot Framework Solidity Smart Contract Hardhat Deployment Ethereum Mainnet Fork" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/robotframework-hardhat-deployment-rpa-keywords.robot">
-<test id="s1-t1" name="Compile Solidity smart contracts using the &quot;npx hardhat compile&quot; command." line="14">
+<robot generator="Robot 6.0.2 (Python 3.9.12 on darwin)" generated="20230205 23:17:46.517" rpa="true" schemaversion="3">
+<suite id="s1" name="Robot Framework Solidity Smart Contract Hardhat Deployment Fantom Mainnet Fork" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/robotframework-hardhat-deployment-rpa-keywords.robot">
+<test id="s1-t1" name="DEPLOYMENT STEP 1 : Compile Solidity smart contracts using the &quot;npx hardhat compile&quot; command." line="14">
 <kw name="Remove File" library="OperatingSystem">
 <arg>${PATH}/logs/hardhat-contract-compile.log</arg>
 <doc>Removes a file with the given path.</doc>
-<msg timestamp="20230201 16:09:49.171" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-compile.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-compile.log&lt;/a&gt;' does not exist.</msg>
-<status status="PASS" starttime="20230201 16:09:49.170" endtime="20230201 16:09:49.171"/>
+<msg timestamp="20230205 23:17:46.560" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-compile.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-compile.log&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20230205 23:17:46.559" endtime="20230205 23:17:46.560"/>
 </kw>
 <kw name="Run Process" library="Process">
 <arg>cd ${PATH} &amp;&amp; echo "..." &gt; ./logs/hardhat-contract-compile.log &amp;&amp; npx hardhat compile &gt;&gt; ./logs/hardhat-contract-compile.log</arg>
 <arg>shell=yes</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<msg timestamp="20230201 16:09:49.171" level="INFO">Starting process:
+<msg timestamp="20230205 23:17:46.560" level="INFO">Starting process:
 cd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools &amp;&amp; echo "..." &gt; ./logs/hardhat-contract-compile.log &amp;&amp; npx hardhat compile &gt;&gt; ./logs/hardhat-contract-compile.log</msg>
-<msg timestamp="20230201 16:09:49.176" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20230201 16:09:50.769" level="INFO">Process completed.</msg>
-<status status="PASS" starttime="20230201 16:09:49.171" endtime="20230201 16:09:50.769"/>
+<msg timestamp="20230205 23:17:46.565" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230205 23:17:47.572" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230205 23:17:46.560" endtime="20230205 23:17:47.573"/>
 </kw>
 <kw name="Get File" library="OperatingSystem">
 <var>${OUTPUT}</var>
 <arg>${PATH}/logs/hardhat-contract-compile.log</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20230201 16:09:50.771" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-compile.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-compile.log&lt;/a&gt;'.</msg>
-<msg timestamp="20230201 16:09:50.771" level="INFO">${OUTPUT} = ...
+<msg timestamp="20230205 23:17:47.574" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-compile.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-compile.log&lt;/a&gt;'.</msg>
+<msg timestamp="20230205 23:17:47.574" level="INFO">${OUTPUT} = ...
 Nothing to compile
 </msg>
-<status status="PASS" starttime="20230201 16:09:50.770" endtime="20230201 16:09:50.771"/>
+<status status="PASS" starttime="20230205 23:17:47.573" endtime="20230205 23:17:47.574"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230201 16:09:50.772" level="INFO">...
+<msg timestamp="20230205 23:17:47.575" level="INFO">...
 Nothing to compile
 </msg>
-<status status="PASS" starttime="20230201 16:09:50.771" endtime="20230201 16:09:50.772"/>
+<status status="PASS" starttime="20230205 23:17:47.575" endtime="20230205 23:17:47.575"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:09:50.772" endtime="20230201 16:09:50.772"/>
+<status status="PASS" starttime="20230205 23:17:47.575" endtime="20230205 23:17:47.576"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:09:50.772" endtime="20230201 16:09:50.772"/>
+<status status="PASS" starttime="20230205 23:17:47.576" endtime="20230205 23:17:47.576"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:09:50.773" endtime="20230201 16:09:50.773"/>
+<status status="PASS" starttime="20230205 23:17:47.576" endtime="20230205 23:17:47.577"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:09:50.773" endtime="20230201 16:09:50.773"/>
+<status status="PASS" starttime="20230205 23:17:47.577" endtime="20230205 23:17:47.577"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:09:50.773" endtime="20230201 16:09:50.774"/>
+<status status="PASS" starttime="20230205 23:17:47.578" endtime="20230205 23:17:47.578"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:09:50.774" endtime="20230201 16:09:50.774"/>
+<status status="PASS" starttime="20230205 23:17:47.578" endtime="20230205 23:17:47.578"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:09:50.774" endtime="20230201 16:09:50.774"/>
+<status status="PASS" starttime="20230205 23:17:47.579" endtime="20230205 23:17:47.579"/>
 </kw>
 <kw name="Run Process" library="Process">
 <arg>killall node &amp;&amp; killall npm</arg>
 <arg>shell=yes</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<msg timestamp="20230201 16:09:50.775" level="INFO">Starting process:
+<msg timestamp="20230205 23:17:47.579" level="INFO">Starting process:
 killall node &amp;&amp; killall npm</msg>
-<msg timestamp="20230201 16:09:50.779" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20230201 16:09:50.795" level="INFO">Process completed.</msg>
-<status status="PASS" starttime="20230201 16:09:50.774" endtime="20230201 16:09:50.796"/>
+<msg timestamp="20230205 23:17:47.585" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230205 23:17:47.602" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230205 23:17:47.579" endtime="20230205 23:17:47.603"/>
 </kw>
-<status status="PASS" starttime="20230201 16:09:49.170" endtime="20230201 16:09:50.796"/>
+<status status="PASS" starttime="20230205 23:17:46.559" endtime="20230205 23:17:47.604"/>
 </test>
-<test id="s1-t2" name="Start a local JSON-RPC server node on top of Hardhat Network the &quot;npx hardhat node&quot; command, while forking the mainnet of a specific EVM compatible blockchain." line="28">
+<test id="s1-t2" name="DEPLOYMENT STEP 2 : Start a local JSON-RPC server node on top of Hardhat Network the &quot;npx hardhat node&quot; command, while forking the mainnet of a specific EVM compatible blockchain." line="28">
 <kw name="Remove File" library="OperatingSystem">
 <arg>${PATH}/logs/hardhat-${BLOCKCHAIN}-network-node.log</arg>
 <doc>Removes a file with the given path.</doc>
-<msg timestamp="20230201 16:09:50.798" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-Ethereum-network-node.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-Ethereum-network-node.log&lt;/a&gt;' does not exist.</msg>
-<status status="PASS" starttime="20230201 16:09:50.798" endtime="20230201 16:09:50.798"/>
+<msg timestamp="20230205 23:17:47.606" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-Fantom-network-node.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-Fantom-network-node.log&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20230205 23:17:47.605" endtime="20230205 23:17:47.606"/>
 </kw>
 <kw name="Start Process" library="Process">
 <arg>cd ${PATH} &amp;&amp; echo "..." &gt; ./logs/hardhat-${BLOCKCHAIN}-network-node.log &amp;&amp; npx hardhat node --config ${BLOCKCHAIN}.config.js &gt; ./logs/hardhat-${BLOCKCHAIN}-network-node.log &amp;</arg>
 <arg>shell=yes</arg>
 <doc>Starts a new process on background.</doc>
-<msg timestamp="20230201 16:09:50.799" level="INFO">Starting process:
-cd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools &amp;&amp; echo "..." &gt; ./logs/hardhat-Ethereum-network-node.log &amp;&amp; npx hardhat node --config Ethereum.config.js &gt; ./logs/hardhat-Ethereum-network-node.log &amp;</msg>
-<status status="PASS" starttime="20230201 16:09:50.799" endtime="20230201 16:09:50.803"/>
+<msg timestamp="20230205 23:17:47.607" level="INFO">Starting process:
+cd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools &amp;&amp; echo "..." &gt; ./logs/hardhat-Fantom-network-node.log &amp;&amp; npx hardhat node --config Fantom.config.js &gt; ./logs/hardhat-Fantom-network-node.log &amp;</msg>
+<status status="PASS" starttime="20230205 23:17:47.606" endtime="20230205 23:17:47.611"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>10s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230201 16:10:00.806" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20230201 16:09:50.804" endtime="20230201 16:10:00.806"/>
+<msg timestamp="20230205 23:17:57.613" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20230205 23:17:47.612" endtime="20230205 23:17:57.613"/>
 </kw>
 <kw name="Get File" library="OperatingSystem">
 <var>${OUTPUT}</var>
 <arg>${PATH}/logs/hardhat-${BLOCKCHAIN}-network-node.log</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20230201 16:10:00.807" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-Ethereum-network-node.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-Ethereum-network-node.log&lt;/a&gt;'.</msg>
-<msg timestamp="20230201 16:10:00.808" level="INFO">${OUTPUT} = Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
+<msg timestamp="20230205 23:17:57.616" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-Fantom-network-node.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-Fantom-network-node.log&lt;/a&gt;'.</msg>
+<msg timestamp="20230205 23:17:57.618" level="INFO">${OUTPUT} = Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
 
 Accounts
 ========
 
 WARNING: These accounts, and their private keys, are publicly known.
 Any funds sent to them on Mainnet or any o...</msg>
-<status status="PASS" starttime="20230201 16:10:00.807" endtime="20230201 16:10:00.808"/>
+<status status="PASS" starttime="20230205 23:17:57.614" endtime="20230205 23:17:57.618"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230201 16:10:00.809" level="INFO">Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
+<msg timestamp="20230205 23:17:57.619" level="INFO">Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
 
 Accounts
 ========
@@ -193,121 +193,121 @@ WARNING: These accounts, and their private keys, are publicly known.
 Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 
 </msg>
-<status status="PASS" starttime="20230201 16:10:00.809" endtime="20230201 16:10:00.809"/>
+<status status="PASS" starttime="20230205 23:17:57.619" endtime="20230205 23:17:57.619"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:00.809" endtime="20230201 16:10:00.810"/>
+<status status="PASS" starttime="20230205 23:17:57.620" endtime="20230205 23:17:57.620"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:00.810" endtime="20230201 16:10:00.810"/>
+<status status="PASS" starttime="20230205 23:17:57.620" endtime="20230205 23:17:57.621"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:00.810" endtime="20230201 16:10:00.811"/>
+<status status="PASS" starttime="20230205 23:17:57.621" endtime="20230205 23:17:57.621"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>This local Hardhat Network deployment ran a fork of the ${BLOCKCHAIN} mainnet.</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:00.811" endtime="20230201 16:10:00.811"/>
+<status status="PASS" starttime="20230205 23:17:57.622" endtime="20230205 23:17:57.622"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:00.811" endtime="20230201 16:10:00.812"/>
+<status status="PASS" starttime="20230205 23:17:57.622" endtime="20230205 23:17:57.623"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:00.812" endtime="20230201 16:10:00.812"/>
+<status status="PASS" starttime="20230205 23:17:57.623" endtime="20230205 23:17:57.623"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:00.813" endtime="20230201 16:10:00.813"/>
+<status status="PASS" starttime="20230205 23:17:57.623" endtime="20230205 23:17:57.624"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:00.813" endtime="20230201 16:10:00.813"/>
+<status status="PASS" starttime="20230205 23:17:57.624" endtime="20230205 23:17:57.624"/>
 </kw>
-<status status="PASS" starttime="20230201 16:09:50.797" endtime="20230201 16:10:00.814"/>
+<status status="PASS" starttime="20230205 23:17:47.604" endtime="20230205 23:17:57.624"/>
 </test>
-<test id="s1-t3" name="Deploy the compiled Solidity smart contracts to the local Hardhat Network node." line="43">
+<test id="s1-t3" name="DEPLOYMENT STEP 3 : Deploy the compiled Solidity smart contracts to the local Hardhat Network node." line="43">
 <kw name="Remove File" library="OperatingSystem">
 <arg>${PATH}/logs/hardhat-contract-deployment.log</arg>
 <doc>Removes a file with the given path.</doc>
-<msg timestamp="20230201 16:10:00.815" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-deployment.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-deployment.log&lt;/a&gt;' does not exist.</msg>
-<status status="PASS" starttime="20230201 16:10:00.815" endtime="20230201 16:10:00.815"/>
+<msg timestamp="20230205 23:17:57.626" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-deployment.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-deployment.log&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20230205 23:17:57.626" endtime="20230205 23:17:57.626"/>
 </kw>
 <kw name="Run Process" library="Process">
 <arg>cd ${PATH} &amp;&amp; echo "..." &gt; ./logs/hardhat-contract-deployment.log &amp;&amp; npx hardhat run --network ${NETWORK} ./scripts/deploy.js &gt;&gt; ./logs/hardhat-contract-deployment.log</arg>
 <arg>shell=yes</arg>
 <doc>Runs a process and waits for it to complete.</doc>
-<msg timestamp="20230201 16:10:00.816" level="INFO">Starting process:
+<msg timestamp="20230205 23:17:57.627" level="INFO">Starting process:
 cd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools &amp;&amp; echo "..." &gt; ./logs/hardhat-contract-deployment.log &amp;&amp; npx hardhat run --network hardhat ### This will deploy your smart contract to the local Hardhat Network Node ./scripts/deploy.js &gt;&gt; ./logs/hardhat-contract-deployment.log</msg>
-<msg timestamp="20230201 16:10:00.821" level="INFO">Waiting for process to complete.</msg>
-<msg timestamp="20230201 16:10:02.071" level="INFO">Process completed.</msg>
-<status status="PASS" starttime="20230201 16:10:00.815" endtime="20230201 16:10:02.072"/>
+<msg timestamp="20230205 23:17:57.632" level="INFO">Waiting for process to complete.</msg>
+<msg timestamp="20230205 23:17:58.624" level="INFO">Process completed.</msg>
+<status status="PASS" starttime="20230205 23:17:57.627" endtime="20230205 23:17:58.624"/>
 </kw>
 <kw name="Get File" library="OperatingSystem">
 <var>${OUTPUT}</var>
 <arg>${PATH}/logs/hardhat-contract-deployment.log</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20230201 16:10:02.073" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-deployment.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-deployment.log&lt;/a&gt;'.</msg>
-<msg timestamp="20230201 16:10:02.074" level="INFO">${OUTPUT} = ...
+<msg timestamp="20230205 23:17:58.626" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-deployment.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/logs/hardhat-contract-deployment.log&lt;/a&gt;'.</msg>
+<msg timestamp="20230205 23:17:58.626" level="INFO">${OUTPUT} = ...
 </msg>
-<status status="PASS" starttime="20230201 16:10:02.072" endtime="20230201 16:10:02.074"/>
+<status status="PASS" starttime="20230205 23:17:58.625" endtime="20230205 23:17:58.626"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230201 16:10:02.074" level="INFO">...
+<msg timestamp="20230205 23:17:58.627" level="INFO">...
 </msg>
-<status status="PASS" starttime="20230201 16:10:02.074" endtime="20230201 16:10:02.074"/>
+<status status="PASS" starttime="20230205 23:17:58.626" endtime="20230205 23:17:58.627"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:02.075" endtime="20230201 16:10:02.075"/>
+<status status="PASS" starttime="20230205 23:17:58.627" endtime="20230205 23:17:58.627"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:02.075" endtime="20230201 16:10:02.075"/>
+<status status="PASS" starttime="20230205 23:17:58.628" endtime="20230205 23:17:58.628"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:02.076" endtime="20230201 16:10:02.076"/>
+<status status="PASS" starttime="20230205 23:17:58.628" endtime="20230205 23:17:58.628"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:02.076" endtime="20230201 16:10:02.077"/>
+<status status="PASS" starttime="20230205 23:17:58.629" endtime="20230205 23:17:58.629"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:02.077" endtime="20230201 16:10:02.077"/>
+<status status="PASS" starttime="20230205 23:17:58.629" endtime="20230205 23:17:58.629"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:02.077" endtime="20230201 16:10:02.078"/>
+<status status="PASS" starttime="20230205 23:17:58.630" endtime="20230205 23:17:58.630"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230201 16:10:02.078" endtime="20230201 16:10:02.078"/>
+<status status="PASS" starttime="20230205 23:17:58.630" endtime="20230205 23:17:58.630"/>
 </kw>
-<status status="PASS" starttime="20230201 16:10:00.814" endtime="20230201 16:10:02.078"/>
+<status status="PASS" starttime="20230205 23:17:57.625" endtime="20230205 23:17:58.631"/>
 </test>
-<status status="PASS" starttime="20230201 16:09:49.130" endtime="20230201 16:10:02.080"/>
+<status status="PASS" starttime="20230205 23:17:46.519" endtime="20230205 23:17:58.632"/>
 </suite>
 <statistics>
 <total>
@@ -316,7 +316,7 @@ cd /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Cur
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Robot Framework Solidity Smart Contract Hardhat Deployment Ethereum Mainnet Fork">Robot Framework Solidity Smart Contract Hardhat Deployment Ethereum Mainnet Fork</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Robot Framework Solidity Smart Contract Hardhat Deployment Fantom Mainnet Fork">Robot Framework Solidity Smart Contract Hardhat Deployment Fantom Mainnet Fork</stat>
 </suite>
 </statistics>
 <errors>

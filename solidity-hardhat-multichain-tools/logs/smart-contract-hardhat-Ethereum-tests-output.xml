@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.9.12 on darwin)" generated="20230131 21:30:11.963" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.9.12 on darwin)" generated="20230205 23:35:30.730" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot Framework Solidity Smart Contract Hardhat Network Ethereum Test" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-hardhat-multichain-tools/robotframework-hardhat-test-keywords.robot">
-<test id="s1-t1" name="Get the deployed smart contract using the hardhat-ethers plugin object and check the result." line="9">
+<test id="s1-t1" name="HARDHAT ETHERS.JS TEST 1 : Get the deployed smart contract using the hardhat-ethers plugin object and check the result." line="9">
 <kw name="Get Contract" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.192" level="INFO">${RESULT} = {'checkContract': {'interface': {'fragments': [{'name': None, 'type': 'constructor', 'inputs': [], 'payable': False, 'stateMutability': 'nonpayable', 'gas': None, '_isFragment': True}, {'name': 'Appro...</msg>
-<status status="PASS" starttime="20230131 21:30:12.112" endtime="20230131 21:30:12.192"/>
+<msg timestamp="20230205 23:35:31.449" level="INFO">${RESULT} = {'checkContract': {'interface': {'fragments': [{'name': None, 'type': 'constructor', 'inputs': [], 'payable': False, 'stateMutability': 'nonpayable', 'gas': None, '_isFragment': True}, {'name': 'Appro...</msg>
+<status status="PASS" starttime="20230205 23:35:30.879" endtime="20230205 23:35:31.449"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${RESULT}</arg>
 <arg>errorName</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.193" endtime="20230131 21:30:12.193"/>
+<status status="PASS" starttime="20230205 23:35:31.450" endtime="20230205 23:35:31.450"/>
 </kw>
 <tag>Forked_Mainnet_Test</tag>
-<status status="PASS" starttime="20230131 21:30:12.111" endtime="20230131 21:30:12.193"/>
+<status status="PASS" starttime="20230205 23:35:30.878" endtime="20230205 23:35:31.450"/>
 </test>
-<test id="s1-t2" name="Get token name from the the deployed smart contract and check the result." line="15">
+<test id="s1-t2" name="HARDHAT ETHERS.JS TEST 2 : Get token name from the the deployed smart contract and check the result." line="14">
 <kw name="Get Name" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.227" level="INFO">${RESULT} = {'name': 'TestToken'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.194" endtime="20230131 21:30:12.227"/>
+<msg timestamp="20230205 23:35:31.484" level="INFO">${RESULT} = {'name': 'TestToken'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.451" endtime="20230205 23:35:31.484"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -28,71 +28,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.228" level="INFO">{'name': 'TestToken'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.228" endtime="20230131 21:30:12.228"/>
+<msg timestamp="20230205 23:35:31.485" level="INFO">{'name': 'TestToken'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.485" endtime="20230205 23:35:31.485"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.228" endtime="20230131 21:30:12.228"/>
+<status status="PASS" starttime="20230205 23:35:31.485" endtime="20230205 23:35:31.485"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.229" endtime="20230131 21:30:12.229"/>
+<status status="PASS" starttime="20230205 23:35:31.486" endtime="20230205 23:35:31.486"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.229" endtime="20230131 21:30:12.229"/>
+<status status="PASS" starttime="20230205 23:35:31.486" endtime="20230205 23:35:31.486"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.229" endtime="20230131 21:30:12.229"/>
+<status status="PASS" starttime="20230205 23:35:31.486" endtime="20230205 23:35:31.486"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.229" endtime="20230131 21:30:12.230"/>
+<status status="PASS" starttime="20230205 23:35:31.486" endtime="20230205 23:35:31.487"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.230" endtime="20230131 21:30:12.230"/>
+<status status="PASS" starttime="20230205 23:35:31.487" endtime="20230205 23:35:31.487"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.230" endtime="20230131 21:30:12.230"/>
+<status status="PASS" starttime="20230205 23:35:31.487" endtime="20230205 23:35:31.487"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.230" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.230" endtime="20230131 21:30:12.230"/>
+<msg timestamp="20230205 23:35:31.487" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.487" endtime="20230205 23:35:31.487"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.230" endtime="20230131 21:30:12.231"/>
+<status status="PASS" starttime="20230205 23:35:31.487" endtime="20230205 23:35:31.488"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.231" endtime="20230131 21:30:12.231"/>
+<status status="PASS" starttime="20230205 23:35:31.488" endtime="20230205 23:35:31.488"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.228" endtime="20230131 21:30:12.231"/>
+<status status="PASS" starttime="20230205 23:35:31.484" endtime="20230205 23:35:31.488"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.193" endtime="20230131 21:30:12.231"/>
+<status status="PASS" starttime="20230205 23:35:31.451" endtime="20230205 23:35:31.488"/>
 </test>
-<test id="s1-t3" name="Get token symbol from the the deployed smart contract and check the result." line="19">
+<test id="s1-t3" name="HARDHAT ETHERS.JS TEST 3 : Get token symbol from the the deployed smart contract and check the result." line="18">
 <kw name="Get Symbol" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.247" level="INFO">${RESULT} = {'symbol': 'TEST'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.232" endtime="20230131 21:30:12.247"/>
+<msg timestamp="20230205 23:35:31.513" level="INFO">${RESULT} = {'symbol': 'TEST'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.489" endtime="20230205 23:35:31.513"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -100,71 +100,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.248" level="INFO">{'symbol': 'TEST'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.247" endtime="20230131 21:30:12.248"/>
+<msg timestamp="20230205 23:35:31.514" level="INFO">{'symbol': 'TEST'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.514" endtime="20230205 23:35:31.514"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.248" endtime="20230131 21:30:12.248"/>
+<status status="PASS" starttime="20230205 23:35:31.514" endtime="20230205 23:35:31.515"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.248" endtime="20230131 21:30:12.248"/>
+<status status="PASS" starttime="20230205 23:35:31.515" endtime="20230205 23:35:31.515"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.248" endtime="20230131 21:30:12.248"/>
+<status status="PASS" starttime="20230205 23:35:31.515" endtime="20230205 23:35:31.515"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.248" endtime="20230131 21:30:12.249"/>
+<status status="PASS" starttime="20230205 23:35:31.516" endtime="20230205 23:35:31.516"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.249" endtime="20230131 21:30:12.249"/>
+<status status="PASS" starttime="20230205 23:35:31.516" endtime="20230205 23:35:31.516"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.249" endtime="20230131 21:30:12.249"/>
+<status status="PASS" starttime="20230205 23:35:31.516" endtime="20230205 23:35:31.517"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.249" endtime="20230131 21:30:12.249"/>
+<status status="PASS" starttime="20230205 23:35:31.517" endtime="20230205 23:35:31.517"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.250" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.249" endtime="20230131 21:30:12.250"/>
+<msg timestamp="20230205 23:35:31.517" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.517" endtime="20230205 23:35:31.517"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.250" endtime="20230131 21:30:12.250"/>
+<status status="PASS" starttime="20230205 23:35:31.517" endtime="20230205 23:35:31.517"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.250" endtime="20230131 21:30:12.250"/>
+<status status="PASS" starttime="20230205 23:35:31.518" endtime="20230205 23:35:31.518"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.247" endtime="20230131 21:30:12.250"/>
+<status status="PASS" starttime="20230205 23:35:31.514" endtime="20230205 23:35:31.518"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.232" endtime="20230131 21:30:12.250"/>
+<status status="PASS" starttime="20230205 23:35:31.489" endtime="20230205 23:35:31.518"/>
 </test>
-<test id="s1-t4" name="Get the decimals from the the deployed smart contract and check the result." line="23">
+<test id="s1-t4" name="HARDHAT ETHERS.JS TEST 4 : Get the decimals from the the deployed smart contract and check the result." line="22">
 <kw name="Get Default Decimals" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.267" level="INFO">${RESULT} = {'decimals': 18}</msg>
-<status status="PASS" starttime="20230131 21:30:12.251" endtime="20230131 21:30:12.267"/>
+<msg timestamp="20230205 23:35:31.540" level="INFO">${RESULT} = {'decimals': 18}</msg>
+<status status="PASS" starttime="20230205 23:35:31.519" endtime="20230205 23:35:31.540"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -172,71 +172,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.268" level="INFO">{'decimals': 18}</msg>
-<status status="PASS" starttime="20230131 21:30:12.268" endtime="20230131 21:30:12.268"/>
+<msg timestamp="20230205 23:35:31.542" level="INFO">{'decimals': 18}</msg>
+<status status="PASS" starttime="20230205 23:35:31.541" endtime="20230205 23:35:31.542"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.268" endtime="20230131 21:30:12.268"/>
+<status status="PASS" starttime="20230205 23:35:31.542" endtime="20230205 23:35:31.542"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.268" endtime="20230131 21:30:12.268"/>
+<status status="PASS" starttime="20230205 23:35:31.542" endtime="20230205 23:35:31.542"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.268" endtime="20230131 21:30:12.269"/>
+<status status="PASS" starttime="20230205 23:35:31.542" endtime="20230205 23:35:31.543"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.269" endtime="20230131 21:30:12.269"/>
+<status status="PASS" starttime="20230205 23:35:31.543" endtime="20230205 23:35:31.543"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.269" endtime="20230131 21:30:12.269"/>
+<status status="PASS" starttime="20230205 23:35:31.543" endtime="20230205 23:35:31.543"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.270" endtime="20230131 21:30:12.270"/>
+<status status="PASS" starttime="20230205 23:35:31.543" endtime="20230205 23:35:31.543"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.270" endtime="20230131 21:30:12.270"/>
+<status status="PASS" starttime="20230205 23:35:31.544" endtime="20230205 23:35:31.544"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.270" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.270" endtime="20230131 21:30:12.270"/>
+<msg timestamp="20230205 23:35:31.544" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.544" endtime="20230205 23:35:31.544"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.270" endtime="20230131 21:30:12.271"/>
+<status status="PASS" starttime="20230205 23:35:31.544" endtime="20230205 23:35:31.544"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.271" endtime="20230131 21:30:12.271"/>
+<status status="PASS" starttime="20230205 23:35:31.544" endtime="20230205 23:35:31.544"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.267" endtime="20230131 21:30:12.271"/>
+<status status="PASS" starttime="20230205 23:35:31.541" endtime="20230205 23:35:31.545"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.251" endtime="20230131 21:30:12.271"/>
+<status status="PASS" starttime="20230205 23:35:31.519" endtime="20230205 23:35:31.545"/>
 </test>
-<test id="s1-t5" name="Get total token supply from the the deployed smart contract and check the result." line="27">
+<test id="s1-t5" name="HARDHAT ETHERS.JS TEST 5 : Get total token supply from the the deployed smart contract and check the result." line="26">
 <kw name="Get Total Supply" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.295" level="INFO">${RESULT} = {'totalSupplyFormatUnits': '1000000.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.272" endtime="20230131 21:30:12.295"/>
+<msg timestamp="20230205 23:35:31.576" level="INFO">${RESULT} = {'totalSupplyFormatUnits': '1000000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.545" endtime="20230205 23:35:31.576"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -244,71 +244,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.296" level="INFO">{'totalSupplyFormatUnits': '1000000.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.295" endtime="20230131 21:30:12.296"/>
+<msg timestamp="20230205 23:35:31.576" level="INFO">{'totalSupplyFormatUnits': '1000000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.576" endtime="20230205 23:35:31.576"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.296" endtime="20230131 21:30:12.296"/>
+<status status="PASS" starttime="20230205 23:35:31.577" endtime="20230205 23:35:31.577"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.296" endtime="20230131 21:30:12.296"/>
+<status status="PASS" starttime="20230205 23:35:31.577" endtime="20230205 23:35:31.577"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.296" endtime="20230131 21:30:12.296"/>
+<status status="PASS" starttime="20230205 23:35:31.577" endtime="20230205 23:35:31.577"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.296" endtime="20230131 21:30:12.297"/>
+<status status="PASS" starttime="20230205 23:35:31.577" endtime="20230205 23:35:31.577"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.297" endtime="20230131 21:30:12.297"/>
+<status status="PASS" starttime="20230205 23:35:31.577" endtime="20230205 23:35:31.578"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.297" endtime="20230131 21:30:12.297"/>
+<status status="PASS" starttime="20230205 23:35:31.578" endtime="20230205 23:35:31.578"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.297" endtime="20230131 21:30:12.297"/>
+<status status="PASS" starttime="20230205 23:35:31.578" endtime="20230205 23:35:31.578"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.297" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.297" endtime="20230131 21:30:12.297"/>
+<msg timestamp="20230205 23:35:31.578" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.578" endtime="20230205 23:35:31.578"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.298" endtime="20230131 21:30:12.298"/>
+<status status="PASS" starttime="20230205 23:35:31.578" endtime="20230205 23:35:31.579"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.298" endtime="20230131 21:30:12.298"/>
+<status status="PASS" starttime="20230205 23:35:31.579" endtime="20230205 23:35:31.579"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.295" endtime="20230131 21:30:12.298"/>
+<status status="PASS" starttime="20230205 23:35:31.576" endtime="20230205 23:35:31.579"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.271" endtime="20230131 21:30:12.298"/>
+<status status="PASS" starttime="20230205 23:35:31.545" endtime="20230205 23:35:31.579"/>
 </test>
-<test id="s1-t6" name="Get balance of tokens from the address of the deployed smart contract owner and check the result." line="31">
-<kw name="Get Token Contract Address" library="Remote">
+<test id="s1-t6" name="HARDHAT ETHERS.JS TEST 6 : Get balance of tokens from the address of the deployed smart contract owner and check the result." line="30">
+<kw name="Get Token Balance Address" library="Remote">
 <var>${TOKEN_ADDRESS}</var>
-<msg timestamp="20230131 21:30:12.317" level="INFO">${TOKEN_ADDRESS} = {'testTokenAddress': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.299" endtime="20230131 21:30:12.317"/>
+<msg timestamp="20230205 23:35:31.600" level="INFO">${TOKEN_ADDRESS} = {'testTokenAddress': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.580" endtime="20230205 23:35:31.600"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${TOKEN_ADDRESS}</arg>
@@ -316,68 +316,68 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.318" level="INFO">{'testTokenAddress': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.318" endtime="20230131 21:30:12.318"/>
+<msg timestamp="20230205 23:35:31.601" level="INFO">{'testTokenAddress': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.601" endtime="20230205 23:35:31.601"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.318" endtime="20230131 21:30:12.318"/>
+<status status="PASS" starttime="20230205 23:35:31.601" endtime="20230205 23:35:31.601"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.318" endtime="20230131 21:30:12.319"/>
+<status status="PASS" starttime="20230205 23:35:31.601" endtime="20230205 23:35:31.601"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.319" endtime="20230131 21:30:12.319"/>
+<status status="PASS" starttime="20230205 23:35:31.601" endtime="20230205 23:35:31.602"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.319" endtime="20230131 21:30:12.319"/>
+<status status="PASS" starttime="20230205 23:35:31.602" endtime="20230205 23:35:31.602"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.320" endtime="20230131 21:30:12.320"/>
+<status status="PASS" starttime="20230205 23:35:31.602" endtime="20230205 23:35:31.602"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.320" endtime="20230131 21:30:12.320"/>
+<status status="PASS" starttime="20230205 23:35:31.602" endtime="20230205 23:35:31.603"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.321" endtime="20230131 21:30:12.321"/>
+<status status="PASS" starttime="20230205 23:35:31.603" endtime="20230205 23:35:31.603"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.321" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.321" endtime="20230131 21:30:12.321"/>
+<msg timestamp="20230205 23:35:31.603" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.603" endtime="20230205 23:35:31.603"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.321" endtime="20230131 21:30:12.321"/>
+<status status="PASS" starttime="20230205 23:35:31.603" endtime="20230205 23:35:31.604"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.321" endtime="20230131 21:30:12.322"/>
+<status status="PASS" starttime="20230205 23:35:31.604" endtime="20230205 23:35:31.604"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.317" endtime="20230131 21:30:12.322"/>
+<status status="PASS" starttime="20230205 23:35:31.600" endtime="20230205 23:35:31.604"/>
 </kw>
 <kw name="Get Balance Of Address" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.347" level="INFO">${RESULT} = {'addressBalance': '682800.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.322" endtime="20230131 21:30:12.347"/>
+<msg timestamp="20230205 23:35:31.637" level="INFO">${RESULT} = {'addressBalance': '1000000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.604" endtime="20230205 23:35:31.637"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -385,71 +385,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.348" level="INFO">{'addressBalance': '682800.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.348" endtime="20230131 21:30:12.349"/>
+<msg timestamp="20230205 23:35:31.638" level="INFO">{'addressBalance': '1000000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.638" endtime="20230205 23:35:31.638"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.349" endtime="20230131 21:30:12.349"/>
+<status status="PASS" starttime="20230205 23:35:31.638" endtime="20230205 23:35:31.638"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.349" endtime="20230131 21:30:12.349"/>
+<status status="PASS" starttime="20230205 23:35:31.638" endtime="20230205 23:35:31.639"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.349" endtime="20230131 21:30:12.350"/>
+<status status="PASS" starttime="20230205 23:35:31.639" endtime="20230205 23:35:31.639"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.350" endtime="20230131 21:30:12.350"/>
+<status status="PASS" starttime="20230205 23:35:31.639" endtime="20230205 23:35:31.639"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.350" endtime="20230131 21:30:12.350"/>
+<status status="PASS" starttime="20230205 23:35:31.639" endtime="20230205 23:35:31.639"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.350" endtime="20230131 21:30:12.351"/>
+<status status="PASS" starttime="20230205 23:35:31.640" endtime="20230205 23:35:31.640"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.351" endtime="20230131 21:30:12.351"/>
+<status status="PASS" starttime="20230205 23:35:31.640" endtime="20230205 23:35:31.640"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.351" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.351" endtime="20230131 21:30:12.351"/>
+<msg timestamp="20230205 23:35:31.640" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.640" endtime="20230205 23:35:31.640"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.351" endtime="20230131 21:30:12.351"/>
+<status status="PASS" starttime="20230205 23:35:31.640" endtime="20230205 23:35:31.640"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.352" endtime="20230131 21:30:12.352"/>
+<status status="PASS" starttime="20230205 23:35:31.640" endtime="20230205 23:35:31.641"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.348" endtime="20230131 21:30:12.352"/>
+<status status="PASS" starttime="20230205 23:35:31.637" endtime="20230205 23:35:31.641"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.298" endtime="20230131 21:30:12.352"/>
+<status status="PASS" starttime="20230205 23:35:31.579" endtime="20230205 23:35:31.641"/>
 </test>
-<test id="s1-t7" name="Transfer tokens to a target address from the contract owner address and check the result." line="37">
+<test id="s1-t7" name="HARDHAT ETHERS.JS TEST 7 : Transfer tokens to a target address from the contract owner address and check the result." line="36">
 <kw name="Get Receiver Target Address" library="Remote">
 <var>${RECEIVING_ADDRESS}</var>
-<msg timestamp="20230131 21:30:12.371" level="INFO">${RECEIVING_ADDRESS} = {'receivingAddress': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.353" endtime="20230131 21:30:12.371"/>
+<msg timestamp="20230205 23:35:31.660" level="INFO">${RECEIVING_ADDRESS} = {'receivingAddress': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.642" endtime="20230205 23:35:31.660"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RECEIVING_ADDRESS}</arg>
@@ -457,68 +457,68 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.372" level="INFO">{'receivingAddress': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.371" endtime="20230131 21:30:12.372"/>
+<msg timestamp="20230205 23:35:31.661" level="INFO">{'receivingAddress': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.661" endtime="20230205 23:35:31.661"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.372" endtime="20230131 21:30:12.372"/>
+<status status="PASS" starttime="20230205 23:35:31.661" endtime="20230205 23:35:31.661"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.372" endtime="20230131 21:30:12.372"/>
+<status status="PASS" starttime="20230205 23:35:31.661" endtime="20230205 23:35:31.662"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.372" endtime="20230131 21:30:12.373"/>
+<status status="PASS" starttime="20230205 23:35:31.662" endtime="20230205 23:35:31.662"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.373" endtime="20230131 21:30:12.373"/>
+<status status="PASS" starttime="20230205 23:35:31.662" endtime="20230205 23:35:31.662"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.373" endtime="20230131 21:30:12.373"/>
+<status status="PASS" starttime="20230205 23:35:31.662" endtime="20230205 23:35:31.663"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.373" endtime="20230131 21:30:12.373"/>
+<status status="PASS" starttime="20230205 23:35:31.663" endtime="20230205 23:35:31.663"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.373" endtime="20230131 21:30:12.374"/>
+<status status="PASS" starttime="20230205 23:35:31.663" endtime="20230205 23:35:31.663"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.374" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.374" endtime="20230131 21:30:12.374"/>
+<msg timestamp="20230205 23:35:31.663" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.663" endtime="20230205 23:35:31.663"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.374" endtime="20230131 21:30:12.374"/>
+<status status="PASS" starttime="20230205 23:35:31.664" endtime="20230205 23:35:31.664"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.374" endtime="20230131 21:30:12.374"/>
+<status status="PASS" starttime="20230205 23:35:31.664" endtime="20230205 23:35:31.664"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.371" endtime="20230131 21:30:12.374"/>
+<status status="PASS" starttime="20230205 23:35:31.661" endtime="20230205 23:35:31.664"/>
 </kw>
 <kw name="Transfer To Target Address" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.433" level="INFO">${RESULT} = {'receiverBalanceFormatUnits': '397200.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.375" endtime="20230131 21:30:12.433"/>
+<msg timestamp="20230205 23:35:31.756" level="INFO">${RESULT} = {'receiverBalanceFormatUnits': '80000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.664" endtime="20230205 23:35:31.756"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -526,71 +526,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.434" level="INFO">{'receiverBalanceFormatUnits': '397200.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.433" endtime="20230131 21:30:12.434"/>
+<msg timestamp="20230205 23:35:31.757" level="INFO">{'receiverBalanceFormatUnits': '80000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.757" endtime="20230205 23:35:31.757"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.434" endtime="20230131 21:30:12.434"/>
+<status status="PASS" starttime="20230205 23:35:31.757" endtime="20230205 23:35:31.757"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.434" endtime="20230131 21:30:12.434"/>
+<status status="PASS" starttime="20230205 23:35:31.757" endtime="20230205 23:35:31.757"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.434" endtime="20230131 21:30:12.435"/>
+<status status="PASS" starttime="20230205 23:35:31.757" endtime="20230205 23:35:31.758"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.435" endtime="20230131 21:30:12.435"/>
+<status status="PASS" starttime="20230205 23:35:31.758" endtime="20230205 23:35:31.758"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.435" endtime="20230131 21:30:12.435"/>
+<status status="PASS" starttime="20230205 23:35:31.758" endtime="20230205 23:35:31.758"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.435" endtime="20230131 21:30:12.436"/>
+<status status="PASS" starttime="20230205 23:35:31.758" endtime="20230205 23:35:31.758"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.436" endtime="20230131 21:30:12.436"/>
+<status status="PASS" starttime="20230205 23:35:31.759" endtime="20230205 23:35:31.759"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.436" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.436" endtime="20230131 21:30:12.436"/>
+<msg timestamp="20230205 23:35:31.759" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.759" endtime="20230205 23:35:31.759"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.436" endtime="20230131 21:30:12.436"/>
+<status status="PASS" starttime="20230205 23:35:31.759" endtime="20230205 23:35:31.759"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.436" endtime="20230131 21:30:12.437"/>
+<status status="PASS" starttime="20230205 23:35:31.759" endtime="20230205 23:35:31.759"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.433" endtime="20230131 21:30:12.437"/>
+<status status="PASS" starttime="20230205 23:35:31.756" endtime="20230205 23:35:31.760"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.352" endtime="20230131 21:30:12.437"/>
+<status status="PASS" starttime="20230205 23:35:31.641" endtime="20230205 23:35:31.760"/>
 </test>
-<test id="s1-t8" name="Get balance of tokens from the address of the deployed smart contract owner after sending tokens to another address and check the result." line="43">
+<test id="s1-t8" name="HARDHAT ETHERS.JS TEST 8 : Get balance of tokens from the address of the deployed smart contract owner after sending tokens to another address and check the result." line="42">
 <kw name="Get Balance Of Address" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.459" level="INFO">${RESULT} = {'addressBalance': '602800.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.438" endtime="20230131 21:30:12.459"/>
+<msg timestamp="20230205 23:35:31.790" level="INFO">${RESULT} = {'addressBalance': '920000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.760" endtime="20230205 23:35:31.790"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -598,71 +598,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.460" level="INFO">{'addressBalance': '602800.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.459" endtime="20230131 21:30:12.460"/>
+<msg timestamp="20230205 23:35:31.790" level="INFO">{'addressBalance': '920000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.790" endtime="20230205 23:35:31.790"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.460" endtime="20230131 21:30:12.460"/>
+<status status="PASS" starttime="20230205 23:35:31.790" endtime="20230205 23:35:31.791"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.460" endtime="20230131 21:30:12.460"/>
+<status status="PASS" starttime="20230205 23:35:31.791" endtime="20230205 23:35:31.791"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.460" endtime="20230131 21:30:12.461"/>
+<status status="PASS" starttime="20230205 23:35:31.791" endtime="20230205 23:35:31.791"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.461" endtime="20230131 21:30:12.461"/>
+<status status="PASS" starttime="20230205 23:35:31.791" endtime="20230205 23:35:31.791"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.461" endtime="20230131 21:30:12.461"/>
+<status status="PASS" starttime="20230205 23:35:31.791" endtime="20230205 23:35:31.791"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.461" endtime="20230131 21:30:12.462"/>
+<status status="PASS" starttime="20230205 23:35:31.792" endtime="20230205 23:35:31.792"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.462" endtime="20230131 21:30:12.462"/>
+<status status="PASS" starttime="20230205 23:35:31.792" endtime="20230205 23:35:31.792"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.462" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.462" endtime="20230131 21:30:12.462"/>
+<msg timestamp="20230205 23:35:31.792" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.792" endtime="20230205 23:35:31.792"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.462" endtime="20230131 21:30:12.462"/>
+<status status="PASS" starttime="20230205 23:35:31.792" endtime="20230205 23:35:31.792"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.463" endtime="20230131 21:30:12.463"/>
+<status status="PASS" starttime="20230205 23:35:31.792" endtime="20230205 23:35:31.793"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.459" endtime="20230131 21:30:12.463"/>
+<status status="PASS" starttime="20230205 23:35:31.790" endtime="20230205 23:35:31.793"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.437" endtime="20230131 21:30:12.463"/>
+<status status="PASS" starttime="20230205 23:35:31.760" endtime="20230205 23:35:31.793"/>
 </test>
-<test id="s1-t9" name="Approve a specific amount of tokens for a target address, show the allowance, and check the result." line="47">
+<test id="s1-t9" name="HARDHAT ETHERS.JS TEST 9 : Approve a specific amount of tokens for a target address, show the allowance, and check the result." line="46">
 <kw name="Approve Spender Amount" library="Remote">
 <var>${APPROVAL_OUTPUT}</var>
-<msg timestamp="20230131 21:30:12.506" level="INFO">${APPROVAL_OUTPUT} = {'approvalSuccess': 'Amount has been approved'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.464" endtime="20230131 21:30:12.507"/>
+<msg timestamp="20230205 23:35:31.850" level="INFO">${APPROVAL_OUTPUT} = {'approvalSuccess': 'Amount has been approved'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.794" endtime="20230205 23:35:31.850"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${APPROVAL_OUTPUT}</arg>
@@ -670,68 +670,68 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.507" level="INFO">{'approvalSuccess': 'Amount has been approved'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.507" endtime="20230131 21:30:12.507"/>
+<msg timestamp="20230205 23:35:31.851" level="INFO">{'approvalSuccess': 'Amount has been approved'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.851" endtime="20230205 23:35:31.851"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.507" endtime="20230131 21:30:12.508"/>
+<status status="PASS" starttime="20230205 23:35:31.851" endtime="20230205 23:35:31.851"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.508" endtime="20230131 21:30:12.508"/>
+<status status="PASS" starttime="20230205 23:35:31.851" endtime="20230205 23:35:31.851"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.508" endtime="20230131 21:30:12.508"/>
+<status status="PASS" starttime="20230205 23:35:31.852" endtime="20230205 23:35:31.852"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.508" endtime="20230131 21:30:12.508"/>
+<status status="PASS" starttime="20230205 23:35:31.852" endtime="20230205 23:35:31.852"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.509" endtime="20230131 21:30:12.509"/>
+<status status="PASS" starttime="20230205 23:35:31.852" endtime="20230205 23:35:31.852"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.509" endtime="20230131 21:30:12.509"/>
+<status status="PASS" starttime="20230205 23:35:31.852" endtime="20230205 23:35:31.853"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.509" endtime="20230131 21:30:12.509"/>
+<status status="PASS" starttime="20230205 23:35:31.853" endtime="20230205 23:35:31.853"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.510" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.510" endtime="20230131 21:30:12.510"/>
+<msg timestamp="20230205 23:35:31.853" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.853" endtime="20230205 23:35:31.853"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.510" endtime="20230131 21:30:12.510"/>
+<status status="PASS" starttime="20230205 23:35:31.853" endtime="20230205 23:35:31.853"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.510" endtime="20230131 21:30:12.510"/>
+<status status="PASS" starttime="20230205 23:35:31.853" endtime="20230205 23:35:31.854"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.507" endtime="20230131 21:30:12.510"/>
+<status status="PASS" starttime="20230205 23:35:31.850" endtime="20230205 23:35:31.854"/>
 </kw>
 <kw name="Show Spender Allowance" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.543" level="INFO">${RESULT} = {'showAllowance': '200000.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.511" endtime="20230131 21:30:12.543"/>
+<msg timestamp="20230205 23:35:31.885" level="INFO">${RESULT} = {'showAllowance': '200000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.854" endtime="20230205 23:35:31.885"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -739,71 +739,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.546" level="INFO">{'showAllowance': '200000.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.544" endtime="20230131 21:30:12.546"/>
+<msg timestamp="20230205 23:35:31.888" level="INFO">{'showAllowance': '200000.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.886" endtime="20230205 23:35:31.888"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.546" endtime="20230131 21:30:12.546"/>
+<status status="PASS" starttime="20230205 23:35:31.888" endtime="20230205 23:35:31.888"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.546" endtime="20230131 21:30:12.547"/>
+<status status="PASS" starttime="20230205 23:35:31.888" endtime="20230205 23:35:31.888"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.547" endtime="20230131 21:30:12.547"/>
+<status status="PASS" starttime="20230205 23:35:31.889" endtime="20230205 23:35:31.889"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.547" endtime="20230131 21:30:12.547"/>
+<status status="PASS" starttime="20230205 23:35:31.889" endtime="20230205 23:35:31.889"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.548" endtime="20230131 21:30:12.548"/>
+<status status="PASS" starttime="20230205 23:35:31.889" endtime="20230205 23:35:31.889"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.548" endtime="20230131 21:30:12.548"/>
+<status status="PASS" starttime="20230205 23:35:31.890" endtime="20230205 23:35:31.890"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.548" endtime="20230131 21:30:12.549"/>
+<status status="PASS" starttime="20230205 23:35:31.890" endtime="20230205 23:35:31.890"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.549" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.549" endtime="20230131 21:30:12.550"/>
+<msg timestamp="20230205 23:35:31.891" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.890" endtime="20230205 23:35:31.891"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.550" endtime="20230131 21:30:12.551"/>
+<status status="PASS" starttime="20230205 23:35:31.891" endtime="20230205 23:35:31.891"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.551" endtime="20230131 21:30:12.551"/>
+<status status="PASS" starttime="20230205 23:35:31.891" endtime="20230205 23:35:31.892"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.543" endtime="20230131 21:30:12.551"/>
+<status status="PASS" starttime="20230205 23:35:31.885" endtime="20230205 23:35:31.892"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.463" endtime="20230131 21:30:12.552"/>
+<status status="PASS" starttime="20230205 23:35:31.793" endtime="20230205 23:35:31.892"/>
 </test>
-<test id="s1-t10" name="Transfer tokens from a target address to the contract owner address and check the result." line="53">
-<kw name="Get Token Contract Address" library="Remote">
+<test id="s1-t10" name="HARDHAT ETHERS.JS TEST 10 : Transfer tokens from a target address to the contract owner address and check the result." line="52">
+<kw name="Get Token Balance Address" library="Remote">
 <var>${TOKEN_ADDRESS}</var>
-<msg timestamp="20230131 21:30:12.581" level="INFO">${TOKEN_ADDRESS} = {'testTokenAddress': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.553" endtime="20230131 21:30:12.581"/>
+<msg timestamp="20230205 23:35:31.915" level="INFO">${TOKEN_ADDRESS} = {'testTokenAddress': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.894" endtime="20230205 23:35:31.915"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${TOKEN_ADDRESS}</arg>
@@ -811,68 +811,68 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.581" level="INFO">{'testTokenAddress': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.581" endtime="20230131 21:30:12.581"/>
+<msg timestamp="20230205 23:35:31.916" level="INFO">{'testTokenAddress': '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.916" endtime="20230205 23:35:31.916"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.581" endtime="20230131 21:30:12.582"/>
+<status status="PASS" starttime="20230205 23:35:31.917" endtime="20230205 23:35:31.917"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.582" endtime="20230131 21:30:12.582"/>
+<status status="PASS" starttime="20230205 23:35:31.917" endtime="20230205 23:35:31.918"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.582" endtime="20230131 21:30:12.582"/>
+<status status="PASS" starttime="20230205 23:35:31.918" endtime="20230205 23:35:31.918"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.583" endtime="20230131 21:30:12.583"/>
+<status status="PASS" starttime="20230205 23:35:31.918" endtime="20230205 23:35:31.918"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.583" endtime="20230131 21:30:12.583"/>
+<status status="PASS" starttime="20230205 23:35:31.918" endtime="20230205 23:35:31.918"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.583" endtime="20230131 21:30:12.583"/>
+<status status="PASS" starttime="20230205 23:35:31.918" endtime="20230205 23:35:31.919"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.584" endtime="20230131 21:30:12.584"/>
+<status status="PASS" starttime="20230205 23:35:31.919" endtime="20230205 23:35:31.919"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.584" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.584" endtime="20230131 21:30:12.584"/>
+<msg timestamp="20230205 23:35:31.919" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.919" endtime="20230205 23:35:31.919"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.584" endtime="20230131 21:30:12.584"/>
+<status status="PASS" starttime="20230205 23:35:31.919" endtime="20230205 23:35:31.920"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.584" endtime="20230131 21:30:12.585"/>
+<status status="PASS" starttime="20230205 23:35:31.920" endtime="20230205 23:35:31.920"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.581" endtime="20230131 21:30:12.585"/>
+<status status="PASS" starttime="20230205 23:35:31.915" endtime="20230205 23:35:31.920"/>
 </kw>
 <kw name="Get Receiver Target Address" library="Remote">
 <var>${RECEIVING_ADDRESS}</var>
-<msg timestamp="20230131 21:30:12.601" level="INFO">${RECEIVING_ADDRESS} = {'receivingAddress': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.585" endtime="20230131 21:30:12.601"/>
+<msg timestamp="20230205 23:35:31.940" level="INFO">${RECEIVING_ADDRESS} = {'receivingAddress': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.920" endtime="20230205 23:35:31.940"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RECEIVING_ADDRESS}</arg>
@@ -880,68 +880,68 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.603" level="INFO">{'receivingAddress': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.602" endtime="20230131 21:30:12.603"/>
+<msg timestamp="20230205 23:35:31.941" level="INFO">{'receivingAddress': '0x70997970C51812dc3A010C7d01b50e0d17dc79C8'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.941" endtime="20230205 23:35:31.941"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.603" endtime="20230131 21:30:12.603"/>
+<status status="PASS" starttime="20230205 23:35:31.941" endtime="20230205 23:35:31.941"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.603" endtime="20230131 21:30:12.603"/>
+<status status="PASS" starttime="20230205 23:35:31.942" endtime="20230205 23:35:31.942"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.603" endtime="20230131 21:30:12.604"/>
+<status status="PASS" starttime="20230205 23:35:31.942" endtime="20230205 23:35:31.942"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.604" endtime="20230131 21:30:12.604"/>
+<status status="PASS" starttime="20230205 23:35:31.942" endtime="20230205 23:35:31.943"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.604" endtime="20230131 21:30:12.604"/>
+<status status="PASS" starttime="20230205 23:35:31.943" endtime="20230205 23:35:31.943"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.604" endtime="20230131 21:30:12.605"/>
+<status status="PASS" starttime="20230205 23:35:31.943" endtime="20230205 23:35:31.943"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.605" endtime="20230131 21:30:12.605"/>
+<status status="PASS" starttime="20230205 23:35:31.943" endtime="20230205 23:35:31.943"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.605" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.605" endtime="20230131 21:30:12.605"/>
+<msg timestamp="20230205 23:35:31.944" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:31.943" endtime="20230205 23:35:31.944"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.605" endtime="20230131 21:30:12.606"/>
+<status status="PASS" starttime="20230205 23:35:31.944" endtime="20230205 23:35:31.945"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.606" endtime="20230131 21:30:12.606"/>
+<status status="PASS" starttime="20230205 23:35:31.945" endtime="20230205 23:35:31.945"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.602" endtime="20230131 21:30:12.606"/>
+<status status="PASS" starttime="20230205 23:35:31.940" endtime="20230205 23:35:31.945"/>
 </kw>
 <kw name="Transfer From Target Address" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.689" level="INFO">${RESULT} = {'senderBalanceFormatUnits': '396500.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.608" endtime="20230131 21:30:12.690"/>
+<msg timestamp="20230205 23:35:32.041" level="INFO">${RESULT} = {'senderBalanceFormatUnits': '79300.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:31.945" endtime="20230205 23:35:32.041"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -949,71 +949,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.691" level="INFO">{'senderBalanceFormatUnits': '396500.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.690" endtime="20230131 21:30:12.691"/>
+<msg timestamp="20230205 23:35:32.042" level="INFO">{'senderBalanceFormatUnits': '79300.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:32.042" endtime="20230205 23:35:32.042"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.691" endtime="20230131 21:30:12.691"/>
+<status status="PASS" starttime="20230205 23:35:32.042" endtime="20230205 23:35:32.042"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.691" endtime="20230131 21:30:12.692"/>
+<status status="PASS" starttime="20230205 23:35:32.042" endtime="20230205 23:35:32.043"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.692" endtime="20230131 21:30:12.692"/>
+<status status="PASS" starttime="20230205 23:35:32.043" endtime="20230205 23:35:32.043"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.692" endtime="20230131 21:30:12.692"/>
+<status status="PASS" starttime="20230205 23:35:32.043" endtime="20230205 23:35:32.043"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.692" endtime="20230131 21:30:12.693"/>
+<status status="PASS" starttime="20230205 23:35:32.043" endtime="20230205 23:35:32.043"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.693" endtime="20230131 21:30:12.693"/>
+<status status="PASS" starttime="20230205 23:35:32.043" endtime="20230205 23:35:32.044"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.693" endtime="20230131 21:30:12.693"/>
+<status status="PASS" starttime="20230205 23:35:32.044" endtime="20230205 23:35:32.044"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.694" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.693" endtime="20230131 21:30:12.694"/>
+<msg timestamp="20230205 23:35:32.044" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:32.044" endtime="20230205 23:35:32.044"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.694" endtime="20230131 21:30:12.694"/>
+<status status="PASS" starttime="20230205 23:35:32.044" endtime="20230205 23:35:32.044"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.694" endtime="20230131 21:30:12.694"/>
+<status status="PASS" starttime="20230205 23:35:32.044" endtime="20230205 23:35:32.045"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.690" endtime="20230131 21:30:12.694"/>
+<status status="PASS" starttime="20230205 23:35:32.042" endtime="20230205 23:35:32.045"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.552" endtime="20230131 21:30:12.695"/>
+<status status="PASS" starttime="20230205 23:35:31.893" endtime="20230205 23:35:32.045"/>
 </test>
-<test id="s1-t11" name="Increase the allowance of the spender account and check the result." line="61">
+<test id="s1-t11" name="HARDHAT ETHERS.JS TEST 11 : Increase the allowance of the spender account and check the result." line="60">
 <kw name="Increase Spender Allowance" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.745" level="INFO">${RESULT} = {'showIncreasedAllowance': '201300.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.695" endtime="20230131 21:30:12.745"/>
+<msg timestamp="20230205 23:35:32.106" level="INFO">${RESULT} = {'showIncreasedAllowance': '201300.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:32.045" endtime="20230205 23:35:32.106"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -1021,71 +1021,71 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.746" level="INFO">{'showIncreasedAllowance': '201300.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.746" endtime="20230131 21:30:12.746"/>
+<msg timestamp="20230205 23:35:32.107" level="INFO">{'showIncreasedAllowance': '201300.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:32.107" endtime="20230205 23:35:32.107"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.746" endtime="20230131 21:30:12.746"/>
+<status status="PASS" starttime="20230205 23:35:32.107" endtime="20230205 23:35:32.108"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.747" endtime="20230131 21:30:12.747"/>
+<status status="PASS" starttime="20230205 23:35:32.108" endtime="20230205 23:35:32.108"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.747" endtime="20230131 21:30:12.747"/>
+<status status="PASS" starttime="20230205 23:35:32.108" endtime="20230205 23:35:32.109"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.747" endtime="20230131 21:30:12.748"/>
+<status status="PASS" starttime="20230205 23:35:32.109" endtime="20230205 23:35:32.109"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.748" endtime="20230131 21:30:12.748"/>
+<status status="PASS" starttime="20230205 23:35:32.109" endtime="20230205 23:35:32.109"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.748" endtime="20230131 21:30:12.748"/>
+<status status="PASS" starttime="20230205 23:35:32.109" endtime="20230205 23:35:32.110"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.748" endtime="20230131 21:30:12.748"/>
+<status status="PASS" starttime="20230205 23:35:32.110" endtime="20230205 23:35:32.110"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.749" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.748" endtime="20230131 21:30:12.749"/>
+<msg timestamp="20230205 23:35:32.110" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:32.110" endtime="20230205 23:35:32.110"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.749" endtime="20230131 21:30:12.749"/>
+<status status="PASS" starttime="20230205 23:35:32.110" endtime="20230205 23:35:32.110"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.749" endtime="20230131 21:30:12.749"/>
+<status status="PASS" starttime="20230205 23:35:32.110" endtime="20230205 23:35:32.111"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.745" endtime="20230131 21:30:12.749"/>
+<status status="PASS" starttime="20230205 23:35:32.106" endtime="20230205 23:35:32.111"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.695" endtime="20230131 21:30:12.750"/>
+<status status="PASS" starttime="20230205 23:35:32.045" endtime="20230205 23:35:32.111"/>
 </test>
-<test id="s1-t12" name="Decrease the allowance of the spender account and check the result." line="65">
+<test id="s1-t12" name="HARDHAT ETHERS.JS TEST 12 : Decrease the allowance of the spender account and check the result." line="64">
 <kw name="Decrease Spender Allowance" library="Remote">
 <var>${RESULT}</var>
-<msg timestamp="20230131 21:30:12.800" level="INFO">${RESULT} = {'showDecreasedAllowance': '200300.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.750" endtime="20230131 21:30:12.800"/>
+<msg timestamp="20230205 23:35:32.172" level="INFO">${RESULT} = {'showDecreasedAllowance': '200300.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:32.112" endtime="20230205 23:35:32.172"/>
 </kw>
 <kw name="Check Smart Contract Results And Log Them">
 <arg>${RESULT}</arg>
@@ -1093,67 +1093,67 @@
 <kw name="Log" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230131 21:30:12.800" level="INFO">{'showDecreasedAllowance': '200300.0'}</msg>
-<status status="PASS" starttime="20230131 21:30:12.800" endtime="20230131 21:30:12.800"/>
+<msg timestamp="20230205 23:35:32.173" level="INFO">{'showDecreasedAllowance': '200300.0'}</msg>
+<status status="PASS" starttime="20230205 23:35:32.172" endtime="20230205 23:35:32.173"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.801" endtime="20230131 21:30:12.801"/>
+<status status="PASS" starttime="20230205 23:35:32.173" endtime="20230205 23:35:32.173"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.801" endtime="20230131 21:30:12.801"/>
+<status status="PASS" starttime="20230205 23:35:32.173" endtime="20230205 23:35:32.174"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.801" endtime="20230131 21:30:12.801"/>
+<status status="PASS" starttime="20230205 23:35:32.174" endtime="20230205 23:35:32.174"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.801" endtime="20230131 21:30:12.801"/>
+<status status="PASS" starttime="20230205 23:35:32.174" endtime="20230205 23:35:32.174"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.802" endtime="20230131 21:30:12.802"/>
+<status status="PASS" starttime="20230205 23:35:32.175" endtime="20230205 23:35:32.175"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.802" endtime="20230131 21:30:12.802"/>
+<status status="PASS" starttime="20230205 23:35:32.175" endtime="20230205 23:35:32.175"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230131 21:30:12.802" endtime="20230131 21:30:12.802"/>
+<status status="PASS" starttime="20230205 23:35:32.175" endtime="20230205 23:35:32.175"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20230131 21:30:12.803" level="INFO">Length is 1</msg>
-<status status="PASS" starttime="20230131 21:30:12.802" endtime="20230131 21:30:12.803"/>
+<msg timestamp="20230205 23:35:32.176" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230205 23:35:32.175" endtime="20230205 23:35:32.176"/>
 </kw>
 <kw name="Should Not Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>Error</arg>
 <doc>Fails if ``container`` contains ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.803" endtime="20230131 21:30:12.803"/>
+<status status="PASS" starttime="20230205 23:35:32.176" endtime="20230205 23:35:32.176"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${HARDHAT_OUTPUT}</arg>
 <arg>${HARDHAT_CHECK}</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20230131 21:30:12.803" endtime="20230131 21:30:12.803"/>
+<status status="PASS" starttime="20230205 23:35:32.176" endtime="20230205 23:35:32.176"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.800" endtime="20230131 21:30:12.803"/>
+<status status="PASS" starttime="20230205 23:35:32.172" endtime="20230205 23:35:32.176"/>
 </kw>
-<status status="PASS" starttime="20230131 21:30:12.750" endtime="20230131 21:30:12.803"/>
+<status status="PASS" starttime="20230205 23:35:32.111" endtime="20230205 23:35:32.177"/>
 </test>
-<status status="PASS" starttime="20230131 21:30:11.964" endtime="20230131 21:30:12.804"/>
+<status status="PASS" starttime="20230205 23:35:30.731" endtime="20230205 23:35:32.177"/>
 </suite>
 <statistics>
 <total>
