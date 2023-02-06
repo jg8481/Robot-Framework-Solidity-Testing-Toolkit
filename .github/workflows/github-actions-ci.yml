@@ -1,13 +1,12 @@
 name: Toolkit Checks
 on: push
+    schedule:
+      - cron: '0 0 1 * *'
 
 jobs:
   run-unit-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    on:
-    schedule:
-      - cron: '0 0 1 * *'
+    timeout-minutes: 60    
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
