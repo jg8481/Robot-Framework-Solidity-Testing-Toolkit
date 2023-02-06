@@ -33,3 +33,31 @@ jobs:
         run: |
           ls -la
           bash ./start-maintenance-workflows.sh Run-Unit-Tests
+
+  run-acceptance-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60    
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install all required Robot Framework dependencies
+        run: |
+          sudo apt update && sudo apt upgrade -y
+          sudo apt install software-properties-common -y
+          sudo add-apt-repository ppa:deadsnakes/ppa -y
+          sudo apt install python3.10
+          python3 --version
+          ls -la
+          pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt
+          pip freeze
+          robot --nostatusrc --help | grep "Robot Framework is open source software"
+          robot --nostatusrc --version | grep "Robot"
+      - name: Install NodeJS and all required Hardhat dependencies
+        run: |
+          ls -la
+          bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
+          node --version
+      - name: Run all unit tests using the BATS test framework
+        run: |
+          ls -la
+          bash ./start-maintenance-workflows.sh Run-Acceptance-Tests
