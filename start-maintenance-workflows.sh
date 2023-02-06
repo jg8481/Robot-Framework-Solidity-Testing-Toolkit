@@ -50,7 +50,7 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
   npm install robotremote
   npm update
   npm audit fix --force
-  bats ./acceptance-tests.bats
+  bats ./acceptance-tests.bats --timing --formatter tap --pretty
   ls -la 
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
@@ -86,7 +86,7 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   npm install robotremote
   npm update
   npm audit fix --force
-  bats ./unit-tests.bats
+  bats ./unit-tests.bats --timing --formatter tap --pretty
   ls -la 
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
