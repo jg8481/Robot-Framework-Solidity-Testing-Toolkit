@@ -22,14 +22,14 @@ This [multichain toolkit](https://github.com/jg8481/Robot-Framework-Solidity-Tes
 
 You may be wondering. What's so special about Hardhat Network, [Trufflesuite's Ganache](https://trufflesuite.com/docs/truffle/how-to/debug-test/test-your-contracts/#clean-room-environment), and "[clean-room environment testing](https://medium.com/0xcert/testing-smart-contracts-live-without-spending-gas-19920a55d65b)"? Isn't testing on any of the [Ethereum Testnets](https://ethereum.org/en/developers/docs/networks/#ethereum-testnets) enough since ETH on a testnet has zero real-world value? Technically all blockchain dApps and complex integrations with multiple existing smart contracts should always be deeply tested with testnets first before deploying them to a mainnet, but relying ONLY on testnets for testing is not always a good idea. For example, here are some disadvantages and possibly severe risks for testing on both Ethereum Testnets and Ethereum Mainnet.
 
-**Some Testnet testing disadvantages and risks:**
+**_Some Testnet testing disadvantages and risks:_**
 - [Most of the time a testnet will be slow](https://www.reddit.com/r/ethereum/comments/cxdno6/ropsten_very_slow/)
 - Even though it's a testnet you still need to worry about paying gas fees for every Metamask wallet transaction
 - If you're using `hardhat` or `truffle` there is a risk that you can [expose your Metamask wallet private key in your deployment configuration files by accidentally pushing them into GitHub](https://consensys.net/blog/developers/how-to-avoid-uploading-your-private-key-to-github-approaches-to-prevent-making-your-secrets-public/)
 - Deploying smart contracts to a blockchain testnet is immutable or permanent. If you want to change something it's too late, [which is exactly how mainnets behave as well](https://www.gemini.com/cryptopedia/blockchain-testnet-devnet-sandbox-crypto-mainnet#section-what-is-a-blockchain-testnet)
 - If you are in the security sector of the blockchain industry, [testing on an Ethereum Testnet can have other possible serious risks](https://medium.com/immunefi/why-you-should-never-test-exploits-on-mainnet-or-public-testnets-7e904a2cbf05). Testnets are constantly being attacked on a daily basis. **Very bad actors are good at tracking all transactions on testnets and mainnets, which could lead to various security risks. One of those risks includes indirectly exposing your Metamask address to these bad actors**
 
-**Some Mainnet testing disadvantages and risks:**
+**_Some Mainnet testing disadvantages and risks:_**
 - [Very expensive to test on a mainnet](https://www.coingecko.com/en/coins/ethereum)
 - You need to worry about paying real gas fees for every Metamask wallet transaction
 - If you're using `hardhat` or `truffle`, similar to testnets, there is the same risk of exposing your Metamask wallet private key
