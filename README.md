@@ -21,14 +21,14 @@ This [multichain toolkit](https://github.com/jg8481/Robot-Framework-Solidity-Tes
 You may be wondering. What's so special about Hardhat Network, [Trufflesuite's Ganache](https://github.com/trufflesuite/ganache), and "clean-room environment testing"? Isn't testing on any of the [Ethereum Testnets](https://ethereum.org/en/developers/docs/networks/#ethereum-testnets) enough since ETH on a testnet has zero real-world value? Technically all blockchain dApps and complex integrations with multiple existing smart contracts should always be deeply tested with testnets first before deploying them to a mainnet, but relying ONLY on testnets for testing is not always a good idea. For example, here are some disadvantages for testing on both Ethereum Testnets and Ethereum Mainnet.
 
 **Some Testnet disadvantages and risks:**
-- [Most of the time they will be slow](https://www.reddit.com/r/ethereum/comments/cxdno6/ropsten_very_slow/)
+- [Most of the time a testnet will be slow](https://www.reddit.com/r/ethereum/comments/cxdno6/ropsten_very_slow/)
 - Even though it's a testnet you still need to worry about paying gas fees for every Metamask wallet transaction
 - If you're using `hardhat` or `truffle` there is a risk that you can [expose your Metamask wallet private key in your deployment configuration files by accidentally pushing them into GitHub](https://consensys.net/blog/developers/how-to-avoid-uploading-your-private-key-to-github-approaches-to-prevent-making-your-secrets-public/)
 - Deploying smart contracts to a blockchain testnet is immutable or permanent. If you want to change something it's too late, which is exactly how mainnets behave as well
 - If you are in the security sector of the blockchain industry, [testing on an Ethereum Testnet can have other possible serious risks](https://medium.com/immunefi/why-you-should-never-test-exploits-on-mainnet-or-public-testnets-7e904a2cbf05). Very bad actors are good at tracing all transactions on testnets and mainnets, which could lead them straight to your Metamask wallet address
 
 **Some Mainnet disadvantages and risks:**
-- [Very expensive to test](https://www.coingecko.com/en/coins/ethereum)
+- [Very expensive to test on a mainnet](https://www.coingecko.com/en/coins/ethereum)
 - You need to worry about paying real gas fees for every Metamask wallet transaction
 - If you're using `hardhat` or `truffle`, compared to testnets there is the same risk of exposing your Metamask wallet private key
 - Deploying smart contracts to a blockchain mainnet is immutable or permanent. If you want to change or undo something it's too late, and it will stay there on the blockchain forever
