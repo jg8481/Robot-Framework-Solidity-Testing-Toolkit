@@ -18,7 +18,7 @@ Also just a **friendly warning, DO NOT ATTEMPT TO SEND FUNDS to any of the** [**
 
 This [multichain toolkit](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit) contains keyword-driven automation that helps **locally test EVM compatible smart contracts written in Solidity, [deploys them using a multichain approach](https://roycewells.io/writing/multichain-development/), and has the basic building blocks for creating blockchain event monitoring bots**. One of the primary components is a custom-made `robotframework-hardhat-remote-library.js` that was built using [hardhat](https://hardhat.org/) and [ethers.js](https://github.com/ethers-io/ethers.js/) libraries for [Web3](https://ethereum.org/en/web3/) development, and combined together using [comick's node-robotremoteserver](https://github.com/comick/node-robotremoteserver). This toolkit has been designed to [create local clean-room environment mainnet forks through Hardhat Network](https://hardhat.org/hardhat-network/docs/guides/forking-other-networks) for deploying smart contracts on multiple types of blockchains that support the EVM. I have included small checks and basic RPA automation scripts that work for Ethereum, Fantom, Avalanche, Polygon, but they can be adapted to cover many others as well by simply adjusting minor `hardhat` CLI options and altering the provided config files. 
 
-You may be wondering. What's so special about Hardhat Network, [Trufflesuite's Ganache](https://github.com/trufflesuite/ganache), and "clean-room environment testing"? Isn't testing on any of the [Ethereum Testnets](https://ethereum.org/en/developers/docs/networks/#ethereum-testnets) enough since ETH on a testnet has zero real-world value? Technically all blockchain dApps and complex integrations with multiple existing smart contracts should always be deeply tested with testnets first before deploying them to a mainnet, but relying ONLY on testnets for testing is not always a good idea. For example, here are some disadvantages for testing on both Ethereum Testnets and Ethereum Mainnet.
+You may be wondering. What's so special about Hardhat Network, [Trufflesuite's Ganache](https://trufflesuite.com/docs/truffle/how-to/debug-test/test-your-contracts/#clean-room-environment), and "[clean-room environment testing](https://medium.com/0xcert/testing-smart-contracts-live-without-spending-gas-19920a55d65b)"? Isn't testing on any of the [Ethereum Testnets](https://ethereum.org/en/developers/docs/networks/#ethereum-testnets) enough since ETH on a testnet has zero real-world value? Technically all blockchain dApps and complex integrations with multiple existing smart contracts should always be deeply tested with testnets first before deploying them to a mainnet, but relying ONLY on testnets for testing is not always a good idea. For example, here are some disadvantages for testing on both Ethereum Testnets and Ethereum Mainnet.
 
 **Some Testnet testing disadvantages and risks:**
 - [Most of the time a testnet will be slow](https://www.reddit.com/r/ethereum/comments/cxdno6/ropsten_very_slow/)
@@ -30,10 +30,9 @@ You may be wondering. What's so special about Hardhat Network, [Trufflesuite's G
 **Some Mainnet testing disadvantages and risks:**
 - [Very expensive to test on a mainnet](https://www.coingecko.com/en/coins/ethereum)
 - You need to worry about paying real gas fees for every Metamask wallet transaction
-- If you're using `hardhat` or `truffle`, compared to testnets there is the same risk of exposing your Metamask wallet private key
+- If you're using `hardhat` or `truffle`, similar to testnets, there is the same risk of exposing your Metamask wallet private key
 - Deploying smart contracts to a blockchain mainnet is immutable or permanent. If you want to change or undo something it's too late, and it will stay there on the blockchain forever
 - Same possible security risks found on testnet, [but on mainnet it can be much worse](https://www.paradigm.xyz/2020/08/ethereum-is-a-dark-forest)
-
 
 ### Why Robot Framework? Why not MochaJS etc.?
 
