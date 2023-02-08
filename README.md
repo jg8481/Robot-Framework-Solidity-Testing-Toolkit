@@ -32,9 +32,9 @@ You may be wondering. What's so special about Hardhat Network, [Trufflesuite's G
 **_Some Mainnet testing disadvantages and risks:_**
 - [Very expensive to test on a mainnet](https://www.coingecko.com/en/coins/ethereum)
 - You need to worry about paying real gas fees for every Metamask wallet transaction
-- If you're using `hardhat` or `truffle`, similar to testnets, there is the same risk of exposing your Metamask wallet private key
+- If you're using `hardhat` or `truffle`, similar to testnets, there is the [same risk of exposing your Metamask wallet private key](https://decrypt.co/30222/hacker-steals-1200-worth-of-ethereum-in-under-100-seconds)
 - Deploying smart contracts to a blockchain mainnet is immutable or permanent. If you want to change or undo something it's too late, and [it will stay there on the blockchain forever](https://academy.binance.com/en/glossary/immutability)
-- Same possible security risks found on testnet, [but on mainnet it can be much worse. Click here to read an interesting real-life Ethereum Mainnet "horror story"](https://www.paradigm.xyz/2020/08/ethereum-is-a-dark-forest)
+- Same possible security risks found on testnet that I mentioned above, [but on mainnet it can be much worse. Click here to read an interesting real-life Ethereum Mainnet "horror story"](https://www.paradigm.xyz/2020/08/ethereum-is-a-dark-forest)
 
 **There will be cases where frequent testing and smart contract deployments to Ethereum Testnet are unavoidable. I recommend setting up a "testing-only Metamask wallet" on a different browser (or maybe on a completely different laptop if possible), and also look into investing in a high-quality and well tested VPN service.** Always assume you are exposed and try your best to protect your internet connection and your personal workstation from exposure to scammers, malicious hackers, and other bad actors that are frequently found in the blockchain industry. Also don't let this dark side of the industry scare you away from these exciting technologies. Once you set up proper protections and establish good practices you should be ok.
 
