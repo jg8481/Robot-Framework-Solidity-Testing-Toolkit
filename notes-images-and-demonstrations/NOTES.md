@@ -2,7 +2,7 @@
 
 ## [1] Some advice for Windows Users
 
-I recommend installing all of this into a VMWare VM or VirtualBox VM that is running a Linux disto of your choice. Either of those should work out for you just fine. I prefer whatever Linux distro `hardhat` recommends in their documentation, which could change at any time.  I personally use VMware products with an Ubuntu LTS, and it works nicely for my work. If you're a VirtualBox user this approach could work really well with Hashicorp's Vagrant.
+I recommend installing all of this into a VMWare VM or VirtualBox VM that is running a Linux distribution of your choice. Either of those should work out for you just fine. I prefer whatever Linux distro `hardhat` recommends in their documentation, which could change at any time.  I personally use VMware products with an Ubuntu LTS, and it works nicely for my work. If you're a VirtualBox user this approach could work really well with Hashicorp's Vagrant.
 
 If neither of those VM options seem useful to you, there are Windows blockchain technologists out there who are using the WSL2 (Windows Subsystem for Linux) for working with the various blockchain tech stacks (source: https://michaeljohnpena.com/blog/blockchain-wsl2/).
 
