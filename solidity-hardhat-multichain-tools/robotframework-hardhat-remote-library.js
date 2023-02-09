@@ -8,7 +8,7 @@ var lib = module.exports;
 
 /**
  * This robotframework-hardhat-remote-library.js will focus on testing 
- * the specific smart contracks in the "contracts" folder. Eventually
+ * the specific smart contracts in the "contracts" folder. Eventually
  * more smart contracts for testing will be added to the 
  * "solidity-smart-contracts-for-testing" folder. The keywords below will 
  * be updated when more smart contracts are added.
