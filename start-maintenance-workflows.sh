@@ -37,6 +37,7 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
   pkill robot > /dev/null 2>&1
   rm -rf ./atest/acceptance-test-resources/*acceptance-test-log
   export CURRENT_PATH=$(pwd)
+  source ./hardhat-environment-variables.env 
   cd ./solidity-hardhat-multichain-tools
   cd "$CURRENT_PATH"
   cd ./atest
@@ -71,6 +72,7 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   rm -rf ./utest/unit-test-resources/*unit-test-log
   rm -rf ./utest/unit-test-resources/robotframework-hardhat-test-keywords.robot
   export CURRENT_PATH=$(pwd)
+  source ./hardhat-environment-variables.env 
   cd ./solidity-hardhat-multichain-tools
   nohup node ./robotframework-hardhat-remote-library.js > "$CURRENT_PATH"/utest/unit-test-resources/robotframework-hardhat-remote-library-standalone-mode.unit-test-log  &
   sleep 5

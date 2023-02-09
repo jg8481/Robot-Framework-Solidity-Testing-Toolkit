@@ -4,10 +4,7 @@ const robot = require('robotremote');
 const assert = require('assert');
 const { ethers } = require("hardhat");
 
-
-const contractAddress = '0x5fbdb2315678afecb367f032d93f642f64180aa3'; // Replace this with the address of your contract deployed through Hardhat, or keep it as-is. On Fantom mainnet, this test will reveal an unrelated token deployed by someone else.
 var lib = module.exports;
-
 
 /**
  * This robotframework-hardhat-remote-library.js will focus on testing 
@@ -15,45 +12,50 @@ var lib = module.exports;
  * more smart contracts for testing will be added to the 
  * "solidity-smart-contracts-for-testing" folder. The keywords below will 
  * be updated when more smart contracts are added.
+ * 
+ * IMPORTANT NOTE: Replace the "CONTRACT_ADDRESS" environment variable in the
+ * "hardhat-environment-variables.env" file with the address of your contract 
+ * deployed through Hardhat, or keep it as-is using "0x5fbdb2315678afecb367f032d93f642f64180aa3". 
+ * On Fantom mainnet, this test will reveal an unrelated token deployed by someone else.
  */
 
-lib.getContract = async function() {
-    const checkContract = await ethers.getContractAt('Token', contractAddress);
+lib.getContract = async function(str) {
+    const checkContract = await ethers.getContractAt('Token', str);
     var timeStamp = new Date();
     console.log(`getContract keyword ran on ${timeStamp}`);
     return { checkContract };
 };
 
-lib.getName = async function() {
+lib.getName = async function(str) {
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const name = await testToken.name();
     var timeStamp = new Date();
     console.log(`getName keyword ran on ${timeStamp}`);
     return { name };
 };
 
-lib.getSymbol = async function() {
+lib.getSymbol = async function(str) {
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const symbol = await testToken.symbol();
     var timeStamp = new Date();
     console.log(`getSymbol keyword ran on ${timeStamp}`);
     return { symbol };
 };
 
-lib.getDefaultDecimals = async function() {
+lib.getDefaultDecimals = async function(str) {
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     var timeStamp = new Date();
     console.log(`getDefaultDecimals keyword ran on ${timeStamp}`);
     return { decimals };
 };
 
-lib.getTotalSupply = async function() {
+lib.getTotalSupply = async function(str) {
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const totalSupply = await testToken.totalSupply();
     const totalSupplyCommify = await ethers.utils.commify(totalSupply)
@@ -63,9 +65,9 @@ lib.getTotalSupply = async function() {
     return { totalSupplyFormatUnits };
 };
 
-lib.getTokenBalanceAddress = async function() {
+lib.getTokenBalanceAddress = async function(str) {
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
@@ -74,9 +76,9 @@ lib.getTokenBalanceAddress = async function() {
     return { testTokenAddress };
 };
 
-lib.getBalanceOfAddress = async function() {
+lib.getBalanceOfAddress = async function(str) {
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
@@ -87,9 +89,9 @@ lib.getBalanceOfAddress = async function() {
     return { addressBalance };
 };
 
-lib.getReceiverTargetAddress = async function() {
+lib.getReceiverTargetAddress = async function(str) {
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const receivingAddress = testTokenSigners[1].address;
@@ -98,10 +100,10 @@ lib.getReceiverTargetAddress = async function() {
     return { receivingAddress };
 };
 
-lib.transferToTargetAddress = async function() {
+lib.transferToTargetAddress = async function(str) {
     const amountForTransfer = 80000;
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const receivingAddress = testTokenSigners[1].address;
@@ -113,10 +115,10 @@ lib.transferToTargetAddress = async function() {
     return { receiverBalanceFormatUnits };
 };
 
-lib.approveSpenderAmount = async function() {
+lib.approveSpenderAmount = async function(str) {
     const amountApproved = 200000;
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
@@ -128,9 +130,9 @@ lib.approveSpenderAmount = async function() {
     return { approvalSuccess };
 };
 
-lib.showSpenderAllowance = async function() {
+lib.showSpenderAllowance = async function(str) {
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
@@ -142,10 +144,10 @@ lib.showSpenderAllowance = async function() {
     return { showAllowance };
 };
 
-lib.transferFromTargetAddress = async function() {
+lib.transferFromTargetAddress = async function(str) {
     const amountForTransfer = 700;
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
@@ -161,10 +163,10 @@ lib.transferFromTargetAddress = async function() {
     return { senderBalanceFormatUnits };
 };
 
-lib.increaseSpenderAllowance = async function() {
+lib.increaseSpenderAllowance = async function(str) {
     const increaseSpenderAmount = 2000;
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
@@ -180,10 +182,10 @@ lib.increaseSpenderAllowance = async function() {
 };
 
 
-lib.decreaseSpenderAllowance = async function() {
+lib.decreaseSpenderAllowance = async function(str) {
     const decreaseSpenderAmount = 1000;
     const deployedContract = await ethers.getContractFactory('Token');
-    const testToken = await deployedContract.attach(contractAddress);
+    const testToken = await deployedContract.attach(str);
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
