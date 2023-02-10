@@ -72,7 +72,7 @@ lib.getTokenBalanceAddress = async function(str) {
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
     var timeStamp = new Date();
-    console.log(`getTokenContractAddress keyword ran on ${timeStamp}`);
+    console.log(`getTokenBalanceAddress keyword ran on ${timeStamp}`);
     return { testTokenAddress };
 };
 
