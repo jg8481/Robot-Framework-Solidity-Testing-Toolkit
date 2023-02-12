@@ -22,7 +22,7 @@ Go to the link they suggest and read the details of their announcement, or just 
 
 I created the `start-solidity-qa-workflows.sh` Bash script to help automate standalone workflows ([in case anyone wants to use this with cron schedulers, CI, etc.](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions)) and guide users of this toolkit through helpful prompts and messages in the terminal output. It's a good idea to learn the terminal commands in this toolkit and run them one at a time to see what they do. Here is an outline of how these tools can be orchestrated manually.
 
-Steps to manually run and learn flow of the Hardhat tools, and the Robot Framework Hardhat library that I built on top of `node-robotremoteserver` (source: https://github.com/comick/node-robotremoteserver).
+Steps to manually run and learn the flow of the Hardhat tools, and the Robot Framework Hardhat library that I built on top of `node-robotremoteserver` (source: https://github.com/comick/node-robotremoteserver).
 - From the `solidity-hardhat-multichain-tools` root directory, open a terminal and run the following...
   - npx hardhat compile
   - npx hardhat node
