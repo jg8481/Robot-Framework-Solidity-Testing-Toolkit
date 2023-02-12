@@ -40,7 +40,7 @@ You may be wondering. What's so special about Hardhat Network, [Trufflesuite's G
 
 **There will be special cases and complex projects where frequent testing and smart contract deployments to Ethereum Testnet are unavoidable. I recommend setting up a "testing-only Metamask wallet" on a different browser (or maybe on a completely different laptop if possible), and also look into investing in a high-quality and well tested VPN service.** Always assume you are exposed and try your best to protect your internet connection and your personal workstation from exposure to scammers, malicious hackers, and other bad actors that are frequently found in the blockchain industry. Also don't let this dark side of the industry scare you away from these exciting technologies. Once you set up proper protections and establish good practices you should be ok.
 
-### Why Robot Framework? Why not MochaJS etc.?
+## Why Robot Framework? Why not MochaJS etc.?
 
 [MochaJS](https://mochajs.org/) is a good and flexible test framework, but it's not easy to figure out how it can handle the following types of tests...
 - Model-based Testing
