@@ -26,14 +26,14 @@ You may be wondering. What's so special about Hardhat Network, [Trufflesuite's G
 - [Most of the time a testnet will be slow](https://www.reddit.com/r/ethereum/comments/cxdno6/ropsten_very_slow/)
 - Even though it's a testnet you still need to worry about paying gas fees for every Metamask wallet transaction
 - If you're using `hardhat` or `truffle` there is a risk that you can [expose your Metamask wallet private key in your deployment configuration files by accidentally pushing them into GitHub](https://consensys.net/blog/developers/how-to-avoid-uploading-your-private-key-to-github-approaches-to-prevent-making-your-secrets-public/)
-- Deploying smart contracts to a blockchain testnet is immutable or permanent. If you want to change something it's too late, [which is exactly how mainnets behave as well](https://www.gemini.com/cryptopedia/blockchain-testnet-devnet-sandbox-crypto-mainnet#section-what-is-a-blockchain-testnet)
+- Deploying smart contracts to a blockchain testnet is immutable or permanent. [Which is exactly how mainnets behave as well](https://www.gemini.com/cryptopedia/blockchain-testnet-devnet-sandbox-crypto-mainnet#section-what-is-a-blockchain-testnet)
 - If you are in the security sector of the blockchain industry, [testing on an Ethereum Testnet can have other possible serious risks](https://medium.com/immunefi/why-you-should-never-test-exploits-on-mainnet-or-public-testnets-7e904a2cbf05). Testnets are constantly being attacked on a daily basis. **Very bad actors are good at tracking all transactions on testnets and mainnets, which could lead to various security risks. One of those risks includes indirectly exposing your Metamask address to these bad actors**
 
 **_Some Mainnet testing disadvantages and risks:_**
 - [Very expensive to test on a mainnet](https://www.coingecko.com/en/coins/ethereum)
 - You need to worry about paying real gas fees for every Metamask wallet transaction
 - If you're using `hardhat` or `truffle`, similar to testnets, there is the [same risk of exposing your Metamask wallet private key](https://decrypt.co/30222/hacker-steals-1200-worth-of-ethereum-in-under-100-seconds)
-- Deploying smart contracts to a blockchain mainnet is immutable or permanent. If you want to change or undo something it's too late, and [it will stay there on the blockchain forever](https://academy.binance.com/en/glossary/immutability)
+- Deploying smart contracts to a blockchain mainnet is immutable or permanent. [It will stay there on the blockchain forever](https://academy.binance.com/en/glossary/immutability)
 - Same possible security risks found on testnet that I mentioned above, [but on mainnet it can be much worse. Click here to read an interesting real-life Ethereum Mainnet "horror story"](https://www.paradigm.xyz/2020/08/ethereum-is-a-dark-forest)
 
 **_Stay vigilant and protect yourself:_**
