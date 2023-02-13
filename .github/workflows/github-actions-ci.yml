@@ -16,8 +16,7 @@ jobs:
       - name: Install all ShellCheck dependencies
         run: |
           sudo apt update
-          sudo apt install snapd
-          sudo snap install shellcheck
+          apt-get install shellcheck
       - name: Run ShellCheck on all Bash scripts
         run: |
           ls -la
