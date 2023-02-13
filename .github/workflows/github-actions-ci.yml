@@ -7,14 +7,32 @@ on:
 
 jobs:
 
-  run-shell-check:
-    image: koalaman/shellcheck-alpine:latest
-    stage: test
-    before_script:
-    - apk update
-    - apk add git
-    script:
-    - git ls-files --exclude='*.sh' --ignored -c -z | xargs -0r shellcheck
+  run-security-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60    
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install all ShellCheck dependencies
+        run: |
+          sudo apt update
+          sudo apt install snapd
+          sudo snap install shellcheck
+      - name: Run ShellCheck on all Bash scripts
+        run: |
+          ls -la
+          shellcheck ./*.sh | grep "(error)"
+          if [ $? -eq 1 ]; then
+            echo
+            echo "ShellCheck did not discover any serious problems."
+            echo
+            exit 0
+          else 
+            echo
+            echo "WARNING! ShellCheck discovered serious problems."
+            echo
+            exit 1
+          fi
 
   run-unit-tests:
     runs-on: ubuntu-latest
