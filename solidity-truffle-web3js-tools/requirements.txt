@@ -1,0 +1,4 @@
+robotframework
+robotframework-pabot
+six
+psutil

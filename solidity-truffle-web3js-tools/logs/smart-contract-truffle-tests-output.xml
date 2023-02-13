@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.12 on darwin)" generated="20230212 22:56:03.668" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Framework Solidity Smart Contract Truffle Ethereum Test" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-truffle-web3js-tools/robotframework-truffle-test-keywords.robot">
+<test id="s1-t1" name="TRUFFLE WEB3.JS TEST 1 : Get all of the accounts of the local Truffle Develop instance and check the result." line="9">
+<kw name="Get All Available Accounts" library="Remote">
+<var>${RESULT}</var>
+<msg timestamp="20230212 22:56:03.756" level="INFO">${RESULT} = {'accounts': ['0xB1eF6Ae2E5394Df6EA05714A6FA1f39C49a9ABb1', '0xEa19aF8b4aA8928897906aB622E8dD539A382AB2', '0x354100439c910864Da4C36c75E9df6D7EDb36b56', '0xdEFbAA7A863cD7F8BaB5BCA844a003d7aBA2aDeF', '0...</msg>
+<status status="PASS" starttime="20230212 22:56:03.751" endtime="20230212 22:56:03.756"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${RESULT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.757" endtime="20230212 22:56:03.757"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${RESULT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230212 22:56:03.757" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230212 22:56:03.757" endtime="20230212 22:56:03.757"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.750" endtime="20230212 22:56:03.757"/>
+</test>
+<test id="s1-t2" name="TRUFFLE WEB3.JS TEST 2 : Get the deployed contract from the local Truffle Develop instance and check the result." line="14">
+<kw name="Get Contract" library="Remote">
+<var>${RESULT}</var>
+<arg>%{CONTRACT_ADDRESS}</arg>
+<msg timestamp="20230212 22:56:03.780" level="INFO">${RESULT} = {'checkContract': {'setProvider': '', 'currentProvider': {'withCredentials': '', 'timeout': 0, 'headers': '', 'agent': '', 'connected': False, 'host': 'http://localhost:8545', 'httpAgent': {'_events':...</msg>
+<status status="PASS" starttime="20230212 22:56:03.758" endtime="20230212 22:56:03.780"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${RESULT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230212 22:56:03.781" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230212 22:56:03.780" endtime="20230212 22:56:03.781"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.758" endtime="20230212 22:56:03.781"/>
+</test>
+<test id="s1-t3" name="TRUFFLE WEB3.JS TEST 3 : Get the name of the ERC20 token from the local Truffle Develop instance and check the result." line="18">
+<kw name="Get Name" library="Remote">
+<var>${RESULT}</var>
+<arg>%{CONTRACT_ADDRESS}</arg>
+<msg timestamp="20230212 22:56:03.798" level="INFO">${RESULT} = {'name': 'TestToken'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.782" endtime="20230212 22:56:03.798"/>
+</kw>
+<kw name="Check Smart Contract Results And Log Them">
+<arg>${RESULT}</arg>
+<arg>name</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230212 22:56:03.799" level="INFO">{'name': 'TestToken'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.799" endtime="20230212 22:56:03.799"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.799" endtime="20230212 22:56:03.799"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.799" endtime="20230212 22:56:03.799"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.800" endtime="20230212 22:56:03.800"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.800" endtime="20230212 22:56:03.800"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.800" endtime="20230212 22:56:03.801"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.801" endtime="20230212 22:56:03.801"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.801" endtime="20230212 22:56:03.802"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230212 22:56:03.802" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230212 22:56:03.802" endtime="20230212 22:56:03.802"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>Error</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.802" endtime="20230212 22:56:03.802"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>${TRUFFLE_CHECK}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.802" endtime="20230212 22:56:03.802"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.798" endtime="20230212 22:56:03.802"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.781" endtime="20230212 22:56:03.803"/>
+</test>
+<test id="s1-t4" name="TRUFFLE WEB3.JS TEST 4 : Get the symbol of the ERC20 token from the local Truffle Develop instance and check the result." line="22">
+<kw name="Get Symbol" library="Remote">
+<var>${RESULT}</var>
+<arg>%{CONTRACT_ADDRESS}</arg>
+<msg timestamp="20230212 22:56:03.817" level="INFO">${RESULT} = {'symbol': 'TEST'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.803" endtime="20230212 22:56:03.817"/>
+</kw>
+<kw name="Check Smart Contract Results And Log Them">
+<arg>${RESULT}</arg>
+<arg>symbol</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230212 22:56:03.818" level="INFO">{'symbol': 'TEST'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.818" endtime="20230212 22:56:03.818"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.818" endtime="20230212 22:56:03.818"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.818" endtime="20230212 22:56:03.819"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.819" endtime="20230212 22:56:03.819"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.819" endtime="20230212 22:56:03.819"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.819" endtime="20230212 22:56:03.820"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.820" endtime="20230212 22:56:03.820"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.820" endtime="20230212 22:56:03.820"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230212 22:56:03.821" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230212 22:56:03.820" endtime="20230212 22:56:03.821"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>Error</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.821" endtime="20230212 22:56:03.821"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>${TRUFFLE_CHECK}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.821" endtime="20230212 22:56:03.822"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.817" endtime="20230212 22:56:03.822"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.803" endtime="20230212 22:56:03.822"/>
+</test>
+<test id="s1-t5" name="TRUFFLE WEB3.JS TEST 5 : Get the decimals of the ERC20 token from the local Truffle Develop instance and check the result." line="26">
+<kw name="Get Default Decimals" library="Remote">
+<var>${RESULT}</var>
+<arg>%{CONTRACT_ADDRESS}</arg>
+<msg timestamp="20230212 22:56:03.832" level="INFO">${RESULT} = {'decimals': '18'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.823" endtime="20230212 22:56:03.833"/>
+</kw>
+<kw name="Check Smart Contract Results And Log Them">
+<arg>${RESULT}</arg>
+<arg>decimals</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230212 22:56:03.834" level="INFO">{'decimals': '18'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.833" endtime="20230212 22:56:03.834"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.834" endtime="20230212 22:56:03.834"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.834" endtime="20230212 22:56:03.834"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.835" endtime="20230212 22:56:03.835"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.835" endtime="20230212 22:56:03.835"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.835" endtime="20230212 22:56:03.835"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.835" endtime="20230212 22:56:03.836"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.836" endtime="20230212 22:56:03.836"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230212 22:56:03.836" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230212 22:56:03.836" endtime="20230212 22:56:03.836"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>Error</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.836" endtime="20230212 22:56:03.837"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>${TRUFFLE_CHECK}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.837" endtime="20230212 22:56:03.837"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.833" endtime="20230212 22:56:03.837"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.822" endtime="20230212 22:56:03.837"/>
+</test>
+<test id="s1-t6" name="TRUFFLE WEB3.JS TEST 6 : Get the total supply of the ERC20 token from the local Truffle Develop instance and check the result." line="30">
+<kw name="Get Total Supply" library="Remote">
+<var>${RESULT}</var>
+<arg>%{CONTRACT_ADDRESS}</arg>
+<msg timestamp="20230212 22:56:03.846" level="INFO">${RESULT} = {'totalSupply': '1000000000000000000000000'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.838" endtime="20230212 22:56:03.846"/>
+</kw>
+<kw name="Check Smart Contract Results And Log Them">
+<arg>${RESULT}</arg>
+<arg>totalSupply</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230212 22:56:03.847" level="INFO">{'totalSupply': '1000000000000000000000000'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.846" endtime="20230212 22:56:03.847"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.847" endtime="20230212 22:56:03.847"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.847" endtime="20230212 22:56:03.847"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.847" endtime="20230212 22:56:03.847"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.847" endtime="20230212 22:56:03.848"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.848" endtime="20230212 22:56:03.848"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.848" endtime="20230212 22:56:03.848"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.848" endtime="20230212 22:56:03.848"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230212 22:56:03.849" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230212 22:56:03.849" endtime="20230212 22:56:03.849"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>Error</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.849" endtime="20230212 22:56:03.849"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>${TRUFFLE_CHECK}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.849" endtime="20230212 22:56:03.849"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.846" endtime="20230212 22:56:03.850"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.837" endtime="20230212 22:56:03.850"/>
+</test>
+<test id="s1-t7" name="TRUFFLE WEB3.JS TEST 7 : Get the estimated gas for a specific method from the deployed contract." line="34">
+<kw name="Get Gas Estimate" library="Remote">
+<var>${RESULT}</var>
+<arg>%{CONTRACT_ADDRESS}</arg>
+<msg timestamp="20230212 22:56:03.867" level="INFO">${RESULT} = {'gasEstimation': 21496}</msg>
+<status status="PASS" starttime="20230212 22:56:03.851" endtime="20230212 22:56:03.867"/>
+</kw>
+<kw name="Check Smart Contract Results And Log Them">
+<arg>${RESULT}</arg>
+<arg>gasEstimation</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230212 22:56:03.868" level="INFO">{'gasEstimation': 21496}</msg>
+<status status="PASS" starttime="20230212 22:56:03.867" endtime="20230212 22:56:03.868"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.868" endtime="20230212 22:56:03.868"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.868" endtime="20230212 22:56:03.868"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.868" endtime="20230212 22:56:03.868"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.868" endtime="20230212 22:56:03.869"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.869" endtime="20230212 22:56:03.869"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.869" endtime="20230212 22:56:03.869"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.869" endtime="20230212 22:56:03.869"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230212 22:56:03.870" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230212 22:56:03.869" endtime="20230212 22:56:03.870"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>Error</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.870" endtime="20230212 22:56:03.870"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>${TRUFFLE_CHECK}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.870" endtime="20230212 22:56:03.870"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.867" endtime="20230212 22:56:03.870"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.850" endtime="20230212 22:56:03.870"/>
+</test>
+<test id="s1-t8" name="TRUFFLE WEB3.JS TEST 8 : Get the current gas price in the local blockchain generated by Truffle Develop command." line="38">
+<kw name="Get Current Gas Price" library="Remote">
+<var>${RESULT}</var>
+<arg>%{CONTRACT_ADDRESS}</arg>
+<msg timestamp="20230212 22:56:03.877" level="INFO">${RESULT} = {'gasPrice': '2000000000'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.871" endtime="20230212 22:56:03.877"/>
+</kw>
+<kw name="Check Smart Contract Results And Log Them">
+<arg>${RESULT}</arg>
+<arg>gasPrice</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230212 22:56:03.878" level="INFO">{'gasPrice': '2000000000'}</msg>
+<status status="PASS" starttime="20230212 22:56:03.877" endtime="20230212 22:56:03.878"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.878" endtime="20230212 22:56:03.878"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.878" endtime="20230212 22:56:03.878"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.878" endtime="20230212 22:56:03.878"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.879" endtime="20230212 22:56:03.879"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.879" endtime="20230212 22:56:03.879"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.879" endtime="20230212 22:56:03.879"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230212 22:56:03.879" endtime="20230212 22:56:03.879"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20230212 22:56:03.880" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20230212 22:56:03.880" endtime="20230212 22:56:03.880"/>
+</kw>
+<kw name="Should Not Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>Error</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.880" endtime="20230212 22:56:03.880"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${TRUFFLE_OUTPUT}</arg>
+<arg>${TRUFFLE_CHECK}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20230212 22:56:03.880" endtime="20230212 22:56:03.880"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.877" endtime="20230212 22:56:03.880"/>
+</kw>
+<status status="PASS" starttime="20230212 22:56:03.871" endtime="20230212 22:56:03.880"/>
+</test>
+<status status="PASS" starttime="20230212 22:56:03.670" endtime="20230212 22:56:03.881"/>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="8" fail="0" skip="0" id="s1" name="Robot Framework Solidity Smart Contract Truffle Ethereum Test">Robot Framework Solidity Smart Contract Truffle Ethereum Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

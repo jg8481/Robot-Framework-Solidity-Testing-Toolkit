@@ -55,6 +55,8 @@ A lot of the automation in this repository is influenced by my [Robot-Framework-
 
 In the future I plan to expand this toolkit into the following areas.
 - Create a `robotframework-truffle-remote-library.js` using the [Truffle toolkit](https://trufflesuite.com/), and design similar features that are found in  `robotframework-hardhat-remote-library.js`
+  - Progress:
+    - (February 12, 2023 - **Ready To Use**) Created a working Truffle Suite library using a similar design as the Hardhat library, but utilizes [web3.js](https://web3js.org) and added a few different tests too.
 - Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry
 - Create RPA and `robotframework-hardhat-remote-library.js` powered multichain bots utilizing [Infura](https://infura.io/), [Hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/)
 - Attempt to create Robot Framework automation utilizing the [Foundry toolkit](https://github.com/foundry-rs/foundry)
@@ -85,20 +87,27 @@ You can view just this help menu again (without triggering any automation) by ru
 bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
 bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux
 bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux
+bash ./start-solidity-qa-workflows.sh Start-Default-Truffle-Develop-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux
 bash ./start-solidity-qa-workflows.sh Stop-All-Local-Network-Nodes-And-Delete-Logs-On-MacOS-Or-Linux
 
 ---->>>> Solidity Static Analysis And Security Testing Commands <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Solidity-Static-Analysis
- 
+
 ---->>>> Hardhat Deployment Commands Powered by Robot Framework RPA (NOTE: These scripts are capable of deploying to Mainnets or Testnets!) <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Fantom-RPA-Deployment
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Polygon-RPA-Deployment
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Avalanche-RPA-Deployment
 
----->>>> Interactive Tests For Deployed Smart Contracts Using Hardhat (NOTE: These tests can run on multiple EVM Compatible Blockchains!) <<<<---- 
+---->>>> Truffle Deployment Commands Powered by Robot Framework RPA (NOTE: These scripts are capable of deploying to Mainnets or Testnets!) <<<<----
+bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Truffle-Ethereum-RPA-Deployment
+
+---->>>> Interactive Tests For Deployed Smart Contracts Using Hardhat (NOTE: These tests can run on multiple EVM Compatible Blockchains!) <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network
-bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network 
+bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network
+
+---->>>> Interactive Tests For Deployed Smart Contracts Using Truffle Suite <<<<----
+bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-Ethereum-Truffle-Develop-Instance
 ```
 ### [Example Workflow 1] -> Deploy then test a smart contract using the built-in Hardhat Network Ethereum Node and node-robotremoteserver (on MacOS or Linux)
 From the commands posted above, here is an example workflow (with screenshots) below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.
