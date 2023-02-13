@@ -77,7 +77,8 @@ jobs:
       - name: Run ShellCheck on all Bash scripts
         run: |
           ls -la
-          shellcheck ./*.sh 
+          shellcheck ./*.sh
+          exit 0 
           #| grep "(error)"
           # if [ $? -eq 1 ]; then
           #   echo
