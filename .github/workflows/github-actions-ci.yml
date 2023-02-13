@@ -6,6 +6,16 @@ on:
       - cron: '0 0 1 * *'
 
 jobs:
+
+  run-shell-check:
+    image: koalaman/shellcheck-alpine:latest
+    stage: test
+    before_script:
+    - apk update
+    - apk add git
+    script:
+    - git ls-files --exclude='*.sh' --ignored -c -z | xargs -0r shellcheck
+
   run-unit-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 60    
