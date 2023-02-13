@@ -77,6 +77,7 @@ jobs:
       - name: Run ShellCheck on all Bash scripts
         run: |
           ls -la
-          shellcheck ./*.sh
+          shellcheck ./*.sh > ./shellcheck.log
+          cat ./shellcheck.log
           exit 0
 
