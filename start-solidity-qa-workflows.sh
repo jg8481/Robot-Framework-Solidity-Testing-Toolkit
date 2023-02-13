@@ -25,7 +25,7 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   echo
   echo "------------------------------------[[[[ Install-Tools-On-MacOS-Or-Linux ]]]]------------------------------------"
   echo
-  echo "This command will install all of the required NodeJS packages. This run started on $TIMESTAMP."
+  echo "This command will install all of the required NodeJS packages. The current LTS Node.js version is 18. This run started on $TIMESTAMP."
   echo
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
   export NVM_DIR="$HOME/.nvm"
