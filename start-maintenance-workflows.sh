@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -euo pipefail
+
 clear
 TIMESTAMP=$(date)
 
@@ -41,16 +43,22 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
   cd ./solidity-hardhat-multichain-tools
   cd "$CURRENT_PATH"
   cd ./atest
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  nvm install 18
-  nvm use 18
-  nvm alias default 18
+  # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
+  # export NVM_DIR="$HOME/.nvm"
+  # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  # nvm install 18
+  # nvm use 18
+  # nvm alias default 18
   npm install -g bats
-  npm install robotremote
+  # npm install robotremote
   npm update
   npm audit fix --force
+  echo
+  echo
+  bats -h
+  echo
+  echo
+  clear
   bats ./acceptance-tests.bats --timing
   ls -la 
   TIMESTAMP2=$(date)
@@ -78,16 +86,22 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   sleep 5
   cd "$CURRENT_PATH"
   cd ./utest
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  nvm install 18
-  nvm use 18
-  nvm alias default 18
+  # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
+  # export NVM_DIR="$HOME/.nvm"
+  # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  # nvm install 18
+  # nvm use 18
+  # nvm alias default 18
   npm install -g bats
-  npm install robotremote
-  npm update
-  npm audit fix --force
+  # npm install robotremote
+  # npm update
+  # npm audit fix --force
+  echo
+  echo
+  bats -h
+  echo
+  echo
+  clear
   bats ./unit-tests.bats --timing
   ls -la 
   TIMESTAMP2=$(date)
