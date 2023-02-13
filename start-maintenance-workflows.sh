@@ -1,7 +1,5 @@
 #! /bin/bash
 
-#set -euo pipefail
-
 clear
 TIMESTAMP=$(date)
 
@@ -55,7 +53,18 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
   npm audit fix --force
   echo
   echo
-  bats -h > /dev/null && [ $? -eq 0 ]
+  clear
+  bats -h > /dev/null && 
+  if [ $? -eq 0 ]; then
+    echo
+    echo "BATS installation has completed without issues. This test will continue as planned."
+    echo
+  else 
+    echo
+    echo "WARNING! BATS did not install properly. Please check the 'npm install -g bats' installation command and the 'start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux' script."
+    echo
+    exit 1
+  fi
   echo
   echo
   clear
@@ -98,10 +107,20 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   # npm audit fix --force
   echo
   echo
-  bats -h > /dev/null && [ $? -eq 0 ]
-  echo
-  echo
   clear
+  bats -h > /dev/null && 
+  if [ $? -eq 0 ]; then
+    echo
+    echo "BATS installation has completed without issues. This test will continue as planned."
+    echo
+  else 
+    echo
+    echo "WARNING! BATS did not install properly. Please check the 'npm install -g bats' installation command and the 'start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux' script."
+    echo
+    exit 1
+  fi
+  echo
+  echo
   bats ./unit-tests.bats --timing
   ls -la 
   TIMESTAMP2=$(date)
