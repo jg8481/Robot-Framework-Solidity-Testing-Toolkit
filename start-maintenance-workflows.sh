@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -euo pipefail
+#set -euo pipefail
 
 clear
 TIMESTAMP=$(date)
@@ -55,7 +55,7 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
   npm audit fix --force
   echo
   echo
-  bats -h
+  bats -h > /dev/null && [ $? -eq 0 ]
   echo
   echo
   clear
@@ -98,7 +98,7 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   # npm audit fix --force
   echo
   echo
-  bats -h
+  bats -h > /dev/null && [ $? -eq 0 ]
   echo
   echo
   clear
