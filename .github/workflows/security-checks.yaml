@@ -44,7 +44,6 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v3
-      - name: Run SemGrep code analysis security scan
       - run: semgrep ci --sarif --output=semgrep.sarif
         env:
            SEMGREP_RULES: p/default
