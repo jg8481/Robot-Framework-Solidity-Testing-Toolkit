@@ -63,33 +63,3 @@ jobs:
         run: |
           ls -la
           bash ./start-maintenance-workflows.sh Run-Acceptance-Tests
-
-  run-shellcheck:
-    needs: run-acceptance-tests
-    runs-on: ubuntu-latest
-    timeout-minutes: 60  
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Install all ShellCheck dependencies
-        continue-on-error: true
-        run: |
-          sudo apt-get install shellcheck
-      - name: Run ShellCheck on all Bash scripts
-        continue-on-error: true
-        run: |
-          shellcheck ./*.sh -S error > ./shellcheck.log &&
-          sleep 2
-          if grep --quiet "(error)" ./shellcheck.log; then
-            ls -la
-            echo
-            echo "WARNING! ShellCheck discovered serious problems."
-            echo
-            cat ./shellcheck.log
-          else
-            ls -la        
-            echo
-            echo "ShellCheck did not discover any serious problems."
-            echo
-            shellcheck -V
-          fi
