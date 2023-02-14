@@ -64,7 +64,7 @@ jobs:
           ls -la
           bash ./start-maintenance-workflows.sh Run-Acceptance-Tests
 
-  run-security-checks:
+  run-shellcheck:
     needs: run-acceptance-tests
     runs-on: ubuntu-latest
     timeout-minutes: 60  
