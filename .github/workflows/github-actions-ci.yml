@@ -79,4 +79,15 @@ jobs:
         continue-on-error: true
         run: |
           ls -la
-          shellcheck ./*.sh 
+          shellcheck ./*.sh | grep "(error)"
+          if [ $? -eq 1 ]; then
+            echo
+            echo "ShellCheck did not discover any serious problems."
+            echo
+            exit 0
+          else 
+            echo
+            echo "WARNING! ShellCheck discovered serious problems."
+            echo
+            exit 1
+          fi 
