@@ -1,12 +1,8 @@
 # Robot Framework Solidity Testing Toolkit
 
-[![Toolkit Unit Tests](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml)
+[![Toolkit Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml)
 
-[![Toolkit Acceptance Tests](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml)
-
-[![Toolkit ShellCheck Analysis](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-actions-ci.yml)
-
-[![CodeQL Security Analysis](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql)
+[![CodeQL](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql)
 
 ![Robot](./notes-images-and-demonstrations/robotframework-ethereum.png)
 
