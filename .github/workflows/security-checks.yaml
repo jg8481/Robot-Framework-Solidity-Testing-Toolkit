@@ -1,0 +1,57 @@
+name: Security Checks
+on:  
+  push:
+  pull_request:
+  schedule:
+      - cron: '0 0 * * 1'
+
+jobs:
+
+  run-shellcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install all ShellCheck dependencies
+        continue-on-error: true
+        run: |
+          sudo apt-get install shellcheck
+      - name: Run ShellCheck on all Bash scripts
+        continue-on-error: true
+        run: |
+          shellcheck ./*.sh -S error > ./shellcheck.log &&
+          sleep 2
+          if grep --quiet "(error)" ./shellcheck.log; then
+            ls -la
+            echo
+            echo "WARNING! ShellCheck discovered serious problems."
+            echo
+            cat ./shellcheck.log
+          else
+            ls -la        
+            echo
+            echo "ShellCheck did not discover any serious problems."
+            echo
+            shellcheck -V
+          fi
+
+  run-semgrep:
+    # User-definable name of this GitHub Actions job:
+    name: Run a SemGrep code analysis can
+    # If you are self-hosting, change the following `runs-on` value: 
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  
+    container:
+      # A Docker image with Semgrep installed. Do not change this.
+      image: returntocorp/semgrep
+    # Skip any PR created by dependabot to avoid permission issues:
+    if: (github.actor != 'dependabot[bot]')
+    steps:
+      # Fetch project source with GitHub Actions Checkout.
+      - uses: actions/checkout@v3
+      # Run the "semgrep ci" command on the command line of the docker image.
+      - run: semgrep ci
+        env:
+           # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable. 
+           SEMGREP_RULES: p/default # more at semgrep.dev/explore
