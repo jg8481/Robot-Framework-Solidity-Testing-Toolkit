@@ -79,7 +79,4 @@ jobs:
         continue-on-error: true
         run: |
           ls -la
-          shellcheck ./*.sh > ./shellcheck.log
-          cat ./shellcheck.log
-          exit 0
-
+          shellcheck ./*.sh 
