@@ -78,15 +78,16 @@ jobs:
       - name: Run ShellCheck on all Bash scripts
         continue-on-error: true
         run: |
-          ls -la
           shellcheck ./*.sh -S error > ./shellcheck.log &&
           sleep 2
           if grep --quiet "(error)" ./shellcheck.log; then
+            ls -la
             echo
             echo "WARNING! ShellCheck discovered serious problems."
             echo
             cat ./shellcheck.log
-          else        
+          else
+            ls -la        
             echo
             echo "ShellCheck did not discover any serious problems."
             echo
