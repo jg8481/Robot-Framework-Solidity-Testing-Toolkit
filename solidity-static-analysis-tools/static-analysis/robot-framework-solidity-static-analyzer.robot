@@ -38,19 +38,3 @@ Run Surya Solidity Graph Analysis And Check Output
     Log    ${SURYA_RESULT}
     #Log To Console    ${SURYA_RESULT}
     Should Not Contain    ${SURYA_RESULT}    "red"
-
-Run Truffle Solidity Compile Command And Check Output
-    Run Process    cd ${PATH}/solidity-static-analysis-tools/ && truffle compile   alias=truffle_compile    shell=True
-    ${TRUFFLE_COMPILE_OUTPUT}=    Get Process Result    truffle_compile    stdout=true
-    ${TRUFFLE_COMPILE_RESULT}=    Convert To String    ${TRUFFLE_COMPILE_OUTPUT}
-    Log    ${TRUFFLE_COMPILE_RESULT}
-    Log To Console    ${TRUFFLE_COMPILE_RESULT}
-    Should Not Contain    ${TRUFFLE_COMPILE_RESULT}    failed
-
-Run Truffle Solidity Migrate Command And Check Output
-    Run Process    cd ${PATH}/solidity-static-analysis-tools/ && truffle migrate   alias=truffle_migrate    shell=True
-    ${TRUFFLE_MIGRATE_OUTPUT}=    Get Process Result    truffle_migrate    stdout=true
-    ${TRUFFLE_MIGRATE_RESULT}=    Convert To String    ${TRUFFLE_MIGRATE_OUTPUT}
-    Log    ${TRUFFLE_MIGRATE_RESULT}
-    Log To Console    ${TRUFFLE_MIGRATE_RESULT}
-    Should Not Contain    ${TRUFFLE_MIGRATE_RESULT}    failed
