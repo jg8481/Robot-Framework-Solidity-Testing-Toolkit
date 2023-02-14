@@ -37,8 +37,6 @@ jobs:
           fi
 
   run-semgrep:
-    # User-definable name of this GitHub Actions job:
-    name: Run a SemGrep code analysis security scan
     # If you are self-hosting, change the following `runs-on` value: 
     runs-on: ubuntu-latest
     timeout-minutes: 60  
