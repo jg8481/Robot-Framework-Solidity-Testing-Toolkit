@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -uo pipefail
+
 clear
 TIMESTAMP=$(date)
 
@@ -71,6 +73,8 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
   TIMESTAMP2=$(date)
   echo "This run ended at around $TIMESTAMP2."
   bats ./acceptance-tests.bats --timing
+  BATS_EXIT_STATUS=$?
+  exit BATS_EXIT_STATUS
 fi
 
 if [ "$1" == "Run-Unit-Tests" ]; then
@@ -124,6 +128,8 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   TIMESTAMP2=$(date)
   echo "This run ended at around $TIMESTAMP2."
   bats ./unit-tests.bats --timing
+  BATS_EXIT_STATUS=$?
+  exit BATS_EXIT_STATUS
 fi
 
 usage_explanation() {
