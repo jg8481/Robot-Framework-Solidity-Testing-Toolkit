@@ -4,7 +4,7 @@
     cd "$CURRENT_PATH"
     nohup bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux > "$CURRENT_PATH"/atest/acceptance-test-resources/tools-installer-runner.acceptance-test-log &
     sleep 5
-    cat "$CURRENT_PATH"/atest/acceptance-test-resources/tools-installer-runner.acceptance-test-log | grep "This command will install all of the required Node.js packages"
+    cat "$CURRENT_PATH"/atest/acceptance-test-resources/tools-installer-runner.acceptance-test-log | grep "This run ended on"
 }
 
 @test "Check the end-to-end behavior of the 'start-solidity-qa-workflows.sh' Bash script after it runs Solidity static anaylsis tools" {
