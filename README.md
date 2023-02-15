@@ -2,7 +2,7 @@
 
 [![Toolkit Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml)
 
-[![Security Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/security-checks.yaml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/security-checks.yaml)
+[![Security Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/security-checks.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/security-checks.yml)
 
 [![CodeQL](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql)
 
