@@ -33,7 +33,8 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   nvm install 18
   nvm use 18
   nvm alias default 18
-  npm install npm --global 
+  npm install npm --global
+  npm update 
   npm install -g solhint
   npm install -g solgraph
   npm install -g surya
