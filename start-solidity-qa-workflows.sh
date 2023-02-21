@@ -3,9 +3,9 @@
 clear
 TIMESTAMP=$(date)
 
-if [ "$1" == "Stop-All-Local-Network-Nodes-And-Delete-Logs-On-MacOS-Or-Linux" ]; then
+if [ "$1" == "Stop-Local-Blockchain-Nodes-And-Delete-Logs" ]; then
   echo
-  echo "------------------------------------[[[[ Stop-All-Local-Network-Nodes-And-Delete-Logs-On-MacOS-Or-Linux ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Stop-Local-Blockchain-Nodes-And-Delete-Logs ]]]]------------------------------------"
   echo
   echo "This command will stop any locally running network nodes and clean up any logs leftover from old runs. Feel free to run this command multiple times to clean up files listed below. This run started on $TIMESTAMP."
   echo
@@ -51,9 +51,9 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   exit 0
 fi
 
-if [ "$1" == "Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux" ]; then
+if [ "$1" == "Start-Default-Hardhat-Network-And-Robotremoteserver" ]; then
   echo
-  echo "------------------------------------[[[[ Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Start-Default-Hardhat-Network-And-Robotremoteserver ]]]]------------------------------------"
   echo
   echo "This command was designed to run a local Ethereum blockchain using the Hardhat Network's built-in simulator in its own terminal window. It will also start the node-robotremoteserver. This run started on $TIMESTAMP."
   echo
@@ -85,7 +85,7 @@ if [ "$1" == "Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-O
   export HARDHAT_NETWORK=localhost && nohup node ./robotframework-hardhat-remote-library.js > ./logs/robotframework-hardhat-remote-library-standalone-mode.log &
   sleep 10
   TIMESTAMP2=$(date)
-  echo "------------------------------------[[[[ Hardhat-Network-Ethereum-Node-And-Robotemoteserver-Log-Output ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Hardhat-Network-Ethereum-Node-And-Robotremoteserver-Log-Output ]]]]------------------------------------"
   echo
   echo "************************************"
   echo "The following log output comes from the hardhat-contract-deployment-standalone-mode.log"
@@ -102,9 +102,9 @@ if [ "$1" == "Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-O
   echo "This run ended on $TIMESTAMP2."
 fi
 
-if [ "$1" == "Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux" ]; then
+if [ "$1" == "Start-Multichain-Hardhat-Network-And-Robotremoteserver" ]; then
   echo
-  echo "------------------------------------[[[[ Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Start-Multichain-Hardhat-Network-And-Robotremoteserver ]]]]------------------------------------"
   echo
   echo "This command was designed to run a forked EVM compatible blockchain mainnet on Hardhat Network using a specific configuration in its own terminal window. Ethereum, Fantom, Avalanche and Polygon are included, but many more are possible. It will also start the node-robotremoteserver. This run started on $TIMESTAMP."
   echo
@@ -137,7 +137,7 @@ if [ "$1" == "Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacO
   export HARDHAT_NETWORK=localhost && nohup node ./robotframework-hardhat-remote-library.js > ./logs/robotframework-hardhat-remote-library-standalone-mode.log &
   sleep 10
   TIMESTAMP2=$(date)
-  echo "------------------------------------[[[[ Hardhat-Network-Node-And-Robotemoteserver-Log-Output ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Hardhat-Network-Node-And-Robotremoteserver-Log-Output ]]]]------------------------------------"
   echo
   echo "************************************"
   echo "The following log output comes from the hardhat-"$BLOCKCHAIN_TYPE"-contract-deployment-standalone-mode.log"
@@ -154,14 +154,14 @@ if [ "$1" == "Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacO
   echo "This run ended on $TIMESTAMP2."
 fi
 
-if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network" ]; then
+if [ "$1" == "Run-Smart-Contract-Tests-Default-NonForked-Hardhat-Network" ]; then
   clear
   echo
-  echo "------------------------------------[[[[ Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Run-Smart-Contract-Tests-Default-NonForked-Hardhat-Network ]]]]------------------------------------"
   echo
   echo "This command uses the CONTRACT_ADDRESS variable in the hardhat-environment-variables.env file to run Robot Framework Javascript automation that will perform an interactive test on Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
   echo
-  echo "ATTENTION: If you're forking mainnets this seems to only work on the Fantom config provided with this repo. This test will sometimes display only 1 passing test and many failed tests if you attempt to run it on other local forked mainnets in the Hardhat Network Node. If you want to quickly check your local forked mainnet then run the 'Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network' command please."
+  echo "ATTENTION: If you're forking mainnets this seems to only work on the Fantom config provided with this repo. This test will sometimes display only 1 passing test and many failed tests if you attempt to run it on other local forked mainnets in the Hardhat Network Node. If you want to quickly check your local forked mainnet then run the 'Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network' command please."
   echo
   source ./hardhat-environment-variables.env 
   cd ./solidity-hardhat-multichain-tools
@@ -173,7 +173,7 @@ if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Ne
     echo
   else 
     echo
-    echo "BLOCKCHAIN_TYPE_FILE is not set. Please run the 'Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux' command or 'Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux' command, follow the instructions, and wait until you see 'Block #1:' appear in the terminal window. This test is going to exit now."
+    echo "BLOCKCHAIN_TYPE_FILE is not set. Please run the 'Start-Default-Hardhat-Network-And-Robotremoteserver' command or 'Start-Multichain-Hardhat-Network-And-Robotremoteserver' command, follow the instructions, and wait until you see 'Block #1:' appear in the terminal window. This test is going to exit now."
     echo
     exit
   fi
@@ -188,10 +188,10 @@ if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Ne
   exit
 fi
 
-if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network" ]; then
+if [ "$1" == "Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network" ]; then
   clear
   echo
-  echo "------------------------------------[[[[ Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network ]]]]------------------------------------"
   echo
   echo "This command uses the CONTRACT_ADDRESS variable in the hardhat-environment-variables.env file to run Robot Framework Javascript automation that will perform an interactive test on Solidity Smart Contracts using the built-in Hardhat Network after performing a deployment to a mainnet fork. This run started on $TIMESTAMP."
   echo
@@ -207,7 +207,7 @@ if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Net
     echo
   else 
     echo
-    echo "BLOCKCHAIN_TYPE_FILE is not set. Please run the 'Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux' command or 'Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux' command, follow the instructions, and wait until you see 'Block #1:' appear in the terminal window. This test is going to exit now."
+    echo "BLOCKCHAIN_TYPE_FILE is not set. Please run the 'Start-Default-Hardhat-Network-And-Robotremoteserver' command or 'Start-Multichain-Hardhat-Network-And-Robotremoteserver' command, follow the instructions, and wait until you see 'Block #1:' appear in the terminal window. This test is going to exit now."
     echo
     exit
   fi
@@ -338,9 +338,9 @@ if [ "$1" == "Run-Smart-Contract-Hardhat-Avalanche-RPA-Deployment" ]; then
   exit
 fi
 
-if [ "$1" == "Start-Default-Truffle-Develop-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux" ]; then
+if [ "$1" == "Start-Default-Truffle-Develop-And-Robotremoteserver" ]; then
   echo
-  echo "------------------------------------[[[[ Start-Default-Truffle-Develop-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Start-Default-Truffle-Develop-And-Robotremoteserver ]]]]------------------------------------"
   echo
   echo "This command was designed to run a built-in Truffle Develop locally running Ethereum node in its own terminal window. It will also start the node-robotremoteserver. This run started on $TIMESTAMP."
   echo
@@ -371,7 +371,7 @@ if [ "$1" == "Start-Default-Truffle-Develop-Ethereum-Node-And-Robotemoteserver-O
   nohup node ./robotframework-truffle-remote-library.js > ./logs/robotframework-truffle-remote-library-standalone-mode.log &
   sleep 10
   TIMESTAMP2=$(date)
-  echo "------------------------------------[[[[ Truffle-Develop-Ethereum-Node-And-Robotemoteserver-Log-Output ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Truffle-Develop-Ethereum-Node-And-Robotremoteserver-Log-Output ]]]]------------------------------------"
   echo
   echo "************************************"
   echo "The following log output comes from the truffle-contract-address.log"
@@ -388,10 +388,10 @@ if [ "$1" == "Start-Default-Truffle-Develop-Ethereum-Node-And-Robotemoteserver-O
   echo "This run ended on $TIMESTAMP2."
 fi
 
-if [ "$1" == "Run-Smart-Contract-Interactive-Tests-On-Local-Ethereum-Truffle-Develop-Instance" ]; then
+if [ "$1" == "Run-Smart-Contract-Tests-Default-Truffle-Develop-Instance" ]; then
   clear
   echo
-  echo "------------------------------------[[[[ Run-Smart-Contract-Interactive-Tests-On-Local-Ethereum-Truffle-Develop-Instance ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Run-Smart-Contract-Tests-Default-Truffle-Develop-Instance ]]]]------------------------------------"
   echo
   echo "This command will run Robot Framework Javascript automation that will perform an interactive test on Solidity Smart Contracts using the built-in Truffle Develop blockchain designed for local development. This run started on $TIMESTAMP."
   echo
@@ -443,10 +443,10 @@ usage_explanation() {
   echo
   echo "---->>>> Local Solidity Test Environment Setup Commands <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux"
-  echo "bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux"
-  echo "bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-Node-And-Robotemoteserver-On-MacOS-Or-Linux"
-  echo "bash ./start-solidity-qa-workflows.sh Start-Default-Truffle-Develop-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux"
-  echo "bash ./start-solidity-qa-workflows.sh Stop-All-Local-Network-Nodes-And-Delete-Logs-On-MacOS-Or-Linux"
+  echo "bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-And-Robotremoteserver"
+  echo "bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-And-Robotremoteserver"
+  echo "bash ./start-solidity-qa-workflows.sh Start-Default-Truffle-Develop-And-Robotremoteserver"
+  echo "bash ./start-solidity-qa-workflows.sh Stop-Local-Blockchain-Nodes-And-Delete-Logs"
   echo 
   echo "---->>>> Solidity Static Analysis And Security Testing Commands <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Run-Solidity-Static-Analysis"
@@ -461,11 +461,11 @@ usage_explanation() {
   echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Truffle-Ethereum-RPA-Deployment"
   echo
   echo "---->>>> Interactive Tests For Deployed Smart Contracts Using Hardhat (NOTE: These tests can run on multiple EVM Compatible Blockchains!) <<<<----"
-  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network"
-  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Forked-Mainnet-Hardhat-Network" 
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-NonForked-Hardhat-Network"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network" 
   echo
   echo "---->>>> Interactive Tests For Deployed Smart Contracts Using Truffle Suite <<<<----"
-  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-Ethereum-Truffle-Develop-Instance"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-Truffle-Develop-Instance"
   echo
   echo
   cat ./notes-images-and-demonstrations/NOTES.md 2> /dev/null
