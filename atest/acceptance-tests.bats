@@ -21,7 +21,7 @@
 
 @test "Check the end-to-end behavior of the 'start-solidity-qa-workflows.sh' Bash script after it runs Robot Framework Hardhat Ethers.js tests" {
     cd "$CURRENT_PATH"
-    bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Interactive-Tests-On-Local-NonForked-Hardhat-Network > "$CURRENT_PATH"/atest/acceptance-test-resources/robotframework-hardhat-ethersjs-test-runner.acceptance-test-log
+    bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-NonForked-Hardhat-Network > "$CURRENT_PATH"/atest/acceptance-test-resources/robotframework-hardhat-ethersjs-test-runner.acceptance-test-log
     cat "$CURRENT_PATH"/atest/acceptance-test-resources/robotframework-hardhat-ethersjs-test-runner.acceptance-test-log | grep "HARDHAT ETHERS.JS TEST 12"
     sleep 5
     ls -la "$CURRENT_PATH"/solidity-hardhat-multichain-tools/logs | grep "smart-contract-hardhat-Fantom-tests-output.xml"
