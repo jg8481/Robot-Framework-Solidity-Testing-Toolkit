@@ -55,7 +55,7 @@ if [ "$1" == "Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-O
   echo
   echo "------------------------------------[[[[ Start-Default-Hardhat-Network-Ethereum-Node-And-Robotemoteserver-On-MacOS-Or-Linux ]]]]------------------------------------"
   echo
-  echo "This command was designed to run a built-in Hardhat Network locally running Ethereum node in its own terminal window. It will also start the node-robotremoteserver. This run started on $TIMESTAMP."
+  echo "This command was designed to run a local Ethereum blockchain using the Hardhat Network's built-in simulator in its own terminal window. It will also start the node-robotremoteserver. This run started on $TIMESTAMP."
   echo
   echo "Please read this documentation to learn more about the Hardhat Network tool... https://hardhat.org/hardhat-network/docs/overview"
   echo
