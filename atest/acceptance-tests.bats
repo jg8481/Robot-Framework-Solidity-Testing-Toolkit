@@ -16,7 +16,7 @@
 @test "Check the end-to-end behavior of the 'start-solidity-qa-workflows.sh' Bash script after it runs a Robot Framework RPA local Hardhat smart contract deployment" {
     cd "$CURRENT_PATH"
     bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Fantom-RPA-Deployment > "$CURRENT_PATH"/atest/acceptance-test-resources/robotframework-hardhat-rpa-fantom-deployment-runner.acceptance-test-log
-    cat "$CURRENT_PATH"/atest/acceptance-test-resources/robotframework-hardhat-rpa-fantom-deployment-runner.acceptance-test-log | grep "Private Key"
+    cat "$CURRENT_PATH"/atest/acceptance-test-resources/robotframework-hardhat-rpa-fantom-deployment-runner.acceptance-test-log | grep "run ended"
 }
 
 @test "Check the end-to-end behavior of the 'start-solidity-qa-workflows.sh' Bash script after it runs Robot Framework Hardhat Ethers.js tests" {
