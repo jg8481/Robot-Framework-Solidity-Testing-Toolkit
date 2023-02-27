@@ -62,7 +62,8 @@ In the future I plan to expand this toolkit into the following areas.
   - Progress:
     - (February 12, 2023 - **Ready To Use**) Created a working Truffle Suite library using a similar design as the Hardhat library, but utilizes [web3.js](https://web3js.org) and added a few different tests too.
 - Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry
-- Create RPA and `robotframework-hardhat-remote-library.js` powered multichain bots utilizing [Infura](https://infura.io/), [Hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/)
+- Create RPA and `robotframework-hardhat-remote-library.js` powered multichain bots utilizing [Infura RPC nodes](https://infura.io/), [Hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/)
+- Create RPA and Alchemy powered bots utilizing [their SDK](https://www.alchemy.com/sdk) and [RPC nodes]().
 - Attempt to create Robot Framework automation utilizing the [Foundry toolkit](https://github.com/foundry-rs/foundry)
 - Create Metamask automation using [SeleniumLibrary](https://github.com/robotframework/SeleniumLibrary) and [robotframework-browser (a Playwright library)](https://github.com/MarketSquare/robotframework-browser)
 - Create a Robot Framework Model-based Testing example utilizing similar concepts found in my [PaBot-Android-Device-Graphwalker-Examples.robot](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022/blob/main/Workshop-Examples/Tests/Workshop-Part-Two/PaBot-Android-Device-Graphwalker-Examples.robot#L23)
