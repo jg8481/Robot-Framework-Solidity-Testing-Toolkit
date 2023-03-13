@@ -10,6 +10,7 @@ title: Robot Framework Solidity Testing Toolkit
 
 [![CodeQL](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql)
 
+![Robot](./assets/images/robotframework-ethereum.png)
 
 ## Disclaimer
 
