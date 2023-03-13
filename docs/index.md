@@ -8,13 +8,11 @@ layout: slate
 Content is written in [Markdown](https://learnxinyminutes.com/docs/markdown/).
 Plain text format allows you to focus on your **content**.
 
-<!--
 <script>const BADGE_ID = 'UNIQUE ALCHEMY TEAM REFERRAL TOKEN HERE';</script>
 <script type="text/javascript" src="https://static.alchemyapi.io/scripts/badge/alchemy-badge.js"></script>
 <a href="#">
     <img onclick=logBadgeClick() id="badge-button" style="width:240px;height:53px" src="https://static.alchemyapi.io/images/marketing/badge.png" alt="Alchemy Supercharged" />
 </a>
--->
 
 [![Toolkit Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml)
 
@@ -22,7 +20,7 @@ Plain text format allows you to focus on your **content**.
 
 [![CodeQL](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql)
 
-![Robot](./notes-images-and-demonstrations/robotframework-ethereum.png)
+![Robot](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/blob/380d1fc81c926af46e482074291904b25f126c37/notes-images-and-demonstrations/robotframework-ethereum.png)
 
 ## Disclaimer
 
@@ -130,3 +128,5 @@ bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Forked-Mainnet-Ha
 ---->>>> Interactive Tests For Deployed Smart Contracts Using Truffle Suite <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-Truffle-Develop-Instance
 ```
+
+[Click here to see examples of how the automation toolkit works.](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit#example-workflow-1---deploy-then-test-a-smart-contract-using-the-built-in-hardhat-network-ethereum-node-and-node-robotremoteserver-on-macos-or-linux)
