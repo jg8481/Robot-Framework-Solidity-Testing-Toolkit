@@ -25,7 +25,7 @@ Plain text format allows you to focus on your **content**.
 
 [![CodeQL](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql)
 
-![Robot](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/blob/380d1fc81c926af46e482074291904b25f126c37/notes-images-and-demonstrations/robotframework-ethereum.png)
+![Robot](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/blob/main/notes-images-and-demonstrations/robotframework-ethereum.png)
 
 ## Disclaimer
 
