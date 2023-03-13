@@ -8,11 +8,16 @@ layout: slate
 Content is written in [Markdown](https://learnxinyminutes.com/docs/markdown/).
 Plain text format allows you to focus on your **content**.
 
-<script>const BADGE_ID = 'UNIQUE ALCHEMY TEAM REFERRAL TOKEN HERE';</script>
+<html>
+  <body>
+     <script>const BADGE_ID = 'UNIQUE ALCHEMY TEAM REFERRAL TOKEN HERE';</script>
 <script type="text/javascript" src="https://static.alchemyapi.io/scripts/badge/alchemy-badge.js"></script>
 <a href="#">
     <img onclick=logBadgeClick() id="badge-button" style="width:240px;height:53px" src="https://static.alchemyapi.io/images/marketing/badge.png" alt="Alchemy Supercharged" />
 </a>
+  </body>
+</html>
+
 
 [![Toolkit Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml)
 
