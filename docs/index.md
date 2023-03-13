@@ -1,12 +1,8 @@
 ---
 title: Robot Framework Solidity Testing Toolkit
-layout: slate
 ---
 
 # {{ page.title }}
-
-Content is written in [Markdown](https://learnxinyminutes.com/docs/markdown/).
-Plain text format allows you to focus on your **content**.
 
 [![Toolkit Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml)
 
@@ -14,7 +10,7 @@ Plain text format allows you to focus on your **content**.
 
 [![CodeQL](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql)
 
-![Robot](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/blob/main/notes-images-and-demonstrations/robotframework-ethereum.png)
+![Robot](./assets/images/robotframework-ethereum.png)
 
 ## Disclaimer
 
