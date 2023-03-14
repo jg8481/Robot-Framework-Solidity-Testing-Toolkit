@@ -1,5 +1,6 @@
 ---
 title: Robot Framework Solidity Testing Toolkit
+layout: default
 ---
 
 # {{ page.title }}
