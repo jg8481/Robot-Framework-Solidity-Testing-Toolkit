@@ -1,9 +1,8 @@
 ---
-title: Robot Framework Solidity Testing Toolkit
 layout: default
 ---
 
-# {{ page.title }}
+# Robot Framework Solidity Testing Toolkit
 
 [![Toolkit Checks](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/toolkit-checks.yml)
 
