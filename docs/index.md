@@ -119,4 +119,4 @@ bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Forked-Mainnet-Ha
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-Truffle-Develop-Instance
 ```
 
-[Click here to see examples of how the automation toolkit works.](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit#example-workflow-1---deploy-then-test-a-smart-contract-using-the-built-in-hardhat-network-ethereum-node-and-node-robotremoteserver-on-macos-or-linux)
+[Click here to see examples of how this automation toolkit works.](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit#example-workflow-1---deploy-then-test-a-smart-contract-using-the-built-in-hardhat-network-ethereum-node-and-node-robotremoteserver-on-macos-or-linux)
