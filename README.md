@@ -6,6 +6,8 @@
 
 [![CodeQL](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit/actions/workflows/github-code-scanning/codeql)
 
+![Alchemy](./notes-images-and-demonstrations/powered-by-alchemy-web3.png)
+
 ![Robot](./notes-images-and-demonstrations/robotframework-ethereum.png)
 
 ## Disclaimer
