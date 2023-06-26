@@ -44,7 +44,7 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   npm install @truffle/contract
   npm install web3
   npm install robotremote
-  npm update
+  #npm update
   npm audit fix --force
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
