@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 60  
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install all ShellCheck dependencies
         continue-on-error: true
         run: |
@@ -43,7 +43,7 @@ jobs:
       image: returntocorp/semgrep
     if: (github.actor != 'dependabot[bot]')
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: semgrep ci --exclude='*.html' --exclude='*.xml' --sarif --output=semgrep.sarif
         continue-on-error: true
         env:
