@@ -9,14 +9,21 @@ if [ "$1" == "Stop-Local-Blockchain-Nodes-And-Delete-Logs" ]; then
   echo
   echo "This command will stop any locally running network nodes and clean up any logs leftover from old runs. Feel free to run this command multiple times to clean up files listed below. This run started on $TIMESTAMP."
   echo
+  killall rust > /dev/null 2>&1
   killall node > /dev/null 2>&1
   killall npm > /dev/null 2>&1
   killall robot > /dev/null 2>&1
+  killall anvil > /dev/null 2>&1
+  killall yarn > /dev/null 2>&1
+  pkill rust > /dev/null 2>&1
   pkill node > /dev/null 2>&1
   pkill npm > /dev/null 2>&1
   pkill robot > /dev/null 2>&1
+  pkill anvil > /dev/null 2>&1
+  pkill yarn > /dev/null 2>&1
   rm -rf ./solidity-hardhat-multichain-tools/logs/*.log
   rm -rf ./solidity-truffle-web3js-tools/logs/*.log
+  rm -rf ./solidity-foundry-playwright-wagmi-tools/logs/*.log
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
 fi
@@ -25,8 +32,35 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   echo
   echo "------------------------------------[[[[ Install-Tools-On-MacOS-Or-Linux ]]]]------------------------------------"
   echo
-  echo "This command will install all of the required Node.js packages. The current LTS Node.js version is 18. This run started on $TIMESTAMP."
+  echo "This command will install all of the required Node.js packages. This project was built using the LTS Node.js version 18. This run started on $TIMESTAMP."
   echo
+  ## If you're using a Linux Distro, make sure that wget is installed.
+  curl -L https://foundry.paradigm.xyz | bash
+  source "$HOME"/.bashrc
+  foundryup
+  source "$HOME"/.bashrc
+  echo
+  echo
+  echo "Checking the Foundry Forge command..."
+  forge -V
+  echo
+  echo
+  echo "Checking the Foundry Anvil command..."
+  anvil -V
+  echo
+  echo
+  echo "Checking the Foundry Cast command..."
+  cast -V
+  echo
+  echo
+  brew install wget
+  CURRENT_PATH=$(pwd)
+  cd "$CURRENT_PATH"/solidity-foundry-playwright-wagmi-tools
+  rm -rf ./main.zip
+  rm -rf ./dapp-e2e-*
+  wget https://github.com/re-nft/dapp-e2e-example/archive/refs/heads/main.zip
+  unzip ./main.zip
+  rm -rf ./main.zip
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -44,9 +78,36 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   npm install @truffle/contract
   npm install web3
   npm install robotremote
+  npm install yarn -g
   npm update
-  npm audit fix 
-  #npm audit fix --force
+  npm audit fix --force
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  exit 0
+fi
+
+if [ "$1" == "Install-Solidity-Security-Testing-Tools-On-MacOS" ]; then
+  echo
+  echo "------------------------------------[[[[ Install-Solidity-Security-Testing-Tools-On-MacOS ]]]]------------------------------------"
+  echo
+  echo "This command will install all of the required tools for Solidity fuzz testing using this tool runner script. This run started on $TIMESTAMP."
+  echo
+  rm -rf ./foundry/src/implementation/
+  rm -rf ./foundry/lib/forge-std
+  rm -rf ./foundry/lib/openzeppelin-contracts
+  rm -rf ./echidna/openzeppelin-contracts
+  git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git ./foundry/lib/openzeppelin-contracts
+  git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git ./echidna/openzeppelin-contracts
+  git clone https://github.com/foundry-rs/forge-std.git ./foundry/lib/forge-std
+  rm -rf ../foundry/lib/forge-std/lib/ds-test
+  git clone https://github.com/dapphub/ds-test.git ./foundry/lib/forge-std/lib/ds-test
+  npm -g i ganache
+  brew install git
+  brew install libusb && curl -L https://foundry.paradigm.xyz | bash && source $HOME/.bashrc && foundryup
+  pip3.10 install --user pysha3
+  pip3.10 install --user etheno
+  source $HOME/.bashrc
+  $HOME/.foundry/bin/forge -h
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
   exit 0
@@ -432,6 +493,213 @@ if [ "$1" == "Run-Smart-Contract-Truffle-Ethereum-RPA-Deployment" ]; then
   exit
 fi
 
+if [ "$1" == "Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
+  echo
+  echo "------------------------------------[[[[ Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp ]]]]------------------------------------"
+  echo
+  echo "This command was designed to run a local Ethereum blockchain using the forked Foundry Anvil node simulator in its own terminal window. It will also start the dapp-e2e-example NextJS dApp utilizing a wagmi Mock Connector Wallet. This run started on $TIMESTAMP."
+  echo
+  echo "Please read this documentation to learn more about the Foundry Anvil tool... https://book.getfoundry.sh/anvil/"
+  echo
+  killall rust > /dev/null 2>&1
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  killall anvil > /dev/null 2>&1
+  killall yarn > /dev/null 2>&1
+  pkill rust > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  pkill anvil > /dev/null 2>&1
+  pkill yarn > /dev/null 2>&1
+  source "$HOME"/.bashrc
+  echo
+  echo
+  echo "Checking the Foundry Forge command..."
+  forge -V
+  cd ./solidity-foundry-playwright-wagmi-tools
+  rm -rf ./logs/anvil-default-network-node-standalone-mode.log
+  rm -rf ./logs/forge-compile-and-deployment.log
+  echo "Ethereum" > ./logs/blockchain-type.log
+  echo
+  echo
+  cd ./dapp-e2e-example-main
+  ## If you have issues with LTS Node.js version 18 then un-comment the following command.
+  #nvm install --lts
+  npm install yarn -g
+  npm install
+  yarn dev > ./wagmi-nextjs-dapp.log &
+  cd ..
+  ls -la
+  source ./foundry-environment-variables.env
+  rm -rf ./anvil-smartcontract-address*
+  ## The following command can help debug anvil connection issues.
+  ## sudo lsof -i -P -n | grep LISTEN
+  anvil --fork-block-number="$ANVIL_FORK_BLOCK_NUMBER" --fork-url="$ANVIL_FORK_URL" > ./logs/anvil-default-network-node-standalone-mode.log &
+  sleep 10
+  echo
+  echo
+  forge create --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" ./contracts/ERC20Interface.sol:IERC20
+  forge create --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" ./contracts/ERC20Token.sol:ERC20 --constructor-args "QAToken" "QA" "18" > ./logs/forge-compile-and-deployment.log &&
+  echo
+  echo
+  sleep 10
+  DEPLOYED_CONTRACT_ADDRESS=$(cat ./logs/forge-compile-and-deployment.log | grep "Deployed to" | awk '{print $3}')
+  echo "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.env
+  #echo "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.txt
+  #tail -n -1 ./anvil-smartcontract-address.txt > ./anvil-smartcontract-address.env
+  #rm -rf ./anvil-smartcontract-address.txt
+  cat ./anvil-smartcontract-address.env
+  echo
+  echo
+  TIMESTAMP2=$(date)
+  echo "------------------------------------[[[[ Foundry-Anvil-Ethereum-Node-And-Wagmi-dApp-Log-Output ]]]]------------------------------------"
+  echo
+  echo "************************************"
+  echo "The following log output comes from the forge-compile-and-deployment.log"
+  cat ./logs/forge-compile-and-deployment.log
+  echo
+  echo "************************************"
+  echo "The following log output comes from the wagmi-nextjs-dapp.log"
+  cat ./dapp-e2e-example-main/wagmi-nextjs-dapp.log
+  echo
+  echo "************************************"
+  echo "The following log outputs comes from wagmi-nextjs-dapp.log and anvil-default-network-node-standalone-mode.log"
+  tail -F ./logs/anvil-default-network-node-standalone-mode.log
+  echo
+  echo "This run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
+  echo
+  echo "------------------------------------[[[[ Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp ]]]]------------------------------------"
+  echo
+  echo "This command was designed to run a local Ethereum blockchain using the Foundry Anvil node simulator in its own terminal window, but not forked. It will also start the dapp-e2e-example NextJS dApp utilizing a wagmi Mock Connector Wallet. This run started on $TIMESTAMP."
+  echo
+  echo "Please read this documentation to learn more about the Foundry Anvil tool... https://book.getfoundry.sh/anvil/"
+  echo
+  killall rust > /dev/null 2>&1
+  killall node > /dev/null 2>&1
+  killall npm > /dev/null 2>&1
+  killall robot > /dev/null 2>&1
+  killall anvil > /dev/null 2>&1
+  killall yarn > /dev/null 2>&1
+  pkill rust > /dev/null 2>&1
+  pkill node > /dev/null 2>&1
+  pkill npm > /dev/null 2>&1
+  pkill robot > /dev/null 2>&1
+  pkill anvil > /dev/null 2>&1
+  pkill yarn > /dev/null 2>&1
+  source "$HOME"/.bashrc
+  echo
+  echo
+  echo "Checking the Foundry Forge command..."
+  forge -V
+  cd ./solidity-foundry-playwright-wagmi-tools
+  rm -rf ./logs/anvil-default-network-node-standalone-mode.log
+  rm -rf ./logs/forge-compile-and-deployment.log
+  echo "Ethereum" > ./logs/blockchain-type.log
+  echo
+  echo
+  cd ./dapp-e2e-example-main
+  ## If you have issues with LTS Node.js version 18 then un-comment the following command.
+  #nvm install --lts
+  npm install yarn -g
+  npm install
+  yarn dev > ./wagmi-nextjs-dapp.log &
+  cd ..
+  ls -la
+  source ./foundry-environment-variables.env
+  rm -rf ./anvil-smartcontract-address*
+  ## The following command can help debug anvil connection issues.
+  ## sudo lsof -i -P -n | grep LISTEN
+  anvil > ./logs/anvil-default-network-node-standalone-mode.log &
+  sleep 10
+  echo
+  echo
+  forge create --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" ./contracts/ERC20Interface.sol:IERC20
+  forge create --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" ./contracts/ERC20Token.sol:ERC20 --constructor-args "QAToken" "QA" "18" > ./logs/forge-compile-and-deployment.log &&
+  echo
+  echo
+  sleep 10
+  DEPLOYED_CONTRACT_ADDRESS=$(cat ./logs/forge-compile-and-deployment.log | grep "Deployed to" | awk '{print $3}')
+  echo "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.env
+  #echo "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.txt
+  #tail -n -1 ./anvil-smartcontract-address.txt > ./anvil-smartcontract-address.env
+  #rm -rf ./anvil-smartcontract-address.txt
+  cat ./anvil-smartcontract-address.env
+  echo
+  echo
+  TIMESTAMP2=$(date)
+  echo "------------------------------------[[[[ Foundry-Anvil-Ethereum-Node-And-Wagmi-dApp-Log-Output ]]]]------------------------------------"
+  echo
+  echo "************************************"
+  echo "The following log output comes from the forge-compile-and-deployment.log"
+  cat ./logs/forge-compile-and-deployment.log
+  echo
+  echo "************************************"
+  echo "The following log output comes from the wagmi-nextjs-dapp.log"
+  cat ./dapp-e2e-example-main/wagmi-nextjs-dapp.log
+  echo
+  echo "************************************"
+  echo "The following log outputs comes from wagmi-nextjs-dapp.log and anvil-default-network-node-standalone-mode.log"
+  tail -F ./logs/anvil-default-network-node-standalone-mode.log
+  echo
+  echo "This run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Run-Parallel-Smart-Contract-And-Playwright-Browser-Tests" ]; then
+  clear
+  echo
+  echo "------------------------------------[[[[ Run-Parallel-Smart-Contract-And-Playwright-Browser-Tests ]]]]------------------------------------"
+  echo
+  echo "This command uses the deployed Solidity Smart Contracts address found in the anvil-smartcontract-address.env file to run Robot Framework Foundry Cast automation that will perform an interactive test on the Solidity Smart Contracts using the Foundry Anvil node designed for local development. A Playwright browser test will also run in parallel to test the dapp-e2e-example-main Mock Wallet dApp. This run started on $TIMESTAMP."
+  echo
+  cd ./solidity-foundry-playwright-wagmi-tools
+  source ./foundry-environment-variables.env
+  export BLOCKCHAIN_TYPE=$(cat ./logs/blockchain-type.log)
+  BLOCKCHAIN_TYPE_FILE=./logs/blockchain-type.log
+  if [ -f "$BLOCKCHAIN_TYPE_FILE" ]; then
+    echo
+    echo "BLOCKCHAIN_TYPE_FILE is set and the test will now continue without interuptions."
+    echo
+  else 
+    echo
+    echo "BLOCKCHAIN_TYPE_FILE is not set. Please run the 'Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp' command or 'Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp' command, follow the instructions, and wait until you see Foundry Anvil output appearing in the terminal window. This test is going to exit now."
+    echo
+    exit
+  fi
+  source "$HOME"/.bashrc
+  echo
+  echo
+  echo "Checking the Foundry Forge command..."
+  forge -V
+  echo
+  echo
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./requirements.txt > /dev/null 2>&1
+  sleep 5
+  if [ "$2" == "Skip-Browser-Setup" ]; then
+    echo
+    echo "The 'rfbrowser init' command will skip browser setup for this test."
+    echo
+    rfbrowser init --skip-browsers
+  else 
+    echo
+    echo "The regular 'rfbrowser init' command will run for this test."
+    echo
+    rfbrowser init
+  fi
+  sleep 5
+  pabot --verbose --variable BLOCKCHAIN:"$BLOCKCHAIN_TYPE" --report NONE --log smart-contract-foundry-playwright-"$BLOCKCHAIN_TYPE"-tests-log.html --output smart-contract-foundry-playwright-"$BLOCKCHAIN_TYPE"-tests-output.xml -N "Robot Framework Solidity Smart Contract Foundry $BLOCKCHAIN_TYPE And Playwright dApp Test" -d ./logs ./robotframework-foundry-cast-test-keywords.robot ./robotframework-mock-wallet-playwright-test-keywords.robot
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  exit
+fi
+
 usage_explanation() {
   echo
   echo
@@ -444,9 +712,12 @@ usage_explanation() {
   echo
   echo "---->>>> Local Solidity Test Environment Setup Commands <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux"
+  echo "bash ./start-solidity-qa-workflows.sh Install-Solidity-Security-Testing-Tools-On-MacOS"
   echo "bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-And-Robotremoteserver"
   echo "bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-And-Robotremoteserver"
   echo "bash ./start-solidity-qa-workflows.sh Start-Default-Truffle-Develop-And-Robotremoteserver"
+  echo "bash ./start-solidity-qa-workflows.sh Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp"
+  echo "bash ./start-solidity-qa-workflows.sh Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp"
   echo "bash ./start-solidity-qa-workflows.sh Stop-Local-Blockchain-Nodes-And-Delete-Logs"
   echo 
   echo "---->>>> Solidity Static Analysis And Security Testing Commands <<<<----"
