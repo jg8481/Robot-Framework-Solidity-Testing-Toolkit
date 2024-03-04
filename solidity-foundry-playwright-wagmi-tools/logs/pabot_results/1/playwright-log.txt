@@ -1,0 +1,71 @@
+{"level":30,"time":"2024-03-04T23:23:28.939Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Listening on 50112"}
+(node:57973) DeprecationWarning: Calling start() is no longer necessary. It can be safely omitted.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+{"level":30,"time":"2024-03-04T23:23:29.961Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:23:29.962Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:23:29.968Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:23:29.968Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:23:29.975Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2024-03-04T23:23:35.502Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Adding browser to stack: chromium, version: 121.0.6167.57"}
+{"level":30,"time":"2024-03-04T23:23:35.503Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method newBrowser"}
+{"level":30,"time":"2024-03-04T23:23:35.503Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2024-03-04T23:23:35.510Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2024-03-04T23:23:35.510Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method newPage"}
+{"level":30,"time":"2024-03-04T23:23:35.524Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changed active context"}
+{"level":30,"time":"2024-03-04T23:23:36.129Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Video path: undefined"}
+{"level":30,"time":"2024-03-04T23:23:36.129Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changed active page"}
+{"level":30,"time":"2024-03-04T23:23:36.905Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method newPage"}
+{"level":30,"time":"2024-03-04T23:24:07.673Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2024-03-04T23:24:07.674Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","Take screenshot with options: ":{"path":"/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/1/browser/screenshot/robotframework-browser-screenshot-1.png","fileType":"png","fullPage":false,"timeout":2000,"omitBackground":false}}
+{"level":30,"time":"2024-03-04T23:24:07.812Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2024-03-04T23:24:07.816Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getText"}
+{"level":30,"time":"2024-03-04T23:24:07.816Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Strict mode is enabled, find Locator with button in page."}
+{"level":30,"time":"2024-03-04T23:24:07.858Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Retrieved text for element button containing 9,999.9 ETH\n🍣\n0xf3…2266"}
+{"level":30,"time":"2024-03-04T23:24:07.858Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getText"}
+{"level":30,"time":"2024-03-04T23:24:07.861Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method click"}
+{"level":30,"time":"2024-03-04T23:24:07.862Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Strict mode is enabled, find Locator with \"0xf3…2266\" in page."}
+{"level":30,"time":"2024-03-04T23:24:07.995Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method click"}
+{"level":30,"time":"2024-03-04T23:24:07.998Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method click"}
+{"level":30,"time":"2024-03-04T23:24:07.998Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Strict mode is enabled, find Locator with \"Copy Address\" in page."}
+{"level":30,"time":"2024-03-04T23:24:08.432Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method click"}
+{"level":30,"time":"2024-03-04T23:24:08.437Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method click"}
+{"level":30,"time":"2024-03-04T23:24:08.437Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Strict mode is enabled, find Locator with \"Disconnect\" in page."}
+{"level":30,"time":"2024-03-04T23:24:08.513Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method click"}
+{"level":30,"time":"2024-03-04T23:24:08.518Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method click"}
+{"level":30,"time":"2024-03-04T23:24:08.518Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Strict mode is enabled, find Locator with \"Connect Wallet\" in page."}
+{"level":30,"time":"2024-03-04T23:24:08.610Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method click"}
+{"level":30,"time":"2024-03-04T23:24:08.613Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method click"}
+{"level":30,"time":"2024-03-04T23:24:08.613Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Strict mode is enabled, find Locator with \"Mock Wallet\" in page."}
+{"level":30,"time":"2024-03-04T23:24:09.006Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method click"}
+{"level":30,"time":"2024-03-04T23:24:09.011Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getByX"}
+{"level":30,"time":"2024-03-04T23:24:09.209Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getByX"}
+{"level":30,"time":"2024-03-04T23:24:19.219Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2024-03-04T23:24:19.219Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","Take screenshot with options: ":{"path":"/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/1/browser/screenshot/robotframework-browser-screenshot-2.png","fileType":"png","fullPage":false,"timeout":2000,"omitBackground":false}}
+{"level":30,"time":"2024-03-04T23:24:19.340Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2024-03-04T23:24:19.344Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.351Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.355Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.357Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.359Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changed active context"}
+{"level":30,"time":"2024-03-04T23:24:19.359Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changing current active page: page=c80b3541-c047-40e3-957f-e5141ab6317a"}
+{"level":30,"time":"2024-03-04T23:24:19.359Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changed active page"}
+{"level":30,"time":"2024-03-04T23:24:19.369Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.371Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.374Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2024-03-04T23:24:19.375Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2024-03-04T23:24:19.386Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2024-03-04T23:24:19.387Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2024-03-04T23:24:19.393Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changing current active page: page=c80b3541-c047-40e3-957f-e5141ab6317a"}
+{"level":30,"time":"2024-03-04T23:24:19.393Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changed active page"}
+{"level":30,"time":"2024-03-04T23:24:19.403Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.404Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.407Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changed active context"}
+{"level":30,"time":"2024-03-04T23:24:19.407Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changing current active page: page=c80b3541-c047-40e3-957f-e5141ab6317a"}
+{"level":30,"time":"2024-03-04T23:24:19.407Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Changed active page"}
+{"level":30,"time":"2024-03-04T23:24:19.411Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method closeContext"}
+{"level":30,"time":"2024-03-04T23:24:19.424Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Removed page=e4e70799-75dc-4a85-a8a4-0509b2e010f5 from context=27520d52-e854-461a-9adc-ee66ca32498d page stack"}
+{"level":30,"time":"2024-03-04T23:24:19.467Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method closeContext"}
+{"level":30,"time":"2024-03-04T23:24:19.473Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.473Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2024-03-04T23:24:19.482Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2024-03-04T23:24:19.641Z","pid":57973,"hostname":"Joshuas-MacBook-Pro-2.local","msg":"End of node method closeAllBrowsers"}

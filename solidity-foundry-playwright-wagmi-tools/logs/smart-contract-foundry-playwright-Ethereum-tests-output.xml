@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Rebot 7.0 (Python 3.11.6 on darwin)" generated="2024-03-04T18:24:20.023569" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dApp Test">
+<suite id="s1-s1" name="Robotframework-Foundry-Cast-Test-Keywords" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/robotframework-foundry-cast-test-keywords.robot">
+<test id="s1-s1-t1" name="Quickly test the Solidty Smart Contract deployed to the Ethereum local fork using Foundry's Cast tool." line="6">
+<kw name="Get Smart Contract Address">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-03-04T18:23:28.343158" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/anvil-smartcontract-address.env"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/anvil-smartcontract-address.env&lt;/a&gt;'.</msg>
+<msg time="2024-03-04T18:23:28.343724" level="INFO">${TARGET_ADDRESS} = 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+</msg>
+<var>${TARGET_ADDRESS}</var>
+<arg>${EXECDIR}/anvil-smartcontract-address.env</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.342808" elapsed="0.000955"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-03-04T18:23:28.344205" level="INFO">${TARGET_ADDRESS} = 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+</msg>
+<arg>${TARGET_ADDRESS}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.343946" elapsed="0.000310"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.344379" elapsed="0.000203"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.344695" elapsed="0.000173"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.344976" elapsed="0.000158"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${TARGET_ADDRESS}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.345238" elapsed="0.000194"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.345546" elapsed="0.000166"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.345818" elapsed="0.000160"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.346083" elapsed="0.000154"/>
+</kw>
+<status status="PASS" start="2024-03-04T18:23:28.341829" elapsed="0.004482"/>
+</kw>
+<kw name="Run Foundry Cast Call Command And Check Results">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-03-04T18:23:28.350637" level="INFO">Running command 'cast call "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+" "balanceOf(address)(uint256)" "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266" 2&gt;&amp;1'.</msg>
+<msg time="2024-03-04T18:23:28.405331" level="INFO">${FOUNDRY_CAST_OUTPUT} = 900</msg>
+<var>${FOUNDRY_CAST_OUTPUT}</var>
+<arg>cast call "${TARGET_ADDRESS}" "${SMART_CONTRACT_FUNCTION}" "%{ANVIL_DEFAULT_ACCOUNT_NUMBER}"</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.346740" elapsed="0.058651"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-04T18:23:28.406369" level="INFO">900</msg>
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.405876" elapsed="0.000562"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.406576" elapsed="0.000254"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.406953" elapsed="0.000166"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.407222" elapsed="0.000145"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.407464" elapsed="0.000197"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.407758" elapsed="0.000154"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.408009" elapsed="0.000135"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.408250" elapsed="0.000143"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-03-04T18:23:28.408666" level="INFO">Length is 3.</msg>
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.408501" elapsed="0.000213"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<arg>Error</arg>
+<arg>error</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.408817" elapsed="0.000161"/>
+</kw>
+<arg>balanceOf(address)(uint256)</arg>
+<status status="PASS" start="2024-03-04T18:23:28.346479" elapsed="0.062636"/>
+</kw>
+<kw name="Run Foundry Cast Call Command And Check Results">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-03-04T18:23:28.412610" level="INFO">Running command 'cast call "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+" "name()(string)" "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266" 2&gt;&amp;1'.</msg>
+<msg time="2024-03-04T18:23:28.459781" level="INFO">${FOUNDRY_CAST_OUTPUT} = "QAToken"</msg>
+<var>${FOUNDRY_CAST_OUTPUT}</var>
+<arg>cast call "${TARGET_ADDRESS}" "${SMART_CONTRACT_FUNCTION}" "%{ANVIL_DEFAULT_ACCOUNT_NUMBER}"</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.409776" elapsed="0.050064"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-04T18:23:28.460719" level="INFO">"QAToken"</msg>
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.460313" elapsed="0.000458"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.460882" elapsed="0.000197"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.461178" elapsed="0.000147"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.461419" elapsed="0.000139"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.461656" elapsed="0.000173"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.462063" elapsed="0.000147"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.462338" elapsed="0.000310"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.462762" elapsed="0.000160"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-03-04T18:23:28.463292" level="INFO">Length is 9.</msg>
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.463096" elapsed="0.000246"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<arg>Error</arg>
+<arg>error</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.463454" elapsed="0.000179"/>
+</kw>
+<arg>name()(string)</arg>
+<status status="PASS" start="2024-03-04T18:23:28.409395" elapsed="0.054375"/>
+</kw>
+<kw name="Repeat Keyword" owner="BuiltIn">
+<msg time="2024-03-04T18:23:28.464094" level="INFO">Repeating keyword, round 1/2.</msg>
+<kw name="Run Foundry Cast Send To Mint Specific Token Amounts">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-03-04T18:23:28.467725" level="INFO">Running command 'cast send "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+" "mint(address, uint256)" "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266" 100 --private-key "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80" 2&gt;&amp;1'.</msg>
+<msg time="2024-03-04T18:23:28.518397" level="INFO">${FOUNDRY_CAST_OUTPUT} = 
+blockHash               0xe49714de0ace1e7cc2c74cb000282564827c0d9ee952c04e9691fcbd39cd9bad
+blockNumber             12
+contractAddress         
+cumulativeGasUsed       34099
+effectiveGasPrice       32...</msg>
+<var>${FOUNDRY_CAST_OUTPUT}</var>
+<arg>cast send "${TARGET_ADDRESS}" "mint(address, uint256)" "%{ANVIL_DEFAULT_ACCOUNT_NUMBER}" ${MINT_TOKEN_AMOUNT} --private-key "%{ANVIL_WALLET_PRIVATE_KEY}"</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.464922" elapsed="0.053548"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-04T18:23:28.519558" level="INFO">
+blockHash               0xe49714de0ace1e7cc2c74cb000282564827c0d9ee952c04e9691fcbd39cd9bad
+blockNumber             12
+contractAddress         
+cumulativeGasUsed       34099
+effectiveGasPrice       3232215577
+from                    0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+gasUsed                 34099
+logs                    [{"address":"0xe7f1725e7734ce288f8367e1bb143e90bb3f0512","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266"],"data":"0x0000000000000000000000000000000000000000000000000000000000000064","blockHash":"0xe49714de0ace1e7cc2c74cb000282564827c0d9ee952c04e9691fcbd39cd9bad","blockNumber":"0xc","transactionHash":"0x5e81c2d7289470d2b5e64db8a3bad396d155948c6ac8cc270939a7097369c08d","transactionIndex":"0x0","logIndex":"0x0","removed":false}]
+logsBloom               0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000020000000000000100000800000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000200000000000001000000000002000000000000000000020000000000000000000000000000000000000000000000000800000000000000000
+root                    
+status                  1
+transactionHash         0x5e81c2d7289470d2b5e64db8a3bad396d155948c6ac8cc270939a7097369c08d
+transactionIndex        0
+type                    2
+to                      0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+depositNonce             null</msg>
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.518935" elapsed="0.000700"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.519809" elapsed="0.000291"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.520224" elapsed="0.000159"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.520481" elapsed="0.000146"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.520728" elapsed="0.000185"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.521014" elapsed="0.000140"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.521253" elapsed="0.000153"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.521502" elapsed="0.000299"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-03-04T18:23:28.522246" level="INFO">Length is 1758.</msg>
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.521971" elapsed="0.000360"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<arg>Error</arg>
+<arg>error</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.522519" elapsed="0.000195"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-04T18:23:38.524821" level="INFO">Slept 10 seconds.</msg>
+<arg>${TIME_DELAY} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.522849" elapsed="10.002241"/>
+</kw>
+<arg>100</arg>
+<arg>10</arg>
+<status status="PASS" start="2024-03-04T18:23:28.464359" elapsed="10.061168"/>
+</kw>
+<msg time="2024-03-04T18:23:38.525759" level="INFO">Repeating keyword, round 2/2.</msg>
+<kw name="Run Foundry Cast Send To Mint Specific Token Amounts">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-03-04T18:23:38.532527" level="INFO">Running command 'cast send "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+" "mint(address, uint256)" "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266" 100 --private-key "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80" 2&gt;&amp;1'.</msg>
+<msg time="2024-03-04T18:23:38.704115" level="INFO">${FOUNDRY_CAST_OUTPUT} = 
+blockHash               0x0a291f0ee03001b293117ceb2895e6eb239052599fe54a5c5adcfea4e3b1dbfe
+blockNumber             13
+contractAddress         
+cumulativeGasUsed       34099
+effectiveGasPrice       32...</msg>
+<var>${FOUNDRY_CAST_OUTPUT}</var>
+<arg>cast send "${TARGET_ADDRESS}" "mint(address, uint256)" "%{ANVIL_DEFAULT_ACCOUNT_NUMBER}" ${MINT_TOKEN_AMOUNT} --private-key "%{ANVIL_WALLET_PRIVATE_KEY}"</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.527510" elapsed="0.176727"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-03-04T18:23:38.705878" level="INFO">
+blockHash               0x0a291f0ee03001b293117ceb2895e6eb239052599fe54a5c5adcfea4e3b1dbfe
+blockNumber             13
+contractAddress         
+cumulativeGasUsed       34099
+effectiveGasPrice       3203254616
+from                    0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+gasUsed                 34099
+logs                    [{"address":"0xe7f1725e7734ce288f8367e1bb143e90bb3f0512","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266"],"data":"0x0000000000000000000000000000000000000000000000000000000000000064","blockHash":"0x0a291f0ee03001b293117ceb2895e6eb239052599fe54a5c5adcfea4e3b1dbfe","blockNumber":"0xd","transactionHash":"0x746b40233b40bf7a9cf547bb391605f2e3c79c9c50c445b9a8236039ddec2de7","transactionIndex":"0x0","logIndex":"0x0","removed":false}]
+logsBloom               0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000020000000000000100000800000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000200000000000001000000000002000000000000000000020000000000000000000000000000000000000000000000000800000000000000000
+root                    
+status                  1
+transactionHash         0x746b40233b40bf7a9cf547bb391605f2e3c79c9c50c445b9a8236039ddec2de7
+transactionIndex        0
+type                    2
+to                      0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+depositNonce             null</msg>
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.705084" elapsed="0.002089"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.707531" elapsed="0.000539"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.708318" elapsed="0.000304"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.708792" elapsed="0.000245"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.709211" elapsed="0.000375"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.709775" elapsed="0.000247"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.710200" elapsed="0.000375"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.710774" elapsed="0.000254"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-03-04T18:23:38.711504" level="INFO">Length is 1758.</msg>
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.711226" elapsed="0.000364"/>
+</kw>
+<kw name="Should Not Contain Any" owner="BuiltIn">
+<arg>${FOUNDRY_CAST_OUTPUT}</arg>
+<arg>Error</arg>
+<arg>error</arg>
+<doc>Fails if ``container`` contains one or more of the ``*items``.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.711765" elapsed="0.000291"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-04T18:23:48.712831" level="INFO">Slept 10 seconds.</msg>
+<arg>${TIME_DELAY} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-04T18:23:38.712207" elapsed="10.000883"/>
+</kw>
+<arg>100</arg>
+<arg>10</arg>
+<status status="PASS" start="2024-03-04T18:23:38.526521" elapsed="10.186978"/>
+</kw>
+<arg>2 times</arg>
+<arg>Run Foundry Cast Send To Mint Specific Token Amounts</arg>
+<arg>100</arg>
+<arg>10</arg>
+<doc>Executes the specified keyword multiple times.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.463948" elapsed="20.249808"/>
+</kw>
+<status status="PASS" start="2024-03-04T18:23:28.341265" elapsed="20.373049"/>
+</test>
+<status status="PASS" start="2024-03-04T18:23:28.331000" elapsed="20.384201"/>
+</suite>
+<suite id="s1-s2" name="Robotframework-Mock-Wallet-Playwright-Test-Keywords" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/robotframework-mock-wallet-playwright-test-keywords.robot">
+<test id="s1-s2-t1" name="Quickly test a wagmi Mock Wallet dApp connected to an Ethereum local fork using Foundry's Anvil tool." line="6">
+<kw name="Open New Browser And Setup Test">
+<kw name="New Browser" owner="Browser">
+<msg time="2024-03-04T18:23:29.972895" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/1/browser/traces/65e55869-26ad-42aa-b870-109dcc2c8ab0"}</msg>
+<msg time="2024-03-04T18:23:35.504919" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/1/browser/traces/65e55869-26ad-42aa-b870-109dcc2c8ab0"}</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2024-03-04T18:23:29.971567" elapsed="5.533628"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2024-03-04T18:23:36.906661" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-03-04T18:23:36.906784" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>http://localhost:3000</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2024-03-04T18:23:35.505701" elapsed="1.401314"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2024-03-04T18:23:37.014198" level="INFO">Title: 'RainbowKit App'</msg>
+<arg>contains</arg>
+<arg>App</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-03-04T18:23:36.907405" elapsed="0.106925"/>
+</kw>
+<kw name="Set Browser Timeout" owner="Browser">
+<msg time="2024-03-04T18:23:37.018587" level="INFO">Set timeout to: 2000</msg>
+<arg>${TIMEOUT_DURATION} seconds</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2024-03-04T18:23:37.014560" elapsed="0.004156"/>
+</kw>
+<kw name="Reload" owner="Browser">
+<msg time="2024-03-04T18:23:37.666579" level="INFO">Reloaded page</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Reloads current active page.</doc>
+<status status="PASS" start="2024-03-04T18:23:37.018917" elapsed="0.647814"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-04T18:24:07.667867" level="INFO">Slept 30 seconds.</msg>
+<arg>30 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-04T18:23:37.667013" elapsed="30.001117"/>
+</kw>
+<arg>2</arg>
+<status status="PASS" start="2024-03-04T18:23:29.969993" elapsed="37.698484"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-03-04T18:24:07.813665" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-03-04T18:24:07.668982" elapsed="0.144820"/>
+</kw>
+<kw name="Click Through Wallet Features And Continue After Heading Check">
+<kw name="Get Text" owner="Browser">
+<msg time="2024-03-04T18:24:07.859762" level="INFO">Text: '9,999.9 ETH\n🍣\n0xf3…2266'</msg>
+<arg>button</arg>
+<arg>*=</arg>
+<arg>ETH</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-03-04T18:24:07.814375" elapsed="0.045516"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>"0xf3…2266"</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-03-04T18:24:07.860088" elapsed="0.136690"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>"Copy Address"</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-03-04T18:24:07.996981" elapsed="0.437088"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>"Disconnect"</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-03-04T18:24:08.434841" elapsed="0.080950"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>"Connect Wallet"</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-03-04T18:24:08.516024" elapsed="0.095169"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>"Mock Wallet"</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-03-04T18:24:08.611408" elapsed="0.396925"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Check Mock Wallet Heading">
+<kw name="Get Element By Role" owner="Browser">
+<msg time="2024-03-04T18:24:09.210786" level="INFO">Locator found successfully.</msg>
+<arg>heading</arg>
+<arg>name=9,999.9 ETH</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a reference to Playwright [https://playwright.dev/docs/api/class-locator|Locator]
+for the matched element by ``role`` or a list of references if ``all_elements`` is set to ``True``.</doc>
+<status status="PASS" start="2024-03-04T18:24:09.009408" elapsed="0.201660"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-03-04T18:24:19.213612" level="INFO">Slept 10 seconds.</msg>
+<arg>${DELAY_DURATION} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-03-04T18:24:09.211359" elapsed="10.002525"/>
+</kw>
+<arg>10</arg>
+<status status="PASS" start="2024-03-04T18:24:09.008988" elapsed="10.205305"/>
+</kw>
+<arg>10 times</arg>
+<arg>1 second</arg>
+<arg>Check Mock Wallet Heading</arg>
+<arg>10</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-03-04T18:24:09.008580" elapsed="10.205999"/>
+</kw>
+<status status="PASS" start="2024-03-04T18:24:07.814066" elapsed="11.400763"/>
+</kw>
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2024-03-04T18:24:19.341618" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2024-03-04T18:24:19.215206" elapsed="0.126687"/>
+</kw>
+<status status="PASS" start="2024-03-04T18:23:29.965434" elapsed="49.376883"/>
+</test>
+<status status="PASS" start="2024-03-04T18:23:28.331848" elapsed="51.137697"/>
+</suite>
+<doc>[https://pabot.org/?ref=log|Pabot] result from 2 executions.</doc>
+<status status="PASS" start="2024-03-04T18:23:28.313000" elapsed="20.403577"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dApp Test">Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dApp Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Robotframework-Foundry-Cast-Test-Keywords">Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dApp Test.Robotframework-Foundry-Cast-Test-Keywords</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="Robotframework-Mock-Wallet-Playwright-Test-Keywords">Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dApp Test.Robotframework-Mock-Wallet-Playwright-Test-Keywords</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

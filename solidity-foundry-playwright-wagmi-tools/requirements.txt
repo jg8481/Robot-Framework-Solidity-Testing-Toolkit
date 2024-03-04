@@ -1,0 +1,5 @@
+robotframework
+robotframework-browser
+robotframework-pabot
+six
+psutil
