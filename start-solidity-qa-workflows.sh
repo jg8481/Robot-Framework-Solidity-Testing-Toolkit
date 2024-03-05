@@ -80,7 +80,8 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   npm install robotremote
   npm install yarn -g
   npm update
-  npm audit fix --force
+  ## If there are no serious issues with your local install, do not un-comment the following line.
+  #npm audit fix --force
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
   exit 0
