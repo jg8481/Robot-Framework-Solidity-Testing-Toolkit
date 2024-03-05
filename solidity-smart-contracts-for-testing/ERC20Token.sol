@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// https://github.com/solidity-by-example/solidity-by-example.github.io/blob/gh-pages/src/pages/app/erc20/ERC20.sol
 pragma solidity ^0.8.20;
 
 import "./ERC20Interface.sol";
