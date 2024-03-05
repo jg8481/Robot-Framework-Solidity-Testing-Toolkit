@@ -5,9 +5,9 @@ Library    Browser
 
 Quickly test a wagmi Mock Wallet dApp connected to an Ethereum local fork using Foundry's Anvil tool.
     Open New Browser And Setup Test    2
-    Take Screenshot
+    Take Screenshot    EMBED
     Click Through Wallet Features And Continue After Heading Check
-    Take Screenshot
+    Take Screenshot    EMBED
 
 *** Keywords ***
 
