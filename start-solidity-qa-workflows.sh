@@ -651,10 +651,10 @@ if [ "$1" == "Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   echo "This run ended on $TIMESTAMP2."
 fi
 
-if [ "$1" == "Run-Parallel-Smart-Contract-And-Playwright-Browser-Tests" ]; then
+if [ "$1" == "Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests" ]; then
   clear
   echo
-  echo "------------------------------------[[[[ Run-Parallel-Smart-Contract-And-Playwright-Browser-Tests ]]]]------------------------------------"
+  echo "------------------------------------[[[[ Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests ]]]]------------------------------------"
   echo
   echo "This command uses the deployed Solidity Smart Contracts address found in the anvil-smartcontract-address.env file to run Robot Framework Foundry Cast automation that will perform an interactive test on the Solidity Smart Contracts using the Foundry Anvil node designed for local development. A Playwright browser test will also run in parallel to test the dapp-e2e-example-main Mock Wallet dApp. This run started on $TIMESTAMP."
   echo
@@ -741,6 +741,8 @@ usage_explanation() {
   echo "---->>>> Interactive Tests For Deployed Smart Contracts Using Truffle Suite <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-Truffle-Develop-Instance"
   echo
+  echo "---->>>> Interactive Tests For Deployed Smart Contracts Using Foundry <<<<----"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests"
   echo
   cat ./notes-images-and-demonstrations/NOTES.md 2> /dev/null
   echo

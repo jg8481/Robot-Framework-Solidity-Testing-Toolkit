@@ -94,9 +94,12 @@ You can view just this help menu again (without triggering any automation) by ru
 
 ---->>>> Local Solidity Test Environment Setup Commands <<<<----
 bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
+bash ./start-solidity-qa-workflows.sh Install-Solidity-Security-Testing-Tools-On-MacOS
 bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-And-Robotremoteserver
 bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-And-Robotremoteserver
 bash ./start-solidity-qa-workflows.sh Start-Default-Truffle-Develop-And-Robotremoteserver
+bash ./start-solidity-qa-workflows.sh Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp
+bash ./start-solidity-qa-workflows.sh Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp
 bash ./start-solidity-qa-workflows.sh Stop-Local-Blockchain-Nodes-And-Delete-Logs
 
 ---->>>> Solidity Static Analysis And Security Testing Commands <<<<----
@@ -113,10 +116,13 @@ bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Truffle-Ethereum-RPA-De
 
 ---->>>> Interactive Tests For Deployed Smart Contracts Using Hardhat (NOTE: These tests can run on multiple EVM Compatible Blockchains!) <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-NonForked-Hardhat-Network
-bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network
+bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network 
 
 ---->>>> Interactive Tests For Deployed Smart Contracts Using Truffle Suite <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-Truffle-Develop-Instance
+
+---->>>> Interactive Tests For Deployed Smart Contracts Using Foundry <<<<----
+bash ./start-solidity-qa-workflows.sh Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests
 ```
 ### [Example Workflow 1] -> Deploy then test a smart contract using the built-in Hardhat Network Ethereum Node and node-robotremoteserver (on MacOS or Linux)
 From the commands posted above, here is an example workflow (with screenshots) below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.
