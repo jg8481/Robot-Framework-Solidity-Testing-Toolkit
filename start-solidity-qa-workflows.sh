@@ -53,6 +53,15 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   cast -V
   echo
   echo
+  brew install wget
+  CURRENT_PATH=$(pwd)
+  cd "$CURRENT_PATH"/solidity-foundry-playwright-wagmi-tools
+  rm -rf ./main.zip
+  rm -rf ./dapp-e2e-*
+  wget https://github.com/re-nft/dapp-e2e-example/archive/refs/heads/main.zip
+  unzip ./main.zip
+  rm -rf ./main.zip
+  cd "$CURRENT_PATH"
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
