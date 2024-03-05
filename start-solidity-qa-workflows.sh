@@ -226,9 +226,9 @@ if [ "$1" == "Run-Smart-Contract-Tests-Default-NonForked-Hardhat-Network" ]; the
   echo "This command uses the CONTRACT_ADDRESS variable in the hardhat-environment-variables.env file to run Robot Framework Javascript automation that will perform an interactive test on Solidity Smart Contracts using the built-in Hardhat Network designed for local development. This run started on $TIMESTAMP."
   echo
   echo "ATTENTION: If you're forking mainnets this seems to only work on the Fantom config provided with this repo. This test will sometimes display only 1 passing test and many failed tests if you attempt to run it on other local forked mainnets in the Hardhat Network Node. If you want to quickly check your local forked mainnet then run the 'Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network' command please."
-  echo
-  source ./hardhat-environment-variables.env 
+  echo   
   cd ./solidity-hardhat-multichain-tools
+  source ./hardhat-environment-variables.env
   export BLOCKCHAIN_TYPE=$(cat ./logs/blockchain-type.log)
   BLOCKCHAIN_TYPE_FILE=./logs/blockchain-type.log
   if [ -f "$BLOCKCHAIN_TYPE_FILE" ]; then
@@ -261,8 +261,8 @@ if [ "$1" == "Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network" ]; then
   echo
   echo "ATTENTION: This is only one determistic quick check after a smart contract deployment on a mainnet fork. The provided Token.sol contract has never been deployed to any external EVM compatible blockchain mainnets or testnets. Also any tests run on contract address '0x5fbdb2315678afecb367f032d93f642f64180aa3' on Fantom mainnet will reveal another unrelated token that has zero affiliation with the creator of this Robot Framework project."
   echo
-  source ./hardhat-environment-variables.env
   cd ./solidity-hardhat-multichain-tools
+  source ./hardhat-environment-variables.env
   export BLOCKCHAIN_TYPE=$(cat ./logs/blockchain-type.log)
   BLOCKCHAIN_TYPE_FILE=./logs/blockchain-type.log
   if [ -f "$BLOCKCHAIN_TYPE_FILE" ]; then

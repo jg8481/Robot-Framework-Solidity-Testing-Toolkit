@@ -24,7 +24,7 @@ Get Smart Contract Address
 
 Run Foundry Cast Send To Mint Specific Token Amounts
     [Arguments]    ${MINT_TOKEN_AMOUNT}    ${TIME_DELAY}
-    ${FOUNDRY_CAST_OUTPUT}    Run    cast send "${TARGET_ADDRESS}" "mint(address, uint256)" "%{ANVIL_DEFAULT_ACCOUNT_NUMBER}" ${MINT_TOKEN_AMOUNT} --private-key "%{ANVIL_WALLET_PRIVATE_KEY}"
+    ${FOUNDRY_CAST_OUTPUT}    Run    cast send "${TARGET_ADDRESS}" "mint(address, uint256)" "%{ANVIL_DEFAULT_ACCOUNT_NUMBER}" "${MINT_TOKEN_AMOUNT}" --private-key "%{ANVIL_WALLET_PRIVATE_KEY}"
     Log    ${FOUNDRY_CAST_OUTPUT}
     Log To Console    ...
     Log To Console    ...
