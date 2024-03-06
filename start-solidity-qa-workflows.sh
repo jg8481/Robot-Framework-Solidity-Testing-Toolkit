@@ -542,12 +542,12 @@ if [ "$1" == "Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   rm -rf ./anvil-smartcontract-address*
   ## The following command can help debug anvil connection issues.
   ## sudo lsof -i -P -n | grep LISTEN
-  anvil --fork-block-number="$ANVIL_FORK_BLOCK_NUMBER" --fork-url="$ANVIL_FORK_URL" > ./logs/anvil-default-network-node-standalone-mode.log &
+  anvil --prune-history --fork-block-number="$ANVIL_FORK_BLOCK_NUMBER" --fork-url="$ANVIL_FORK_URL" > ./logs/anvil-default-network-node-standalone-mode.log &
   sleep 10
   echo
   echo
-  forge create --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" ./contracts/ERC20Interface.sol:IERC20
-  forge create --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" ./contracts/ERC20Token.sol:ERC20 --constructor-args "QAToken" "QA" "18" > ./logs/forge-compile-and-deployment.log &&
+  forge create ./contracts/ERC20Interface.sol:IERC20 --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" --root ./
+  forge create ./contracts/ERC20Token.sol:ERC20 --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" --constructor-args "QAToken" "QA" "18" --root ./ > ./logs/forge-compile-and-deployment.log &&
   echo
   echo
   sleep 10
@@ -621,12 +621,12 @@ if [ "$1" == "Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   rm -rf ./anvil-smartcontract-address*
   ## The following command can help debug anvil connection issues.
   ## sudo lsof -i -P -n | grep LISTEN
-  anvil > ./logs/anvil-default-network-node-standalone-mode.log &
+  anvil --prune-history > ./logs/anvil-default-network-node-standalone-mode.log &
   sleep 10
   echo
   echo
-  forge create --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" ./contracts/ERC20Interface.sol:IERC20
-  forge create --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" ./contracts/ERC20Token.sol:ERC20 --constructor-args "QAToken" "QA" "18" > ./logs/forge-compile-and-deployment.log &&
+  forge create ./contracts/ERC20Interface.sol:IERC20 --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" --root ./
+  forge create ./contracts/ERC20Token.sol:ERC20 --rpc-url http://localhost:8545 --private-key "$ANVIL_WALLET_PRIVATE_KEY" --constructor-args "QAToken" "QA" "18" --root ./ > ./logs/forge-compile-and-deployment.log &&
   echo
   echo
   sleep 10
