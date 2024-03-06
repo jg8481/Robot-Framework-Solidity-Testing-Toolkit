@@ -38,7 +38,7 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   curl -L https://foundry.paradigm.xyz | bash
   source "$HOME"/.bashrc
   foundryup
-  source "$HOME"/.bashrc
+  export PATH="$PATH:$HOME/.foundry/bin/"
   echo
   echo
   echo "Checking the Foundry Forge command..."
@@ -516,6 +516,7 @@ if [ "$1" == "Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   pkill anvil > /dev/null 2>&1
   pkill yarn > /dev/null 2>&1
   source "$HOME"/.bashrc
+  export PATH="$PATH:$HOME/.foundry/bin/"
   echo
   echo
   echo "Checking the Foundry Forge command..."
@@ -594,6 +595,7 @@ if [ "$1" == "Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   pkill anvil > /dev/null 2>&1
   pkill yarn > /dev/null 2>&1
   source "$HOME"/.bashrc
+  export PATH="$PATH:$HOME/.foundry/bin/"
   echo
   echo
   echo "Checking the Foundry Forge command..."
@@ -673,6 +675,7 @@ if [ "$1" == "Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests" 
     exit
   fi
   source "$HOME"/.bashrc
+  export PATH="$PATH:$HOME/.foundry/bin/"
   echo
   echo
   echo "Checking the Foundry Forge command..."
