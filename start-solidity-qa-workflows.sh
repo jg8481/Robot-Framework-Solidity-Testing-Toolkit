@@ -35,6 +35,7 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   echo "This command will install all of the required Node.js packages. This project was built using the LTS Node.js version 18. This run started on $TIMESTAMP."
   echo
   ## If you're using a Linux Distro, make sure that wget is installed.
+  rm -rf $HOME/.foundry
   curl -L https://foundry.paradigm.xyz | bash
   source "$HOME"/.bashrc
   foundryup
