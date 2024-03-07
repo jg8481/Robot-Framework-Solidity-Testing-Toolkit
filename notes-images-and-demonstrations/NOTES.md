@@ -16,7 +16,7 @@ If you see the following message every time you run (or Robot Framework runs) th
 "We recommend you migrate to @nomicfoundation/hardhat-chai-matchers. Learn how to do it here: https://hardhat.org/migrate-from-waffle"
 ```
 
-Go to the link they suggest and read the details of their announcement, or just run `npm uninstall @nomiclabs/hardhat-waffle ethereum-waffle`. This uninstall command will make the that annoying error message from the `hardhat` community go away.
+Go to the link they suggest and read the details of their announcement, or just run `npm uninstall @nomiclabs/hardhat-waffle ethereum-waffle`. This uninstall command will make that annoying error message from the `hardhat` community go away.
 
 ## [3] Try to learn how the Robot Framework tools are interacting with the Ethereum tools
 
