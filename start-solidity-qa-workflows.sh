@@ -299,7 +299,7 @@ if [ "$1" == "Run-Solidity-Static-Analysis" ]; then
   virtualenv -p python3 venv > /dev/null 2>&1
   source venv/bin/activate
   pip3 install -r ./solidity-static-analysis-tools/static-analysis/requirements.txt > /dev/null 2>&1
-  robot --report NONE --log smart-contract-static-analysis-log.html --output smart-contract-static-analysis-output.xml -N "Robot Framework Solidity Smart Contract Static Analysis" -d ./solidity-static-analysis-tools/static-analysis/ ./solidity-static-analysis-tools/static-analysis/robot-framework-solidity-static-analyzer.robot
+  robot --report NONE --log smart-contract-static-analysis-log.html --output smart-contract-static-analysis-output.xml -N "Robot Framework Solidity Smart Contract Static Analysis" -d ./solidity-static-analysis-tools/static-analysis/ ./solidity-static-analysis-tools/static-analysis/robotframework-solidity-static-analyzer.robot
   TIMESTAMP2=$(date)
   echo "This run ended on $TIMESTAMP2."
   exit
