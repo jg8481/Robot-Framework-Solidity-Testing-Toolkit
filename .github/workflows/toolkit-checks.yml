@@ -30,13 +30,13 @@ jobs:
         run: |
           sudo -s
           ls -la
-          bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
+          sudo bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
           node --version
       - name: Run all unit tests using the BATS test framework
         run: |
           sudo -s
           ls -la
-          bash ./start-maintenance-workflows.sh Run-Unit-Tests
+          sudo bash ./start-maintenance-workflows.sh Run-Unit-Tests
 
   run-acceptance-tests:
     needs: run-unit-tests
@@ -62,10 +62,10 @@ jobs:
         run: |
           sudo -s
           ls -la
-          bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
+          sudo bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
           node --version
       - name: Run all acceptance tests using the BATS test framework
         run: |
           sudo -s
           ls -la
-          bash ./start-maintenance-workflows.sh Run-Acceptance-Tests
+          sudo bash ./start-maintenance-workflows.sh Run-Acceptance-Tests
