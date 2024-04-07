@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Install all required Robot Framework dependencies
         run: |
+          sudo -s
           #sudo apt update && sudo apt upgrade -y
           sudo apt install software-properties-common -y
           sudo add-apt-repository ppa:deadsnakes/ppa -y
@@ -27,11 +28,13 @@ jobs:
           robot --nostatusrc --version | grep "Robot"
       - name: Install NodeJS and all required Hardhat dependencies
         run: |
+          sudo -s
           ls -la
           bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
           node --version
       - name: Run all unit tests using the BATS test framework
         run: |
+          sudo -s
           ls -la
           bash ./start-maintenance-workflows.sh Run-Unit-Tests
 
@@ -44,6 +47,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Install all required Robot Framework dependencies
         run: |
+          sudo -s
           #sudo apt update && sudo apt upgrade -y
           sudo apt install software-properties-common -y
           sudo add-apt-repository ppa:deadsnakes/ppa -y
@@ -56,10 +60,12 @@ jobs:
           robot --nostatusrc --version | grep "Robot"
       - name: Install NodeJS and all required Hardhat dependencies
         run: |
+          sudo -s
           ls -la
           bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
           node --version
       - name: Run all acceptance tests using the BATS test framework
         run: |
+          sudo -s
           ls -la
           bash ./start-maintenance-workflows.sh Run-Acceptance-Tests
