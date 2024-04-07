@@ -22,7 +22,6 @@ jobs:
           sudo apt install python3.10
           python3 --version
           ls -la
-          #sudo pip3 install robotframework
           sudo pip3 install -r ./solidity-hardhat-multichain-tools/requirements.txt
           pip freeze
           robot --nostatusrc --help | grep "Robot Framework is open source software"
