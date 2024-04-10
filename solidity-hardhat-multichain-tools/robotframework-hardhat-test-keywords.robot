@@ -11,19 +11,19 @@ HARDHAT ETHERS.JS TEST 1 : Get the deployed smart contract using the hardhat-eth
     ${RESULT}=    Get Contract    %{CONTRACT_ADDRESS}
     Should Not Contain    ${RESULT}    errorName
 
-HARDHAT ETHERS.JS TEST 2 : Get token name from the the deployed smart contract and check the result.
+HARDHAT ETHERS.JS TEST 2 : Get token name from the deployed smart contract and check the result.
     ${RESULT}=    Get Name    %{CONTRACT_ADDRESS}
     Check Smart Contract Results And Log Them    ${RESULT}    name
 
-HARDHAT ETHERS.JS TEST 3 : Get token symbol from the the deployed smart contract and check the result.
+HARDHAT ETHERS.JS TEST 3 : Get token symbol from the deployed smart contract and check the result.
     ${RESULT}=    Get Symbol    %{CONTRACT_ADDRESS}
     Check Smart Contract Results And Log Them    ${RESULT}    symbol
 
-HARDHAT ETHERS.JS TEST 4 : Get the decimals from the the deployed smart contract and check the result.
+HARDHAT ETHERS.JS TEST 4 : Get the decimals from the deployed smart contract and check the result.
     ${RESULT}=    Get Default Decimals    %{CONTRACT_ADDRESS}
     Check Smart Contract Results And Log Them    ${RESULT}    decimals
 
-HARDHAT ETHERS.JS TEST 5 : Get total token supply from the the deployed smart contract and check the result.
+HARDHAT ETHERS.JS TEST 5 : Get total token supply from the deployed smart contract and check the result.
     ${RESULT}=    Get Total Supply    %{CONTRACT_ADDRESS}
     Check Smart Contract Results And Log Them    ${RESULT}    totalSupplyFormatUnits
 

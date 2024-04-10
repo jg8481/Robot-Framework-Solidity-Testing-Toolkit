@@ -17,7 +17,7 @@
 <tag>Forked_Mainnet_Test</tag>
 <status status="PASS" starttime="20230209 01:18:39.928" endtime="20230209 01:18:40.541"/>
 </test>
-<test id="s1-t2" name="HARDHAT ETHERS.JS TEST 2 : Get token name from the the deployed smart contract and check the result." line="14">
+<test id="s1-t2" name="HARDHAT ETHERS.JS TEST 2 : Get token name from the deployed smart contract and check the result." line="14">
 <kw name="Get Name" library="Remote">
 <var>${RESULT}</var>
 <arg>%{CONTRACT_ADDRESS}</arg>
@@ -90,7 +90,7 @@
 </kw>
 <status status="PASS" starttime="20230209 01:18:40.541" endtime="20230209 01:18:41.175"/>
 </test>
-<test id="s1-t3" name="HARDHAT ETHERS.JS TEST 3 : Get token symbol from the the deployed smart contract and check the result." line="18">
+<test id="s1-t3" name="HARDHAT ETHERS.JS TEST 3 : Get token symbol from the deployed smart contract and check the result." line="18">
 <kw name="Get Symbol" library="Remote">
 <var>${RESULT}</var>
 <arg>%{CONTRACT_ADDRESS}</arg>
@@ -163,7 +163,7 @@
 </kw>
 <status status="PASS" starttime="20230209 01:18:41.175" endtime="20230209 01:18:41.308"/>
 </test>
-<test id="s1-t4" name="HARDHAT ETHERS.JS TEST 4 : Get the decimals from the the deployed smart contract and check the result." line="22">
+<test id="s1-t4" name="HARDHAT ETHERS.JS TEST 4 : Get the decimals from the deployed smart contract and check the result." line="22">
 <kw name="Get Default Decimals" library="Remote">
 <var>${RESULT}</var>
 <arg>%{CONTRACT_ADDRESS}</arg>
@@ -236,7 +236,7 @@
 </kw>
 <status status="PASS" starttime="20230209 01:18:41.308" endtime="20230209 01:18:41.389"/>
 </test>
-<test id="s1-t5" name="HARDHAT ETHERS.JS TEST 5 : Get total token supply from the the deployed smart contract and check the result." line="26">
+<test id="s1-t5" name="HARDHAT ETHERS.JS TEST 5 : Get total token supply from the deployed smart contract and check the result." line="26">
 <kw name="Get Total Supply" library="Remote">
 <var>${RESULT}</var>
 <arg>%{CONTRACT_ADDRESS}</arg>
