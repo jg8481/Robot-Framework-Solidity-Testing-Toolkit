@@ -4,10 +4,11 @@ Library                       Process
 
 *** Variables ***
 
+
 ${PATH}    ${EXECDIR}/solidity-hardhat-multichain-tools
-${NETWORK}   hardhat ### This will deploy your smart contract to the local Hardhat Network Node
-#${NETWORK}   rinkeby ### This will deploy your smart contract to the Ethereum Rinkeby Testnet. You need a wallet private key set to the provided Ethereum.config.js file, otherwise it won't work.
-#${NETWORK}   goerli ### This will deploy your smart contract to the Ethereum Goerli Testnet. You need a wallet private key set to the provided Ethereum.config.js file, otherwise it won't work.
+${ETHEREUM_DEPLOYMENT}    disabled ### If you change this to "enabled" the "HARDHAT ETHEREUM DEPLOYMENT" automation below will attempt to run a deployment using the Ethereum.config.js file. You need a wallet private key set up in that file, otherwise it won't work.
+${NETWORK}   hardhat ### This will deploy your smart contract to the local Hardhat Network Node. Comment this line if you want to try the Ethereum Sepolia Testnet below.
+#${NETWORK}   sepolia ### This will deploy your smart contract to the Ethereum Sepolia Testnet if you un-comment this line. You need a wallet private key set to the provided Ethereum.config.js file, otherwise it won't work.
 
 *** Tasks ***
 
@@ -43,6 +44,23 @@ HARDHAT DEPLOYMENT STEP 2 : Start a local JSON-RPC server node on top of the Har
 HARDHAT DEPLOYMENT STEP 3 : Deploy the compiled Solidity smart contracts to the local Hardhat Network node.
     Remove File    ${PATH}/logs/hardhat-contract-deployment.log
     Run Process    cd ${PATH} && echo "..." > ./logs/hardhat-contract-deployment.log && npx hardhat run --network ${NETWORK} ./scripts/deploy.js >> ./logs/hardhat-contract-deployment.log    shell=yes
+    ${OUTPUT}=    Get File    ${PATH}/logs/hardhat-contract-deployment.log
+    Log    ${OUTPUT}
+    Log To Console    ...
+    Log To Console    ...
+    Log To Console    ...
+    Log To Console    ${OUTPUT}
+    Log To Console    ...
+    Log To Console    ...
+    Log To Console    ...
+
+HARDHAT ETHEREUM DEPLOYMENT : Deploy the compiled Solidity smart contracts to the Ethereum blockchain configured in the Ethereum.config.js file. This will skip quickly if any checks fail.
+    [Tags]    robot:skip-on-failure    Ethereum_Blockchain_Test
+    Skip If    '${ETHEREUM_DEPLOYMENT}' == 'disabled'
+    Should Not Be Empty    ${ETHEREUM_DEPLOYMENT}
+    Should Contain    ${ETHEREUM_DEPLOYMENT}    enabled
+    Remove File    ${PATH}/logs/hardhat-contract-deployment.log
+    Run Process    cd ${PATH} && echo "..." > ./logs/hardhat-contract-deployment.log && npx hardhat --config Ethereum.config.js run --network ${NETWORK} ./scripts/deploy.js >> ./logs/hardhat-contract-deployment.log    shell=yes
     ${OUTPUT}=    Get File    ${PATH}/logs/hardhat-contract-deployment.log
     Log    ${OUTPUT}
     Log To Console    ...
