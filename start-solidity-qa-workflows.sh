@@ -77,7 +77,9 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   npm install -g solgraph
   npm install -g surya
   npm install --save-dev hardhat
-  npm install --save-dev @nomicfoundation/hardhat-toolbox
+  npm install --save-dev @nomicfoundation/hardhat-toolbox@2
+  npm install ethers@5.7.2
+  #npm install --save-dev @nomicfoundation/hardhat-toolbox
   npm install -g truffle
   npm install @truffle/contract
   npm install web3
