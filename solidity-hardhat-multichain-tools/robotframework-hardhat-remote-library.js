@@ -107,12 +107,14 @@ lib.transferToTargetAddress = async function(str) {
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const receivingAddress = testTokenSigners[1].address;
-    await testToken.transfer(receivingAddress, ethers.utils.parseUnits(amountForTransfer.toString(), decimals));
+    const receipt = await (await testToken.transfer(receivingAddress, ethers.utils.parseUnits(amountForTransfer.toString(), decimals))).wait();
+    const gasUsed = receipt.gasUsed.toNumber();
+    const gasReport = `Gas used for transferToTargetAddress: ${gasUsed}`;
     const receiverBalance = await testToken.balanceOf(receivingAddress);
     const receiverBalanceFormatUnits = await ethers.utils.formatUnits(receiverBalance, decimals);
     var timeStamp = new Date();
     console.log(`transferToTargetAddress keyword ran on ${timeStamp}`);
-    return { receiverBalanceFormatUnits };
+    return { receiverBalanceFormatUnits, gasReport };
 };
 
 lib.approveSpenderAmount = async function(str) {
@@ -122,12 +124,14 @@ lib.approveSpenderAmount = async function(str) {
     const decimals = await testToken.decimals();
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
-    const signerTestToken = testToken.connect(testTokenSigners[1]); 
-    await signerTestToken.approve(testTokenAddress, ethers.utils.parseUnits(amountApproved.toString(), decimals));
+    const signerTestToken = testToken.connect(testTokenSigners[1]);   
+    const receipt = await (await signerTestToken.approve(testTokenAddress, ethers.utils.parseUnits(amountApproved.toString(), decimals))).wait();
+    const gasUsed = receipt.gasUsed.toNumber();
+    const gasReport = `Gas used for approveSpenderAmount: ${gasUsed}`;
     var timeStamp = new Date();
     console.log(`approveSpenderAmount keyword ran on ${timeStamp}`);
     const approvalSuccess = 'Amount has been approved'
-    return { approvalSuccess };
+    return { approvalSuccess, gasReport };
 };
 
 lib.showSpenderAllowance = async function(str) {
@@ -152,7 +156,9 @@ lib.transferFromTargetAddress = async function(str) {
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
     const senderAddress = testTokenSigners[1].address;
-    await testToken.transferFrom(senderAddress, testTokenAddress, ethers.utils.parseUnits(amountForTransfer.toString(), decimals));
+    const receipt = await (await testToken.transferFrom(senderAddress, testTokenAddress, ethers.utils.parseUnits(amountForTransfer.toString(), decimals))).wait();
+    const gasUsed = receipt.gasUsed.toNumber();
+    const gasReport = `Gas used for transferFromTargetAddres: ${gasUsed}`;
     const testTokenBalance = await testToken.balanceOf(testTokenAddress);
     const senderBalance = await testToken.balanceOf(senderAddress);
     const senderBalanceFormatUnits = await ethers.utils.formatUnits(senderBalance, decimals);
@@ -160,7 +166,7 @@ lib.transferFromTargetAddress = async function(str) {
     console.log(`Sender's available allowance: ${ethers.utils.formatUnits(transferAllowance, decimals)}`);
     var timeStamp = new Date();
     console.log(`transferFromTargetAddress keyword ran on ${timeStamp}`);
-    return { senderBalanceFormatUnits };
+    return { senderBalanceFormatUnits, gasReport };
 };
 
 lib.increaseSpenderAllowance = async function(str) {
@@ -171,16 +177,17 @@ lib.increaseSpenderAllowance = async function(str) {
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
     const receivingAddress = testTokenSigners[1].address;
-    const signerTestToken = testToken.connect(testTokenSigners[1]); 
-    await signerTestToken.increaseAllowance(testTokenAddress, ethers.utils.parseUnits(increaseSpenderAmount.toString(), decimals));
+    const signerTestToken = testToken.connect(testTokenSigners[1]);   
+    const receipt = await (await signerTestToken.increaseAllowance(testTokenAddress, ethers.utils.parseUnits(increaseSpenderAmount.toString(), decimals))).wait();
+    const gasUsed = receipt.gasUsed.toNumber();
+    const gasReport = `Gas used for increaseSpenderAllowance: ${gasUsed}`;
     const spenderAllowance = await testToken.allowance(receivingAddress, testTokenAddress);
     const showIncreasedAllowance = await ethers.utils.formatUnits(spenderAllowance, decimals)
     console.log(`Allowance will be increased by this amount: ${increaseSpenderAmount}`)
     var timeStamp = new Date();
     console.log(`increaseSpenderAllowance keyword ran on ${timeStamp}`);
-    return { showIncreasedAllowance };
+    return { showIncreasedAllowance, gasReport };
 };
-
 
 lib.decreaseSpenderAllowance = async function(str) {
     const decreaseSpenderAmount = 1000;
@@ -190,16 +197,17 @@ lib.decreaseSpenderAllowance = async function(str) {
     const testTokenSigners = await ethers.getSigners();
     const testTokenAddress = testTokenSigners[0].address;
     const receivingAddress = testTokenSigners[1].address;
-    const signerTestToken = testToken.connect(testTokenSigners[1]); 
-    await signerTestToken.decreaseAllowance(testTokenAddress, ethers.utils.parseUnits(decreaseSpenderAmount.toString(), decimals));
+    const signerTestToken = testToken.connect(testTokenSigners[1]);   
+    const receipt = await (await signerTestToken.decreaseAllowance(testTokenAddress, ethers.utils.parseUnits(decreaseSpenderAmount.toString(), decimals))).wait();
+    const gasUsed = receipt.gasUsed.toNumber();
+    const gasReport = `Gas used for decreaseSpenderAllowance: ${gasUsed}`;
     const spenderAllowance = await testToken.allowance(receivingAddress, testTokenAddress);
     const showDecreasedAllowance = await ethers.utils.formatUnits(spenderAllowance, decimals)
     console.log(`Allowance will be decreased by this amount: ${decreaseSpenderAmount}`)
     var timeStamp = new Date();
     console.log(`decreaseSpenderAllowance keyword ran on ${timeStamp}`);
-    return { showDecreasedAllowance };
+    return { showDecreasedAllowance, gasReport };
 };
-
 
 if (!module.parent) {
     const server = new robot.Server([lib], { host: 'localhost', port: 8270 });
