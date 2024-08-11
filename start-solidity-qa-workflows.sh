@@ -710,6 +710,46 @@ if [ "$1" == "Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests" 
   exit
 fi
 
+if [ "$1" == "Stop-And-Clean-Up-Docker-Security-Tests" ]; then
+  echo
+  echo "------------------------------------[[[[ Stop-And-Clean-Up-Docker-Security-Tests ]]]]------------------------------------"
+  echo
+  echo "This will build the Docker image defined in the docker-compose.yml file and also clean up any Docker containers used in previous workflow processes. This run started on $TIMESTAMP."
+  echo
+  docker image prune --force 
+  echo
+  cd ./solidity-parallel-datadriven-security-tools/resources
+  bash ./run-solidity-security-tests.sh Stop-Docker-Containers-Setup-Napalm-And-Mythril
+  echo
+  echo "Checking for running containers. Should be blank below this line..."
+  echo
+  docker ps -a
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Run-Parallel-Datadriven-Smart-Contract-Security-Tests" ]; then
+  clear
+  echo
+  echo "------------------------------------[[[[ Run-Parallel-Datadriven-Smart-Contract-Security-Tests ]]]]------------------------------------"
+  echo
+  echo "This command uses the deployed and verified Solidity Smart Contracts addresses found in Datadriver CSV files to run parallel Robot Framework Solidity vulnerability checking automation using different types of Consensys security tools. This run started on $TIMESTAMP."
+  echo
+  cd ./solidity-parallel-datadriven-security-tools
+  rm -rf ./resources/mythril/*.log
+  rm -rf ./resources/napalm/*.log
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./resources/requirements.txt > /dev/null 2>&1
+  sleep 5
+  robot --report NONE --log smart-contract-security-tests-setup-log.html --output smart-contract-security-tests-setup-output.xml -N "Smart Contract Security Testing Setup" -d ./logs ./robotframework-rpa*.robot
+  pabot --verbose --report NONE --log smart-contract-parallel-security-tests-log.html --output smart-contract-parallel-security-tests-output.xml -N "Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools" -d ./logs ./robotframework-security-test*.robot
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  exit
+fi
+
 usage_explanation() {
   echo
   echo
