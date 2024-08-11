@@ -1,6 +1,6 @@
 FROM python:3.12.4-slim-bookworm
 
-### ^^^ If this Python 3 Docker tag stops working, find a usable Docker tag here ---> https://hub.docker.com/_/python
+### ^^^ If this Python 3 Docker tag stops working, find a usable Debian-based Docker tag here ---> https://hub.docker.com/_/python
 
 USER root
 
