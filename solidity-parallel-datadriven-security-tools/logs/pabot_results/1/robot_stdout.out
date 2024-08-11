@@ -1,0 +1,214 @@
+==============================================================================
+Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm T...
+==============================================================================
+Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm T...
+==============================================================================
+TEST : Get verified smart contracts for address 0x29844D24b3Fb73bE... ...
+...
+...
+General information about the contract that will be scanned for vulnerabilities in a Docker Container.
+polygonscan.com >>> 0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5 >>> /tmp/downloaded-contracts-in-docker/polygon-contract1.sol
+...
+...
+...
+...
+...
+...
+Checking the results of the Consensys Napalm security analysis tool for Solidity code.
+...
+...
+...
+| PASS |
+------------------------------------------------------------------------------
+TEST : Get verified smart contracts for address 0x544EdDbFE72EF0b3... ...
+...
+...
+General information about the contract that will be scanned for vulnerabilities in a Docker Container.
+polygonscan.com >>> 0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163 >>> /tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+...
+...
+...
+...
+...
+...
+Checking the results of the Consensys Napalm security analysis tool for Solidity code.
+...
+...
+...
+| PASS |
+------------------------------------------------------------------------------
+TEST : Get verified smart contracts for address 0x4c2268cea738be02... ...
+...
+...
+General information about the contract that will be scanned for vulnerabilities in a Docker Container.
+etherscan.io >>> 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 >>> /tmp/downloaded-contracts-in-docker/ethereum-contract1.sol
+...
+...
+...
+...
+...
+...
+Checking the results of the Consensys Napalm security analysis tool for Solidity code.
+...
+...
+...
+  
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot:14
+    T:  TEST : Get verified smart contracts for address 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 and log the contract information from the etherscan.io Mainnet blockchain explorer. Then run the Consensys Napalm static analysis tool to check for Solidity vulnerabilities.    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot:18
+      Run Napalm Docker Container Vulnerability Scan    EXPLORER_URL=etherscan.io    CONTRACT_ADDRESS=0x4c2268cea738be02BF7c89fd9bd17BABd4470e54    DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot:31
+      Check Napalm Vulnerability Analysis Results    ${EXPLORER_URL}    ${CONTRACT_ADDRESS}
+      |  ${EXPLORER_URL} = etherscan.io (str)
+      |  ${CONTRACT_ADDRESS} = 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot:44
+      Should Not Contain    ${NAPALM_OUTPUT}    Warning
+      |  ${NAPALM_OUTPUT} = ====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+ (str)
+______________________________________________________________________________
+| FAIL |
+'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'
+------------------------------------------------------------------------------
+TEST : Get verified smart contracts for address 0x7f7C81c5792008Fd... ...
+...
+...
+General information about the contract that will be scanned for vulnerabilities in a Docker Container.
+etherscan.io >>> 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 >>> /tmp/downloaded-contracts-in-docker/ethereum-contract2.sol
+...
+...
+...
+...
+...
+...
+Checking the results of the Consensys Napalm security analysis tool for Solidity code.
+...
+...
+...
+  
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot:14
+    T:  TEST : Get verified smart contracts for address 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 and log the contract information from the etherscan.io Mainnet blockchain explorer. Then run the Consensys Napalm static analysis tool to check for Solidity vulnerabilities.    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot:18
+      Run Napalm Docker Container Vulnerability Scan    EXPLORER_URL=etherscan.io    CONTRACT_ADDRESS=0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72    DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot:31
+      Check Napalm Vulnerability Analysis Results    ${EXPLORER_URL}    ${CONTRACT_ADDRESS}
+      |  ${EXPLORER_URL} = etherscan.io (str)
+      |  ${CONTRACT_ADDRESS} = 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 (str)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot:44
+      Should Not Contain    ${NAPALM_OUTPUT}    Warning
+      |  ${NAPALM_OUTPUT} = ====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+ (str)
+______________________________________________________________________________
+| FAIL |
+'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'
+------------------------------------------------------------------------------
+Parallel Smart Contract Security Tests Using Consensys Mythril And... | FAIL |
+4 tests, 2 passed, 2 failed
+==============================================================================
+Parallel Smart Contract Security Tests Using Consensys Mythril And... | FAIL |
+4 tests, 2 passed, 2 failed
+==============================================================================
+Output:  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/logs/pabot_results/1/smart-contract-parallel-security-tests-output.xml

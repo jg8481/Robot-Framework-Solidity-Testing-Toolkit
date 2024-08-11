@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.9 on darwin)" generated="2024-08-11T16:12:50.761351" rpa="true" schemaversion="5">
+<suite id="s1" name="Smart Contract Security Testing Setup">
+<suite id="s1-s1" name="Robotframework-Rpa-Deployed-Contracts-Explorer" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-rpa-deployed-contracts-explorer.robot">
+<test id="s1-s1-t1" name="SETUP TASKS - DATADRIVER BLOCKCHAIN EXPLORER : Get verified smart contracts for address 0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5 and log the contract information from the polygonscan.com Mainnet blockchain explorer." line="11">
+<kw name="Run Multichain Explorer Tasks">
+<kw name="Download Contract Source Code">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:12:55.578622" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:12:51.576569" elapsed="4.002303"/>
+</kw>
+<kw name="Download Deployed Contract From Explorer" owner="MultichainExplorerLibrary">
+<msg time="2024-08-11T16:12:57.682223" level="INFO">Human-readable Ethereum smart contract file created: downloaded-deployed-contracts/polygon-contract1.sol</msg>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<arg>${CONTRACT_NAME}</arg>
+<doc>Downloads Solidity source code of verified contracts from EVM blockchain Mainnet or Testnet explorers. 
+Creates a human readable Solidity file with a name (your-contract-name.sol) that you provide.
+Un-verified smart contracts will not work with the EVM blockchain explorer APIs.
+This keyword could theoretically work with any EVM blockchain explorer that is designed like Etherscan.
+This keyword requires a valid Etherscan, Polygonscan (or similar) API key etc.</doc>
+<status status="PASS" start="2024-08-11T16:12:55.579266" elapsed="2.103178"/>
+</kw>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:12:51.575775" elapsed="6.106962"/>
+</kw>
+<kw name="Get Contract Information">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:13:01.685243" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:12:57.684109" elapsed="4.001268"/>
+</kw>
+<kw name="Get Contract Creation Information" owner="MultichainExplorerLibrary">
+<msg time="2024-08-11T16:13:03.207730" level="INFO">${CONTRACT_INFORMATION} = {'status': '1', 'message': 'OK', 'result': [{'contractAddress': '0x29844d24b3fb73bed90db8922d411f5a063ac7d5', 'contractCreator': '0xf554cccf790b22fb3a49186300a0cf3e15002466', 'txHash': '0x52c61ebafe51...</msg>
+<var>${CONTRACT_INFORMATION}</var>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<doc>Get Contract Creator and Creation Tx Hash from the explorer API, then return the data as JSON.
+This keyword could theoretically work with any EVM blockchain explorer that is designed like Etherscan.
+This keyword requires a valid Etherscan, Polygonscan (or similar) API key etc.</doc>
+<status status="PASS" start="2024-08-11T16:13:01.685617" elapsed="1.522161"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.207986" elapsed="0.000244"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.208352" elapsed="0.000161"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.208631" elapsed="0.000153"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${CONTRACT_INFORMATION}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.208912" elapsed="0.000207"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:13:03.209392" level="INFO">{'status': '1', 'message': 'OK', 'result': [{'contractAddress': '0x29844d24b3fb73bed90db8922d411f5a063ac7d5', 'contractCreator': '0xf554cccf790b22fb3a49186300a0cf3e15002466', 'txHash': '0x52c61ebafe51e1d54d241cee78871b30a2a2361555985f2d429c2c370a061bb3'}]}</msg>
+<arg>${CONTRACT_INFORMATION}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.209233" elapsed="0.000215"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.209553" elapsed="0.000141"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.209799" elapsed="0.000142"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.210047" elapsed="0.000146"/>
+</kw>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<status status="PASS" start="2024-08-11T16:12:57.683284" elapsed="5.526981"/>
+</kw>
+<kw name="Setup Smart Contracts For Security Scanning Tools">
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:03.211198" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/*.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/*.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/mythril/*.log</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.210750" elapsed="0.000507"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:03.211576" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/*.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/*.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/napalm/*.log</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.211352" elapsed="0.000286"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:03.212986" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:03.213332" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:03.213679" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:03.213874" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/*.sol</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.211733" elapsed="0.002217"/>
+</kw>
+<kw name="Copy Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:03.217072" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract1.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:03.219127" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract2.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:03.221260" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract2.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:03.223042" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract1.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/downloaded-deployed-contracts/*.sol</arg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker</arg>
+<doc>Copies specified files to the target directory.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.214102" elapsed="0.009044"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:03.210432" elapsed="0.012802"/>
+</kw>
+<arg>NETWORK_TYPE=api</arg>
+<arg>EXPLORER_URL=polygonscan.com</arg>
+<arg>CONTRACT_ADDRESS=0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5</arg>
+<arg>EXPLORER_API_KEY=<your-blockchain-explorer-api-key-goes-here></arg>
+<arg>CONTRACT_NAME=polygon-contract1.sol</arg>
+<status status="PASS" start="2024-08-11T16:12:51.575325" elapsed="11.647966"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:12:51.573604" elapsed="11.650083"/>
+</test>
+<test id="s1-s1-t2" name="SETUP TASKS - DATADRIVER BLOCKCHAIN EXPLORER : Get verified smart contracts for address 0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163 and log the contract information from the polygonscan.com Mainnet blockchain explorer." line="11">
+<kw name="Run Multichain Explorer Tasks">
+<kw name="Download Contract Source Code">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:13:07.227626" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:13:03.226276" elapsed="4.001645"/>
+</kw>
+<kw name="Download Deployed Contract From Explorer" owner="MultichainExplorerLibrary">
+<msg time="2024-08-11T16:13:08.735558" level="INFO">Human-readable Ethereum smart contract file created: downloaded-deployed-contracts/polygon-contract2.sol</msg>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<arg>${CONTRACT_NAME}</arg>
+<doc>Downloads Solidity source code of verified contracts from EVM blockchain Mainnet or Testnet explorers. 
+Creates a human readable Solidity file with a name (your-contract-name.sol) that you provide.
+Un-verified smart contracts will not work with the EVM blockchain explorer APIs.
+This keyword could theoretically work with any EVM blockchain explorer that is designed like Etherscan.
+This keyword requires a valid Etherscan, Polygonscan (or similar) API key etc.</doc>
+<status status="PASS" start="2024-08-11T16:13:07.228344" elapsed="1.507418"/>
+</kw>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:03.225931" elapsed="5.510354"/>
+</kw>
+<kw name="Get Contract Information">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:13:12.737960" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:13:08.737511" elapsed="4.000773"/>
+</kw>
+<kw name="Get Contract Creation Information" owner="MultichainExplorerLibrary">
+<msg time="2024-08-11T16:13:14.413906" level="INFO">${CONTRACT_INFORMATION} = {'status': '1', 'message': 'OK', 'result': [{'contractAddress': '0x544eddbfe72ef0b3ef21d08af38b327c2aab6163', 'contractCreator': '0xb8b9a66fc7e878f16d412da2ee85c43b4388eebc', 'txHash': '0x1cb47d79df30...</msg>
+<var>${CONTRACT_INFORMATION}</var>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<doc>Get Contract Creator and Creation Tx Hash from the explorer API, then return the data as JSON.
+This keyword could theoretically work with any EVM blockchain explorer that is designed like Etherscan.
+This keyword requires a valid Etherscan, Polygonscan (or similar) API key etc.</doc>
+<status status="PASS" start="2024-08-11T16:13:12.738702" elapsed="1.675264"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.414198" elapsed="0.000311"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.414869" elapsed="0.000354"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.415543" elapsed="0.000238"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${CONTRACT_INFORMATION}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.415937" elapsed="0.000294"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:13:14.416612" level="INFO">{'status': '1', 'message': 'OK', 'result': [{'contractAddress': '0x544eddbfe72ef0b3ef21d08af38b327c2aab6163', 'contractCreator': '0xb8b9a66fc7e878f16d412da2ee85c43b4388eebc', 'txHash': '0x1cb47d79df3023ed2e9dccdd4e4f2d63697068aca1fb4dd9fed458c155e606e5'}]}</msg>
+<arg>${CONTRACT_INFORMATION}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.416415" elapsed="0.000260"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.416808" elapsed="0.000177"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.417181" elapsed="0.001219"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.418997" elapsed="0.000299"/>
+</kw>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<status status="PASS" start="2024-08-11T16:13:08.736706" elapsed="5.682699"/>
+</kw>
+<kw name="Setup Smart Contracts For Security Scanning Tools">
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:14.420607" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/*.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/*.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/mythril/*.log</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.420178" elapsed="0.000517"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:14.421066" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/*.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/*.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/napalm/*.log</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.420828" elapsed="0.000302"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:14.421703" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:14.421912" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:14.422071" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:14.422260" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/*.sol</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.421235" elapsed="0.001097"/>
+</kw>
+<kw name="Copy Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:14.425452" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract1.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:14.428503" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract2.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:14.431090" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract2.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:14.434615" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract1.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/downloaded-deployed-contracts/*.sol</arg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker</arg>
+<doc>Copies specified files to the target directory.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.422537" elapsed="0.012260"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:14.419665" elapsed="0.015256"/>
+</kw>
+<arg>NETWORK_TYPE=api</arg>
+<arg>EXPLORER_URL=polygonscan.com</arg>
+<arg>CONTRACT_ADDRESS=0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163</arg>
+<arg>EXPLORER_API_KEY=<your-blockchain-explorer-api-key-goes-here></arg>
+<arg>CONTRACT_NAME=polygon-contract2.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:03.225584" elapsed="11.209444"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:03.224147" elapsed="11.211200"/>
+</test>
+<test id="s1-s1-t3" name="SETUP TASKS - DATADRIVER BLOCKCHAIN EXPLORER : Get verified smart contracts for address 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 and log the contract information from the etherscan.io Mainnet blockchain explorer." line="11">
+<kw name="Run Multichain Explorer Tasks">
+<kw name="Download Contract Source Code">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:13:18.439351" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:13:14.438738" elapsed="4.000839"/>
+</kw>
+<kw name="Download Deployed Contract From Explorer" owner="MultichainExplorerLibrary">
+<msg time="2024-08-11T16:13:20.424427" level="INFO">Human-readable Ethereum smart contract file created: downloaded-deployed-contracts/ethereum-contract1.sol</msg>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<arg>${CONTRACT_NAME}</arg>
+<doc>Downloads Solidity source code of verified contracts from EVM blockchain Mainnet or Testnet explorers. 
+Creates a human readable Solidity file with a name (your-contract-name.sol) that you provide.
+Un-verified smart contracts will not work with the EVM blockchain explorer APIs.
+This keyword could theoretically work with any EVM blockchain explorer that is designed like Etherscan.
+This keyword requires a valid Etherscan, Polygonscan (or similar) API key etc.</doc>
+<status status="PASS" start="2024-08-11T16:13:18.439952" elapsed="1.984615"/>
+</kw>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:14.438320" elapsed="5.986421"/>
+</kw>
+<kw name="Get Contract Information">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:13:24.427032" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:13:20.425850" elapsed="4.001384"/>
+</kw>
+<kw name="Get Contract Creation Information" owner="MultichainExplorerLibrary">
+<msg time="2024-08-11T16:13:25.978290" level="INFO">${CONTRACT_INFORMATION} = {'status': '1', 'message': 'OK', 'result': [{'contractAddress': '0x4c2268cea738be02bf7c89fd9bd17babd4470e54', 'contractCreator': '0xfbf079183ca53449383d170b72b5b50812606491', 'txHash': '0xb028564a8f9a...</msg>
+<var>${CONTRACT_INFORMATION}</var>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<doc>Get Contract Creator and Creation Tx Hash from the explorer API, then return the data as JSON.
+This keyword could theoretically work with any EVM blockchain explorer that is designed like Etherscan.
+This keyword requires a valid Etherscan, Polygonscan (or similar) API key etc.</doc>
+<status status="PASS" start="2024-08-11T16:13:24.427583" elapsed="1.550797"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.978946" elapsed="0.000389"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.979534" elapsed="0.000258"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.979985" elapsed="0.000246"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${CONTRACT_INFORMATION}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.980417" elapsed="0.000335"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:13:25.981195" level="INFO">{'status': '1', 'message': 'OK', 'result': [{'contractAddress': '0x4c2268cea738be02bf7c89fd9bd17babd4470e54', 'contractCreator': '0xfbf079183ca53449383d170b72b5b50812606491', 'txHash': '0xb028564a8f9a7d8c8b66e4abeeeaa12df5c8e7f9c918ab6dcf2682e0a799b33c'}]}</msg>
+<arg>${CONTRACT_INFORMATION}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.980949" elapsed="0.000329"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.981463" elapsed="0.000244"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.981893" elapsed="0.000274"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.982317" elapsed="0.000193"/>
+</kw>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<status status="PASS" start="2024-08-11T16:13:20.425119" elapsed="5.557490"/>
+</kw>
+<kw name="Setup Smart Contracts For Security Scanning Tools">
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:25.983681" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/*.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/*.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/mythril/*.log</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.983249" elapsed="0.000521"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:25.984243" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/*.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/*.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/napalm/*.log</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.983921" elapsed="0.000408"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:25.985076" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:25.985319" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:25.985551" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:25.985820" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/*.sol</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.984477" elapsed="0.001417"/>
+</kw>
+<kw name="Copy Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:25.988157" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract1.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:25.989930" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract2.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:25.991758" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract2.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:25.993314" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract1.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/downloaded-deployed-contracts/*.sol</arg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker</arg>
+<doc>Copies specified files to the target directory.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.986029" elapsed="0.007414"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:25.982831" elapsed="0.010717"/>
+</kw>
+<arg>NETWORK_TYPE=api</arg>
+<arg>EXPLORER_URL=etherscan.io</arg>
+<arg>CONTRACT_ADDRESS=0x4c2268cea738be02BF7c89fd9bd17BABd4470e54</arg>
+<arg>EXPLORER_API_KEY=<your-blockchain-explorer-api-key-goes-here></arg>
+<arg>CONTRACT_NAME=ethereum-contract1.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:14.437874" elapsed="11.555738"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:14.435842" elapsed="11.558009"/>
+</test>
+<test id="s1-s1-t4" name="SETUP TASKS - DATADRIVER BLOCKCHAIN EXPLORER : Get verified smart contracts for address 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 and log the contract information from the etherscan.io Mainnet blockchain explorer." line="11">
+<kw name="Run Multichain Explorer Tasks">
+<kw name="Download Contract Source Code">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:13:29.998068" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:13:25.996605" elapsed="4.001648"/>
+</kw>
+<kw name="Download Deployed Contract From Explorer" owner="MultichainExplorerLibrary">
+<msg time="2024-08-11T16:13:31.505891" level="INFO">Human-readable Ethereum smart contract file created: downloaded-deployed-contracts/ethereum-contract2.sol</msg>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<arg>${CONTRACT_NAME}</arg>
+<doc>Downloads Solidity source code of verified contracts from EVM blockchain Mainnet or Testnet explorers. 
+Creates a human readable Solidity file with a name (your-contract-name.sol) that you provide.
+Un-verified smart contracts will not work with the EVM blockchain explorer APIs.
+This keyword could theoretically work with any EVM blockchain explorer that is designed like Etherscan.
+This keyword requires a valid Etherscan, Polygonscan (or similar) API key etc.</doc>
+<status status="PASS" start="2024-08-11T16:13:29.998563" elapsed="1.507527"/>
+</kw>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:25.996013" elapsed="5.510360"/>
+</kw>
+<kw name="Get Contract Information">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:13:35.508658" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:13:31.507602" elapsed="4.001289"/>
+</kw>
+<kw name="Get Contract Creation Information" owner="MultichainExplorerLibrary">
+<msg time="2024-08-11T16:13:37.028539" level="INFO">${CONTRACT_INFORMATION} = {'status': '1', 'message': 'OK', 'result': [{'contractAddress': '0x7f7c81c5792008fd67097f5cb4130e1f83d52d72', 'contractCreator': '0x2b95b6b6d75ed7c9f6bab1752437f3f7dac3cd98', 'txHash': '0x86433bf4f19e...</msg>
+<var>${CONTRACT_INFORMATION}</var>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<doc>Get Contract Creator and Creation Tx Hash from the explorer API, then return the data as JSON.
+This keyword could theoretically work with any EVM blockchain explorer that is designed like Etherscan.
+This keyword requires a valid Etherscan, Polygonscan (or similar) API key etc.</doc>
+<status status="PASS" start="2024-08-11T16:13:35.509265" elapsed="1.519357"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.028930" elapsed="0.000393"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.029714" elapsed="0.000307"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.030226" elapsed="0.000254"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${CONTRACT_INFORMATION}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.030671" elapsed="0.000336"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:13:37.031441" level="INFO">{'status': '1', 'message': 'OK', 'result': [{'contractAddress': '0x7f7c81c5792008fd67097f5cb4130e1f83d52d72', 'contractCreator': '0x2b95b6b6d75ed7c9f6bab1752437f3f7dac3cd98', 'txHash': '0x86433bf4f19ece7fb9c32da6d9e2b2b7f0b7cc0e95a5b223ee23675320fff51f'}]}</msg>
+<arg>${CONTRACT_INFORMATION}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.031202" elapsed="0.000323"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.031892" elapsed="0.000257"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.032335" elapsed="0.000244"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.032763" elapsed="0.000193"/>
+</kw>
+<arg>${NETWORK_TYPE}</arg>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<arg>${EXPLORER_API_KEY}</arg>
+<status status="PASS" start="2024-08-11T16:13:31.506842" elapsed="5.526210"/>
+</kw>
+<kw name="Setup Smart Contracts For Security Scanning Tools">
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.034180" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/*.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/*.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/mythril/*.log</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.033664" elapsed="0.000607"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.034744" level="INFO" html="true">File '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/*.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/*.log&lt;/a&gt;' does not exist.</msg>
+<arg>${EXECDIR}/resources/napalm/*.log</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.034423" elapsed="0.000408"/>
+</kw>
+<kw name="Remove Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.035608" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.035848" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.036068" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.036283" level="INFO" html="true">Removed file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/*.sol</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.034977" elapsed="0.001378"/>
+</kw>
+<kw name="Copy Files" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.038606" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract1.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.040300" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract2.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.041830" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/ethereum-contract2.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.043344" level="INFO" html="true">Copied file from '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/downloaded-deployed-contracts/polygon-contract1.sol&lt;/a&gt;' to '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/downloaded-deployed-contracts/*.sol</arg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker</arg>
+<doc>Copies specified files to the target directory.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.036488" elapsed="0.006957"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.033261" elapsed="0.010278"/>
+</kw>
+<arg>NETWORK_TYPE=api</arg>
+<arg>EXPLORER_URL=etherscan.io</arg>
+<arg>CONTRACT_ADDRESS=0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72</arg>
+<arg>EXPLORER_API_KEY=<your-blockchain-explorer-api-key-goes-here></arg>
+<arg>CONTRACT_NAME=ethereum-contract2.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:25.995634" elapsed="11.047966"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:25.994149" elapsed="11.049679"/>
+</test>
+<status status="PASS" start="2024-08-11T16:12:50.803012" elapsed="46.241235"/>
+</suite>
+<suite id="s1-s2" name="Robotframework-Rpa-Deployed-Contracts-Updater" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-rpa-deployed-contracts-updater.robot">
+<test id="s1-s2-t1" name="SETUP TASKS - DATADRIVER SOLIDITY FILE UPDATER : Update the contract polygon-contract1.sol to have the same Solidity version as the other files." line="15">
+<kw name="Run Solidity File Updater Tasks">
+<kw name="Update Solidity Version">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.060875" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.061119" level="INFO">${OLD_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract MyToken {
+    // State variables
+    string public name;
+    string public symbol;
+    uint8 public decimals;
+    uint256 public total...</msg>
+<var>${OLD_FILE_CONTENT}</var>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.060712" elapsed="0.000433"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-11T16:13:37.061600" level="INFO">${NEW_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract MyToken {
+    // State variables
+    string public name;
+    string public symbol;
+    uint8 public decimals;
+    uint256 public total...</msg>
+<var>${NEW_FILE_CONTENT}</var>
+<arg>${OLD_FILE_CONTENT}</arg>
+<arg>${REGEXP_PATTERN}</arg>
+<arg>pragma solidity ${TARGET_SOLIDITY_VERSION};</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.061261" elapsed="0.000363"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.062211" level="INFO" html="true">Created file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<arg>${NEW_FILE_CONTENT}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.061720" elapsed="0.000548"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<arg>pragma solidity \\^0\\.\\d+\\.\\d+;</arg>
+<status status="PASS" start="2024-08-11T16:13:37.060421" elapsed="0.001909"/>
+</kw>
+<kw name="Update Solidity Version">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.062865" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.063025" level="INFO">${OLD_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract MyToken {
+    // State variables
+    string public name;
+    string public symbol;
+    uint8 public decimals;
+    uint256 public total...</msg>
+<var>${OLD_FILE_CONTENT}</var>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.062721" elapsed="0.000329"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-11T16:13:37.063506" level="INFO">${NEW_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract MyToken {
+    // State variables
+    string public name;
+    string public symbol;
+    uint8 public decimals;
+    uint256 public total...</msg>
+<var>${NEW_FILE_CONTENT}</var>
+<arg>${OLD_FILE_CONTENT}</arg>
+<arg>${REGEXP_PATTERN}</arg>
+<arg>pragma solidity ${TARGET_SOLIDITY_VERSION};</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.063145" elapsed="0.000391"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.064180" level="INFO" html="true">Created file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<arg>${NEW_FILE_CONTENT}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.063724" elapsed="0.000527"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<arg>pragma solidity 0\\.\\d+\\.\\d+;</arg>
+<status status="PASS" start="2024-08-11T16:13:37.062452" elapsed="0.001987"/>
+</kw>
+<kw name="Remove Multi Line Comments From Solidity File">
+<kw name="Remove Multi Line Solidity Comments" owner="SolidityCommentRemoverLibrary">
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Removes multi-line Solidity comments commonly starting with '/**' and ending with '*/'.
+Uses the Python regular expression module in the standard library.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.064853" elapsed="0.000540"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.064595" elapsed="0.000857"/>
+</kw>
+<kw name="Remove Single Line Comments From Solidity File">
+<kw name="Remove Single Line Solidity Comments" owner="SolidityCommentRemoverLibrary">
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Removes single-line Solidity comments commonly starting with '//'.
+Uses the Python regular expression module in the standard library.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.065795" elapsed="0.000617"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.065558" elapsed="0.000933"/>
+</kw>
+<arg>CONTRACT_NAME=polygon-contract1.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:37.060152" elapsed="0.006389"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:37.058941" elapsed="0.007774"/>
+</test>
+<test id="s1-s2-t2" name="SETUP TASKS - DATADRIVER SOLIDITY FILE UPDATER : Update the contract polygon-contract2.sol to have the same Solidity version as the other files." line="15">
+<kw name="Run Solidity File Updater Tasks">
+<kw name="Update Solidity Version">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.068718" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.068938" level="INFO">${OLD_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+interface IERC20 {
+    function balanceOf(address account) external view returns (uint256);
+}
+
+contract TemporaryBalance {
+    address public o...</msg>
+<var>${OLD_FILE_CONTENT}</var>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.068567" elapsed="0.000395"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-11T16:13:37.069334" level="INFO">${NEW_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+interface IERC20 {
+    function balanceOf(address account) external view returns (uint256);
+}
+
+contract TemporaryBalance {
+    address public o...</msg>
+<var>${NEW_FILE_CONTENT}</var>
+<arg>${OLD_FILE_CONTENT}</arg>
+<arg>${REGEXP_PATTERN}</arg>
+<arg>pragma solidity ${TARGET_SOLIDITY_VERSION};</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.069057" elapsed="0.000322"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.072377" level="INFO" html="true">Created file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<arg>${NEW_FILE_CONTENT}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.069517" elapsed="0.002990"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<arg>pragma solidity \\^0\\.\\d+\\.\\d+;</arg>
+<status status="PASS" start="2024-08-11T16:13:37.068324" elapsed="0.004388"/>
+</kw>
+<kw name="Update Solidity Version">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.073482" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.073701" level="INFO">${OLD_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+interface IERC20 {
+    function balanceOf(address account) external view returns (uint256);
+}
+
+contract TemporaryBalance {
+    address public o...</msg>
+<var>${OLD_FILE_CONTENT}</var>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.073322" elapsed="0.000403"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-11T16:13:37.074032" level="INFO">${NEW_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+interface IERC20 {
+    function balanceOf(address account) external view returns (uint256);
+}
+
+contract TemporaryBalance {
+    address public o...</msg>
+<var>${NEW_FILE_CONTENT}</var>
+<arg>${OLD_FILE_CONTENT}</arg>
+<arg>${REGEXP_PATTERN}</arg>
+<arg>pragma solidity ${TARGET_SOLIDITY_VERSION};</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.073834" elapsed="0.000221"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.074614" level="INFO" html="true">Created file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/polygon-contract2.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<arg>${NEW_FILE_CONTENT}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.074146" elapsed="0.000650"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<arg>pragma solidity 0\\.\\d+\\.\\d+;</arg>
+<status status="PASS" start="2024-08-11T16:13:37.072992" elapsed="0.001869"/>
+</kw>
+<kw name="Remove Multi Line Comments From Solidity File">
+<kw name="Remove Multi Line Solidity Comments" owner="SolidityCommentRemoverLibrary">
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Removes multi-line Solidity comments commonly starting with '/**' and ending with '*/'.
+Uses the Python regular expression module in the standard library.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.075223" elapsed="0.000887"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.074978" elapsed="0.001236"/>
+</kw>
+<kw name="Remove Single Line Comments From Solidity File">
+<kw name="Remove Single Line Solidity Comments" owner="SolidityCommentRemoverLibrary">
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Removes single-line Solidity comments commonly starting with '//'.
+Uses the Python regular expression module in the standard library.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.076772" elapsed="0.000779"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.076439" elapsed="0.001177"/>
+</kw>
+<arg>CONTRACT_NAME=polygon-contract2.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:37.068087" elapsed="0.009575"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:37.066978" elapsed="0.010867"/>
+</test>
+<test id="s1-s2-t3" name="SETUP TASKS - DATADRIVER SOLIDITY FILE UPDATER : Update the contract ethereum-contract1.sol to have the same Solidity version as the other files." line="15">
+<kw name="Run Solidity File Updater Tasks">
+<kw name="Update Solidity Version">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.079993" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.080323" level="INFO">${OLD_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+/**
+
+Website  : 1CLICK
+Twitter  : 1CLICK
+Telegram : 1CLICK
+*/
+
+
+contract CLICK {
+
+    string public name = "1CLICK";
+    string public symbol ...</msg>
+<var>${OLD_FILE_CONTENT}</var>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.079835" elapsed="0.000519"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-11T16:13:37.080648" level="INFO">${NEW_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+/**
+
+Website  : 1CLICK
+Twitter  : 1CLICK
+Telegram : 1CLICK
+*/
+
+
+contract CLICK {
+
+    string public name = "1CLICK";
+    string public symbol ...</msg>
+<var>${NEW_FILE_CONTENT}</var>
+<arg>${OLD_FILE_CONTENT}</arg>
+<arg>${REGEXP_PATTERN}</arg>
+<arg>pragma solidity ${TARGET_SOLIDITY_VERSION};</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.080454" elapsed="0.000217"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.081199" level="INFO" html="true">Created file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<arg>${NEW_FILE_CONTENT}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.080758" elapsed="0.000494"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<arg>pragma solidity \\^0\\.\\d+\\.\\d+;</arg>
+<status status="PASS" start="2024-08-11T16:13:37.079583" elapsed="0.001729"/>
+</kw>
+<kw name="Update Solidity Version">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.081781" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.081923" level="INFO">${OLD_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+/**
+
+Website  : 1CLICK
+Twitter  : 1CLICK
+Telegram : 1CLICK
+*/
+
+
+contract CLICK {
+
+    string public name = "1CLICK";
+    string public symbol ...</msg>
+<var>${OLD_FILE_CONTENT}</var>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.081653" elapsed="0.000292"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-11T16:13:37.082213" level="INFO">${NEW_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+/**
+
+Website  : 1CLICK
+Twitter  : 1CLICK
+Telegram : 1CLICK
+*/
+
+
+contract CLICK {
+
+    string public name = "1CLICK";
+    string public symbol ...</msg>
+<var>${NEW_FILE_CONTENT}</var>
+<arg>${OLD_FILE_CONTENT}</arg>
+<arg>${REGEXP_PATTERN}</arg>
+<arg>pragma solidity ${TARGET_SOLIDITY_VERSION};</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.082034" elapsed="0.000200"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.082651" level="INFO" html="true">Created file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract1.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<arg>${NEW_FILE_CONTENT}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.082318" elapsed="0.000384"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<arg>pragma solidity 0\\.\\d+\\.\\d+;</arg>
+<status status="PASS" start="2024-08-11T16:13:37.081414" elapsed="0.001441"/>
+</kw>
+<kw name="Remove Multi Line Comments From Solidity File">
+<kw name="Remove Multi Line Solidity Comments" owner="SolidityCommentRemoverLibrary">
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Removes multi-line Solidity comments commonly starting with '/**' and ending with '*/'.
+Uses the Python regular expression module in the standard library.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.083167" elapsed="0.000368"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.082952" elapsed="0.000646"/>
+</kw>
+<kw name="Remove Single Line Comments From Solidity File">
+<kw name="Remove Single Line Solidity Comments" owner="SolidityCommentRemoverLibrary">
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Removes single-line Solidity comments commonly starting with '//'.
+Uses the Python regular expression module in the standard library.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.084088" elapsed="0.000490"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.083687" elapsed="0.000960"/>
+</kw>
+<arg>CONTRACT_NAME=ethereum-contract1.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:37.079322" elapsed="0.005479"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:37.078155" elapsed="0.006856"/>
+</test>
+<test id="s1-s2-t4" name="SETUP TASKS - DATADRIVER SOLIDITY FILE UPDATER : Update the contract ethereum-contract2.sol to have the same Solidity version as the other files." line="15">
+<kw name="Run Solidity File Updater Tasks">
+<kw name="Update Solidity Version">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.086893" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.087085" level="INFO">${OLD_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+/**
+
+Website  : ASTRA
+Twitter  : ASTRA
+Telegram : ASTRA
+*/
+
+
+contract ASTRA {
+
+    string public name = "Ad Astra";
+    string public symbol =...</msg>
+<var>${OLD_FILE_CONTENT}</var>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.086756" elapsed="0.000352"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-11T16:13:37.087392" level="INFO">${NEW_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+/**
+
+Website  : ASTRA
+Twitter  : ASTRA
+Telegram : ASTRA
+*/
+
+
+contract ASTRA {
+
+    string public name = "Ad Astra";
+    string public symbol =...</msg>
+<var>${NEW_FILE_CONTENT}</var>
+<arg>${OLD_FILE_CONTENT}</arg>
+<arg>${REGEXP_PATTERN}</arg>
+<arg>pragma solidity ${TARGET_SOLIDITY_VERSION};</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.087200" elapsed="0.000214"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.087886" level="INFO" html="true">Created file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<arg>${NEW_FILE_CONTENT}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.087500" elapsed="0.000438"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<arg>pragma solidity \\^0\\.\\d+\\.\\d+;</arg>
+<status status="PASS" start="2024-08-11T16:13:37.086518" elapsed="0.001494"/>
+</kw>
+<kw name="Update Solidity Version">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.088569" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:13:37.088717" level="INFO">${OLD_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+/**
+
+Website  : ASTRA
+Twitter  : ASTRA
+Telegram : ASTRA
+*/
+
+
+contract ASTRA {
+
+    string public name = "Ad Astra";
+    string public symbol =...</msg>
+<var>${OLD_FILE_CONTENT}</var>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.088439" elapsed="0.000301"/>
+</kw>
+<kw name="Replace String Using Regexp" owner="String">
+<msg time="2024-08-11T16:13:37.089017" level="INFO">${NEW_FILE_CONTENT} = // SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+/**
+
+Website  : ASTRA
+Twitter  : ASTRA
+Telegram : ASTRA
+*/
+
+
+contract ASTRA {
+
+    string public name = "Ad Astra";
+    string public symbol =...</msg>
+<var>${NEW_FILE_CONTENT}</var>
+<arg>${OLD_FILE_CONTENT}</arg>
+<arg>${REGEXP_PATTERN}</arg>
+<arg>pragma solidity ${TARGET_SOLIDITY_VERSION};</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.088834" elapsed="0.000204"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:37.089494" level="INFO" html="true">Created file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/downloaded-contracts-in-docker/ethereum-contract2.sol&lt;/a&gt;'.</msg>
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<arg>${NEW_FILE_CONTENT}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.089125" elapsed="0.000421"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<arg>pragma solidity 0\\.\\d+\\.\\d+;</arg>
+<status status="PASS" start="2024-08-11T16:13:37.088195" elapsed="0.001403"/>
+</kw>
+<kw name="Remove Multi Line Comments From Solidity File">
+<kw name="Remove Multi Line Solidity Comments" owner="SolidityCommentRemoverLibrary">
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Removes multi-line Solidity comments commonly starting with '/**' and ending with '*/'.
+Uses the Python regular expression module in the standard library.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.089909" elapsed="0.000376"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.089690" elapsed="0.000651"/>
+</kw>
+<kw name="Remove Single Line Comments From Solidity File">
+<kw name="Remove Single Line Solidity Comments" owner="SolidityCommentRemoverLibrary">
+<arg>${EXECDIR}/resources/downloaded-contracts-in-docker/${CONTRACT_NAME}</arg>
+<doc>Removes single-line Solidity comments commonly starting with '//'.
+Uses the Python regular expression module in the standard library.</doc>
+<status status="PASS" start="2024-08-11T16:13:37.090683" elapsed="0.000351"/>
+</kw>
+<arg>${CONTRACT_NAME}</arg>
+<status status="PASS" start="2024-08-11T16:13:37.090472" elapsed="0.000618"/>
+</kw>
+<arg>CONTRACT_NAME=ethereum-contract2.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:37.086289" elapsed="0.004843"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:37.085253" elapsed="0.006008"/>
+</test>
+<status status="PASS" start="2024-08-11T16:13:37.044867" elapsed="0.046670"/>
+</suite>
+<status status="PASS" start="2024-08-11T16:12:50.762768" elapsed="46.329291"/>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="8" fail="0" skip="0" id="s1" name="Smart Contract Security Testing Setup">Smart Contract Security Testing Setup</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s1" name="Robotframework-Rpa-Deployed-Contracts-Explorer">Smart Contract Security Testing Setup.Robotframework-Rpa-Deployed-Contracts-Explorer</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s2" name="Robotframework-Rpa-Deployed-Contracts-Updater">Smart Contract Security Testing Setup.Robotframework-Rpa-Deployed-Contracts-Updater</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

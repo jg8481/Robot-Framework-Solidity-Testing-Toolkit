@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.9 on darwin)" generated="2024-08-11T16:13:39.110502" rpa="false" schemaversion="5">
+<suite id="s1" name="Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools">
+<suite id="s1-s1" name="Robotframework-Security-Test-Mythril-Runner" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-mythril-runner.robot">
+<test id="s1-s1-t1" name="TEST : Get verified smart contracts for address 0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5 and log the contract information from the polygonscan.com Mainnet blockchain explorer. Then run the Consensys Mythril security analysis tool to check for Solidity vulnerabilities using EVM bytecode." line="14">
+<kw name="Run Mythril Docker Container Vulnerability Scan">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.189213" elapsed="0.000234"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.189603" elapsed="0.000301"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.190033" elapsed="0.000181"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>General information about the contract that will be scanned for vulnerabilities in a Docker Container.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.190339" elapsed="0.000190"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.190652" elapsed="0.000257"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:13:39.191229" level="INFO">polygonscan.com &gt;&gt;&gt; 0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5 &gt;&gt;&gt; /tmp/downloaded-contracts-in-docker/polygon-contract1.sol</msg>
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.191030" elapsed="0.000251"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:39.194848" level="INFO">Running command '/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/run-solidity-security-tests.sh Run-Consensys-Mythril-In-Docker-Using-Robot-Framework /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources /tmp/downloaded-contracts-in-docker/polygon-contract1.sol polygonscan.com 0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5 2&gt;&amp;1'.</msg>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/run-solidity-security-tests.sh Run-Consensys-Mythril-In-Docker-Using-Robot-Framework ${HOST_MACHINE_RESOURCE_PATH} ${DOCKER_FILE_PATH} ${EXPLORER_URL} ${CONTRACT_ADDRESS}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.191436" elapsed="365.902067"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:19:49.097269" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:19:45.095059" elapsed="4.002534"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.098098" elapsed="0.002103"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.100707" elapsed="0.000688"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.101707" elapsed="0.000461"/>
+</kw>
+<kw name="Check Mythril Vulnerability Analysis Results">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.104642" elapsed="0.000376"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.105223" elapsed="0.000279"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.105682" elapsed="0.000270"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking the results of the Consensys Mythril security analysis tool for EVM bytecode.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.106134" elapsed="0.000283"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.106594" elapsed="0.000250"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.107011" elapsed="0.000238"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.107418" elapsed="0.000220"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:19:49.108443" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/polygonscan.com-0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5-mythril-output.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/polygonscan.com-0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5-mythril-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:19:49.108891" level="INFO">${MYTHRIL_OUTPUT} = Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract1.sol -o markdown'
+# Analysis results for None
+The analysis was completed successfully. No issues were detected....</msg>
+<var>${MYTHRIL_OUTPUT}</var>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/mythril/${EXPLORER_URL}-${CONTRACT_ADDRESS}-mythril-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.107836" elapsed="0.001106"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:19:49.109444" level="INFO">Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract1.sol -o markdown'
+# Analysis results for None
+The analysis was completed successfully. No issues were detected.
+
+</msg>
+<arg>${MYTHRIL_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.109158" elapsed="0.000363"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${MYTHRIL_OUTPUT}</arg>
+<arg>Severity</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.109711" elapsed="0.000307"/>
+</kw>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<status status="PASS" start="2024-08-11T16:19:49.103110" elapsed="0.007049"/>
+</kw>
+<arg>EXPLORER_URL=polygonscan.com</arg>
+<arg>CONTRACT_ADDRESS=0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5</arg>
+<arg>DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/polygon-contract1.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:39.188538" elapsed="369.921748"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:39.186506" elapsed="369.924715"/>
+</test>
+<test id="s1-s1-t2" name="TEST : Get verified smart contracts for address 0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163 and log the contract information from the polygonscan.com Mainnet blockchain explorer. Then run the Consensys Mythril security analysis tool to check for Solidity vulnerabilities using EVM bytecode." line="14">
+<kw name="Run Mythril Docker Container Vulnerability Scan">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.115043" elapsed="0.000239"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.115419" elapsed="0.000203"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.115736" elapsed="0.000199"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>General information about the contract that will be scanned for vulnerabilities in a Docker Container.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.116059" elapsed="0.000382"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.116563" elapsed="0.000268"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:19:49.117170" level="INFO">polygonscan.com &gt;&gt;&gt; 0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163 &gt;&gt;&gt; /tmp/downloaded-contracts-in-docker/polygon-contract2.sol</msg>
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.116952" elapsed="0.000274"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-08-11T16:19:49.120738" level="INFO">Running command '/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/run-solidity-security-tests.sh Run-Consensys-Mythril-In-Docker-Using-Robot-Framework /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources /tmp/downloaded-contracts-in-docker/polygon-contract2.sol polygonscan.com 0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163 2&gt;&amp;1'.</msg>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/run-solidity-security-tests.sh Run-Consensys-Mythril-In-Docker-Using-Robot-Framework ${HOST_MACHINE_RESOURCE_PATH} ${DOCKER_FILE_PATH} ${EXPLORER_URL} ${CONTRACT_ADDRESS}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-08-11T16:19:49.117357" elapsed="104.974158"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:21:38.093240" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:21:34.092165" elapsed="4.001291"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.093761" elapsed="0.001264"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.095400" elapsed="0.000574"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.096252" elapsed="0.000335"/>
+</kw>
+<kw name="Check Mythril Vulnerability Analysis Results">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.097971" elapsed="0.000290"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.098445" elapsed="0.000305"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.098931" elapsed="0.000279"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking the results of the Consensys Mythril security analysis tool for EVM bytecode.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.099392" elapsed="0.000314"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.099907" elapsed="0.000231"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.100291" elapsed="0.000219"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.100667" elapsed="0.000218"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:21:38.101422" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/polygonscan.com-0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163-mythril-output.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/polygonscan.com-0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163-mythril-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:21:38.101795" level="INFO">${MYTHRIL_OUTPUT} = Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract2.sol -o markdown'
+# Analysis results for /tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+
+## Dependen...</msg>
+<var>${MYTHRIL_OUTPUT}</var>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/mythril/${EXPLORER_URL}-${CONTRACT_ADDRESS}-mythril-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.101054" elapsed="0.000805"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:21:38.102246" level="INFO">Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract2.sol -o markdown'
+# Analysis results for /tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `removeTemporaryBalance(address,address)`
+- PC address: 1187
+- Estimated Gas Usage: 2547 - 3352
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+In file: /tmp/downloaded-contracts-in-docker/polygon-contract2.sol:44
+
+### Code
+
+```
+require(block.timestamp &gt;= endTimes[_token][_user], "Cannot remove balance before end time")
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: removeTemporaryBalance(address,address), txdata: 0xbc7bbcda00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `getTemporaryBalance(address,address)`
+- PC address: 1676
+- Estimated Gas Usage: 1724 - 2199
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+In file: /tmp/downloaded-contracts-in-docker/polygon-contract2.sol:35
+
+### Code
+
+```
+if (block.timestamp &gt;= endTimes[_token][_user]) {
+            return 0;
+        }
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: getTemporaryBalance(address,address), txdata: 0xde3d71bd00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `displayTemporaryBalance(address,address,uint256)`
+- PC address: 2647
+- Estimated Gas Usage: 1854 - 2279
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+In file: #utility.yul:153
+
+### Code
+
+```
+if
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: displayTemporaryBalance(address,address,uint256), txdata: 0x8fcc0e04000000000000000000000000000000000000000000000000000000000000004a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x000000000000000000000000000000000000004a', '0x0000000000000000000000000000000000000000', 0), value: 0x0
+
+
+</msg>
+<arg>${MYTHRIL_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.102037" elapsed="0.001173"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2024-08-11T16:21:38.105038" level="FAIL">'Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract2.sol -o markdown'
+# Analysis results for /tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `removeTemporaryBalance(address,address)`
+- PC address: 1187
+- Estimated Gas Usage: 2547 - 3352
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+In file: /tmp/downloaded-contracts-in-docker/polygon-contract2.sol:44
+
+### Code
+
+```
+require(block.timestamp &gt;= endTimes[_token][_user], "Cannot remove balance before end time")
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: removeTemporaryBalance(address,address), txdata: 0xbc7bbcda00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `getTemporaryBalance(address,address)`
+- PC address: 1676
+- Estimated Gas Usage: 1724 - 2199
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+In file: /tmp/downloaded-contracts-in-docker/polygon-contract2.sol:35
+
+### Code
+
+```
+if (block.timestamp &gt;= endTimes[_token][_user]) {
+            return 0;
+        }
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: getTemporaryBalance(address,address), txdata: 0xde3d71bd00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x0000000000000000000000000000000000000000', '0x0000000000000000000000000000000000000000'), value: 0x0
+
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `displayTemporaryBalance(address,address,uint256)`
+- PC address: 2647
+- Estimated Gas Usage: 1854 - 2279
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.
+In file: #utility.yul:153
+
+### Code
+
+```
+if
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: displayTemporaryBalance(address,address,uint256), txdata: 0x8fcc0e04000000000000000000000000000000000000000000000000000000000000004a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x000000000000000000000000000000000000004a', '0x0000000000000000000000000000000000000000', 0), value: 0x0
+
+
+' contains 'Severity'</msg>
+<arg>${MYTHRIL_OUTPUT}</arg>
+<arg>Severity</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2024-08-11T16:21:38.103643" elapsed="0.002822">'Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract2.sol -o markdown'
+# Analysis results for /tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `removeTemporaryBalance(address,address)`
+- PC address: 1187
+- Estimated Gas Usage: 2547 - 3352
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious mine...
+    [ Message content over the limit has been removed. ]
+if
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: displayTemporaryBalance(address,address,uint256), txdata: 0x8fcc0e04000000000000000000000000000000000000000000000000000000000000004a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x000000000000000000000000000000000000004a', '0x0000000000000000000000000000000000000000', 0), value: 0x0
+
+
+' contains 'Severity'</status>
+</kw>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<status status="FAIL" start="2024-08-11T16:21:38.097112" elapsed="0.010135">'Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract2.sol -o markdown'
+# Analysis results for /tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `removeTemporaryBalance(address,address)`
+- PC address: 1187
+- Estimated Gas Usage: 2547 - 3352
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious mine...
+    [ Message content over the limit has been removed. ]
+if
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: displayTemporaryBalance(address,address,uint256), txdata: 0x8fcc0e04000000000000000000000000000000000000000000000000000000000000004a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x000000000000000000000000000000000000004a', '0x0000000000000000000000000000000000000000', 0), value: 0x0
+
+
+' contains 'Severity'</status>
+</kw>
+<arg>EXPLORER_URL=polygonscan.com</arg>
+<arg>CONTRACT_ADDRESS=0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163</arg>
+<arg>DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/polygon-contract2.sol</arg>
+<status status="FAIL" start="2024-08-11T16:19:49.114613" elapsed="108.992837">'Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract2.sol -o markdown'
+# Analysis results for /tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `removeTemporaryBalance(address,address)`
+- PC address: 1187
+- Estimated Gas Usage: 2547 - 3352
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious mine...
+    [ Message content over the limit has been removed. ]
+if
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: displayTemporaryBalance(address,address,uint256), txdata: 0x8fcc0e04000000000000000000000000000000000000000000000000000000000000004a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x000000000000000000000000000000000000004a', '0x0000000000000000000000000000000000000000', 0), value: 0x0
+
+
+' contains 'Severity'</status>
+</kw>
+<status status="FAIL" start="2024-08-11T16:19:49.111956" elapsed="108.995921">'Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/polygon-contract2.sol -o markdown'
+# Analysis results for /tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+
+## Dependence on predictable environment variable
+- SWC ID: 116
+- Severity: Low
+- Contract: TemporaryBalance
+- Function name: `removeTemporaryBalance(address,address)`
+- PC address: 1187
+- Estimated Gas Usage: 2547 - 3352
+
+### Description
+
+A control flow decision is made based on The block.timestamp environment variable.
+The block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious mine...
+    [ Message content over the limit has been removed. ]
+if
+```
+
+### Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+
+### Transaction Sequence
+
+Caller: [CREATOR], calldata: , decoded_data: , value: 0x0
+Caller: [CREATOR], function: displayTemporaryBalance(address,address,uint256), txdata: 0x8fcc0e04000000000000000000000000000000000000000000000000000000000000004a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, decoded_data: ('0x000000000000000000000000000000000000004a', '0x0000000000000000000000000000000000000000', 0), value: 0x0
+
+
+' contains 'Severity'</status>
+</test>
+<test id="s1-s1-t3" name="TEST : Get verified smart contracts for address 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 and log the contract information from the etherscan.io Mainnet blockchain explorer. Then run the Consensys Mythril security analysis tool to check for Solidity vulnerabilities using EVM bytecode." line="14">
+<kw name="Run Mythril Docker Container Vulnerability Scan">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.110745" elapsed="0.000218"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.111096" elapsed="0.000189"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.111400" elapsed="0.000163"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>General information about the contract that will be scanned for vulnerabilities in a Docker Container.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.111677" elapsed="0.000161"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.111949" elapsed="0.000245"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:21:38.112544" level="INFO">etherscan.io &gt;&gt;&gt; 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 &gt;&gt;&gt; /tmp/downloaded-contracts-in-docker/ethereum-contract1.sol</msg>
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.112336" elapsed="0.000272"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-08-11T16:21:38.115780" level="INFO">Running command '/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/run-solidity-security-tests.sh Run-Consensys-Mythril-In-Docker-Using-Robot-Framework /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources /tmp/downloaded-contracts-in-docker/ethereum-contract1.sol etherscan.io 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 2&gt;&amp;1'.</msg>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/run-solidity-security-tests.sh Run-Consensys-Mythril-In-Docker-Using-Robot-Framework ${HOST_MACHINE_RESOURCE_PATH} ${DOCKER_FILE_PATH} ${EXPLORER_URL} ${CONTRACT_ADDRESS}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-08-11T16:21:38.112723" elapsed="540.902435"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:30:43.016859" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:30:39.015935" elapsed="4.001079"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.017405" elapsed="0.001353"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.018968" elapsed="0.000300"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.019476" elapsed="0.000270"/>
+</kw>
+<kw name="Check Mythril Vulnerability Analysis Results">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.020756" elapsed="0.000198"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.021069" elapsed="0.000167"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.021337" elapsed="0.000161"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking the results of the Consensys Mythril security analysis tool for EVM bytecode.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.021598" elapsed="0.000163"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.021870" elapsed="0.000158"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.022142" elapsed="0.000182"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.022966" elapsed="0.000217"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:30:43.023576" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/etherscan.io-0x4c2268cea738be02BF7c89fd9bd17BABd4470e54-mythril-output.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/etherscan.io-0x4c2268cea738be02BF7c89fd9bd17BABd4470e54-mythril-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:30:43.023840" level="INFO">${MYTHRIL_OUTPUT} = Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/ethereum-contract1.sol -o markdown'
+# Analysis results for None
+The analysis was completed successfully. No issues were detected...</msg>
+<var>${MYTHRIL_OUTPUT}</var>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/mythril/${EXPLORER_URL}-${CONTRACT_ADDRESS}-mythril-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.023314" elapsed="0.000590"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:30:43.024170" level="INFO">Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/ethereum-contract1.sol -o markdown'
+# Analysis results for None
+The analysis was completed successfully. No issues were detected.
+
+</msg>
+<arg>${MYTHRIL_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.024024" elapsed="0.000195"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${MYTHRIL_OUTPUT}</arg>
+<arg>Severity</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.024335" elapsed="0.000154"/>
+</kw>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<status status="PASS" start="2024-08-11T16:30:43.020270" elapsed="0.004300"/>
+</kw>
+<arg>EXPLORER_URL=etherscan.io</arg>
+<arg>CONTRACT_ADDRESS=0x4c2268cea738be02BF7c89fd9bd17BABd4470e54</arg>
+<arg>DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol</arg>
+<status status="PASS" start="2024-08-11T16:21:38.110337" elapsed="544.914303"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:21:38.108416" elapsed="544.916582"/>
+</test>
+<test id="s1-s1-t4" name="TEST : Get verified smart contracts for address 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 and log the contract information from the etherscan.io Mainnet blockchain explorer. Then run the Consensys Mythril security analysis tool to check for Solidity vulnerabilities using EVM bytecode." line="14">
+<kw name="Run Mythril Docker Container Vulnerability Scan">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.027871" elapsed="0.000202"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.028184" elapsed="0.000147"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.028428" elapsed="0.000178"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>General information about the contract that will be scanned for vulnerabilities in a Docker Container.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.028701" elapsed="0.000140"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.028942" elapsed="0.000266"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:30:43.029546" level="INFO">etherscan.io &gt;&gt;&gt; 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 &gt;&gt;&gt; /tmp/downloaded-contracts-in-docker/ethereum-contract2.sol</msg>
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.029380" elapsed="0.000210"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-08-11T16:30:43.032845" level="INFO">Running command '/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/run-solidity-security-tests.sh Run-Consensys-Mythril-In-Docker-Using-Robot-Framework /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources /tmp/downloaded-contracts-in-docker/ethereum-contract2.sol etherscan.io 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 2&gt;&amp;1'.</msg>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/run-solidity-security-tests.sh Run-Consensys-Mythril-In-Docker-Using-Robot-Framework ${HOST_MACHINE_RESOURCE_PATH} ${DOCKER_FILE_PATH} ${EXPLORER_URL} ${CONTRACT_ADDRESS}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-08-11T16:30:43.029731" elapsed="529.332465"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:39:36.372454" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:39:32.367283" elapsed="4.005602"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.373452" elapsed="0.002026"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.375856" elapsed="0.000447"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.376622" elapsed="0.000471"/>
+</kw>
+<kw name="Check Mythril Vulnerability Analysis Results">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.380742" elapsed="0.000322"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.381221" elapsed="0.000219"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.381587" elapsed="0.000204"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking the results of the Consensys Mythril security analysis tool for EVM bytecode.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.381919" elapsed="0.000207"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.382256" elapsed="0.000187"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.382591" elapsed="0.000198"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.382915" elapsed="0.000216"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:39:36.384638" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/etherscan.io-0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72-mythril-output.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/mythril/etherscan.io-0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72-mythril-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:39:36.385206" level="INFO">${MYTHRIL_OUTPUT} = Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/ethereum-contract2.sol -o markdown'
+# Analysis results for None
+The analysis was completed successfully. No issues were detected...</msg>
+<var>${MYTHRIL_OUTPUT}</var>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/mythril/${EXPLORER_URL}-${CONTRACT_ADDRESS}-mythril-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.383323" elapsed="0.001931"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:39:36.385660" level="INFO">Now running...'mythril/myth analyze /tmp/downloaded-contracts-in-docker/ethereum-contract2.sol -o markdown'
+# Analysis results for None
+The analysis was completed successfully. No issues were detected.
+
+</msg>
+<arg>${MYTHRIL_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.385445" elapsed="0.000274"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${MYTHRIL_OUTPUT}</arg>
+<arg>Severity</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-11T16:39:36.385874" elapsed="0.000301"/>
+</kw>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<status status="PASS" start="2024-08-11T16:39:36.378896" elapsed="0.007431"/>
+</kw>
+<arg>EXPLORER_URL=etherscan.io</arg>
+<arg>CONTRACT_ADDRESS=0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72</arg>
+<arg>DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol</arg>
+<status status="PASS" start="2024-08-11T16:30:43.027524" elapsed="533.359041"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:30:43.025697" elapsed="533.361936"/>
+</test>
+<status status="FAIL" start="2024-08-11T16:13:39.147738" elapsed="1557.242156"/>
+</suite>
+<status status="FAIL" start="2024-08-11T16:13:39.131508" elapsed="1557.259820"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="1" skip="0" id="s1" name="Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools">Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools</stat>
+<stat pass="3" fail="1" skip="0" id="s1-s1" name="Robotframework-Security-Test-Mythril-Runner">Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools.Robotframework-Security-Test-Mythril-Runner</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,11 @@
+
+services:
+
+  docker-solidity-security-test-runner:
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+    volumes:
+      - "$PWD:/tmp"
+    command: -inMemory
+    network_mode: "bridge"

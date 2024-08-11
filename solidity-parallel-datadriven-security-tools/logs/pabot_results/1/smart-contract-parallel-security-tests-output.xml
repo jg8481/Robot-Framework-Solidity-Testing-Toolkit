@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.9 on darwin)" generated="2024-08-11T16:13:39.110502" rpa="false" schemaversion="5">
+<suite id="s1" name="Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools">
+<suite id="s1-s1" name="Robotframework-Security-Test-Napalm-Runner" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/robotframework-security-test-napalm-runner.robot">
+<test id="s1-s1-t1" name="TEST : Get verified smart contracts for address 0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5 and log the contract information from the polygonscan.com Mainnet blockchain explorer. Then run the Consensys Napalm static analysis tool to check for Solidity vulnerabilities." line="14">
+<kw name="Run Napalm Docker Container Vulnerability Scan">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.189097" elapsed="0.000244"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.189489" elapsed="0.000246"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.189902" elapsed="0.000187"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>General information about the contract that will be scanned for vulnerabilities in a Docker Container.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.190205" elapsed="0.000188"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.190514" elapsed="0.000259"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:13:39.191086" level="INFO">polygonscan.com &gt;&gt;&gt; 0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5 &gt;&gt;&gt; /tmp/downloaded-contracts-in-docker/polygon-contract1.sol</msg>
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.190891" elapsed="0.000248"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-08-11T16:13:39.194785" level="INFO">Running command '/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/run-solidity-security-tests.sh Run-Consensys-Napalm-In-Docker-Using-Robot-Framework /tmp/downloaded-contracts-in-docker/polygon-contract1.sol polygonscan.com 0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5 2&gt;&amp;1'.</msg>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/run-solidity-security-tests.sh Run-Consensys-Napalm-In-Docker-Using-Robot-Framework ${DOCKER_FILE_PATH} ${EXPLORER_URL} ${CONTRACT_ADDRESS}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-08-11T16:13:39.191256" elapsed="23.200481"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:14:06.393200" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:14:02.392350" elapsed="4.001038"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.393661" elapsed="0.000533"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.394352" elapsed="0.000253"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.394748" elapsed="0.000226"/>
+</kw>
+<kw name="Check Napalm Vulnerability Analysis Results">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.396357" elapsed="0.000271"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.396777" elapsed="0.000224"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.397148" elapsed="0.000198"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking the results of the Consensys Napalm security analysis tool for Solidity code.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.397479" elapsed="0.000227"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.397834" elapsed="0.000200"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.398167" elapsed="0.000210"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.398510" elapsed="0.000195"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:14:06.399321" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/polygonscan.com-0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5-napalm-output.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/polygonscan.com-0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5-napalm-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:14:06.399725" level="INFO">${NAPALM_OUTPUT} = ====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running....</msg>
+<var>${NAPALM_OUTPUT}</var>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/napalm/${EXPLORER_URL}-${CONTRACT_ADDRESS}-napalm-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.398905" elapsed="0.000863"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:14:06.400115" level="INFO">====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+No issues found 0
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+</msg>
+<arg>${NAPALM_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.399927" elapsed="0.000251"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${NAPALM_OUTPUT}</arg>
+<arg>Warning</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.400322" elapsed="0.000240"/>
+</kw>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<status status="PASS" start="2024-08-11T16:14:06.395491" elapsed="0.005189"/>
+</kw>
+<arg>EXPLORER_URL=polygonscan.com</arg>
+<arg>CONTRACT_ADDRESS=0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5</arg>
+<arg>DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/polygon-contract1.sol</arg>
+<status status="PASS" start="2024-08-11T16:13:39.188352" elapsed="27.212472"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:13:39.186534" elapsed="27.214900"/>
+</test>
+<test id="s1-s1-t2" name="TEST : Get verified smart contracts for address 0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163 and log the contract information from the polygonscan.com Mainnet blockchain explorer. Then run the Consensys Napalm static analysis tool to check for Solidity vulnerabilities." line="14">
+<kw name="Run Napalm Docker Container Vulnerability Scan">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.404756" elapsed="0.000270"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.405165" elapsed="0.000201"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.405486" elapsed="0.000183"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>General information about the contract that will be scanned for vulnerabilities in a Docker Container.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.405794" elapsed="0.000426"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.406354" elapsed="0.000305"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:14:06.407029" level="INFO">polygonscan.com &gt;&gt;&gt; 0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163 &gt;&gt;&gt; /tmp/downloaded-contracts-in-docker/polygon-contract2.sol</msg>
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.406798" elapsed="0.000294"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-08-11T16:14:06.410742" level="INFO">Running command '/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/run-solidity-security-tests.sh Run-Consensys-Napalm-In-Docker-Using-Robot-Framework /tmp/downloaded-contracts-in-docker/polygon-contract2.sol polygonscan.com 0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163 2&gt;&amp;1'.</msg>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/run-solidity-security-tests.sh Run-Consensys-Napalm-In-Docker-Using-Robot-Framework ${DOCKER_FILE_PATH} ${EXPLORER_URL} ${CONTRACT_ADDRESS}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-08-11T16:14:06.407232" elapsed="23.123033"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:14:33.532541" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:14:29.530852" elapsed="4.001827"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.532879" elapsed="0.001157"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.534202" elapsed="0.000245"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.534582" elapsed="0.000211"/>
+</kw>
+<kw name="Check Napalm Vulnerability Analysis Results">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.535766" elapsed="0.000273"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.536189" elapsed="0.000214"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.536531" elapsed="0.000204"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking the results of the Consensys Napalm security analysis tool for Solidity code.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.536864" elapsed="0.000213"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.537205" elapsed="0.000217"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.537548" elapsed="0.000198"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.537888" elapsed="0.000206"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:14:33.538543" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/polygonscan.com-0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163-napalm-output.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/polygonscan.com-0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163-napalm-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:14:33.538841" level="INFO">${NAPALM_OUTPUT} = ====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running....</msg>
+<var>${NAPALM_OUTPUT}</var>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/napalm/${EXPLORER_URL}-${CONTRACT_ADDRESS}-napalm-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.538243" elapsed="0.000637"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:14:33.539241" level="INFO">====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+No issues found 0
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+</msg>
+<arg>${NAPALM_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.539043" elapsed="0.000263"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${NAPALM_OUTPUT}</arg>
+<arg>Warning</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.539439" elapsed="0.000205"/>
+</kw>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<status status="PASS" start="2024-08-11T16:14:33.535136" elapsed="0.004600"/>
+</kw>
+<arg>EXPLORER_URL=polygonscan.com</arg>
+<arg>CONTRACT_ADDRESS=0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163</arg>
+<arg>DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/polygon-contract2.sol</arg>
+<status status="PASS" start="2024-08-11T16:14:06.404325" elapsed="27.135505"/>
+</kw>
+<status status="PASS" start="2024-08-11T16:14:06.401971" elapsed="27.138064"/>
+</test>
+<test id="s1-s1-t3" name="TEST : Get verified smart contracts for address 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 and log the contract information from the etherscan.io Mainnet blockchain explorer. Then run the Consensys Napalm static analysis tool to check for Solidity vulnerabilities." line="14">
+<kw name="Run Napalm Docker Container Vulnerability Scan">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.543381" elapsed="0.000238"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.543754" elapsed="0.000192"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.544068" elapsed="0.000174"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>General information about the contract that will be scanned for vulnerabilities in a Docker Container.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.544364" elapsed="0.000174"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.544657" elapsed="0.000292"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:14:33.545294" level="INFO">etherscan.io &gt;&gt;&gt; 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 &gt;&gt;&gt; /tmp/downloaded-contracts-in-docker/ethereum-contract1.sol</msg>
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.545095" elapsed="0.000254"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-08-11T16:14:33.548713" level="INFO">Running command '/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/run-solidity-security-tests.sh Run-Consensys-Napalm-In-Docker-Using-Robot-Framework /tmp/downloaded-contracts-in-docker/ethereum-contract1.sol etherscan.io 0x4c2268cea738be02BF7c89fd9bd17BABd4470e54 2&gt;&amp;1'.</msg>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/run-solidity-security-tests.sh Run-Consensys-Napalm-In-Docker-Using-Robot-Framework ${DOCKER_FILE_PATH} ${EXPLORER_URL} ${CONTRACT_ADDRESS}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-08-11T16:14:33.545470" elapsed="20.250271"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:14:57.797179" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:14:53.796283" elapsed="4.001074"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.797554" elapsed="0.001233"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.798935" elapsed="0.000216"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.799266" elapsed="0.000191"/>
+</kw>
+<kw name="Check Napalm Vulnerability Analysis Results">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.800841" elapsed="0.000372"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.801494" elapsed="0.000283"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.801908" elapsed="0.000167"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking the results of the Consensys Napalm security analysis tool for Solidity code.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.802172" elapsed="0.000146"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.802415" elapsed="0.000458"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.803019" elapsed="0.000188"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.803310" elapsed="0.000155"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:14:57.803851" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/etherscan.io-0x4c2268cea738be02BF7c89fd9bd17BABd4470e54-napalm-output.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/etherscan.io-0x4c2268cea738be02BF7c89fd9bd17BABd4470e54-napalm-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:14:57.804072" level="INFO">${NAPALM_OUTPUT} = ====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running....</msg>
+<var>${NAPALM_OUTPUT}</var>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/napalm/${EXPLORER_URL}-${CONTRACT_ADDRESS}-napalm-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.803586" elapsed="0.000517"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:14:57.804354" level="INFO">====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+</msg>
+<arg>${NAPALM_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.804216" elapsed="0.000192"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2024-08-11T16:14:57.805020" level="FAIL">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</msg>
+<arg>${NAPALM_OUTPUT}</arg>
+<arg>Warning</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2024-08-11T16:14:57.804524" elapsed="0.001578">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</status>
+</kw>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<status status="FAIL" start="2024-08-11T16:14:57.799814" elapsed="0.006794">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</status>
+</kw>
+<arg>EXPLORER_URL=etherscan.io</arg>
+<arg>CONTRACT_ADDRESS=0x4c2268cea738be02BF7c89fd9bd17BABd4470e54</arg>
+<arg>DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol</arg>
+<status status="FAIL" start="2024-08-11T16:14:33.542954" elapsed="24.263790">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</status>
+</kw>
+<status status="FAIL" start="2024-08-11T16:14:33.541004" elapsed="24.265960">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</status>
+</test>
+<test id="s1-s1-t4" name="TEST : Get verified smart contracts for address 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 and log the contract information from the etherscan.io Mainnet blockchain explorer. Then run the Consensys Napalm static analysis tool to check for Solidity vulnerabilities." line="14">
+<kw name="Run Napalm Docker Container Vulnerability Scan">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.809438" elapsed="0.000200"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.809755" elapsed="0.000160"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.810016" elapsed="0.000152"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>General information about the contract that will be scanned for vulnerabilities in a Docker Container.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.810269" elapsed="0.000146"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.810519" elapsed="0.000224"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:14:57.811020" level="INFO">etherscan.io &gt;&gt;&gt; 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 &gt;&gt;&gt; /tmp/downloaded-contracts-in-docker/ethereum-contract2.sol</msg>
+<arg>${EXPLORER_URL} &gt;&gt;&gt; ${CONTRACT_ADDRESS} &gt;&gt;&gt; ${DOCKER_FILE_PATH}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.810846" elapsed="0.000221"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-08-11T16:14:57.813985" level="INFO">Running command '/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/run-solidity-security-tests.sh Run-Consensys-Napalm-In-Docker-Using-Robot-Framework /tmp/downloaded-contracts-in-docker/ethereum-contract2.sol etherscan.io 0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72 2&gt;&amp;1'.</msg>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/run-solidity-security-tests.sh Run-Consensys-Napalm-In-Docker-Using-Robot-Framework ${DOCKER_FILE_PATH} ${EXPLORER_URL} ${CONTRACT_ADDRESS}</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-08-11T16:14:57.811166" elapsed="20.487663"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-08-11T16:15:22.301573" level="INFO">Slept 4 seconds.</msg>
+<arg>4 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-08-11T16:15:18.299359" elapsed="4.002507"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.302056" elapsed="0.000295"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.302488" elapsed="0.000180"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.302787" elapsed="0.000164"/>
+</kw>
+<kw name="Check Napalm Vulnerability Analysis Results">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.303765" elapsed="0.000190"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.304072" elapsed="0.000160"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.304337" elapsed="0.000160"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking the results of the Consensys Napalm security analysis tool for Solidity code.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.304613" elapsed="0.000161"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.304881" elapsed="0.000158"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.305139" elapsed="0.000154"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.305415" elapsed="0.000155"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2024-08-11T16:15:22.305953" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/etherscan.io-0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72-napalm-output.log"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part1-Parallel-Datadriven-Security-Tests/solidity-parallel-datadriven-security-tools/resources/napalm/etherscan.io-0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72-napalm-output.log&lt;/a&gt;'.</msg>
+<msg time="2024-08-11T16:15:22.306205" level="INFO">${NAPALM_OUTPUT} = ====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running....</msg>
+<var>${NAPALM_OUTPUT}</var>
+<arg>${HOST_MACHINE_RESOURCE_PATH}/napalm/${EXPLORER_URL}-${CONTRACT_ADDRESS}-napalm-output.log</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.305696" elapsed="0.000542"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-08-11T16:15:22.306517" level="INFO">====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+</msg>
+<arg>${NAPALM_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-08-11T16:15:22.306356" elapsed="0.000219"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<msg time="2024-08-11T16:15:22.307069" level="FAIL">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</msg>
+<arg>${NAPALM_OUTPUT}</arg>
+<arg>Warning</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="FAIL" start="2024-08-11T16:15:22.306741" elapsed="0.000474">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</status>
+</kw>
+<arg>${EXPLORER_URL}</arg>
+<arg>${CONTRACT_ADDRESS}</arg>
+<status status="FAIL" start="2024-08-11T16:15:22.303255" elapsed="0.004286">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</status>
+</kw>
+<arg>EXPLORER_URL=etherscan.io</arg>
+<arg>CONTRACT_ADDRESS=0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72</arg>
+<arg>DOCKER_FILE_PATH=/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol</arg>
+<status status="FAIL" start="2024-08-11T16:14:57.809098" elapsed="24.498580">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</status>
+</kw>
+<status status="FAIL" start="2024-08-11T16:14:57.807387" elapsed="24.500617">'====================================
+Now running...'napalm run detect'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+Now running...'napalm run direct'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 4 rules
+Found 1 issues:
+Warning : It's necessary to implement proper controls on wallet security when  
+privileged functions are used to protect sensitive functions.
+         Location: 
+/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol#61-64
+        |     function renounceOwnership() public onlyOwner {
+        |         emit OwnershipTransferred(owner, address(0));
+        |         owner = address(0);
+        |     }
+====================================
+Now running...'napalm run inform'
+Ran 1 tools
+Ran analysis using:     Semgrep OSS, with 3 rules
+No issues found 0
+====================================
+' contains 'Warning'</status>
+</test>
+<status status="FAIL" start="2024-08-11T16:13:39.147732" elapsed="103.160964"/>
+</suite>
+<status status="FAIL" start="2024-08-11T16:13:39.131461" elapsed="103.178128"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="2" skip="0" id="s1" name="Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools">Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools</stat>
+<stat pass="2" fail="2" skip="0" id="s1-s1" name="Robotframework-Security-Test-Napalm-Runner">Parallel Smart Contract Security Tests Using Consensys Mythril And Napalm Tools.Robotframework-Security-Test-Napalm-Runner</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

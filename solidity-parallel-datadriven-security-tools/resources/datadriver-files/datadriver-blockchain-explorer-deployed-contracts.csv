@@ -1,0 +1,5 @@
+*** Tasks ***,${NETWORK_TYPE},${EXPLORER_URL},${CONTRACT_ADDRESS},${EXPLORER_API_KEY},${CONTRACT_NAME}
+,api,polygonscan.com,0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5,<your-blockchain-explorer-api-key-goes-here>,polygon-contract1.sol
+,api,polygonscan.com,0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163,<your-blockchain-explorer-api-key-goes-here>,polygon-contract2.sol
+,api,etherscan.io,0x4c2268cea738be02BF7c89fd9bd17BABd4470e54,<your-blockchain-explorer-api-key-goes-here>,ethereum-contract1.sol
+,api,etherscan.io,0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72,<your-blockchain-explorer-api-key-goes-here>,ethereum-contract2.sol

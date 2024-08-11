@@ -1,0 +1,5 @@
+*** Test Cases ***,${EXPLORER_URL},${CONTRACT_ADDRESS},${DOCKER_FILE_PATH}
+,polygonscan.com,0x29844D24b3Fb73bED90Db8922d411f5a063AC7D5,/tmp/downloaded-contracts-in-docker/polygon-contract1.sol
+,polygonscan.com,0x544EdDbFE72EF0b3Ef21D08af38b327c2aAb6163,/tmp/downloaded-contracts-in-docker/polygon-contract2.sol
+,etherscan.io,0x4c2268cea738be02BF7c89fd9bd17BABd4470e54,/tmp/downloaded-contracts-in-docker/ethereum-contract1.sol
+,etherscan.io,0x7f7C81c5792008Fd67097F5CB4130E1F83D52D72,/tmp/downloaded-contracts-in-docker/ethereum-contract2.sol
