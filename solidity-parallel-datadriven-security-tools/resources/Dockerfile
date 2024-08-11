@@ -4,9 +4,6 @@ FROM python:3.12.4-slim-bookworm
 
 USER root
 
-# Un-comment the following two lines if you are running this container in Amazon ECS or in Kubernetes.
-#COPY ./mythril /tmp
-
 # No interactive frontend during docker build
 ENV DEBIAN_FRONTEND=noninteractive \
     DEBCONF_NONINTERACTIVE_SEEN=true
