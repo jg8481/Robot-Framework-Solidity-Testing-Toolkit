@@ -64,6 +64,8 @@ In the future I plan to expand this toolkit into the following areas.
   - Progress:
     - (February 12, 2023 - **Ready To Use**) Created a working Truffle Suite library using a similar design as the Hardhat library, but utilizes [web3.js](https://web3js.org) and added a few different tests too.
 - Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry
+  - Progress:
+    - (August 11, 2024 - **Ready To Use**) Created various security focused workflows that focus on the static analysis and vulnerability scanning of smart contracts.
 - Create RPA and `robotframework-hardhat-remote-library.js` powered multichain bots utilizing [Infura RPC nodes](https://infura.io/), [Hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/)
 - Create RPA and Alchemy powered bots utilizing [their SDK](https://www.alchemy.com/sdk) and [their RPC nodes](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask).
 - Attempt to create Robot Framework automation utilizing the [Foundry toolkit](https://github.com/foundry-rs/foundry)
@@ -104,6 +106,10 @@ bash ./start-solidity-qa-workflows.sh Stop-Local-Blockchain-Nodes-And-Delete-Log
 
 ---->>>> Solidity Static Analysis And Security Testing Commands <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Solidity-Static-Analysis
+
+---->>>> Solidity Vulnerability Scanning Security Testing Commands <<<<----
+bash ./start-solidity-qa-workflows.sh Stop-And-Clean-Up-Docker-Security-Tests
+bash ./start-solidity-qa-workflows.sh Run-Parallel-Datadriven-Smart-Contract-Security-Tests
 
 ---->>>> Hardhat Deployment Commands Powered by Robot Framework RPA (NOTE: These scripts are capable of deploying to Mainnets or Testnets!) <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment
