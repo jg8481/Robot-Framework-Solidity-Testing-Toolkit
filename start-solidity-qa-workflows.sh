@@ -772,7 +772,11 @@ usage_explanation() {
   echo 
   echo "---->>>> Solidity Static Analysis And Security Testing Commands <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Run-Solidity-Static-Analysis"
-  echo 
+  echo
+  echo "---->>>> Solidity Vulnerability Scanning Security Testing Commands <<<<----"
+  echo "bash ./start-solidity-qa-workflows.sh Stop-And-Clean-Up-Docker-Security-Tests"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Parallel-Datadriven-Smart-Contract-Security-Tests"
+  echo
   echo "---->>>> Hardhat Deployment Commands Powered by Robot Framework RPA (NOTE: These scripts are capable of deploying to Mainnets or Testnets!) <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment"
   echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Fantom-RPA-Deployment"
