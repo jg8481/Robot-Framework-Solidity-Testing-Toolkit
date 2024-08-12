@@ -66,8 +66,8 @@ In the future I plan to expand this toolkit into the following areas.
 - Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry
   - Progress:
     - (August 11, 2024 - **Ready To Use**) Created various security focused workflows that handle static analysis and vulnerability scanning of smart contracts.
-- Create RPA and `robotframework-hardhat-remote-library.js` powered multichain bots utilizing [Infura RPC nodes](https://infura.io/), [Hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/)
-- Create RPA and Alchemy powered bots utilizing [their SDK](https://www.alchemy.com/sdk) and [their RPC nodes](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask).
+- Create a `robotframework-hardhat-remote-library.js` powered multichain bot utilizing [Infura RPC nodes](https://infura.io/), [Hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/)
+- Create an Alchemy powered bot utilizing [their SDK](https://www.alchemy.com/sdk) and [their RPC nodes](https://docs.alchemy.com/docs/how-to-add-alchemy-rpc-endpoints-to-metamask).
 - Attempt to create Robot Framework automation utilizing the [Foundry toolkit](https://github.com/foundry-rs/foundry)
   - Progress:
     - (March 4, 2024 - **Ready To Use**) Created working parallel running Foundry and Playwright tests that runs checks on a mock wallet dApp connected to a local Anvil node. 
