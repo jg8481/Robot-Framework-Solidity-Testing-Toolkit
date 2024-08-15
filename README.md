@@ -79,8 +79,8 @@ In the future I plan to expand this toolkit into the following areas.
 
 The following are the basic technical requirements needed to run these automated checks. Please note that this entire toolkit was developed on a MacOS machine, but should also work for most Linux users (preferably most current Ubuntu LTS versions etc.) and I would keep an eye on whatever the `hardhat` or `truffle` (source: https://github.com/trufflesuite/ganache-ui/releases) communities recommend for Linux distributions.
 - Python 3 -> https://www.python.org/downloads/
-- NodeJS 18 -> https://nodejs.org/en/ or use https://github.com/nvm-sh/nvm
-  - If you're using `nvm`, you can run `nvm install 18` to install version 18
+- NodeJS 22 -> https://nodejs.org/en/ or use https://github.com/nvm-sh/nvm
+  - If you're using `nvm`, you can run `nvm install 22` to install version 22
   - If you are using a MacOS or Linux machine, the `Install-Tools-On-MacOS-Or-Linux` command below is a quick install
 - Robot Framework -> https://robotframework.org
 - Create your own [free Infura account](https://www.infura.io/) or [free Alchemy account](https://www.alchemy.com/), then **set up your own API keys**
