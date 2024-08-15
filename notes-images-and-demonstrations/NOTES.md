@@ -29,10 +29,10 @@ Steps to manually run and learn the flow of the Hardhat tools, and the Robot Fra
 
 - Open a second terminal in the `solidity-hardhat-multichain-tools` root directory again, and run the following...
   - npx hardhat run --network localhost ./scripts/deploy.js
-  - cd ./robotremoteserver && export HARDHAT_NETWORK=localhost && node ./robotframework-hardhat-remote-libraryjs
+  - cd ./robotremoteserver && export HARDHAT_NETWORK=localhost && node ./robotframework-hardhat-remote-library.js
 
 - Open a third terminal in the `solidity-hardhat-multichain-tools` root directory again, and run the following...
   - cd ./test && robot ./robotframework-hardhat-keywords-test.robot
   
-- At this point, the tests should be running and you should see logs flowing from `hardhat` and the `robotframework-hardhat-remote-libraryjs`.
+- At this point, the tests should be running and you should see logs flowing from `hardhat` and the `robotframework-hardhat-remote-library.js`.
 
