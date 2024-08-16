@@ -2,6 +2,7 @@
 
 clear
 TIMESTAMP=$(date)
+NODEJS_VERSION="22"
 
 if [ "$1" == "Stop-Local-Blockchain-Nodes-And-Delete-Logs" ]; then
   echo
@@ -32,7 +33,7 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   echo
   echo "------------------------------------[[[[ Install-Tools-On-MacOS-Or-Linux ]]]]------------------------------------"
   echo
-  echo "This command will install all of the required Node.js packages. This project was built using the LTS Node.js version 18. This run started on $TIMESTAMP."
+  echo "This command will install all of the required Node.js packages. This project was built using a stable LTS Node.js version. This run started on $TIMESTAMP."
   echo
   ## If you're using a Linux Distro, make sure that wget is installed.
   brew install libusb
@@ -68,9 +69,9 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  nvm install 18
-  nvm use 18
-  nvm alias default 18
+  nvm install $NODEJS_VERSION
+  nvm use $NODEJS_VERSION
+  nvm alias default $NODEJS_VERSION
   npm install npm --global
   npm update 
   npm install -g solhint
@@ -533,7 +534,7 @@ if [ "$1" == "Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   echo
   echo
   cd ./dapp-e2e-example-main
-  ## If you have issues with LTS Node.js version 18 then un-comment the following command.
+  ## If you have issues with this LTS Node.js version, then un-comment the following command.
   #nvm install --lts
   npm install yarn -g
   npm install
@@ -612,7 +613,7 @@ if [ "$1" == "Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   echo
   echo
   cd ./dapp-e2e-example-main
-  ## If you have issues with LTS Node.js version 18 then un-comment the following command.
+  ## If you have issues with this LTS Node.js version, then un-comment the following command.
   #nvm install --lts
   npm install yarn -g
   npm install
