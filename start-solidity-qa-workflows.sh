@@ -752,6 +752,66 @@ if [ "$1" == "Run-Parallel-Datadriven-Smart-Contract-Security-Tests" ]; then
   exit
 fi
 
+if [ "$1" == "Stop-And-Clean-Up-Docker-Bot-RPA-Tasks" ]; then
+  echo
+  echo "------------------------------------[[[[ Stop-And-Clean-Up-Docker-Bot-RPA-Tasks ]]]]------------------------------------"
+  echo
+  echo "This will build the Docker image defined in the docker-compose.yml file and also clean up any Docker containers used in previous workflow processes. This run started on $TIMESTAMP."
+  echo
+  docker stop $(docker ps -a -q) &&
+  docker rm $(docker ps -a -q)
+  cd ./alchemy-sdk-docker-blockchain-tools
+  docker compose -f docker compose.yml down
+  docker compose -f docker compose.yml rm -f
+  docker compose -f docker compose.yml build
+  cd ./infura-websocket-docker-blockchain-tools
+  docker compose -f docker compose.yml down
+  docker compose -f docker compose.yml rm -f
+  docker compose -f docker compose.yml build
+  TIMESTAMP2=$(date)
+  echo "This build ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Run-Alchemy-SDK-Bot-RPA-Tasks" ]; then
+  echo
+  echo "------------------------------------[[[[ Run-Alchemy-SDK-Bot-RPA-Tasks ]]]]------------------------------------"
+  echo
+  echo "This Run-Alchemy-SDK-Bot-RPA-Tasks script is running. This run started on $TIMESTAMP."
+  echo
+  echo
+  cd ./alchemy-sdk-docker-blockchain-tools
+  docker compose -f docker-compose.yml down
+  docker compose -f docker-compose.yml rm -f
+  docker compose -f docker-compose.yml build
+  docker compose run docker-task-runner run-commands-inside-docker.sh
+  docker stop $(docker ps -a -q) &&
+  docker rm $(docker ps -a -q)
+  docker compose -f docker-compose.yml down
+  docker compose -f docker-compose.yml rm -f
+  TIMESTAMP2=$(date)
+  echo "This test run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Run-Infura-Websocket-Bot-RPA-Tasks" ]; then
+  echo
+  echo "------------------------------------[[[[ Run-Infura-Websocket-Bot-RPA-Tasks ]]]]------------------------------------"
+  echo
+  echo "This Run-Infura-Websocket-Bot-RPA-Tasks script is running. This run started on $TIMESTAMP."
+  echo
+  echo
+  cd ./infura-websocket-docker-blockchain-tools
+  docker compose -f docker-compose.yml down
+  docker compose -f docker-compose.yml rm -f
+  docker compose -f docker-compose.yml build
+  docker compose run docker-task-runner run-commands-inside-docker.sh
+  docker stop $(docker ps -a -q) &&
+  docker rm $(docker ps -a -q)
+  docker compose -f docker-compose.yml down
+  docker compose -f docker-compose.yml rm -f
+  TIMESTAMP2=$(date)
+  echo "This test run ended on $TIMESTAMP2."
+fi
+
 usage_explanation() {
   echo
   echo
@@ -778,6 +838,11 @@ usage_explanation() {
   echo "---->>>> Solidity Vulnerability Scanning Security Testing Commands <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Stop-And-Clean-Up-Docker-Security-Tests"
   echo "bash ./start-solidity-qa-workflows.sh Run-Parallel-Datadriven-Smart-Contract-Security-Tests"
+  echo
+  echo "---->>>> Alchemy SDK and Infura Websocket Docker Container Bots Powered by Robot Framework RPA <<<<----"
+  echo "bash ./start-solidity-qa-workflows.sh Stop-And-Clean-Up-Docker-Bot-RPA-Tasks"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Alchemy-SDK-Bot-RPA-Tasks"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Infura-Websocket-Bot-RPA-Tasks"
   echo
   echo "---->>>> Hardhat Deployment Commands Powered by Robot Framework RPA (NOTE: These scripts are capable of deploying to Mainnets or Testnets!) <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment"
