@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.2 on linux)" generated="2024-09-01T03:52:42.474758" rpa="true" schemaversion="5">
+<suite id="s1" name="Robot Framework Alchemy SDK Bot Task" source="/tasks/robotframework-alchemy-sdk-bot-rpa-keywords.robot">
+<test id="s1-t1" name="ALCHEMY SDK BOT TASK : Get the current total amount of NFTs owned by Vitalik Buterin from Ethereum Mainnet." line="9">
+<kw name="Get NFT Owner Information" owner="Remote">
+<msg time="2024-09-01T03:52:43.189604" level="INFO">${RESULT} = {'nftTotal': 27282, 'ownerAddr': 'vitalik.eth'}</msg>
+<var>${RESULT}</var>
+<status status="PASS" start="2024-09-01T03:52:42.498538" elapsed="0.691086"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.189805" elapsed="0.000124"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.190023" elapsed="0.000096"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.190217" elapsed="0.000085"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESULT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.190387" elapsed="0.000100"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.190564" elapsed="0.000084"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.190718" elapsed="0.000078"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.190876" elapsed="0.000152"/>
+</kw>
+<tag>Alchemy_SDK_Bot_Task</tag>
+<status status="PASS" start="2024-09-01T03:52:42.498099" elapsed="0.693059"/>
+</test>
+<test id="s1-t2" name="ALCHEMY SDK BOT TASK : Get the current metadata about a specific NFT from Ethereum Mainnet." line="20">
+<kw name="Get NFT Metadata" owner="Remote">
+<msg time="2024-09-01T03:52:43.262199" level="INFO">${RESULT} = {'checkNFTCollectionName': 'Crypto Coven', 'checkNFTDeployerAddress': '0xac9d54ca08740A608B6C474e5CA07d51cA8117Fa', 'checkSpecificNFTName': 'balsa vault', 'checkTokenType': 'ERC721', 'checkDeployedBlo...</msg>
+<var>${RESULT}</var>
+<status status="PASS" start="2024-09-01T03:52:43.191508" elapsed="0.070711"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.262341" elapsed="0.000122"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.262562" elapsed="0.000057"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.262717" elapsed="0.000081"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${RESULT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.262871" elapsed="0.000115"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.263047" elapsed="0.000058"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.263201" elapsed="0.000086"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-01T03:52:43.263375" elapsed="0.000103"/>
+</kw>
+<tag>Alchemy_SDK_Bot_Task</tag>
+<status status="PASS" start="2024-09-01T03:52:43.191306" elapsed="0.072273"/>
+</test>
+<status status="PASS" start="2024-09-01T03:52:42.475171" elapsed="0.788755"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Alchemy_SDK_Bot_Task</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Robot Framework Alchemy SDK Bot Task">Robot Framework Alchemy SDK Bot Task</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

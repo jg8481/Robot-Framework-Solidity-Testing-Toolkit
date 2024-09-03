@@ -1,0 +1,23 @@
+FROM node:22
+MAINTAINER Joshua Gorospe <joshua.gorospe@gmail.com>
+
+# Set a non-interactive frontend (useful for Docker builds)
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && \
+    apt-get install -y software-properties-common python3-pip
+
+RUN apt-get update --fix-missing -y \
+  && apt-get install python3 -y \
+  && apt-get install python3-pip -y \
+  && python3 -m pip install robotframework --break-system-packages 
+
+RUN npm install npm --global
+
+RUN apt-get install -y \
+  jq \
+  wget \
+  curl
+
+ADD run-commands-inside-docker.sh /usr/local/bin/run-commands-inside-docker.sh
+RUN chmod +x /usr/local/bin/run-commands-inside-docker.sh

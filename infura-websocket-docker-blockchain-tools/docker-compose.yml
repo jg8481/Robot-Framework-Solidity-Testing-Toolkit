@@ -1,0 +1,10 @@
+services:
+
+  docker-task-runner:
+    build:
+      context: .
+      dockerfile: "Dockerfile.InfuraWebsocketBot"
+    volumes:
+      - "$PWD:/tasks"
+    command: -inMemory
+    network_mode: "bridge"

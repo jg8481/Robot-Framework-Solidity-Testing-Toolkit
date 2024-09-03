@@ -1,4 +1,3 @@
-
 services:
 
   docker-solidity-security-test-runner:

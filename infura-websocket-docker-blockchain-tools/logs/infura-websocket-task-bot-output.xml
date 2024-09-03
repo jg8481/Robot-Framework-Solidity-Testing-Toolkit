@@ -1,0 +1,1265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.2 on linux)" generated="2024-09-02T19:54:17.833879" rpa="true" schemaversion="5">
+<suite id="s1" name="Robot Framework Infura Websocket Bot Task" source="/tasks/robotframework-infura-websocket-bot-rpa-keywords.robot">
+<test id="s1-t1" name="ETHEREUM MAINNET - INFURA WEBSOCKET BOT TASK : Monitor the gas fee information of the 5 latest blocks on Ethereum Mainnet and log the metrics." line="20">
+<kw name="Monitor Gas Fee Information">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Get Gas Fee Information">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:17.848002" level="INFO">Running command 'wscat -c wss://mainnet.infura.io/ws/v3/<your-infura-api-key-goes-here> -x '{"jsonrpc":"2.0","method":"eth_feeHistory","params":["0x5", "latest", []],"id":1}' | jq 'del(.result.oldestBlock)' &gt; /tasks/logs/eth_feeHistory.json'.</msg>
+<arg>wscat -c ${INFURA_RPC_URL} -x '{"jsonrpc":"2.0","method":"eth_feeHistory","params":["0x5", "latest", []],"id":1}' | jq 'del(.result.oldestBlock)' &gt; ${EXECDIR}/logs/eth_feeHistory.json</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:17.847717" elapsed="2.336990"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:20.185554" level="INFO">Running command 'cat /tasks/logs/eth_feeHistory.json 2&gt;&amp;1'.</msg>
+<msg time="2024-09-02T19:54:20.186821" level="INFO">${INFURA_OUTPUT} = {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "baseFeePerBlobGas": [
+      "0x1",
+      "0x1",
+      "0x1",
+      "0x1",
+      "0x1",
+      "0x1"
+    ],
+    "baseFeePerGas": [
+      "0x15819530a"...</msg>
+<var>${INFURA_OUTPUT}</var>
+<arg>cat ${EXECDIR}/logs/eth_feeHistory.json</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.184978" elapsed="0.001871"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.186962" elapsed="0.000141"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.187211" elapsed="0.000137"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.187474" elapsed="0.000154"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.187893" elapsed="0.000214"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.188225" elapsed="0.000130"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.188501" elapsed="0.000136"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.188722" elapsed="0.000087"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:20.189007" level="INFO">{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "baseFeePerBlobGas": [
+      "0x1",
+      "0x1",
+      "0x1",
+      "0x1",
+      "0x1",
+      "0x1"
+    ],
+    "baseFeePerGas": [
+      "0x15819530a",
+      "0x1630f4292",
+      "0x1642ea871",
+      "0x1653a48ff",
+      "0x158bf382f",
+      "0x17bfb493b"
+    ],
+    "blobGasUsedRatio": [
+      1,
+      1,
+      0.16666666666666666,
+      0,
+      0
+    ],
+    "gasUsedRatio": [
+      0.6274132,
+      0.5126474333333333,
+      0.5117402666666667,
+      0.3602490666666667,
+      0.9088173666666667
+    ]
+  }
+}</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.188881" elapsed="0.000153"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-09-02T19:54:20.189163" level="INFO">Length is 561.</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.189091" elapsed="0.000090"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-02T19:54:22.191686" level="INFO">Slept 2 seconds.</msg>
+<arg>${RETRY_DELAY} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-02T19:54:20.189232" elapsed="2.002813"/>
+</kw>
+<arg>${INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:17.847586" elapsed="4.344763"/>
+</kw>
+<arg>${RETRY_AMOUNT} times</arg>
+<arg>1 second</arg>
+<arg>Get Gas Fee Information</arg>
+<arg>${INFURA_RPC_URL}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-09-02T19:54:17.847428" elapsed="4.345095"/>
+</kw>
+<arg>${ETHEREUM_INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:17.847133" elapsed="4.345541"/>
+</kw>
+<tag>Infura_Websocket_Bot_Task</tag>
+<status status="PASS" start="2024-09-02T19:54:17.846751" elapsed="4.346549"/>
+</test>
+<test id="s1-t2" name="ETHEREUM MAINNET - INFURA WEBSOCKET BOT TASK : Monitor recently completed transactions on a recently created block on Ethereum Mainnet and log the 2 most recent." line="24">
+<kw name="Monitor Recent Blocks And Completed Transactions">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Get Recent Blocks And Completed Transactions">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:22.198012" level="INFO">Running command 'wscat -c wss://mainnet.infura.io/ws/v3/<your-infura-api-key-goes-here> -x '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["finalized"],"id":1}' | jq &gt; /tasks/logs/eth_getBlockReceipts.json'.</msg>
+<arg>wscat -c ${INFURA_RPC_URL} -x '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["finalized"],"id":1}' | jq &gt; ${EXECDIR}/logs/eth_getBlockReceipts.json</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:22.197224" elapsed="2.167635"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:24.365808" level="INFO">Running command 'cat /tasks/logs/eth_getBlockReceipts.json | jq .result[:2] 2&gt;&amp;1'.</msg>
+<msg time="2024-09-02T19:54:24.405737" level="INFO">${INFURA_OUTPUT} = [
+  {
+    "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+    "blockNumber": "0x13b52ce",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0x39ad3",
+    "effec...</msg>
+<var>${INFURA_OUTPUT}</var>
+<arg>cat ${EXECDIR}/logs/eth_getBlockReceipts.json | jq .result[:2]</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.365121" elapsed="0.040637"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.405837" elapsed="0.000094"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.405991" elapsed="0.000078"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.406128" elapsed="0.000086"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.406286" elapsed="0.000255"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.406600" elapsed="0.000112"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.406814" elapsed="0.000105"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.407169" elapsed="0.000069"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:24.407401" level="INFO">[
+  {
+    "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+    "blockNumber": "0x13b52ce",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0x39ad3",
+    "effectiveGasPrice": "0x14a303575",
+    "from": "0xe2588450dfa9a7b862984c215af88853b15a60a5",
+    "gasUsed": "0x39ad3",
+    "logs": [
+      {
+        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000000255d693f4202569ff",
+        "logIndex": "0x0",
+        "removed": false,
+        "topics": [
+          "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c",
+          "0x000000000000000000000000eaaa41cb2a64b11fe761d41e747c032cdd60cace"
+        ],
+        "transactionHash": "0xb9d316796c75538af2a9dcce912f14a7f32172ff0eb4ed2960b0b5761044df25",
+        "transactionIndex": "0x0"
+      },
+      {
+        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000000255d693f4202569ff",
+        "logIndex": "0x1",
+        "removed": false,
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x000000000000000000000000eaaa41cb2a64b11fe761d41e747c032cdd60cace",
+          "0x000000000000000000000000fdd05552f1377aa488afed744c8024358af02041"
+        ],
+        "transactionHash": "0xb9d316796c75538af2a9dcce912f14a7f32172ff0eb4ed2960b0b5761044df25",
+        "transactionIndex": "0x0"
+      },
+      {
+        "address": "0xc9bca88b04581699fab5aa276ccaff7df957cbbf",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x0000000000000000000000000000000000000000000000e79594a9b91a63b6b8",
+        "logIndex": "0x2",
+        "removed": false,
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x000000000000000000000000fdd05552f1377aa488afed744c8024358af02041",
+          "0x000000000000000000000000e2588450dfa9a7b862984c215af88853b15a60a5"
+        ],
+        "transactionHash": "0xb9d316796c75538af2a9dcce912f14a7f32172ff0eb4ed2960b0b5761044df25",
+        "transactionIndex": "0x0"
+      },
+      {
+        "address": "0xfdd05552f1377aa488afed744c8024358af02041",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000001c1a993a06741be5e10000000000000000000000000000000000000000000009fb624a299451007a9d",
+        "logIndex": "0x3",
+        "removed": false,
+        "topics": [
+          "0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1"
+        ],
+        "transactionHash": "0xb9d316796c75538af2a9dcce912f14a7f32172ff0eb4ed2960b0b5761044df25",
+        "transactionIndex": "0x0"
+      },
+      {
+        "address": "0xfdd05552f1377aa488afed744c8024358af02041",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000000255d693f4202569ff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e79594a9b91a63b6b8",
+        "logIndex": "0x4",
+        "removed": false,
+        "topics": [
+          "0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822",
+          "0x000000000000000000000000eaaa41cb2a64b11fe761d41e747c032cdd60cace",
+          "0x000000000000000000000000e2588450dfa9a7b862984c215af88853b15a60a5"
+        ],
+        "transactionHash": "0xb9d316796c75538af2a9dcce912f14a7f32172ff0eb4ed2960b0b5761044df25",
+        "transactionIndex": "0x0"
+      }
+    ],
+    "logsBloom": "0x0020000000000000000000008000000000000000000000800000000000000000000000000000000080000000000000000200000008000000000010000000000000000020000000000000000c000000200000000000000000000000008000000000000000001000000000000000008000000000000000000000000010000000000000001000000000000000000000000200000001000000080000004000000000000000000000000000000000200010000000000000000000000000000000008000000002000002000000000000200000000000000000001000000000000000000000200000000000000000000000000000000000000000400000000000000000",
+    "status": "0x1",
+    "to": "0xeaaa41cb2a64b11fe761d41e747c032cdd60cace",
+    "transactionHash": "0xb9d316796c75538af2a9dcce912f14a7f32172ff0eb4ed2960b0b5761044df25",
+    "transactionIndex": "0x0",
+    "type": "0x2"
+  },
+  {
+    "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+    "blockNumber": "0x13b52ce",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0x70c4e",
+    "effectiveGasPrice": "0x184013bf5",
+    "from": "0xf208090958c942e29a797b5279f690285c26ae5a",
+    "gasUsed": "0x3717b",
+    "logs": [
+      {
+        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000000029a2241af62c00bc",
+        "logIndex": "0x5",
+        "removed": false,
+        "topics": [
+          "0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c",
+          "0x000000000000000000000000eaaa41cb2a64b11fe761d41e747c032cdd60cace"
+        ],
+        "transactionHash": "0x1414fbe9b140d07f0147c02f836a27d7574c5787d700bb806fc9fc91373c8aaa",
+        "transactionIndex": "0x1"
+      },
+      {
+        "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000000029a2241af62c00bc",
+        "logIndex": "0x6",
+        "removed": false,
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x000000000000000000000000eaaa41cb2a64b11fe761d41e747c032cdd60cace",
+          "0x000000000000000000000000fdd05552f1377aa488afed744c8024358af02041"
+        ],
+        "transactionHash": "0x1414fbe9b140d07f0147c02f836a27d7574c5787d700bb806fc9fc91373c8aaa",
+        "transactionIndex": "0x1"
+      },
+      {
+        "address": "0xc9bca88b04581699fab5aa276ccaff7df957cbbf",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000000eb3c9b75f2c821a46",
+        "logIndex": "0x7",
+        "removed": false,
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x000000000000000000000000fdd05552f1377aa488afed744c8024358af02041",
+          "0x000000000000000000000000f208090958c942e29a797b5279f690285c26ae5a"
+        ],
+        "transactionHash": "0x1414fbe9b140d07f0147c02f836a27d7574c5787d700bb806fc9fc91373c8aaa",
+        "transactionIndex": "0x1"
+      },
+      {
+        "address": "0xfdd05552f1377aa488afed744c8024358af02041",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000001c443b5e216a47e69d0000000000000000000000000000000000000000000009ecae807235247e6057",
+        "logIndex": "0x8",
+        "removed": false,
+        "topics": [
+          "0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1"
+        ],
+        "transactionHash": "0x1414fbe9b140d07f0147c02f836a27d7574c5787d700bb806fc9fc91373c8aaa",
+        "transactionIndex": "0x1"
+      },
+      {
+        "address": "0xfdd05552f1377aa488afed744c8024358af02041",
+        "blockHash": "0x2fa42684ce63035efee28d07ea9a54d66bb09c69016aa9a0b8dfc7728a7063b2",
+        "blockNumber": "0x13b52ce",
+        "data": "0x00000000000000000000000000000000000000000000000029a2241af62c00bc0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000eb3c9b75f2c821a46",
+        "logIndex": "0x9",
+        "removed": false,
+        "topics": [
+          "0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822",
+          "0x000000000000000000000000eaaa41cb2a64b11fe761d41e747c032cdd60cace",
+          "0x000000000000000000000000f208090958c942e29a797b5279f690285c26ae5a"
+        ],
+        "transactionHash": "0x1414fbe9b140d07f0147c02f836a27d7574c5787d700bb806fc9fc91373c8aaa",
+        "transactionIndex": "0x1"
+      }
+    ],
+    "logsBloom": "0x0020000000000000000000008000000000000000000000800000000000000000000000000000000080000000000000000200000008000000000010000000000000000020000000000000000c000000200000000000000000000000008000000000000000001000000000000000000000000000000000000000000010000000000000001000000000000000000000000000000001000000090000004000000000000000000000000000000000200010000000000000000000000000000000000000000002000002000000000000200000000000000000001000000000000020000000200000000000000000000000000000000000000000400000000000000000",
+    "status": "0x1",
+    "to": "0xeaaa41cb2a64b11fe761d41e747c032cdd60cace",
+    "transactionHash": "0x1414fbe9b140d07f0147c02f836a27d7574c5787d700bb806fc9fc91373c8aaa",
+    "transactionIndex": "0x1",
+    "type": "0x2"
+  }
+]</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.407314" elapsed="0.000408"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-09-02T19:54:24.407851" level="INFO">Length is 9706.</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.407782" elapsed="0.000086"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-02T19:54:26.409318" level="INFO">Slept 2 seconds.</msg>
+<arg>${RETRY_DELAY} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-02T19:54:24.407909" elapsed="2.001763"/>
+</kw>
+<arg>${INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:22.196971" elapsed="4.212975"/>
+</kw>
+<arg>${RETRY_AMOUNT} times</arg>
+<arg>1 second</arg>
+<arg>Get Recent Blocks And Completed Transactions</arg>
+<arg>${INFURA_RPC_URL}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-09-02T19:54:22.196541" elapsed="4.213516"/>
+</kw>
+<arg>${ETHEREUM_INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:22.195817" elapsed="4.214357"/>
+</kw>
+<tag>Infura_Websocket_Bot_Task</tag>
+<status status="PASS" start="2024-09-02T19:54:22.194195" elapsed="4.216579"/>
+</test>
+<test id="s1-t3" name="ETHEREUM MAINNET - INFURA WEBSOCKET BOT TASK : Monitor new pending transactions on the Ethereum Mainnet and log a list of transaction hashes from the Infura RPC URL." line="28">
+<kw name="Monitor New Pending Transactions">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Get New Pending Transactions">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:26.415101" level="INFO">Running command 'wscat -c wss://mainnet.infura.io/ws/v3/<your-infura-api-key-goes-here> -x '{"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["newPendingTransactions"]}' | jq .params.result | grep -v null &gt; /tasks/logs/eth_subscribe_newPendingTransactions.json'.</msg>
+<arg>wscat -c ${INFURA_RPC_URL} -x '{"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["newPendingTransactions"]}' | jq .params.result | grep -v null &gt; ${EXECDIR}/logs/eth_subscribe_newPendingTransactions.json</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:26.414289" elapsed="2.165923"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:28.581871" level="INFO">Running command 'cat /tasks/logs/eth_subscribe_newPendingTransactions.json 2&gt;&amp;1'.</msg>
+<msg time="2024-09-02T19:54:28.583577" level="INFO">${INFURA_OUTPUT} = "0x27c617b21acd3a2f0e89390c5fc0475013a90a791defe5353505ada47d8caca5"
+"0x238f1239ed9f4b32ac808a2a82c86b4f185d7681d4d09edc158ad96a400fd6e1"
+"0x851b10bfc5f23752172eae8efeee54efaa940d165ed7651bffbcd9df7c8...</msg>
+<var>${INFURA_OUTPUT}</var>
+<arg>cat ${EXECDIR}/logs/eth_subscribe_newPendingTransactions.json</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.580726" elapsed="0.002886"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.583810" elapsed="0.000196"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.584116" elapsed="0.000133"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.584355" elapsed="0.000154"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.584623" elapsed="0.000235"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.585083" elapsed="0.000185"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.585367" elapsed="0.000179"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.585636" elapsed="0.000128"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:28.586070" level="INFO">"0x27c617b21acd3a2f0e89390c5fc0475013a90a791defe5353505ada47d8caca5"
+"0x238f1239ed9f4b32ac808a2a82c86b4f185d7681d4d09edc158ad96a400fd6e1"
+"0x851b10bfc5f23752172eae8efeee54efaa940d165ed7651bffbcd9df7c845cd8"
+"0xf9e06b5a397a0791214df5369e4e67e08069952595141397b8fe15733140afe5"
+"0xccac5dd78f01ff490200bb50860a77885d146128cf1754de19bf2cfd4782f056"
+"0x87ec9964177279bc50f37ca01d9fc0c22109eba5e552e53d5d6ba4e14cc944e7"
+"0x1ea85b86953fc9955b2fad72002888e76289d12d644498e3dfcd8f018b548a82"
+"0xeeb3b7475150ae742010b65804313850f2f1e31c032cfd6527db3ed807219693"
+"0x417b3e2c78d125634cd941f2b53655d90dc2374206874b3b6b2fb931705aa0b2"
+"0x48ca6872cead851cc615e72051c93b13d398e24a36ec9934c9517095e5417330"
+"0xa0509c8a25a046520ef7e822e4502f8a75c93e6fc779e5c4cf277f34d798fbfb"
+"0x31f606ea3a286246fbec4f91e2f61e11d652b12801cc88f4bf5146ee8f2a8689"
+"0xef6ee6f9cb6e72a2b865669f7bd39baf6892288068bad2ccbe23617ae81656db"
+"0xf694cf0b3e37d6ed1ac3d99a00d155add48b453ad2be52381ce330527da07c16"
+"0xe4d96dd468bdf79b1e8721c6735b0e7147b8b39270f9c1d141bc33569635fe62"
+"0x8027bb600824039671a9aa55ba54529cf1d1750dbb3b47cb52e1158255f9b600"
+"0x57151cdfdd7139d785dded5f149c70194471e2ba356ec2426da8f157744cbc3b"
+"0xb61c55da0c83cb17de03c037799503cb430df29c575c4485339e51a7bd254a2a"
+"0xf623e60da399ec5b5b5caf8a39dcfb3322c988eaf5441352cc9730e8e62efc90"</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.585932" elapsed="0.000172"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-09-02T19:54:28.586242" level="INFO">Length is 1310.</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.586167" elapsed="0.000096"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-02T19:54:30.587863" level="INFO">Slept 2 seconds.</msg>
+<arg>${RETRY_DELAY} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-02T19:54:28.586323" elapsed="2.001858"/>
+</kw>
+<arg>${INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:26.414048" elapsed="4.174451"/>
+</kw>
+<arg>${RETRY_AMOUNT} times</arg>
+<arg>1 second</arg>
+<arg>Get New Pending Transactions</arg>
+<arg>${INFURA_RPC_URL}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-09-02T19:54:26.413667" elapsed="4.174954"/>
+</kw>
+<arg>${ETHEREUM_INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:26.412995" elapsed="4.175747"/>
+</kw>
+<tag>Infura_Websocket_Bot_Task</tag>
+<status status="PASS" start="2024-09-02T19:54:26.411585" elapsed="4.177768"/>
+</test>
+<test id="s1-t4" name="ETHEREUM MAINNET - INFURA WEBSOCKET BOT TASK : Monitor new pending transactions on the Ethereum Mainnet and convert the hashes into Etherscan URLs." line="32">
+<kw name="Monitor Transactions And Log Blockchain Explorer Links">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Get Transactions And Log Blockchain Explorer Links">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:30.594585" elapsed="0.000202"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:30.594921" elapsed="0.000178"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:30.595225" elapsed="0.000185"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2024-09-02T19:54:30.597016" level="INFO">Starting process:
+wscat -c wss://mainnet.infura.io/ws/v3/<your-infura-api-key-goes-here> -x '{"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["newPendingTransactions"]}'</msg>
+<msg time="2024-09-02T19:54:30.600598" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-02T19:54:32.758618" level="INFO">Process completed.</msg>
+<arg>wscat -c ${INFURA_RPC_URL} -x '{"jsonrpc":"2.0", "id": 1, "method": "eth_subscribe", "params": ["newPendingTransactions"]}'</arg>
+<arg>alias=infura_output</arg>
+<arg>shell=True</arg>
+<arg>timeout=20s</arg>
+<arg>on_timeout=continue</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-09-02T19:54:30.596668" elapsed="2.162270"/>
+</kw>
+<kw name="Get Process Result" owner="Process">
+<msg time="2024-09-02T19:54:32.760358" level="INFO">${INFURA_OUTPUT} = {"jsonrpc":"2.0","id":1,"result":"0xd68122b0347842eebe2bc315ca1adf22"}
+{"jsonrpc":"2.0","method":"eth_subscription","params":{"subscription":"0xd68122b0347842eebe2bc315ca1adf22","result":"0xc5c0159d27...</msg>
+<var>${INFURA_OUTPUT}</var>
+<arg>infura_output</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<status status="PASS" start="2024-09-02T19:54:32.759534" elapsed="0.000854"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-09-02T19:54:32.760854" level="INFO">Length is 2875.</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-09-02T19:54:32.760623" elapsed="0.000271"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.762807" level="INFO">Slept 2 seconds.</msg>
+<arg>${RETRY_DELAY} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-02T19:54:32.761001" elapsed="2.002119"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.764233" level="INFO">@{transaction_hashes} = [ ]</msg>
+<var>@{transaction_hashes}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.763694" elapsed="0.000585"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.765946" level="INFO">${transaction_hashes} = ['"result":"0xc5c0159d274a858c9fbd6e09279426680e77592e9447543ffdcd3a842d80e2b4"', '"result":"0x06a433031b138441aff443a9057c61b2d350711b095b5ef025e2429b38ccad29"', '"result":"0x7b2561836af150671ae99fb1...</msg>
+<var>${transaction_hashes}</var>
+<arg>re.findall(r'"result"\s*:\s*"0x[0-9a-fA-F]{64}"', """${INFURA_OUTPUT}""")</arg>
+<arg>re</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.764523" elapsed="0.001475"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.771229" level="INFO">${transaction_hashes} = ['0xc5c0159d274a858c9fbd6e09279426680e77592e9447543ffdcd3a842d80e2b4', '0x06a433031b138441aff443a9057c61b2d350711b095b5ef025e2429b38ccad29', '0x7b2561836af150671ae99fb1a599823e321855aa39305eb6d3ad34c8...</msg>
+<var>${transaction_hashes}</var>
+<arg>[match.split('"')[-2] for match in $transaction_hashes]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.766244" elapsed="0.005022"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.771953" level="INFO">${etherscan_url} = https://etherscan.io/tx/0xc5c0159d274a858c9fbd6e09279426680e77592e9447543ffdcd3a842d80e2b4</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.771790" elapsed="0.000177"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.772035" elapsed="0.000150"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.772376" level="INFO">https://etherscan.io/tx/0xc5c0159d274a858c9fbd6e09279426680e77592e9447543ffdcd3a842d80e2b4</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.772267" elapsed="0.000146"/>
+</kw>
+<var name="${tx_hash}">0xc5c0159d274a858c9fbd6e09279426680e77592e9447543ffdcd3a842d80e2b4</var>
+<status status="PASS" start="2024-09-02T19:54:34.771662" elapsed="0.000773"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.772762" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x06a433031b138441aff443a9057c61b2d350711b095b5ef025e2429b38ccad29</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.772617" elapsed="0.000156"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.772865" elapsed="0.000082"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.773089" level="INFO">https://etherscan.io/tx/0x06a433031b138441aff443a9057c61b2d350711b095b5ef025e2429b38ccad29</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.773012" elapsed="0.000100"/>
+</kw>
+<var name="${tx_hash}">0x06a433031b138441aff443a9057c61b2d350711b095b5ef025e2429b38ccad29</var>
+<status status="PASS" start="2024-09-02T19:54:34.772552" elapsed="0.000582"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.773382" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x7b2561836af150671ae99fb1a599823e321855aa39305eb6d3ad34c84db77477</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.773263" elapsed="0.000130"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.773443" elapsed="0.000074"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.773692" level="INFO">https://etherscan.io/tx/0x7b2561836af150671ae99fb1a599823e321855aa39305eb6d3ad34c84db77477</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.773589" elapsed="0.000139"/>
+</kw>
+<var name="${tx_hash}">0x7b2561836af150671ae99fb1a599823e321855aa39305eb6d3ad34c84db77477</var>
+<status status="PASS" start="2024-09-02T19:54:34.773202" elapsed="0.000547"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.773966" level="INFO">${etherscan_url} = https://etherscan.io/tx/0xe9b7c8fe5b6a6fae6dc051def8e09210cd1f1208c81a4fd1d5da0c6c4e1a990a</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.773879" elapsed="0.000098"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.774023" elapsed="0.000076"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.774214" level="INFO">https://etherscan.io/tx/0xe9b7c8fe5b6a6fae6dc051def8e09210cd1f1208c81a4fd1d5da0c6c4e1a990a</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.774147" elapsed="0.000092"/>
+</kw>
+<var name="${tx_hash}">0xe9b7c8fe5b6a6fae6dc051def8e09210cd1f1208c81a4fd1d5da0c6c4e1a990a</var>
+<status status="PASS" start="2024-09-02T19:54:34.773838" elapsed="0.000743"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.774917" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x78a8940fce359cb07424d02282bc0dae60643541e8e2350b9d73497d2283f211</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.774782" elapsed="0.000149"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.774993" elapsed="0.000093"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.775279" level="INFO">https://etherscan.io/tx/0x78a8940fce359cb07424d02282bc0dae60643541e8e2350b9d73497d2283f211</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.775181" elapsed="0.000121"/>
+</kw>
+<var name="${tx_hash}">0x78a8940fce359cb07424d02282bc0dae60643541e8e2350b9d73497d2283f211</var>
+<status status="PASS" start="2024-09-02T19:54:34.774718" elapsed="0.000627"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.775539" level="INFO">${etherscan_url} = https://etherscan.io/tx/0xfbcc74bb60b59aa1e8ceacfb2bf6d7ad8e7ec4b712dcbd31a352598da270188f</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.775445" elapsed="0.000105"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.775613" elapsed="0.000075"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.775848" level="INFO">https://etherscan.io/tx/0xfbcc74bb60b59aa1e8ceacfb2bf6d7ad8e7ec4b712dcbd31a352598da270188f</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.775765" elapsed="0.000111"/>
+</kw>
+<var name="${tx_hash}">0xfbcc74bb60b59aa1e8ceacfb2bf6d7ad8e7ec4b712dcbd31a352598da270188f</var>
+<status status="PASS" start="2024-09-02T19:54:34.775402" elapsed="0.000504"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.776116" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x2b0a5ae62a6bbde33a91812dbd49ae8dc6c94a81088d267263c21573390db842</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.776025" elapsed="0.000100"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.776174" elapsed="0.000076"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.776382" level="INFO">https://etherscan.io/tx/0x2b0a5ae62a6bbde33a91812dbd49ae8dc6c94a81088d267263c21573390db842</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.776317" elapsed="0.000102"/>
+</kw>
+<var name="${tx_hash}">0x2b0a5ae62a6bbde33a91812dbd49ae8dc6c94a81088d267263c21573390db842</var>
+<status status="PASS" start="2024-09-02T19:54:34.775985" elapsed="0.000451"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.776684" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x64f58eb82bc1892e78c69fc7d6a9dd0bb31f3d6b24bba55cc8768fd1f745a179</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.776550" elapsed="0.000145"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.776749" elapsed="0.000104"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.776996" level="INFO">https://etherscan.io/tx/0x64f58eb82bc1892e78c69fc7d6a9dd0bb31f3d6b24bba55cc8768fd1f745a179</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.776921" elapsed="0.000105"/>
+</kw>
+<var name="${tx_hash}">0x64f58eb82bc1892e78c69fc7d6a9dd0bb31f3d6b24bba55cc8768fd1f745a179</var>
+<status status="PASS" start="2024-09-02T19:54:34.776508" elapsed="0.000539"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.777261" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x50fa3773cb37873aaaee5f810a34356d7f3131d047c8c2ebac2a042bc02b428b</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.777173" elapsed="0.000098"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.777319" elapsed="0.000066"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.777527" level="INFO">https://etherscan.io/tx/0x50fa3773cb37873aaaee5f810a34356d7f3131d047c8c2ebac2a042bc02b428b</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.777456" elapsed="0.000101"/>
+</kw>
+<var name="${tx_hash}">0x50fa3773cb37873aaaee5f810a34356d7f3131d047c8c2ebac2a042bc02b428b</var>
+<status status="PASS" start="2024-09-02T19:54:34.777134" elapsed="0.000442"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.777804" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x18a9e79d271b86956f696a26dc284c497a4c622d168ba11702f19d108889907f</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.777696" elapsed="0.000119"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.777868" elapsed="0.000073"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.778098" level="INFO">https://etherscan.io/tx/0x18a9e79d271b86956f696a26dc284c497a4c622d168ba11702f19d108889907f</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.778019" elapsed="0.000108"/>
+</kw>
+<var name="${tx_hash}">0x18a9e79d271b86956f696a26dc284c497a4c622d168ba11702f19d108889907f</var>
+<status status="PASS" start="2024-09-02T19:54:34.777652" elapsed="0.000510"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.778331" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x00661c96f308311688afb62d27078516c4ed150677050773482e83d20b99ef25</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.778246" elapsed="0.000095"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.778387" elapsed="0.000282"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.778891" level="INFO">https://etherscan.io/tx/0x00661c96f308311688afb62d27078516c4ed150677050773482e83d20b99ef25</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.778767" elapsed="0.000146"/>
+</kw>
+<var name="${tx_hash}">0x00661c96f308311688afb62d27078516c4ed150677050773482e83d20b99ef25</var>
+<status status="PASS" start="2024-09-02T19:54:34.778208" elapsed="0.000724"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.779123" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x885a1caa4d1003445f32517d120b64ee1a358a938f31eff3daec74bdd52c8633</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.779032" elapsed="0.000101"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.779183" elapsed="0.000156"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.779480" level="INFO">https://etherscan.io/tx/0x885a1caa4d1003445f32517d120b64ee1a358a938f31eff3daec74bdd52c8633</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.779405" elapsed="0.000104"/>
+</kw>
+<var name="${tx_hash}">0x885a1caa4d1003445f32517d120b64ee1a358a938f31eff3daec74bdd52c8633</var>
+<status status="PASS" start="2024-09-02T19:54:34.778987" elapsed="0.000555"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.779730" level="INFO">${etherscan_url} = https://etherscan.io/tx/0xa4bd4dbdace1679407fefc8970c03b7045e70784cbeb9df41a7654d75c230a6d</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.779644" elapsed="0.000096"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.779786" elapsed="0.000080"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.780004" level="INFO">https://etherscan.io/tx/0xa4bd4dbdace1679407fefc8970c03b7045e70784cbeb9df41a7654d75c230a6d</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.779927" elapsed="0.000106"/>
+</kw>
+<var name="${tx_hash}">0xa4bd4dbdace1679407fefc8970c03b7045e70784cbeb9df41a7654d75c230a6d</var>
+<status status="PASS" start="2024-09-02T19:54:34.779604" elapsed="0.000482"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.780247" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x99083c7ea4c4adc2d18b16104d5d739113e7402e6a28275c080e953edf95afe9</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.780166" elapsed="0.000091"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.780301" elapsed="0.000071"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.780508" level="INFO">https://etherscan.io/tx/0x99083c7ea4c4adc2d18b16104d5d739113e7402e6a28275c080e953edf95afe9</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.780435" elapsed="0.000101"/>
+</kw>
+<var name="${tx_hash}">0x99083c7ea4c4adc2d18b16104d5d739113e7402e6a28275c080e953edf95afe9</var>
+<status status="PASS" start="2024-09-02T19:54:34.780130" elapsed="0.000438"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.780765" level="INFO">${etherscan_url} = https://etherscan.io/tx/0x72b136de5f20d21ccf7d61705b36dc5b07bcef02613b8f536f80496f964adfea</msg>
+<var>${etherscan_url}</var>
+<arg>SEPARATOR=</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<arg>${tx_hash}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.780678" elapsed="0.000097"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.780820" elapsed="0.000067"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:34.781019" level="INFO">https://etherscan.io/tx/0x72b136de5f20d21ccf7d61705b36dc5b07bcef02613b8f536f80496f964adfea</msg>
+<arg>${etherscan_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.780937" elapsed="0.000099"/>
+</kw>
+<var name="${tx_hash}">0x72b136de5f20d21ccf7d61705b36dc5b07bcef02613b8f536f80496f964adfea</var>
+<status status="PASS" start="2024-09-02T19:54:34.780633" elapsed="0.000430"/>
+</iter>
+<var>${tx_hash}</var>
+<value>@{transaction_hashes}</value>
+<status status="PASS" start="2024-09-02T19:54:34.771425" elapsed="0.009667"/>
+</for>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.781154" elapsed="0.000056"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.781263" elapsed="0.000071"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.781434" elapsed="0.000099"/>
+</kw>
+<arg>${INFURA_RPC_URL}</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:30.594158" elapsed="4.187456"/>
+</kw>
+<arg>${RETRY_AMOUNT} times</arg>
+<arg>1 second</arg>
+<arg>Get Transactions And Log Blockchain Explorer Links</arg>
+<arg>${INFURA_RPC_URL}</arg>
+<arg>${BLOCKCHAIN_EXPLORER_BASE_URL}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-09-02T19:54:30.593186" elapsed="4.188469"/>
+</kw>
+<arg>${ETHEREUM_INFURA_RPC_URL}</arg>
+<arg>${ETHERSCAN_BASE_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:30.592309" elapsed="4.189406"/>
+</kw>
+<tag>Infura_Websocket_Bot_Task</tag>
+<status status="PASS" start="2024-09-02T19:54:30.590491" elapsed="4.191339"/>
+</test>
+<test id="s1-t5" name="AVALANCHE MAINNET - INFURA WEBSOCKET BOT TASK : Monitor the gas fee information of the 5 latest blocks on Avalanche Mainnet and log the metrics." line="36">
+<kw name="Monitor Gas Fee Information">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Get Gas Fee Information">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:34.783902" level="INFO">Running command 'wscat -c wss://avalanche-mainnet.infura.io/ws/v3/<your-infura-api-key-goes-here> -x '{"jsonrpc":"2.0","method":"eth_feeHistory","params":["0x5", "latest", []],"id":1}' | jq 'del(.result.oldestBlock)' &gt; /tasks/logs/eth_feeHistory.json'.</msg>
+<arg>wscat -c ${INFURA_RPC_URL} -x '{"jsonrpc":"2.0","method":"eth_feeHistory","params":["0x5", "latest", []],"id":1}' | jq 'del(.result.oldestBlock)' &gt; ${EXECDIR}/logs/eth_feeHistory.json</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.783412" elapsed="2.377552"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:37.162410" level="INFO">Running command 'cat /tasks/logs/eth_feeHistory.json 2&gt;&amp;1'.</msg>
+<msg time="2024-09-02T19:54:37.163960" level="INFO">${INFURA_OUTPUT} = {
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "baseFeePerGas": [
+      "0x5d21dba00",
+      "0x5d21dba00",
+      "0x5d21dba00",
+      "0x5d21dba00",
+      "0x5d21dba00"
+    ],
+    "gasUsedRatio":...</msg>
+<var>${INFURA_OUTPUT}</var>
+<arg>cat ${EXECDIR}/logs/eth_feeHistory.json</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.161409" elapsed="0.002579"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.164122" elapsed="0.000160"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.164376" elapsed="0.000134"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.164631" elapsed="0.000130"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.164866" elapsed="0.000207"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.165266" elapsed="0.000132"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.165524" elapsed="0.000191"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.165798" elapsed="0.000104"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:37.166147" level="INFO">{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "baseFeePerGas": [
+      "0x5d21dba00",
+      "0x5d21dba00",
+      "0x5d21dba00",
+      "0x5d21dba00",
+      "0x5d21dba00"
+    ],
+    "gasUsedRatio": [
+      0.020916733333333333,
+      0.0368926,
+      0.0142916,
+      0.013999533333333333,
+      0.0479244
+    ]
+  }
+}</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.166006" elapsed="0.000189"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-09-02T19:54:37.166371" level="INFO">Length is 320.</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.166292" elapsed="0.000100"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-02T19:54:39.168692" level="INFO">Slept 2 seconds.</msg>
+<arg>${RETRY_DELAY} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-02T19:54:37.166451" elapsed="2.002561"/>
+</kw>
+<arg>${INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:34.783249" elapsed="4.386024"/>
+</kw>
+<arg>${RETRY_AMOUNT} times</arg>
+<arg>1 second</arg>
+<arg>Get Gas Fee Information</arg>
+<arg>${INFURA_RPC_URL}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-09-02T19:54:34.783039" elapsed="4.386334"/>
+</kw>
+<arg>${AVALANCHE_INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:34.782803" elapsed="4.386686"/>
+</kw>
+<tag>Infura_Websocket_Bot_Task</tag>
+<status status="PASS" start="2024-09-02T19:54:34.782231" elapsed="4.387881"/>
+</test>
+<test id="s1-t6" name="AVALANCHE MAINNET - INFURA WEBSOCKET BOT TASK : Monitor recently completed transactions on a recently created block on Avalanche Mainnet and log the 2 most recent." line="40">
+<kw name="Monitor Recent Blocks And Completed Transactions">
+<kw name="Wait Until Keyword Succeeds" owner="BuiltIn">
+<kw name="Get Recent Blocks And Completed Transactions">
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:39.174635" level="INFO">Running command 'wscat -c wss://avalanche-mainnet.infura.io/ws/v3/<your-infura-api-key-goes-here> -x '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["finalized"],"id":1}' | jq &gt; /tasks/logs/eth_getBlockReceipts.json'.</msg>
+<arg>wscat -c ${INFURA_RPC_URL} -x '{"jsonrpc":"2.0","method":"eth_getBlockReceipts","params":["finalized"],"id":1}' | jq &gt; ${EXECDIR}/logs/eth_getBlockReceipts.json</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:39.173829" elapsed="2.186944"/>
+</kw>
+<kw name="Run" owner="OperatingSystem">
+<msg time="2024-09-02T19:54:41.362502" level="INFO">Running command 'cat /tasks/logs/eth_getBlockReceipts.json | jq .result[:2] 2&gt;&amp;1'.</msg>
+<msg time="2024-09-02T19:54:41.393874" level="INFO">${INFURA_OUTPUT} = [
+  {
+    "blockHash": "0x2cb000bfff9690bd3d16f8a45928b6fc3fad836a276e4927ae7cf30064e8d93c",
+    "blockNumber": "0x2fb8e29",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xabfa",
+    "effect...</msg>
+<var>${INFURA_OUTPUT}</var>
+<arg>cat ${EXECDIR}/logs/eth_getBlockReceipts.json | jq .result[:2]</arg>
+<doc>Runs the given command in the system and returns the output.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.361208" elapsed="0.032687"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.393994" elapsed="0.000112"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.394170" elapsed="0.000080"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.394314" elapsed="0.000084"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.394489" elapsed="0.000388"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.394965" elapsed="0.000104"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.395196" elapsed="0.000122"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>...</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.395382" elapsed="0.000091"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T19:54:41.395663" level="INFO">[
+  {
+    "blockHash": "0x2cb000bfff9690bd3d16f8a45928b6fc3fad836a276e4927ae7cf30064e8d93c",
+    "blockNumber": "0x2fb8e29",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xabfa",
+    "effectiveGasPrice": "0x79126a500",
+    "from": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+    "gasUsed": "0xabfa",
+    "logs": [
+      {
+        "address": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+        "blockHash": "0x2cb000bfff9690bd3d16f8a45928b6fc3fad836a276e4927ae7cf30064e8d93c",
+        "blockNumber": "0x2fb8e29",
+        "data": "0x0000000000000000000000000000000000000000000000000000000000910dca",
+        "logIndex": "0x0",
+        "removed": false,
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x0000000000000000000000000d0707963952f2fba59dd06f2b425ace40b492fe",
+          "0x0000000000000000000000006da94a83d087af71a0dedbf93786d760c98819e7"
+        ],
+        "transactionHash": "0x917b56e273c29771a2a15b6311440f3f8cd0668052ac00c0de83963cbf0e3d1a",
+        "transactionIndex": "0x0"
+      }
+    ],
+    "logsBloom": "0x00000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000020000000000080000000000000000000000000000000000008000000000000000000000000000000000000000010000000000004000000000000000000000008000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000020000000000000000",
+    "status": "0x1",
+    "to": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+    "transactionHash": "0x917b56e273c29771a2a15b6311440f3f8cd0668052ac00c0de83963cbf0e3d1a",
+    "transactionIndex": "0x0",
+    "type": "0x0"
+  },
+  {
+    "blockHash": "0x2cb000bfff9690bd3d16f8a45928b6fc3fad836a276e4927ae7cf30064e8d93c",
+    "blockNumber": "0x2fb8e29",
+    "contractAddress": null,
+    "cumulativeGasUsed": "0xfe02",
+    "effectiveGasPrice": "0x783bd6ac0",
+    "from": "0x66d07f7558a7fc21e4b1c31cec1855f3a1887817",
+    "gasUsed": "0x5208",
+    "logs": [],
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "status": "0x1",
+    "to": "0xb0726ef70e019e32bc1cb94a36af73dae6fdce48",
+    "transactionHash": "0x1ee9d97bd6f04c89d96e5dba931b65b7c7cd985788a11e8068cae243cd898808",
+    "transactionIndex": "0x1",
+    "type": "0x2"
+  }
+]</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.395553" elapsed="0.000354"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-09-02T19:54:41.396062" level="INFO">Length is 2925.</msg>
+<arg>${INFURA_OUTPUT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.395981" elapsed="0.000100"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-09-02T19:54:43.398819" level="INFO">Slept 2 seconds.</msg>
+<arg>${RETRY_DELAY} seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-09-02T19:54:41.396126" elapsed="2.003037"/>
+</kw>
+<arg>${INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:39.173514" elapsed="4.225905"/>
+</kw>
+<arg>${RETRY_AMOUNT} times</arg>
+<arg>1 second</arg>
+<arg>Get Recent Blocks And Completed Transactions</arg>
+<arg>${INFURA_RPC_URL}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="PASS" start="2024-09-02T19:54:39.173080" elapsed="4.226446"/>
+</kw>
+<arg>${AVALANCHE_INFURA_RPC_URL}</arg>
+<status status="PASS" start="2024-09-02T19:54:39.172245" elapsed="4.227484"/>
+</kw>
+<tag>Infura_Websocket_Bot_Task</tag>
+<status status="PASS" start="2024-09-02T19:54:39.170892" elapsed="4.229419"/>
+</test>
+<status status="PASS" start="2024-09-02T19:54:17.834209" elapsed="25.567989"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+<stat pass="6" fail="0" skip="0">Infura_Websocket_Bot_Task</stat>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Robot Framework Infura Websocket Bot Task">Robot Framework Infura Websocket Bot Task</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
