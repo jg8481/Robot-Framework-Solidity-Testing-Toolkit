@@ -12,7 +12,7 @@ Quickly test the Solidty Smart Contract deployed to the Ethereum local fork usin
 *** Keywords ***
 
 Get Smart Contract Address
-     ${TARGET_ADDRESS}    Get File    ${EXECDIR}/anvil-smartcontract-address.env
+     ${TARGET_ADDRESS}=    Get File    ${EXECDIR}/anvil-smartcontract-address.env
      Set Suite Variable    ${TARGET_ADDRESS}
      Log To Console     ...
      Log To Console     ...
