@@ -41,7 +41,7 @@ AVALANCHE MAINNET - INFURA WEBSOCKET BOT TASK : Monitor recently completed trans
     [Tags]    Infura_Websocket_Bot_Task
     Monitor Recent Blocks And Completed Transactions    ${AVALANCHE_INFURA_RPC_URL}
 
-###---> Uncomment the following tasks to see how differently the same JSON-RPC API methods of Avalanche behave compared to Ethereum's JSON-RPC API methods.
+###---> Un-comment the following tasks to see how differently the same JSON-RPC API methods of Avalanche behave compared to Ethereum's JSON-RPC API methods.
 # AVALANCHE MAINNET - INFURA WEBSOCKET BOT TASK : Monitor new pending transactions on the Avalanche Mainnet and log a list of transaction hashes from the Infura RPC URL.
 #     [Tags]    Infura_Websocket_Bot_Task
 #     Monitor New Pending Transactions    ${AVALANCHE_INFURA_RPC_URL}
