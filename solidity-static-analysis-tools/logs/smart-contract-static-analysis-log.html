@@ -5,16 +5,60 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 6.0.2 (Python 3.9.12 on darwin)" name="Generator">
+<meta content="Robot Framework 7.0.1 (Python 3.11.9 on darwin)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
-<style media="all" type="text/css">
+<style media="all">
+:root {
+    --text-color: black;
+    --background-color: white;
+    --primary-color: #ddd;
+    --secondary-color: #ccc;
+    --link-color: #15c;
+    --link-hover-color: #61c;
+    --highlight-color: #eee;
+    --target-color: #f9f9f9;
+    --pass-color: #97bd61;
+    --fail-color: #ce3e01;
+    --warn-color: #fed84f;
+    --pass-link-color: #098a09;
+    --warn-link-color: #927201;
+    --fail-link-color: #ce3e01;
+    --ascending-icon: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==);
+    --descending-icon: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
+[data-theme="dark"] {
+    --text-color: #e2e1d7;
+    --background-color: #1c2227;
+    --primary-color: #26373b;
+    --secondary-color: #424f5a;
+    --link-color: #8cc4ff;
+    --link-hover-color: #bb86fc;
+    --highlight-color: #002b36;
+    --target-color: #1a252e;
+    --pass-link-color: #97bd61;
+    --warn-link-color: #fed84f;
+    --fail-link-color: #ff9b8f;
+    --ascending-icon: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJAgMAAACZCj6+AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAlQTFRFAAAAfn5+////f/cqYgAAAAN0Uk5TAP//RFDWIQAAACdJREFUeJxjYHBgYGAMYGBgDWFgEA1lAAOtVQwMXCsYGJgWADkNDAA78QP9oKr7vwAAAABJRU5ErkJggg==);
+    --descending-icon: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAJAgMAAACZCj6+AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAlQTFRFAAAA////fn5+K6jOaAAAAAN0Uk5TAP//RFDWIQAAACdJREFUeJxjYHBgYGAMYGBgDWFgEA1lAAOtVQwMXCsYGJgWADkNDAA78QP9oKr7vwAAAABJRU5ErkJggg==);
+}
 /* Generic and misc styles */
 body {
     font-family: Helvetica, sans-serif;
     font-size: 0.8em;
-    color: black;
+    color: black; /* Fallback value */
+    color: var(--text-color);
     padding: 6px;
-    background: white;
+    background: white; /* Fallback value */
+    background: var(--background-color);
+    margin-left: 15px;
+}
+body[theme-toggled] {
+    transition: background 0.3s, background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 table {
     table-layout: fixed;
@@ -29,20 +73,37 @@ br {
     mso-data-placement: same-cell; /* maintain line breaks in Excel */
 }
 hr {
-    background: #ccc;
+    background: #ccc; /* Fallback value */
+    background: var(--secondary-color);
     height: 1px;
     border: 0;
 }
 a, a:link, a:visited {
     text-decoration: none;
-    color: #15c;
+    color: #15c; /* Fallback value */
+    color: var(--link-color);
 }
 a > img {
-    border: 1px solid #15c !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: #15c !important; /* Fallback value */
+    border-color: var(--link-color) !important;
 }
 a:hover, a:active {
     text-decoration: underline;
-    color: #61c;
+    color: #61c; /* Fallback value */
+    color: var(--link-hover-color);
+}
+select {
+    background-color: white; /* Fallback value */
+    background-color: var(--background-color);
+    color: black; /* Fallback value */
+    color: var(--text-color);
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
+    border-radius: 4px;
 }
 .parent-name {
     font-size: 0.7em;
@@ -55,7 +116,7 @@ a:hover, a:active {
 #header {
     width: 65em;
     height: 3em;
-    margin: 6px 0;
+    margin: 20px 0 6px 0;
 }
 h1 {
     float: left;
@@ -83,14 +144,17 @@ h2 {
 }
 /* Status text colors -- !important allows using them in links */
 .fail {
-    color: #ce3e01 !important;
+    color: #ce3e01 !important; /* Fallback value */
+    color: var(--fail-link-color) !important;
     font-weight: bold;
 }
 .pass {
-    color: #098a09 !important;
+    color: #098a09 !important; /* Fallback value */
+    color: var(--pass-link-color) !important;
 }
 .skip {
-    color: #927201 !important;
+    color: #927201 !important; /* Fallback value */
+    color: var(--warn-link-color) !important;
     font-weight: bold;
 }
 .label {
@@ -98,8 +162,10 @@ h2 {
     font-size: 0.75em;
     letter-spacing: 1px;
     white-space: nowrap;
-    color: black;
-    background-color: #ddd;
+    color: black; /* Fallback value */
+    color: var(--text-color);
+    background-color: #ddd; /* Fallback value */
+    background-color: var(--primary-color);
     border-radius: 3px;
 }
 .label.debug, .label.trace, .label.error, .label.keyword {
@@ -109,15 +175,18 @@ h2 {
     font-weight: bold;
 }
 .label.pass {
-    background-color: #97bd61;
+    background-color: #97bd61; /* Fallback value */
+    background-color: var(--pass-color);
     color: #000 !important;
 }
 .label.fail, .label.error {
-    background-color: #ce3e01;
+    background-color: #ce3e01; /* Fallback value */
+    background-color: var(--fail-color);
     color: #fff !important;
 }
 .label.skip, .label.warn {
-    background-color: #fed84f;
+    background-color: #fed84f; /* Fallback value */
+    background-color: var(--warn-color);
     color: #000 !important;
 }
 /* Top right header */
@@ -146,7 +215,8 @@ h2 {
     padding: 0.3em 0;
     font-size: 0.9em;
     border-bottom-left-radius: 4px;
-    background: #ddd;
+    background: #ddd; /* Fallback value */
+    background: var(--primary-color);
 }
 /* Statistics table */
 .statistics {
@@ -156,15 +226,20 @@ h2 {
     margin-bottom: 1em;
 }
 .statistics tr:hover {
-    background: #f4f4f4;
+    background: #eee; /* Fallback value */
+    background: var(--highlight-color);
     cursor: pointer;
 }
 .statistics th, .statistics td {
-    border: 1px solid #ccc;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
     padding: 0.1em 0.3em;
 }
 .statistics th {
-    background-color: #ddd;
+    background-color: #ddd; /* Fallback value */
+    background-color: var(--primary-color);
     padding: 0.2em 0.3em;
 }
 .statistics td {
@@ -200,27 +275,33 @@ th.stats-col-graph:hover {
 }
 /* Statistics graph */
 .graph, .empty-graph {
-    border: 1px solid #ccc;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
     width: auto;
     height: 7px;
     padding: 0;
-    background: #aaa;
 }
 .empty-graph {
-    background: #eee;
+    background: #eee; /* Fallback value */
+    background: var(--highlight-color);
 }
 .pass-bar, .fail-bar, .skip-bar {
     float: left;
     height: 100%;
 }
 .fail-bar {
-    background: #ce3e01;
+    background: #ce3e01; /* Fallback value */
+    background: var(--fail-color);
 }
 .pass-bar {
-    background: #97bd61;
+    background: #97bd61; /* Fallback value */
+    background: var(--pass-color);
 }
 .skip-bar {
-    background: #fed84f;
+    background: #fed84f; /* Fallback value */
+    background: var(--warn-color);
 }
 /* Tablesorter - adapted from provided Blue Skin */
 .tablesorter-header {
@@ -230,30 +311,84 @@ th.stats-col-graph:hover {
     cursor: pointer;
 }
 .tablesorter-header:hover {
-    background-color: #ccc;
+    background-color: #ccc; /* Fallback value */
+    background-color: var(--secondary-color);
 }
 .tablesorter-headerAsc {
-    background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==);
-    background-color: #ccc !important;
+    background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlBWnFr3cnIr0WQOyBmvzp13CpxQAOw==); /* Fallback value */
+    background-image: var(--ascending-icon);
+    background-color: #ccc !important; /* Fallback value */
+    background-color: var(--secondary-color) !important;
 }
 .tablesorter-headerDesc {
-    background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==);
-    background-color: #ccc !important;
+    background-image: url(data:image/gif;base64,R0lGODlhCwAJAKEAAAAAAH9/fwAAAAAAACH5BAEAAAIALAAAAAALAAkAAAIUlAWnBr3cnIr0WROyDmvzp13CpxQAOw==); /* Fallback value */
+    background-image: var(--descending-icon);
+    background-color: #ccc !important; /* Fallback value */
+    background-color: var(--secondary-color) !important;
 }
 .sorter-false {
     background-image: none;
     cursor: default;
 }
 .sorter-false:hover {
-    background-color: #ddd;
+    background-color: #ddd; /* Fallback value */
+    background-color: var(--primary-color);
+}
+#theme-toggle {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 28px;
+    height: 28px;
+    border: none;
+    padding: 4px;
+    z-index: 1000;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background: var(--highlight-color);
+}
+[data-theme="dark"] .dark-mode-icon,
+[data-theme="light"] .light-mode-icon {
+    display: none;
+}
+[data-theme="dark"] .light-mode-icon,
+[data-theme="light"] .dark-mode-icon {
+    display: block;
+}
+@keyframes highlight {
+    0% {
+        background: var(--primary-color)
+    }
+    100% {
+        background: var(--target-color);
+    }
+}
+:target {
+    background: var(--target-color);
+    transition: background 0.3s;
+    animation: highlight 4s;
 }
 </style>
-<style media="all" type="text/css">
+<style media="all">
 /* Icons are from Open Iconic <https://useiconic.com/open/>.
    Licensed under the MIT License. */
+:root {
+    --icon-filter: invert(0);
+    --icon-highlight: var(--secondary-color);
+    --elapsed-color: #666;
+}
+/* @media (prefers-color-scheme: dark) { */
+[data-theme="dark"] {
+    --icon-filter: invert(1);
+    --icon-highlight: #a39990;
+    --elapsed-color: #999;
+}
 /* Containers */
 .suite, .test, #errors {
-    border: 1px solid #ccc;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
+    border-width: 1px;
+    border-style: solid;
     padding: 0.3em 0.2em;
     margin: 0.2em 0;
 }
@@ -282,8 +417,10 @@ th.stats-col-graph:hover {
 }
 .element-header:hover {
     cursor: pointer;
-    background-color: #eee;
-    border-color: #ccc;
+    background-color: #eee; /* Fallback value */
+    background-color: var(--highlight-color);
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
 }
 .element-header-toggle {
     position: absolute;
@@ -293,10 +430,14 @@ th.stats-col-graph:hover {
     background-position: center;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAQAAABKxSfDAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0JChSkZz20AAAAGklEQVQI12NgQAKMDKzInP8IDhOqMk4G7AAANQwBE427PYUAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2Mmg4di0yaC04eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAzKSIgLz4KPC9zdmc+), none;
+    filter: var(--icon-filter);
     height: 10px;
     width: 10px;
     background-size: 6px 6px;
-    border: 1px solid #ccc;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--icon-highlight);
+    border-width: 1px;
+    border-style: solid;
     border-radius: 2px;
 }
 .closed > .element-header-toggle {
@@ -304,7 +445,8 @@ th.stats-col-graph:hover {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0zIDB2M2gtM3YyaDN2M2gydi0zaDN2LTJoLTN2LTNoLTJ6IiAvPgo8L3N2Zz4=), none;
 }
 .element-header:hover > .element-header-toggle {
-    background-color: #ccc;
+    background-color: #ccc; /* Fallback value */
+    background-color: var(--icon-highlight);
 }
 .element-header-right:hover ~ .element-header-toggle {
     background-color: transparent;
@@ -324,23 +466,31 @@ th.stats-col-graph:hover {
 }
 .name {
     font-weight: bold;
+    white-space: pre-wrap;
+}
+.arg, .assign {
+    white-space: pre-wrap;
 }
 .elapsed {
     float: right;
-    color: #666;
+    color: #666; /* Fallback value */
+    color: var(--elapsed-color);
     padding-left: 1em;
 }
 .link {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAHlJREFUGJVtzrEJwmAQBtCn6ASuIKTIBhY2gmghBiJYB1udwk10B8FJbKMBcQFbtbkfJHrVwfu+4/idJR64Y9H7E3higj5O3S8Y44ApLnjhnXCNGhV2yNGggDJwiC02gavUbpDFvscRo4QdXOMKDHBufz3HLYKzNn4AbSkV3fncGQYAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik01Ljg4LjAzYy0uMTguMDEtLjM2LjAzLS41My4wOS0uMjcuMS0uNTMuMjUtLjc1LjQ3YS41LjUgMCAxIDAgLjY5LjY5Yy4xMS0uMTEuMjQtLjE3LjM4LS4yMi4zNS0uMTIuNzgtLjA3IDEuMDYuMjIuMzkuMzkuMzkgMS4wNCAwIDEuNDRsLTEuNSAxLjVjLS40NC40NC0uOC40OC0xLjA2LjQ3LS4yNi0uMDEtLjQxLS4xMy0uNDEtLjEzYS41LjUgMCAxIDAtLjUuODhzLjM0LjIyLjg0LjI1Yy41LjAzIDEuMi0uMTYgMS44MS0uNzhsMS41LTEuNWMuNzgtLjc4Ljc4LTIuMDQgMC0yLjgxLS4yOC0uMjgtLjYxLS40NS0uOTctLjUzLS4xOC0uMDQtLjM4LS4wNC0uNTYtLjAzem0tMiAyLjMxYy0uNS0uMDItMS4xOS4xNS0xLjc4Ljc1bC0xLjUgMS41Yy0uNzguNzgtLjc4IDIuMDQgMCAyLjgxLjU2LjU2IDEuMzYuNzIgMi4wNi40Ny4yNy0uMS41My0uMjUuNzUtLjQ3YS41LjUgMCAxIDAtLjY5LS42OWMtLjExLjExLS4yNC4xNy0uMzguMjItLjM1LjEyLS43OC4wNy0xLjA2LS4yMi0uMzktLjM5LS4zOS0xLjA0IDAtMS40NGwxLjUtMS41Yy40LS40Ljc1LS40NSAxLjAzLS40NC4yOC4wMS40Ny4wOS40Ny4wOWEuNS41IDAgMSAwIC40NC0uODhzLS4zNC0uMi0uODQtLjIyeiIKICAvPgo8L3N2Zz4=), none;
+    filter: var(--icon-filter);
 }
 .expand {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAADtJREFUGJVjYCACKDAwMByA0ljFDjAwMPxnYGB4ABVQgLL/Q+VQBB6gseGmIivCkERXhFUSWRFOSawAAEl7E3uv1iMcAAAAAElFTkSuQmCC);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0xLjUgMGwtMS41IDEuNSA0IDQgNC00LTEuNS0xLjUtMi41IDIuNS0yLjUtMi41eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgLz4KPC9zdmc+), none;
+    filter: var(--icon-filter);
 }
 .collapse {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAC5JREFUGJVjYCARNEAxTsn/UIyhCFkSQxG6ThQ+C5IpjWhG1yNb4YDFTdjEMAEACi8Q++9Y9TAAAAAASUVORK5CYII=);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik00IDBsLTQgNCAxLjUgMS41IDIuNS0yLjUgMi41IDIuNSAxLjUtMS41LTQtNHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMSkiIC8+Cjwvc3ZnPg==), none;
+    filter: var(--icon-filter);
 }
 .expand, .collapse, .link {
     float: left;
@@ -352,7 +502,10 @@ th.stats-col-graph:hover {
     background-size: 8px 8px;
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid #ccc;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--icon-highlight);
+    border-width: 1px;
+    border-style: solid;
     border-radius: 2px;
 }
 .link {
@@ -362,7 +515,8 @@ th.stats-col-graph:hover {
     visibility: visible;
 }
 .expand:hover, .collapse:hover, .link:hover {
-    background-color: #ccc;
+    background-color: #ccc; /* Fallback value */
+    background-color: var(--icon-highlight);
 }
 /* Messages and errors */
 .messages .time, .messages .message {
@@ -403,11 +557,16 @@ th.stats-col-graph:hover {
 .message-row:hover .select-message div {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfeCR0MOzhWKZQOAAAASUlEQVQY032PsRHAIAwDX9BkicD+W8UMEqegAQJWKZ/+3sLZJhFGQEZzNaIa4ibh66En867VNaIeoP5WppNuIGoAlOm3g5VC1AdYeQv1BZPRSgAAAABJRU5ErkJggg==);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiIHZpZXdCb3g9IjAgMCA4IDgiPgogIDxwYXRoIGQ9Ik0wIDB2MWg4di0xaC04em0wIDJ2MWg2di0xaC02em0wIDJ2MWg4di0xaC04em0wIDJ2MWg2di0xaC02eiIgLz4KPC9zdmc+), none;
-    border: 1px solid #ccc;
+    filter: var(--icon-filter);
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--icon-highlight);
+    border-width: 1px;
+    border-style: solid;
     border-radius: 2px;
 }
 .select-message:hover div {
-    background-color: #ccc;
+    background-color: #ccc; /* Fallback value */
+    background-color: var(--icon-highlight);
     cursor: pointer;
 }
 /* Message tables - these MUST NOT be combined together because otherwise
@@ -439,7 +598,7 @@ th.stats-col-graph:hover {
     cursor: default;
 }
 </style>
-<style media="print" type="text/css">
+<style media="print">
 body {
     background: white !important;
     padding: 0;
@@ -479,7 +638,7 @@ a:link, a:visited {
     background: #ddd !important;
 }
 </style>
-<style media="all" type="text/css">
+<style media="all">
 #javascript-disabled {
     width: 600px;
     margin: 100px auto 0 auto;
@@ -502,7 +661,7 @@ a:link, a:visited {
     font-style: italic;
 }
 </style>
-<style media="all" type="text/css">
+<style media="all">
 .doc > * {
     margin: 0.7em 1em 0.1em 1em;
     padding: 0;
@@ -514,14 +673,12 @@ a:link, a:visited {
     margin-top: 0.1em;
 }
 .doc table {
-    border: 1px solid #ccc;
     background: transparent;
     border-collapse: collapse;
     empty-cells: show;
     font-size: 0.9em;
 }
 .doc table th, .doc table td {
-    border: 1px solid #ccc;
     background: transparent;
     padding: 0.1em 0.3em;
     height: 1.2em;
@@ -531,24 +688,32 @@ a:link, a:visited {
     letter-spacing: 0.1em;
 }
 .doc pre {
+    border-radius: 2px;
     font-size: 1.1em;
     letter-spacing: 0.05em;
-    background: #f4f4f4;
+    background: #eee; /* Fallback value */
+    background: var(--highlight-color);
 }
 .doc code {
+    border-radius: 2px;
     padding: 0 0.2em;
     letter-spacing: 0.05em;
-    background: #eee;
+    background: #eee; /* Fallback value */
+    background: var(--highlight-color);
 }
 .doc li {
     list-style-position: inside;
     list-style-type: square;
 }
-.doc img {
-    border: 1px solid #ccc;
+.doc img, .doc table, .doc table th, .doc table td {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc; /* Fallback value */
+    border-color: var(--secondary-color);
 }
 .doc hr {
-    background: #ccc;
+    background: #ccc; /* Fallback value */
+    background: var(--secondary-color);
     height: 1px;
     border: 0;
 }
@@ -560,6 +725,9 @@ function toggleSuite(suiteId) {
 }
 function toggleTest(testId) {
     toggleElement(testId, ['keyword']);
+    var test = window.testdata.findLoaded(testId);
+    if (test.status == "FAIL" || test.status == "SKIP")
+        expandFailed(test);
 }
 function toggleKeyword(kwId) {
     toggleElement(kwId, ['keyword']);
@@ -623,7 +791,7 @@ function loadAndExpandElementIds(ids) {
     }
 }
 function expandFailed(element) {
-    if (element.status == "FAIL") {
+    if (element.status == "FAIL" || (element.type == "test" && element.status == "SKIP")) {
         window.elementsToExpand = [element];
         window.expandDecider = function (e) {
             return e.status == "FAIL";
@@ -847,7 +1015,6 @@ window.model = (function () {
         suite.populateSuites = createIterablePopulator('Suite');
         suite.childrenNames = ['keyword', 'suite', 'test'];
         suite.callWhenChildrenReady = function (callable) { callable(); };
-        suite.message = data.message;
         suite.children = function () {
             return suite.keywords().concat(suite.tests()).concat(suite.suites());
         };
@@ -938,6 +1105,7 @@ window.model = (function () {
             name: data.name,
             doc: data.doc,
             status: data.status,
+            message: data.message,
             times: data.times,
             id: data.parent ? data.parent.id + '-' + data.id : data.id
         };
@@ -958,7 +1126,6 @@ window.model = (function () {
                 return test.keywords();
         };
         test.tags = data.tags;
-        test.message = data.message;
         test.matchesTagPattern = function (pattern) {
             return containsTagPattern(test.tags, pattern);
         };
@@ -969,13 +1136,12 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
-        var flatTypes = ['RETURN', 'BREAK', 'CONTINUE'];
         kw.libname = data.libname;
         kw.fullName = (kw.libname ? kw.libname + '.' : '') + kw.name;
         kw.type = data.type;
         kw.template = 'keywordTemplate';
         kw.arguments = data.args;
-        kw.assign = data.assign + (data.assign ? ' =' : '');
+        kw.assign = data.assign + (data.assign ? ' =  ' : '');
         kw.tags = data.tags;
         kw.timeout = data.timeout;
         kw.populateKeywords = createIterablePopulator('Keyword');
@@ -1354,8 +1520,9 @@ window.testdata = function () {
     var _statistics = null;
     var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL', 'SKIP'];
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
-    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF', 'ELSE IF', 'ELSE', 'RETURN',
-                         'TRY', 'EXCEPT', 'FINALLY', 'WHILE', 'CONTINUE', 'BREAK'];
+    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF',
+                         'ELSE IF', 'ELSE', 'RETURN', 'VAR', 'TRY', 'EXCEPT', 'FINALLY',
+                         'WHILE', 'CONTINUE', 'BREAK', 'ERROR'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -1398,6 +1565,7 @@ window.testdata = function () {
         return createKeyword(parent, element, strings, index - messages.length);
     }
     function createKeyword(parent, element, strings, index) {
+        var status = element[8];
         var kw = model.Keyword({
             parent: parent,
             type: KEYWORD_TYPES[element[0]],
@@ -1413,7 +1581,12 @@ window.testdata = function () {
                 this.doc = function () { return doc; };
                 return doc;
             },
-            status: parseStatus(element[8], strings),
+            status: parseStatus(status),
+            message: function () {
+                var msg = status.length == 4 ? strings.get(status[3]) : '';
+                this.message = function () { return msg; };
+                return msg;
+            },
             times: model.Times(times(element[8])),
             isChildrenLoaded: typeof(element[9]) !== 'number'
         });
@@ -1624,6 +1797,20 @@ window.testdata = function () {
 }();
 </script>
 <script type="text/javascript">
+const lightModeIcon = `
+<svg class="light-mode-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+    viewBox="0 0 24 24" fill="var(--text-color)">
+    <rect fill="none" height="24" width="24" />
+    <path
+        d="M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0 c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2 c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1 C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06 c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41 l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41 c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36 c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z" />
+</svg>`
+const darkModeIcon = `
+<svg class="dark-mode-icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24"
+    viewBox="0 0 24 24" fill="var(--text-color)">
+    <rect fill="none" height="24" width="24" />
+    <path
+        d="M11.01,3.05C6.51,3.54,3,7.36,3,12c0,4.97,4.03,9,9,9c4.63,0,8.45-3.5,8.95-8c0.09-0.79-0.78-1.42-1.54-0.95 c-0.84,0.54-1.84,0.85-2.91,0.85c-2.98,0-5.4-2.42-5.4-5.4c0-1.06,0.31-2.06,0.84-2.89C12.39,3.94,11.9,2.98,11.01,3.05z" />
+</svg>`
 function removeJavaScriptDisabledWarning() {
     // Not using jQuery here for maximum speed
     document.getElementById('javascript-disabled').style.display = 'none';
@@ -1659,6 +1846,10 @@ function setTitle(suiteName, type) {
 function addHeader() {
     var generated = util.timestamp(window.output.generated);
     $.tmpl('<h1>${title}</h1>' +
+           '<button id=theme-toggle>' +
+             lightModeIcon +
+             darkModeIcon +
+           '</button>' +
            '<div id="generated">' +
              '<span>Generated<br>${generated}</span><br>' +
              '<span id="generated-ago">${ago} ago</span>' +
@@ -1670,6 +1861,7 @@ function addHeader() {
         ago: util.createGeneratedAgoString(generated),
         title: document.title
     }).appendTo($('#header'));
+    document.getElementById('theme-toggle')?.addEventListener('click', theme.onClick);
 }
 function addReportOrLogLink(myType) {
     var url;
@@ -1798,30 +1990,116 @@ function stopPropagation(event) {
     if (event.stopPropagation)
         event.stopPropagation();
 }
+const theme = function () {
+    const storageKey = 'theme-preference';
+    const urlParams = new URLSearchParams(window.location.search);
+    var storage;
+    var theme;
+    function init(givenStorage) {
+        storage = givenStorage;
+        theme = { value: getPreference() };
+        document.body.setAttribute('data-theme', theme.value);
+        reflectPreference();
+        window.matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', ({matches:isDark}) => {
+                theme.value = isDark ? 'dark' : 'light';
+                setPreference();
+            });
+        window.addEventListener('storage', ({key, newValue}) => {
+            if (key === storage.fullKey(storageKey)) {
+                theme.value = newValue === 'dark' ? 'dark' : 'light';
+                setPreference();
+            }
+        });
+    }
+    function getPreference() {
+        if (urlParams.has('theme')) {
+            var urlTheme = urlParams.get('theme') === 'dark' ? 'dark' : 'light';
+            storage.set(storageKey, urlTheme);
+            urlParams.delete('theme');
+            return urlTheme;
+        }
+        if (storage.get(storageKey))
+            return storage.get(storageKey) === 'dark' ? 'dark' : 'light';
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function setPreference() {
+        storage.set(storageKey, theme.value);
+        reflectPreference();
+    }
+    function reflectPreference() {
+        document.body.setAttribute('data-theme', theme.value);
+        document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+        const event = new Event('theme-change', {value: theme.value});
+        document.dispatchEvent(event);
+    }
+    function onClick() {
+        theme.value = theme.value === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('theme-toggled', "");
+        setPreference();
+    }
+    return {init: init, getPreference: getPreference, setPreference: setPreference,
+        reflectPreference: reflectPreference, onClick: onClick};
+}();
+</script>
+<script type="text/javascript">
+storage = function () {
+    var prefix = 'robot-framework-';
+    var storage;
+    function init(user) {
+        if (user)
+            prefix += user + '-';
+        storage = getStorage();
+    }
+    function getStorage() {
+        // Use localStorage if it's accessible, normal object otherwise.
+        // Inspired by https://stackoverflow.com/questions/11214404
+        try {
+            localStorage.setItem(prefix, prefix);
+            localStorage.removeItem(prefix);
+            return localStorage;
+        } catch (exception) {
+            return {};
+        }
+    }
+    function get(key, defaultValue) {
+        var value = storage[fullKey(key)];
+        if (typeof value === 'undefined')
+            return defaultValue;
+        return value;
+    }
+    function set(key, value) {
+        storage[fullKey(key)] = value;
+    }
+    function fullKey(key) {
+        return prefix + key;
+    }
+    return {init: init, get: get, set: set, fullKey: fullKey};
+}();
 </script>
 <script type="text/javascript">
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[1,0,2046],[],[[4,0,0,[5],[1,66,1354],[[0,6,0,0,0,7,0,0,[1,68,1352],[[0,8,9,0,10,11,0,0,[1,68,1346],[[69,2,12],[76,2,13],[1413,2,14]]],[0,15,9,0,16,17,18,0,[1,1415,1],[[1416,2,19]]],[0,20,21,0,22,18,23,0,[1,1416,1],[[1417,2,24]]],[0,25,21,0,26,23,0,0,[1,1417,1],[[1418,2,27]]],[0,28,21,0,29,23,0,0,[1,1418,1],[[1419,2,30]]],[0,31,21,0,32,33,0,0,[1,1419,0],[]]]]]],[34,0,0,[5],[1,1421,624],[[0,35,0,0,0,7,0,0,[1,1422,623],[[0,8,9,0,10,36,0,0,[1,1423,616],[[1423,2,37],[1428,2,13],[2039,2,14]]],[0,15,9,0,16,38,39,0,[1,2040,2],[[2042,2,40]]],[0,20,21,0,22,39,41,0,[1,2042,1],[[2043,2,42]]],[0,25,21,0,26,41,0,0,[1,2043,1],[[2044,2,43]]],[0,44,21,0,45,46,0,0,[1,2044,0],[]]]]]]],[],[2,2,0,0]];
+window.output["suite"] = [1,2,3,0,[],[1,0,892],[],[[4,0,0,[5],[1,27,642],[[0,6,0,0,0,7,0,0,[1,27,641],[[0,8,9,0,10,11,0,0,[1,28,638],[[28,2,12],[34,2,13],[665,2,14]]],[0,15,9,0,16,17,18,0,[1,666,1],[[667,2,19]]],[0,20,21,0,22,18,23,0,[1,667,0],[[667,2,24]]],[0,25,21,0,26,23,0,0,[1,667,0],[[667,2,27]]],[0,28,21,0,29,23,0,0,[1,668,0],[[668,2,30]]],[0,31,21,0,32,33,0,0,[1,668,0],[]]]]]],[34,0,0,[5],[1,669,223],[[0,35,0,0,0,7,0,0,[1,669,222],[[0,8,9,0,10,36,0,0,[1,669,220],[[670,2,37],[678,2,13],[889,2,14]]],[0,15,9,0,16,38,39,0,[1,890,1],[[891,2,40]]],[0,20,21,0,22,39,41,0,[1,891,0],[[891,2,42]]],[0,25,21,0,26,41,0,0,[1,891,0],[[891,2,0]]],[0,43,21,0,44,45,0,0,[1,891,0],[]]]]]]],[],[2,2,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Robot Framework Solidity Smart Contract Static Analysis","*/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/static-analysis/robot-framework-solidity-static-analyzer.robot","*robot-framework-solidity-static-analyzer.robot","*SMART CONTRACT STATIC ANALYSIS 1 : Run the Solhint static analysis tool on the target contract. If this fails, then there are possible code security issues or other risks.","*Contract_Smoke_Tests","*Run Solhint Solidity Static Analysis And Check Output","*TargetContract.sol","*Run Process","*Process","*<p>Runs a process and waits for it to complete.\x3c/p>","eNqNjrEKwjAURX8lQ3FKGnGVDqUoCrZKzR5CjfZJmpS+16GU/rtV6uLkcuEcLpeLwdXgiYmarUzTbj/BcLHReEnVYZIzww1oEEiGoBLGGzcgoKAQHMoqeOpMRSij8ZqnpdLZuVBlmim9P552ukjz3cSEmHt3ePy7+mNlvLyKnxg8Z8aBwWRxOvTU9sQZ1ta5RHW95YygsbNPNmvkLHj95fdd8L19Ab67XBc=","eNq9ULsOwjAM3PmKTGxudhiLgJmWGaUhpO4jrmxXqH9PQHThA1hO8vlOd7pKHSumaCYmH0R2G6GhxaQGWrN147T/gFlZe5XAYrtITDIFeyA/jyGp2BPqeW7shRpSOLIbw5O4h4oGvKMuUAd5B0FNNPSot3JmzkYrq0DUKXpwyQ2LoIBmoVhPSdn5HFA7jkHL711knwHI7wfG/9f6YW3xHajohNILmbKBrw==","*Waiting for process to complete.","*Process completed.","*Get Process Result","*<p>Returns the specified `result object` or some of its attributes.\x3c/p>","*solhint_output, stdout=true","*${SOLHINT_OUTPUT}","*${SOLHINT_OUTPUT} = Usage: solhint [options] &lt;file&gt; [...other_files]\n\nLinter for Solidity programming language\n\nOptions:\n\n  -V, --version                           output the version number\n  -f, --formatter [name]      ...","*Convert To String","*BuiltIn","*<p>Converts the given item to a Unicode string.\x3c/p>","*${SOLHINT_RESULT}","*${SOLHINT_RESULT} = Usage: solhint [options] &lt;file&gt; [...other_files]\n\nLinter for Solidity programming language\n\nOptions:\n\n  -V, --version                           output the version number\n  -f, --formatter [name]      ...","*Log","*<p>Logs the given message with the given level.\x3c/p>","eNqFlM9O20AQxu9+ijkhkOIkQFGlcAT1j1TRqoT2EFG0scfOwnrX7MwS8iI99en6JJ2JbYrUEvZieXf8m5lvv/EVmRpnQMGtrGdYhJZt8HQNe45PK+twr+ZTWIzH48ArjDe6RddZ9kmiMUIVIlwGZ0vLG2hjqKNpGutrcMbXSdBZ9rkjzrIMIP82gjx/wEiyBS+vkLhNDJIRhmCfmiVGZVTKkMSNYS1h4U2D1/8yIrYhMvwN1DjYJ944S6sRsFk61Ec7guTt44Gy18puzGO+NtFLHwQLefvev1xsa5BcXTEQKjDOhTWWMMQrpFBIEXxla1ioYDf/LVFPgAMkQjAEm5AijPuLGN9S8Mq6V9Z9ssiwa/XNYowhEgTvNpBDiZVJjmdQGUeotNzWPkTMW8OrHaXtqqwjbGGVfYTXl0kc5AZsIVJtQL8Rn4j0DXUVecuvQ4qIhhE6UVM0aqmuTHVgX5ryVqrXCl27m9cbLKn7wfrOJMLMsrPQNMaXnV+JS+ufDcVLy6kw4noxBIlYhVZaIpSGjXb7YEuxiAh6OT//eJFlkysSV09u6xADtTg5D0Vq0DNN3lv+kJaTr2EZOH8nw4TrEO/yYcTyOZImyuchuDvLN2cpRvlwQkMAsUqdG2/chizlLIE0Ed04mkISzE2skc/6d71UaROOZocwWBhAJGhF2vg0ez+m45PxFMqABD4wkOSgarOdTwOEjQSKBcWmEbUPua8eMcy6JjmZHT1LIj8QBIe+Fic2iRiWKGxoxFzCNR4Oj6awlDsquhaHWEty8narus6pKI95dyQ5Dt/Mjp/l+NJJD0LbTgY0SNsbV9P09b5iPPGdTKLIGoWYZb9//YTjJwPD/rQfuZHsDr+Ag+wPxXqlPw==","*Should Not Be Empty","*<p>Verifies that the given item is not empty.\x3c/p>","*Length is 1357","*Should Contain","*<p>Fails if <code>container\x3c/code> does not contain <code>item\x3c/code> one or more times.\x3c/p>","*${SOLHINT_RESULT}, (0 errors,","*SMART CONTRACT STATIC ANALYSIS 2 : Run the Surya code property graph analysis tool on the target contract. If this fails, then there are possible code risks or vulnerabilities.","*Run Surya Solidity Graph Analysis And Check Output","*surya graph ${PATH}/solidity-static-analysis-tools/contracts/${SMART_CONTRACT_FILE_NAME} --no-color, alias=surya_output, shell=True, timeout=20s, on_timeout=continue","*Starting process:\nsurya graph /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Current/solidity-static-analysis-tools/contracts/TargetContract.sol --no-color","*surya_output, stdout=true","*${SURYA_OUTPUT}","*${SURYA_OUTPUT} = digraph G {\n  graph [ ratio = \"auto\", page = \"100\", compound =true ];\nsubgraph \"clusterBEP20\" {\n  graph [ label = \"BEP20\", color = \"lightgray\", style = \"filled\", bgcolor = \"lightgray\" ];\n  \"BEP20.adop...","*${SURYA_RESULT}","*${SURYA_RESULT} = digraph G {\n  graph [ ratio = \"auto\", page = \"100\", compound =true ];\nsubgraph \"clusterBEP20\" {\n  graph [ label = \"BEP20\", color = \"lightgray\", style = \"filled\", bgcolor = \"lightgray\" ];\n  \"BEP20.adop...","eNq9VMFq3DAQvfsrBh321HbXTqCQRYc2DaWQQyn0tCxFtiZaEUUS8phmCfn3SrJ3Yy8+bGhaG4Nm9ObN+M1IUqsg/A6+wlMB0K83EARpBxyY6Mixd+CFwmSWq1W0GvfgXWclcAodwnZdtF3dh7LGdC1h+HzzvVqxCacRNZpE0u8lGuNCchitdhRh++hsaW9yqjttDMroqdUMMCWFgeqDkM4TG6foPaMUKiDaaZRC+pRgGNpJ7Ng/y/BcxCcIey914Lc/CuskwqbdCY/cG6Et4SNtXzQZJPm1KuEJimOeW1RoJVsX97iHTXbzhaF1+kjUUYXaBYmBsyhkg8Z4IaW2irOqt1svmmwP+y/whaL0o5kpJCOvJIgooOUsJBkZeBeIM11m+LdYdbDCwLUwJsGXJA+Ry57kbMYqM948vh3jRWb8gnfaooRrZymIhv6S9DKT/rTyNbTL3Jq8F79tal71n7o36ddCPPi1rVs/vzpbmUnL3pj0gh0OLx8d3X+Q6PKg2QCZ6F+e6jsr/7E9HxnMlpzZxyUMjt4zKlaeoJdj+HSEjjN1/rBd6fIK4X2yIc1esn/DZii5v6QGYHUCrEZAF+8vhRH5HN8/EPjoww==","*Should Not Contain","*<p>Fails if <code>container\x3c/code> contains <code>item\x3c/code> one or more times.\x3c/p>","*${SURYA_RESULT}, \"red\""]);
+window.output["strings"] = window.output["strings"].concat(["*","*Robot Framework Solidity Smart Contract Static Analysis","*/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/robotframework-solidity-static-analyzer.robot","*../robotframework-solidity-static-analyzer.robot","*SMART CONTRACT STATIC ANALYSIS 1 : Run the Solhint static analysis tool on the target contract. If this fails, then there are possible code security issues or other risks.","*Contract_Smoke_Tests","*Run Solhint Solidity Static Analysis And Check Output","*TargetContract.sol","*Run Process","*Process","*<p>Runs a process and waits for it to complete.\x3c/p>","*solhint ${PATH}/contracts/${SMART_CONTRACT_FILE_NAME} --config ${PATH}/.solhint.json    alias=solhint_output    shell=True    timeout=20s    on_timeout=continue","eNq9kEEOwjAMBO+8oh9wc+cKAs60PMANJrhNY2S7Qv09QSpf4Lia3dVqO0d1Lql5qUQy2+9M8pOLN+FmpBbGJCr2onCUuMxU3MKZ/bIM4SqDOJwUZ3qLTtBJ5jv7Cj3ZtxJ6kTyxB/sBc3SOgAXzamzg1WAhSnHFWIt71ER+2HRbcw1AxQ9O/5vTbge0o0n5AH5iba8=","*Waiting for process to complete.","*Process completed.","*Get Process Result","*<p>Returns the specified `result object` or some of its attributes.\x3c/p>","*solhint_output    stdout=true","*${SOLHINT_OUTPUT}","*${SOLHINT_OUTPUT} = \n/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/contracts/TargetContract.sol\n   2:1   warning  Compiler version ^0.5.0 does not satisfy the ^0...","*Convert To String","*BuiltIn","*<p>Converts the given item to a Unicode string.\x3c/p>","*${SOLHINT_RESULT}","*${SOLHINT_RESULT} = \n/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/contracts/TargetContract.sol\n   2:1   warning  Compiler version ^0.5.0 does not satisfy the ^0...","*Log","*<p>Logs the given message with the given level.\x3c/p>","eNq9ksGO00AMhu95Ch9BYpq22wLKdRFw4ICWckIgTVJv1uzMONhOu30RTjwdT4KjZlc9IU74MFLmt78vmUlVf1YUrb/3LKwD1m+4GzMW0/od2fuxrW+4ZQtvJWY8styHT5xoT3YKO1Sj0ocdc7onq/UxUItGXYglppOSBvMGrTsuJrFz8C5Kj3Y9Py98rgKAdbPy9RilOBTgmvNACQUO/nrEBb4tF9vFEvaMCoUN1CV6ewK7wyl77Zli9m4Q/DGS4PQVAN3MCTNnUm2b9aXqAxWEhKW3O8ijGrToBsgs6PRYYLVeQjsadKPIBJ17ST15BU+V40NIzgrn3E2rq2b18sJ0MyacxhQNjuQIfBgSdWRgpwHhyyFKrQ2MVOwr/KUex8I0pmfRZvNfRJvm6vLsPgofaI/gp4QiLJBRNfYIt/x0EfAPJRiVi/864tiq+v3rJ2xhEG4TZoVnyzNdX/ju7Nbn1R+y594Z","*Should Not Be Empty","*<p>Verifies that the given item is not empty.\x3c/p>","*Length is 699.","*Should Contain","*<p>Fails if <code>container\x3c/code> does not contain <code>item\x3c/code> one or more times.\x3c/p>","*${SOLHINT_RESULT}    (0 errors,","*SMART CONTRACT STATIC ANALYSIS 2 : Run the Surya code property graph analysis tool on the target contract. If this fails, then there are possible code risks or vulnerabilities.","*Run Surya Solidity Graph Analysis And Check Output","*surya graph ${PATH}/solidity-static-analysis-tools/contracts/${SMART_CONTRACT_FILE_NAME} --no-color    alias=surya_output    shell=True    timeout=20s    on_timeout=continue","*Starting process:\nsurya graph /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/solidity-static-analysis-tools/contracts/TargetContract.sol --no-color","*surya_output    stdout=true","*${SURYA_OUTPUT}","*${SURYA_OUTPUT} = ","*${SURYA_RESULT}","*${SURYA_RESULT} = ","*Should Not Contain","*<p>Fails if <code>container\x3c/code> contains <code>item\x3c/code> one or more times.\x3c/p>","*${SURYA_RESULT}    \"red\""]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:02","fail":0,"label":"All Tests","pass":2,"skip":0}],[{"elapsed":"00:00:02","fail":0,"label":"Contract_Smoke_Tests","pass":2,"skip":0}],[{"elapsed":"00:00:02","fail":0,"id":"s1","label":"Robot Framework Solidity Smart Contract Static Analysis","name":"Robot Framework Solidity Smart Contract Static Analysis","pass":2,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:01","fail":0,"label":"All Tests","pass":2,"skip":0}],[{"elapsed":"00:00:01","fail":0,"label":"Contract_Smoke_Tests","pass":2,"skip":0}],[{"elapsed":"00:00:01","fail":0,"id":"s1","label":"Robot Framework Solidity Smart Contract Static Analysis","name":"Robot Framework Solidity Smart Contract Static Analysis","pass":2,"skip":0}]];
 </script>
 <script type="text/javascript">
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1675657248054;
+window.output["baseMillis"] = 1725330352271;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 2059;
+window.output["generated"] = 897;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -1831,7 +2109,7 @@ window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":null,"rpa
 </script>
 <title></title>
 </head>
-<body>
+<body data-theme="dark">
 <div id="javascript-disabled">
   <h1>Opening Robot Framework log failed</h1>
   <ul>
@@ -1841,12 +2119,13 @@ window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":null,"rpa
   </ul>
 </div>
 <script type="text/javascript">removeJavaScriptDisabledWarning();</script>
-
 <div id="header"></div>
 <div id="statistics-container"></div>
 
 <script type="text/javascript">
 $(document).ready(function() {
+    storage.init();
+    theme.init(storage);
     try {
         var topsuite = window.testdata.suite();
     } catch (error) {
@@ -1854,6 +2133,7 @@ $(document).ready(function() {
         return;
     }
     initLayout(topsuite.name, 'Log');
+    theme.reflectPreference();
     addStatistics();
     addErrors();
     addExecutionLog(topsuite);
@@ -1894,25 +2174,6 @@ function drawErrorsRecursively(errors, target) {
         // Errors may have moved scroll position. Resetting location re-scrolls.
         if (window.location.hash)
             window.location.replace(window.location.hash);
-        highlightLinkTarget();
-    }
-}
-
-function highlightLinkTarget() {
-    if (window.location.hash) {
-        var target = $(window.location.hash);
-        highlight(target);
-    }
-}
-
-function highlight(element, color) {
-    if (color === undefined)
-        color = 242;
-    if (color < 255) {
-        element.css({'background-color': 'rgb('+color+','+color+','+color+')'});
-        setTimeout(function () { highlight(element, color+1); }, 300);
-    } else {
-        element.css({'background-color': ''});
     }
 }
 
@@ -1928,9 +2189,8 @@ function makeElementVisible(id) {
         util.map(ids, expandElementWithId);
         if (ids.length) {
             expandFailed(window.testdata.findLoaded(util.last(ids)));
-            window.location.hash = '';
             window.location.hash = id;
-            highlightLinkTarget();
+            document.getElementById(id).scrollIntoView();
         }
     });
 }
@@ -2128,8 +2388,9 @@ function addExecutionLog(main) {
       <div class="element-header-left" title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
         <span class="label ${status.toLowerCase()}">${type}</span>
-        <span>{{html assign}}</span>
+        <span class="assign">{{html assign}}</span>
         <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
+        &nbsp;
         <span class="arg">{{html arguments}}</span>
       </div>
       <div class="element-header-right" onclick="stopPropagation(event)">
@@ -2163,6 +2424,12 @@ function addExecutionLog(main) {
           <th>Start / End / Elapsed:</th>
           <td>${times.startTime} / ${times.endTime} / ${times.elapsedTime}</td>
         </tr>
+        {{if message()}}
+        <tr>
+          <th>Message:</th>
+          <td class="message">{{html message()}}</td>
+        </tr>
+        {{/if}}
       </table>
     </div>
   </div>
@@ -2185,6 +2452,7 @@ function addExecutionLog(main) {
   <div id="log-level-selector">
   Log level:
     <select onchange="logLevelSelected(this.options[selectedIndex].value)">
+      <option value="3">WARN</option>
       <option value="2">INFO</option>
       <option value="1">DEBUG</option>
       {{if showTrace()}}<option value="0">TRACE</option>{{/if}}

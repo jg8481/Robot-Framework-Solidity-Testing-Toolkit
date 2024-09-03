@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.11.9 on darwin)" generated="2024-09-02T22:25:52.270033" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot Framework Solidity Smart Contract Static Analysis" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/robotframework-solidity-static-analyzer.robot">
+<test id="s1-t1" name="SMART CONTRACT STATIC ANALYSIS 1 : Run the Solhint static analysis tool on the target contract. If this fails, then there are possible code security issues or other risks." line="13">
+<kw name="Run Solhint Solidity Static Analysis And Check Output">
+<kw name="Run Process" owner="Process">
+<msg time="2024-09-02T22:25:52.298829" level="INFO">Starting process:
+solhint /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/contracts/TargetContract.sol --config /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/.solhint.json</msg>
+<msg time="2024-09-02T22:25:52.304719" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-02T22:25:52.935905" level="INFO">Process completed.</msg>
+<arg>solhint ${PATH}/contracts/${SMART_CONTRACT_FILE_NAME} --config ${PATH}/.solhint.json</arg>
+<arg>alias=solhint_output</arg>
+<arg>shell=True</arg>
+<arg>timeout=20s</arg>
+<arg>on_timeout=continue</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-09-02T22:25:52.298640" elapsed="0.637603"/>
+</kw>
+<kw name="Get Process Result" owner="Process">
+<msg time="2024-09-02T22:25:52.937637" level="INFO">${SOLHINT_OUTPUT} = 
+/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/contracts/TargetContract.sol
+   2:1   warning  Compiler version ^0.5.0 does not satisfy the ^0...</msg>
+<var>${SOLHINT_OUTPUT}</var>
+<arg>solhint_output</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<status status="PASS" start="2024-09-02T22:25:52.936887" elapsed="0.000777"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-09-02T22:25:52.938027" level="INFO">${SOLHINT_RESULT} = 
+/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/contracts/TargetContract.sol
+   2:1   warning  Compiler version ^0.5.0 does not satisfy the ^0...</msg>
+<var>${SOLHINT_RESULT}</var>
+<arg>${SOLHINT_OUTPUT}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-09-02T22:25:52.937785" elapsed="0.000260"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T22:25:52.938344" level="INFO">
+/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/contracts/TargetContract.sol
+   2:1   warning  Compiler version ^0.5.0 does not satisfy the ^0.8.0 semver requirement  compiler-version
+   5:2   warning  Line length must be no more than 120 but current length is 127          max-line-length
+  13:16  warning  Rule is set with explicit type [var/s: uint]                            explicit-types
+  13:44  warning  Rule is set with explicit type [var/s: uint]                            explicit-types
+  14:3   warning  Provide an error message for require                                    reason-string
+
+✖ 5 problems (0 errors, 5 warnings)
+</msg>
+<arg>${SOLHINT_RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T22:25:52.938237" elapsed="0.000235"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2024-09-02T22:25:52.938672" level="INFO">Length is 699.</msg>
+<arg>${SOLHINT_RESULT}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2024-09-02T22:25:52.938564" elapsed="0.000138"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${SOLHINT_RESULT}</arg>
+<arg>(0 errors,</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-09-02T22:25:52.938783" elapsed="0.000115"/>
+</kw>
+<arg>TargetContract.sol</arg>
+<status status="PASS" start="2024-09-02T22:25:52.298175" elapsed="0.640824"/>
+</kw>
+<tag>Contract_Smoke_Tests</tag>
+<status status="PASS" start="2024-09-02T22:25:52.297705" elapsed="0.641594"/>
+</test>
+<test id="s1-t2" name="SMART CONTRACT STATIC ANALYSIS 2 : Run the Surya code property graph analysis tool on the target contract. If this fails, then there are possible code risks or vulnerabilities." line="17">
+<kw name="Run Surya Solidity Graph Analysis And Check Output">
+<kw name="Run Process" owner="Process">
+<msg time="2024-09-02T22:25:52.940745" level="INFO">Starting process:
+surya graph /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit/solidity-static-analysis-tools/solidity-static-analysis-tools/contracts/TargetContract.sol --no-color</msg>
+<msg time="2024-09-02T22:25:52.949164" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-09-02T22:25:53.160069" level="INFO">Process completed.</msg>
+<arg>surya graph ${PATH}/solidity-static-analysis-tools/contracts/${SMART_CONTRACT_FILE_NAME} --no-color</arg>
+<arg>alias=surya_output</arg>
+<arg>shell=True</arg>
+<arg>timeout=20s</arg>
+<arg>on_timeout=continue</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-09-02T22:25:52.940452" elapsed="0.219915"/>
+</kw>
+<kw name="Get Process Result" owner="Process">
+<msg time="2024-09-02T22:25:53.161693" level="INFO">${SURYA_OUTPUT} = </msg>
+<var>${SURYA_OUTPUT}</var>
+<arg>surya_output</arg>
+<arg>stdout=true</arg>
+<doc>Returns the specified `result object` or some of its attributes.</doc>
+<status status="PASS" start="2024-09-02T22:25:53.161044" elapsed="0.000663"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<msg time="2024-09-02T22:25:53.161983" level="INFO">${SURYA_RESULT} = </msg>
+<var>${SURYA_RESULT}</var>
+<arg>${SURYA_OUTPUT}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="PASS" start="2024-09-02T22:25:53.161796" elapsed="0.000200"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-02T22:25:53.162142" level="INFO"/>
+<arg>${SURYA_RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-02T22:25:53.162068" elapsed="0.000098"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${SURYA_RESULT}</arg>
+<arg>"red"</arg>
+<doc>Fails if ``container`` contains ``item`` one or more times.</doc>
+<status status="PASS" start="2024-09-02T22:25:53.162233" elapsed="0.000099"/>
+</kw>
+<arg>TargetContract.sol</arg>
+<status status="PASS" start="2024-09-02T22:25:52.940214" elapsed="0.222216"/>
+</kw>
+<tag>Contract_Smoke_Tests</tag>
+<status status="PASS" start="2024-09-02T22:25:52.939555" elapsed="0.223153"/>
+</test>
+<status status="PASS" start="2024-09-02T22:25:52.271103" elapsed="0.892227"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Contract_Smoke_Tests</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Robot Framework Solidity Smart Contract Static Analysis">Robot Framework Solidity Smart Contract Static Analysis</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

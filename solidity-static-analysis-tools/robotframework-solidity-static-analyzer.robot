@@ -22,7 +22,7 @@ SMART CONTRACT STATIC ANALYSIS 2 : Run the Surya code property graph analysis to
 
 Run Solhint Solidity Static Analysis And Check Output
     [Arguments]    ${SMART_CONTRACT_FILE_NAME}
-    Run Process    solhint -h && solhint ${PATH}/solidity-static-analysis-tools/contracts/${SMART_CONTRACT_FILE_NAME} --config ${PATH}/solidity-static-analysis-tools/static-analysis/.solhint.json    alias=solhint_output    shell=True    timeout=20s    on_timeout=continue
+    Run Process    solhint ${PATH}/contracts/${SMART_CONTRACT_FILE_NAME} --config ${PATH}/.solhint.json    alias=solhint_output    shell=True    timeout=20s    on_timeout=continue
     ${SOLHINT_OUTPUT}=    Get Process Result    solhint_output    stdout=true
     ${SOLHINT_RESULT}=    Convert To String    ${SOLHINT_OUTPUT}
     Log    ${SOLHINT_RESULT}
