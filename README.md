@@ -63,7 +63,7 @@ In the future I plan to expand this toolkit into the following areas.
 - Create a `robotframework-truffle-remote-library.js` remote library using the [Truffle toolkit](https://trufflesuite.com/), and design similar features that are found in the `robotframework-hardhat-remote-library.js` remote library.
   - Progress:
     - (February 12, 2023 - **Ready To Use**) Created a working Truffle Suite library using a similar design as the Hardhat library, but utilizes [web3.js](https://web3js.org) and added a few different tests too.
-- Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry.
+- Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools (for example: [Consensys Diligence Tools](https://consensys.io/diligence/tools/)) in the Web3 and blockchain industry.
   - Progress:
     - (August 11, 2024 - **Ready To Use**) Created various security focused workflows that handle static analysis and vulnerability scanning of smart contracts.
 - Create a `robotframework-infura-websocket-bot-rpa-keywords.robot` powered multichain bot utilizing [Infura RPC nodes](https://infura.io/) and websocket tools.
