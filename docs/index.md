@@ -62,16 +62,25 @@ A lot of the automation in this repository is influenced by my [Robot-Framework-
 ### Toolkit Roadmap 
 
 In the future I plan to expand this toolkit into the following areas.
-- Create a `robotframework-truffle-remote-library.js` using the [Truffle toolkit](https://trufflesuite.com/), and design similar features that are found in  `robotframework-hardhat-remote-library.js`
+- Create a `robotframework-truffle-remote-library.js` remote library using the [Truffle toolkit](https://trufflesuite.com/), and design similar features that are found in the `robotframework-hardhat-remote-library.js` remote library.
   - Progress:
     - (February 12, 2023 - **Ready To Use**) Created a working Truffle Suite library using a similar design as the Hardhat library, but utilizes [web3.js](https://web3js.org) and added a few different tests too.
-- Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools in the Web3 and blockchain industry
-- Create RPA and `robotframework-hardhat-remote-library.js` powered multichain bots utilizing [Infura RPC nodes](https://infura.io/), [Hardhat toolkit](https://hardhat.org/), and [ethers.js](https://github.com/ethers-io/ethers.js/)
-- Create RPA and Alchemy powered bots utilizing [their SDK](https://www.alchemy.com/sdk) and [RPC nodes]().
-- Attempt to create Robot Framework automation utilizing the [Foundry toolkit](https://github.com/foundry-rs/foundry)
-- Create Metamask automation using [SeleniumLibrary](https://github.com/robotframework/SeleniumLibrary) and [robotframework-browser (a Playwright library)](https://github.com/MarketSquare/robotframework-browser)
+    - (September 21, 2023 - **Consensys Announcement**) There was an [announcement from the Truffle and Ganache lead developer Consensys](https://consensys.io/blog/consensys-announces-the-sunset-of-truffle-and-ganache-and-new-hardhat?utm_source=github&utm_medium=referral&utm_campaign=2023_Sep_truffle-sunset-2023_announcement_) that both projects were officially sunsetted and support has ended. I will no longer update my `robotframework-truffle-remote-library.js` remote library. I recommend using either Hardhat or Foundry.
+- Create more static analysis, security, and vulnerability scanning RPA automation integrated with popular tools (for example: [Consensys Diligence Tools](https://consensys.io/diligence/tools/)) in the Web3 and blockchain industry.
+  - Progress:
+    - (August 11, 2024 - **Ready To Use**) Created various security focused workflows that handle static analysis and vulnerability scanning of smart contracts.
+- Create a `robotframework-infura-websocket-bot-rpa-keywords.robot` powered multichain bot utilizing [Infura RPC nodes](https://infura.io/) and websocket tools.
+  - Progress:
+    - (September 2, 2024 - **Ready To Use**) Created a multichain Infura Websocket Bot that runs within a Docker Container.
+- Create an Alchemy powered bot utilizing [their SDK](https://www.alchemy.com/sdk).
+  - Progress:
+    - (September 2, 2024 - **Ready To Use**) Created an Alchemy SDK Bot that runs within a Docker Container.
+- Attempt to create Robot Framework automation utilizing the [Foundry toolkit](https://github.com/foundry-rs/foundry).
+  - Progress:
+    - (March 4, 2024 - **Ready To Use**) Created working parallel running Foundry and Playwright tests that runs checks on a mock wallet dApp connected to a local Anvil node. 
+- Create Metamask automation using [SeleniumLibrary](https://github.com/robotframework/SeleniumLibrary) and [robotframework-browser (a Playwright library)](https://github.com/MarketSquare/robotframework-browser).
 - Create a Robot Framework Model-based Testing example utilizing similar concepts found in my [PaBot-Android-Device-Graphwalker-Examples.robot](https://github.com/jg8481/Getting-Started-Robotframework-AppiumLibrary-RoboCon-2021-And-2022/blob/main/Workshop-Examples/Tests/Workshop-Part-Two/PaBot-Android-Device-Graphwalker-Examples.robot#L23)
-- Play around with some Chaos Testing ideas for dApps
+- Play around with some Chaos Testing ideas for dApps.
 
 ### Technical Requirements
 
