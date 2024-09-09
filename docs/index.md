@@ -103,13 +103,25 @@ You can view just this help menu again (without triggering any automation) by ru
 
 ---->>>> Local Solidity Test Environment Setup Commands <<<<----
 bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
+bash ./start-solidity-qa-workflows.sh Install-Solidity-Security-Testing-Tools-On-MacOS
 bash ./start-solidity-qa-workflows.sh Start-Default-Hardhat-Network-And-Robotremoteserver
 bash ./start-solidity-qa-workflows.sh Start-Multichain-Hardhat-Network-And-Robotremoteserver
 bash ./start-solidity-qa-workflows.sh Start-Default-Truffle-Develop-And-Robotremoteserver
+bash ./start-solidity-qa-workflows.sh Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp
+bash ./start-solidity-qa-workflows.sh Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp
 bash ./start-solidity-qa-workflows.sh Stop-Local-Blockchain-Nodes-And-Delete-Logs
 
 ---->>>> Solidity Static Analysis And Security Testing Commands <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Solidity-Static-Analysis
+
+---->>>> Solidity Vulnerability Scanning Security Testing Commands <<<<----
+bash ./start-solidity-qa-workflows.sh Stop-And-Clean-Up-Docker-Security-Tests
+bash ./start-solidity-qa-workflows.sh Run-Parallel-Datadriven-Smart-Contract-Security-Tests
+
+---->>>> Alchemy SDK and Infura Websocket Docker Container Bots Powered by Robot Framework RPA <<<<----
+bash ./start-solidity-qa-workflows.sh Stop-And-Clean-Up-Docker-Bot-RPA-Tasks
+bash ./start-solidity-qa-workflows.sh Run-Alchemy-SDK-Bot-RPA-Tasks
+bash ./start-solidity-qa-workflows.sh Run-Infura-Websocket-Bot-RPA-Tasks
 
 ---->>>> Hardhat Deployment Commands Powered by Robot Framework RPA (NOTE: These scripts are capable of deploying to Mainnets or Testnets!) <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Hardhat-Ethereum-RPA-Deployment
@@ -122,10 +134,13 @@ bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Truffle-Ethereum-RPA-De
 
 ---->>>> Interactive Tests For Deployed Smart Contracts Using Hardhat (NOTE: These tests can run on multiple EVM Compatible Blockchains!) <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-NonForked-Hardhat-Network
-bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network
+bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Forked-Mainnet-Hardhat-Network 
 
 ---->>>> Interactive Tests For Deployed Smart Contracts Using Truffle Suite <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-Truffle-Develop-Instance
+
+---->>>> Interactive Tests For Deployed Smart Contracts Using Foundry <<<<----
+bash ./start-solidity-qa-workflows.sh Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests
 ```
 
 [Click here to see examples of how this automation toolkit works.](https://github.com/jg8481/Robot-Framework-Solidity-Testing-Toolkit#example-workflow-1---deploy-then-test-a-smart-contract-using-the-built-in-hardhat-network-ethereum-node-and-node-robotremoteserver-on-macos-or-linux)
