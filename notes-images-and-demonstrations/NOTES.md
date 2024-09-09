@@ -2,11 +2,11 @@
 
 ## [1] Some advice for Windows Users
 
-I recommend installing all of this into a VMWare VM or VirtualBox VM that is running a Linux distribution of your choice. Either of those should work out for you just fine. I prefer whatever Linux distro `hardhat` recommends in their documentation, which could change at any time.  I personally use VMware products with an Ubuntu LTS, and it works nicely for my work. If you're a VirtualBox user this approach could work really well with Hashicorp's Vagrant.
+I recommend installing all of this into a VMWare VM or VirtualBox VM that is running a Linux distribution of your choice. Either of those should work out for you just fine. I prefer whatever Linux distro `Hardhat` recommends in their documentation, which could change at any time.  I personally use VMware products with an Ubuntu LTS, and it works nicely for my work. If you're a VirtualBox user this approach could work really well with Hashicorp's Vagrant.
 
 If neither of those VM options seem useful to you, there are Windows blockchain technologists out there who are using the WSL2 (Windows Subsystem for Linux) for working with the various blockchain tech stacks (source: https://michaeljohnpena.com/blog/blockchain-wsl2/).
 
-## [2] The ethereum-waffle and hardhat-chai-matchers announcements from the `hardhat` community
+## [2] The ethereum-waffle and hardhat-chai-matchers announcements from the `Hardhat` community
 
 If you see the following message every time you run (or Robot Framework runs) this type of command `npx hardhat <task-name-goes-here>`...
 
@@ -16,7 +16,7 @@ If you see the following message every time you run (or Robot Framework runs) th
 "We recommend you migrate to @nomicfoundation/hardhat-chai-matchers. Learn how to do it here: https://hardhat.org/migrate-from-waffle"
 ```
 
-Go to the link they suggest and read the details of their announcement, or just run `npm uninstall @nomiclabs/hardhat-waffle ethereum-waffle`. This uninstall command will make that annoying error message from the `hardhat` community go away.
+Go to the link they suggest and read the details of their announcement, or just run `npm uninstall @nomiclabs/hardhat-waffle ethereum-waffle`. This uninstall command will make that annoying error message from the `Hardhat` community go away.
 
 ## [3] Try to learn how the Robot Framework tools are interacting with the Ethereum tools
 
@@ -34,5 +34,5 @@ Steps to manually run and learn the flow of the Hardhat tools, and the Robot Fra
 - Open a third terminal in the `solidity-hardhat-multichain-tools` root directory again, and run the following...
   - cd ./test && robot ./robotframework-hardhat-keywords-test.robot
   
-- At this point, the tests should be running and you should see logs flowing from `hardhat` and the `robotframework-hardhat-remote-library.js`.
+- At this point, the tests should be running and you should see logs flowing from `Hardhat` and the `robotframework-hardhat-remote-library.js`.
 
