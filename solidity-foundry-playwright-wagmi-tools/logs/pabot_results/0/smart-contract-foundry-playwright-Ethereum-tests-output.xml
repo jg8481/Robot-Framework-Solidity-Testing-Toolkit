@@ -2,7 +2,7 @@
 <robot generator="Robot 7.0 (Python 3.11.6 on darwin)" generated="2024-03-04T23:44:02.258381" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dApp Test">
 <suite id="s1-s1" name="Robotframework-Foundry-Cast-Test-Keywords" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/robotframework-foundry-cast-test-keywords.robot">
-<test id="s1-s1-t1" name="Quickly test the Solidty Smart Contract deployed to the Ethereum local fork using Foundry's Cast tool." line="6">
+<test id="s1-s1-t1" name="PARALLEL PLAYWRIGHT FOUNDRY TEST : Quickly test the Solidty Smart Contract deployed to the Ethereum local fork using Foundry's Cast tool." line="6">
 <kw name="Get Smart Contract Address">
 <kw name="Get File" owner="OperatingSystem">
 <msg time="2024-03-04T23:44:02.293560" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/anvil-smartcontract-address.env"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/anvil-smartcontract-address.env&lt;/a&gt;'.</msg>

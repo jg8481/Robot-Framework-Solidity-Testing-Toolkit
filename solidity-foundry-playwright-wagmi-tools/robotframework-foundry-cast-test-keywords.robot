@@ -3,7 +3,7 @@ Library    OperatingSystem
 
 *** Test Cases ***
 
-Quickly test the Solidty Smart Contract deployed to the Ethereum local fork using Foundry's Cast tool.
+PARALLEL PLAYWRIGHT FOUNDRY TEST : Quickly test the Solidty Smart Contract deployed to the Ethereum local fork using Foundry's Cast tool.
     Get Smart Contract Address
     Run Foundry Cast Call Command And Check Results    balanceOf(address)(uint256)
     Run Foundry Cast Call Command And Check Results    name()(string)

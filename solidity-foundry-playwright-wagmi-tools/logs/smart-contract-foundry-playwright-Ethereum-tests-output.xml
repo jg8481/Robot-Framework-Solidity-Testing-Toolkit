@@ -2,7 +2,7 @@
 <robot generator="Rebot 7.0 (Python 3.11.6 on darwin)" generated="2024-03-04T23:44:53.370442" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dApp Test">
 <suite id="s1-s1" name="Robotframework-Foundry-Cast-Test-Keywords" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/robotframework-foundry-cast-test-keywords.robot">
-<test id="s1-s1-t1" name="Quickly test the Solidty Smart Contract deployed to the Ethereum local fork using Foundry's Cast tool." line="6">
+<test id="s1-s1-t1" name="PARALLEL PLAYWRIGHT FOUNDRY TEST : Quickly test the Solidty Smart Contract deployed to the Ethereum local fork using Foundry's Cast tool." line="6">
 <kw name="Get Smart Contract Address">
 <kw name="Get File" owner="OperatingSystem">
 <msg time="2024-03-04T23:44:02.293560" level="INFO" html="true">Getting file '&lt;a href="file:///Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/anvil-smartcontract-address.env"&gt;/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/anvil-smartcontract-address.env&lt;/a&gt;'.</msg>
@@ -396,7 +396,7 @@ depositNonce             null</msg>
 <status status="PASS" start="2024-03-04T23:44:02.283000" elapsed="20.326220"/>
 </suite>
 <suite id="s1-s2" name="Robotframework-Mock-Wallet-Playwright-Test-Keywords" source="/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/robotframework-mock-wallet-playwright-test-keywords.robot">
-<test id="s1-s2-t1" name="Quickly test a wagmi Mock Wallet dApp connected to an Ethereum local fork using Foundry's Anvil tool." line="6">
+<test id="s1-s2-t1" name="PARALLEL PLAYWRIGHT FOUNDRY TEST : Quickly test a Wagmi Mock Wallet dApp connected to an Ethereum local fork using Foundry's Anvil tool." line="6">
 <kw name="Open New Browser And Setup Test">
 <kw name="New Browser" owner="Browser">
 <msg time="2024-03-04T23:44:03.936834" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/1/browser/traces/1a3deeec-5484-4233-a79d-b64a6107047b"}</msg>
