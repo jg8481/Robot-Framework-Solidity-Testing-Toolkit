@@ -3,18 +3,17 @@ Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dAp...
 ==============================================================================
 Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dAp...
 ==============================================================================
-Quickly test the Solidty Smart Contract deployed to the Ethereum l... ...
+PARALLEL PLAYWRIGHT FOUNDRY TEST : Quickly test the Solidty Smart ... ...
 ...
 ...
 0x398E4948e373Db819606A459456176D31C3B1F91
-
 ...
 ...
 ...
 ...
 ...
 ...
-200
+0
 ...
 ...
 ...
@@ -29,22 +28,24 @@ Quickly test the Solidty Smart Contract deployed to the Ethereum l... ...
 ...
 ...
 
-blockHash               0x3657605c3c714546131b589a1b013540161d0b190d62862b4a22d9724e4ad192
-blockNumber             16391700
+blockHash               0x15356f8d9ebec4d25b7a3ee2074758c3143e06f86cc393397fdc3a837de14193
+blockNumber             16391698
 contractAddress         
-cumulativeGasUsed       34099
-effectiveGasPrice       12286565686
+cumulativeGasUsed       68299
+effectiveGasPrice       13089664084
 from                    0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
-gasUsed                 34099
-logs                    [{"address":"0x398e4948e373db819606a459456176d31c3b1f91","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266"],"data":"0x0000000000000000000000000000000000000000000000000000000000000064","blockHash":"0x3657605c3c714546131b589a1b013540161d0b190d62862b4a22d9724e4ad192","blockNumber":"0xfa1e14","transactionHash":"0xf46bc1b54845ce0f2729a57817988cf2b5fec2494e5f504f4ad112612008e01c","transactionIndex":"0x0","logIndex":"0x0","removed":false}]
+gasUsed                 68299
+logs                    [{"address":"0x398e4948e373db819606a459456176d31c3b1f91","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266"],"data":"0x0000000000000000000000000000000000000000000000000000000000000064","blockHash":"0x15356f8d9ebec4d25b7a3ee2074758c3143e06f86cc393397fdc3a837de14193","blockNumber":"0xfa1e12","blockTimestamp":"0x63c02b15","transactionHash":"0x8ad1a6368f9819fcbfed98a933269e9d11c71ab85c500b7c5afd1e0a6fe6ede4","transactionIndex":"0x0","logIndex":"0x0","removed":false}]
 logsBloom               0x00000000000008000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000020000000000000100000800000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000002000000200000000000000000000000002000000000000000000020000000000000000000000000000000000000000000000000000000000000000000
-root                    
-status                  1
-transactionHash         0xf46bc1b54845ce0f2729a57817988cf2b5fec2494e5f504f4ad112612008e01c
+root                    0x0000000000000000000000000000000000000000000000000000000000000000
+status                  1 (success)
+transactionHash         0x8ad1a6368f9819fcbfed98a933269e9d11c71ab85c500b7c5afd1e0a6fe6ede4
 transactionIndex        0
 type                    2
+blobGasPrice            1
+blobGasUsed             
+authorizationList       
 to                      0x398E4948e373Db819606A459456176D31C3B1F91
-depositNonce             null
 ...
 ...
 ...
@@ -52,22 +53,24 @@ depositNonce             null
 ...
 ...
 
-blockHash               0x4113ba56799000a189b7839218759e2b0b1f01952a5334310d338dcee23eff86
-blockNumber             16391701
+blockHash               0x8c7c7be84bbf55d1924c434320ec051350a05b3777beb46d97c371700bc5411e
+blockNumber             16391699
 contractAddress         
 cumulativeGasUsed       34099
-effectiveGasPrice       11128383831
+effectiveGasPrice       11581863250
 from                    0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 gasUsed                 34099
-logs                    [{"address":"0x398e4948e373db819606a459456176d31c3b1f91","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266"],"data":"0x0000000000000000000000000000000000000000000000000000000000000064","blockHash":"0x4113ba56799000a189b7839218759e2b0b1f01952a5334310d338dcee23eff86","blockNumber":"0xfa1e15","transactionHash":"0xcbb375ebe3fc0be62efaf1b36b0bcbc6becdc4175ee7d002125fc4dc075ed570","transactionIndex":"0x0","logIndex":"0x0","removed":false}]
+logs                    [{"address":"0x398e4948e373db819606a459456176d31c3b1f91","topics":["0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef","0x0000000000000000000000000000000000000000000000000000000000000000","0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266"],"data":"0x0000000000000000000000000000000000000000000000000000000000000064","blockHash":"0x8c7c7be84bbf55d1924c434320ec051350a05b3777beb46d97c371700bc5411e","blockNumber":"0xfa1e13","blockTimestamp":"0x63c02b1f","transactionHash":"0xf2422317e30951ba654b4212a5dfd1470528f5092ff30e549a621670ba59ceca","transactionIndex":"0x0","logIndex":"0x0","removed":false}]
 logsBloom               0x00000000000008000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000020000000000000100000800000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000002000000200000000000000000000000002000000000000000000020000000000000000000000000000000000000000000000000000000000000000000
-root                    
-status                  1
-transactionHash         0xcbb375ebe3fc0be62efaf1b36b0bcbc6becdc4175ee7d002125fc4dc075ed570
+root                    0x0000000000000000000000000000000000000000000000000000000000000000
+status                  1 (success)
+transactionHash         0xf2422317e30951ba654b4212a5dfd1470528f5092ff30e549a621670ba59ceca
 transactionIndex        0
 type                    2
+blobGasPrice            1
+blobGasUsed             
+authorizationList       
 to                      0x398E4948e373Db819606A459456176D31C3B1F91
-depositNonce             null
 ...
 ...
 ...
@@ -79,4 +82,4 @@ Robot Framework Solidity Smart Contract Foundry Ethereum And Playw... | PASS |
 Robot Framework Solidity Smart Contract Foundry Ethereum And Playw... | PASS |
 1 test, 1 passed, 0 failed
 ==============================================================================
-Output:  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/0/smart-contract-foundry-playwright-Ethereum-tests-output.xml
+Output:  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Demonstrations/Robot-Framework-Solidity-Testing-Toolkit_Demo-Part4-Foundry-Playwright-WAGMI-Tests/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/0/smart-contract-foundry-playwright-Ethereum-tests-output.xml

@@ -3,7 +3,7 @@ Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dAp...
 ==============================================================================
 Robot Framework Solidity Smart Contract Foundry Ethereum And Playwright dAp...
 ==============================================================================
-Quickly test a wagmi Mock Wallet dApp connected to an Ethereum loc... 
+PARALLEL PLAYWRIGHT FOUNDRY TEST : Quickly test a wagmi Mock Walle... 
 | PASS |
 ------------------------------------------------------------------------------
 Robot Framework Solidity Smart Contract Foundry Ethereum And Playw... | PASS |
@@ -12,4 +12,4 @@ Robot Framework Solidity Smart Contract Foundry Ethereum And Playw... | PASS |
 Robot Framework Solidity Smart Contract Foundry Ethereum And Playw... | PASS |
 1 test, 1 passed, 0 failed
 ==============================================================================
-Output:  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_RoboCon-2024-WIP-Part2-Foundry-Playwright-WAGMI/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/1/smart-contract-foundry-playwright-Ethereum-tests-output.xml
+Output:  /Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Demonstrations/Robot-Framework-Solidity-Testing-Toolkit_Demo-Part4-Foundry-Playwright-WAGMI-Tests/solidity-foundry-playwright-wagmi-tools/logs/pabot_results/1/smart-contract-foundry-playwright-Ethereum-tests-output.xml

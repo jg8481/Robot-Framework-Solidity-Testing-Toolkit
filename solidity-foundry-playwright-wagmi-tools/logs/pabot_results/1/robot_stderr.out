@@ -1,0 +1,2 @@
+/Users/jgorospe/Documents/GitHub/Robot-Framework-Solidity-Testing-Toolkit_Demonstrations/Robot-Framework-Solidity-Testing-Toolkit_Demo-Part4-Foundry-Playwright-WAGMI-Tests/solidity-foundry-playwright-wagmi-tools/venv/lib/python3.11/site-packages/google/protobuf/runtime_version.py:112: UserWarning: Protobuf gencode version 5.27.2 is older than the runtime version 5.28.1 at playwright.proto. Please avoid checked-in Protobuf gencode that can be obsolete.
+  warnings.warn(
