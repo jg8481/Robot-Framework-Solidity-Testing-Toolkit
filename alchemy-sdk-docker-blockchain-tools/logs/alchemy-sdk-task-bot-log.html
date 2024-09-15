@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 7.0.1 (Python 3.11.2 on linux)" name="Generator">
+<meta content="Robot Framework 7.1 (Python 3.11.2 on linux)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all">
 :root {
@@ -1252,58 +1252,48 @@ window.stats = (function () {
             });
     }
     function calculatePercents(total, passed, failed, skipped) {
-        if (total == 0) {
+        if (total == 0)
             return [0.0, 0.0, 0.0];
-        }
         var pass = 100.0 * passed / total;
         var skip = 100.0 * skipped / total;
         var fail = 100.0 * failed / total;
         if (pass > 0 && pass < 0.1)
-            pass = 0.1
+            pass = 0.1;
         if (fail > 0 && fail < 0.1)
-            fail = 0.1
+            fail = 0.1;
         if (skip > 0 && skip < 0.1)
-            skip = 0.1
+            skip = 0.1;
         if (pass > 99.95 && pass < 100)
-            pass = 99.9
+            pass = 99.9;
         if (fail > 99.95 && fail < 100)
-            fail = 99.9
+            fail = 99.9;
         if (skip > 99.95 && skip < 100)
-            skip = 99.9
-        return [Math.round(pass*10)/10, Math.round(skip*10)/10, Math.round(fail*10)/10];
+            skip = 99.9;
+        return [round1(pass), round1(skip), round1(fail)];
     }
     function calculateWidths(num1, num2, num3) {
         if (num1 + num2 + num3 === 0)
             return [0.0, 0.0, 0.0];
         // Make small percentages better visible
         if (num1 > 0 && num1 < 1)
-            num1 = 1
+            num1 = 1.0;
         if (num2 > 0 && num2 < 1)
-            num2 = 1
+            num2 = 1.0;
         if (num3 > 0 && num3 < 1)
-            num3 = 1
+            num3 = 1.0;
         // Handle situation where some are rounded up
         while (num1 + num2 + num3 > 100) {
-            if (num1 > num2 && num1 > num3)
-                num1 -= 0.1;
-            else if (num2 > num1 && num2 > num3)
-                num2 -= 0.1;
-            else if (num3 > num1 && num3 > num2)
-                num3 -= 0.1;
-            else if (num1 > num3 && num1 == num2) {
-                num1 -= 0.1;
-                num2 -= 0.1;
-            }
-            else if (num1 > num2 && num1 == num3) {
-                num1 -= 0.1;
-                num3 -= 0.1;
-            }
-            else if (num2 > num1 && num2 == num3) {
-                num2 -= 0.1;
-                num3 -= 0.1;
-            }
+            if (num1 >= num2 && num1 >= num3)
+                num1 = round1(num1 - 0.1);
+            else if (num2 >= num1 && num2 >= num3)
+                num2 = round1(num2 - 0.1);
+            else
+                num3 = round1(num3 - 0.1);
         }
-        return [Math.ceil(num1*10)/10, Math.ceil(num2*10)/10, Math.ceil(num3*10)/10];
+        return [num1, num2, num3];
+    }
+    function round1(num) {
+        return Math.round(num*10) / 10;
     }
     return {
         Statistics: Statistics
@@ -2081,13 +2071,13 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[1,0,789],[],[[4,0,0,[5],[1,23,693],[[0,6,7,0,0,0,8,0,[1,24,691],[[715,2,9]]],[0,10,11,0,12,13,0,0,[1,715,0],[]],[0,10,11,0,12,13,0,0,[1,715,0],[]],[0,10,11,0,12,13,0,0,[1,715,0],[]],[0,10,11,0,12,8,0,0,[1,715,0],[]],[0,10,11,0,12,13,0,0,[1,716,0],[]],[0,10,11,0,12,13,0,0,[1,716,0],[]],[0,10,11,0,12,13,0,0,[1,716,0],[]]]],[14,0,0,[5],[1,716,72],[[0,15,7,0,0,0,8,0,[1,717,71],[[787,2,16]]],[0,10,11,0,12,13,0,0,[1,787,0],[]],[0,10,11,0,12,13,0,0,[1,788,0],[]],[0,10,11,0,12,13,0,0,[1,788,0],[]],[0,10,11,0,12,8,0,0,[1,788,0],[]],[0,10,11,0,12,13,0,0,[1,788,0],[]],[0,10,11,0,12,13,0,0,[1,788,0],[]],[0,10,11,0,12,13,0,0,[1,788,0],[]]]]],[],[2,2,0,0]];
+window.output["suite"] = [1,2,3,0,[],[1,0,551],[],[[4,0,0,[5],[1,25,451],[[0,6,7,0,0,0,8,0,[1,26,448],[[474,2,9]]],[0,10,11,0,12,13,0,0,[1,474,0],[]],[0,10,11,0,12,13,0,0,[1,475,0],[]],[0,10,11,0,12,13,0,0,[1,475,0],[]],[0,10,11,0,12,8,0,0,[1,475,0],[]],[0,10,11,0,12,13,0,0,[1,475,0],[]],[0,10,11,0,12,13,0,0,[1,476,0],[]],[0,10,11,0,12,13,0,0,[1,476,0],[]],[0,14,11,0,15,8,0,0,[1,476,0],[[476,2,16]]]]],[17,0,0,[5],[1,477,74],[[0,18,7,0,0,0,8,0,[1,477,71],[[548,2,19]]],[0,10,11,0,12,13,0,0,[1,548,0],[]],[0,10,11,0,12,13,0,0,[1,549,0],[]],[0,10,11,0,12,13,0,0,[1,549,0],[]],[0,10,11,0,12,8,0,0,[1,549,0],[]],[0,10,11,0,12,13,0,0,[1,549,0],[]],[0,10,11,0,12,13,0,0,[1,550,0],[]],[0,10,11,0,12,13,0,0,[1,550,0],[]],[0,14,11,0,15,8,0,0,[1,550,0],[[550,2,20]]]]]],[],[2,2,0,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Robot Framework Alchemy SDK Bot Task","*/tasks/robotframework-alchemy-sdk-bot-rpa-keywords.robot","*../robotframework-alchemy-sdk-bot-rpa-keywords.robot","*ALCHEMY SDK BOT TASK : Get the current total amount of NFTs owned by Vitalik Buterin from Ethereum Mainnet.","*Alchemy_SDK_Bot_Task","*Get NFT Owner Information","*Remote","*${RESULT}","*${RESULT} = {'nftTotal': 27282, 'ownerAddr': 'vitalik.eth'}","*Log To Console","*BuiltIn","*<p>Logs the given message to the console.\x3c/p>","*...","*ALCHEMY SDK BOT TASK : Get the current metadata about a specific NFT from Ethereum Mainnet.","*Get NFT Metadata","*${RESULT} = {'checkNFTCollectionName': 'Crypto Coven', 'checkNFTDeployerAddress': '0xac9d54ca08740A608B6C474e5CA07d51cA8117Fa', 'checkSpecificNFTName': 'balsa vault', 'checkTokenType': 'ERC721', 'checkDeployedBlo..."]);
+window.output["strings"] = window.output["strings"].concat(["*","*Robot Framework Alchemy SDK Bot Task","*/tasks/robotframework-alchemy-sdk-bot-rpa-keywords.robot","*../robotframework-alchemy-sdk-bot-rpa-keywords.robot","*ALCHEMY SDK BOT TASK : Get the current total amount of NFTs owned by Vitalik Buterin from Ethereum Mainnet.","*Alchemy_SDK_Bot_Task","*Get NFT Owner Information","*Remote","*${RESULT}","*${RESULT} = {'nftTotal': 27289, 'ownerAddr': 'vitalik.eth'}","*Log To Console","*BuiltIn","*<p>Logs the given message to the console.\x3c/p>","*...","*Log","*<p>Logs the given message with the given level.\x3c/p>","*{'nftTotal': 27289, 'ownerAddr': 'vitalik.eth'}","*ALCHEMY SDK BOT TASK : Get the current metadata about a specific NFT from Ethereum Mainnet.","*Get NFT Metadata","*${RESULT} = {'checkNFTCollectionName': 'Crypto Coven', 'checkNFTDeployerAddress': '0xac9d54ca08740A608B6C474e5CA07d51cA8117Fa', 'checkSpecificNFTName': 'balsa vault', 'checkTokenType': 'ERC721', 'checkDeployedBlo...","eNp9kN1OwjAYhm9l4aQnhrWyrpMgyajuyKCBeQHl6wdrKGvTDeJivHc3lMUjj98n798ngQrhuC5K6axFaI2r1+qEZB4RGTrfuki6C9bkLhrJJ/TWdRhyrQM2zYDSDwUPmiegaCYSmqc0W6UyEQlymVOhOYM8Y0wUajTaegSzN9Ab3gJ3yjYquqizbUesdEesy85fgeeNFPds1H6L6JV1fbHzaYehp9iMJ4IxfqNePdZbVIV1LrwFA4MTndJZSlPxd5VpwAX9vnkZkhYqqgLuHydV2/pmHsf6R54eDjFcf4Hhlsnyf30RqyX5+gbbPHQB"]);
 </script>
 <script type="text/javascript">
 window.output["stats"] = [[{"elapsed":"00:00:01","fail":0,"label":"All Tasks","pass":2,"skip":0}],[{"elapsed":"00:00:01","fail":0,"label":"Alchemy_SDK_Bot_Task","pass":2,"skip":0}],[{"elapsed":"00:00:01","fail":0,"id":"s1","label":"Robot Framework Alchemy SDK Bot Task","name":"Robot Framework Alchemy SDK Bot Task","pass":2,"skip":0}]];
@@ -2096,10 +2086,10 @@ window.output["stats"] = [[{"elapsed":"00:00:01","fail":0,"label":"All Tasks","p
 window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1725162762475;
+window.output["baseMillis"] = 1726381006644;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 791;
+window.output["generated"] = 554;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;

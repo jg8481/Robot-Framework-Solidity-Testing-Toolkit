@@ -1,95 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.11.2 on linux)" generated="2024-09-01T03:52:42.474758" rpa="true" schemaversion="5">
+<robot generator="Robot 7.1 (Python 3.11.2 on linux)" generated="2024-09-15T06:16:46.642960" rpa="true" schemaversion="5">
 <suite id="s1" name="Robot Framework Alchemy SDK Bot Task" source="/tasks/robotframework-alchemy-sdk-bot-rpa-keywords.robot">
-<test id="s1-t1" name="ALCHEMY SDK BOT TASK : Get the current total amount of NFTs owned by Vitalik Buterin from Ethereum Mainnet." line="9">
+<test id="s1-t1" name="ALCHEMY SDK BOT TASK : Get the current total amount of NFTs owned by Vitalik Buterin from Ethereum Mainnet." line="11">
 <kw name="Get NFT Owner Information" owner="Remote">
-<msg time="2024-09-01T03:52:43.189604" level="INFO">${RESULT} = {'nftTotal': 27282, 'ownerAddr': 'vitalik.eth'}</msg>
+<msg time="2024-09-15T06:16:47.117949" level="INFO">${RESULT} = {'nftTotal': 27289, 'ownerAddr': 'vitalik.eth'}</msg>
 <var>${RESULT}</var>
-<status status="PASS" start="2024-09-01T03:52:42.498538" elapsed="0.691086"/>
+<status status="PASS" start="2024-09-15T06:16:46.669854" elapsed="0.448165"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.189805" elapsed="0.000124"/>
+<status status="PASS" start="2024-09-15T06:16:47.118318" elapsed="0.000191"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.190023" elapsed="0.000096"/>
+<status status="PASS" start="2024-09-15T06:16:47.118669" elapsed="0.000090"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.190217" elapsed="0.000085"/>
+<status status="PASS" start="2024-09-15T06:16:47.118850" elapsed="0.000077"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESULT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.190387" elapsed="0.000100"/>
+<status status="PASS" start="2024-09-15T06:16:47.119024" elapsed="0.000147"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.190564" elapsed="0.000084"/>
+<status status="PASS" start="2024-09-15T06:16:47.119275" elapsed="0.000211"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.190718" elapsed="0.000078"/>
+<status status="PASS" start="2024-09-15T06:16:47.119624" elapsed="0.000105"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.190876" elapsed="0.000152"/>
+<status status="PASS" start="2024-09-15T06:16:47.119819" elapsed="0.000139"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-15T06:16:47.120158" level="INFO">{'nftTotal': 27289, 'ownerAddr': 'vitalik.eth'}</msg>
+<arg>${RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-15T06:16:47.120068" elapsed="0.000126"/>
 </kw>
 <tag>Alchemy_SDK_Bot_Task</tag>
-<status status="PASS" start="2024-09-01T03:52:42.498099" elapsed="0.693059"/>
+<status status="PASS" start="2024-09-15T06:16:46.669301" elapsed="0.451063"/>
 </test>
-<test id="s1-t2" name="ALCHEMY SDK BOT TASK : Get the current metadata about a specific NFT from Ethereum Mainnet." line="20">
+<test id="s1-t2" name="ALCHEMY SDK BOT TASK : Get the current metadata about a specific NFT from Ethereum Mainnet." line="23">
 <kw name="Get NFT Metadata" owner="Remote">
-<msg time="2024-09-01T03:52:43.262199" level="INFO">${RESULT} = {'checkNFTCollectionName': 'Crypto Coven', 'checkNFTDeployerAddress': '0xac9d54ca08740A608B6C474e5CA07d51cA8117Fa', 'checkSpecificNFTName': 'balsa vault', 'checkTokenType': 'ERC721', 'checkDeployedBlo...</msg>
+<msg time="2024-09-15T06:16:47.192281" level="INFO">${RESULT} = {'checkNFTCollectionName': 'Crypto Coven', 'checkNFTDeployerAddress': '0xac9d54ca08740A608B6C474e5CA07d51cA8117Fa', 'checkSpecificNFTName': 'balsa vault', 'checkTokenType': 'ERC721', 'checkDeployedBlo...</msg>
 <var>${RESULT}</var>
-<status status="PASS" start="2024-09-01T03:52:43.191508" elapsed="0.070711"/>
+<status status="PASS" start="2024-09-15T06:16:47.120953" elapsed="0.071350"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.262341" elapsed="0.000122"/>
+<status status="PASS" start="2024-09-15T06:16:47.192435" elapsed="0.000135"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.262562" elapsed="0.000057"/>
+<status status="PASS" start="2024-09-15T06:16:47.192732" elapsed="0.000127"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.262717" elapsed="0.000081"/>
+<status status="PASS" start="2024-09-15T06:16:47.192965" elapsed="0.000136"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${RESULT}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.262871" elapsed="0.000115"/>
+<status status="PASS" start="2024-09-15T06:16:47.193221" elapsed="0.000168"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.263047" elapsed="0.000058"/>
+<status status="PASS" start="2024-09-15T06:16:47.193486" elapsed="0.000128"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.263201" elapsed="0.000086"/>
+<status status="PASS" start="2024-09-15T06:16:47.193724" elapsed="0.000138"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-09-01T03:52:43.263375" elapsed="0.000103"/>
+<status status="PASS" start="2024-09-15T06:16:47.193955" elapsed="0.000128"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-09-15T06:16:47.194418" level="INFO">{'checkNFTCollectionName': 'Crypto Coven', 'checkNFTDeployerAddress': '0xac9d54ca08740A608B6C474e5CA07d51cA8117Fa', 'checkSpecificNFTName': 'balsa vault', 'checkTokenType': 'ERC721', 'checkDeployedBlockNumber': 13547115, 'checkOpenSeaFloorPrice': 0.036067, 'checkNFTDiscordURL': 'https://discord.gg/cryptocoven'}</msg>
+<arg>${RESULT}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-09-15T06:16:47.194196" elapsed="0.000264"/>
 </kw>
 <tag>Alchemy_SDK_Bot_Task</tag>
-<status status="PASS" start="2024-09-01T03:52:43.191306" elapsed="0.072273"/>
+<status status="PASS" start="2024-09-15T06:16:47.120699" elapsed="0.073931"/>
 </test>
-<status status="PASS" start="2024-09-01T03:52:42.475171" elapsed="0.788755"/>
+<status status="PASS" start="2024-09-15T06:16:46.643633" elapsed="0.551469"/>
 </suite>
 <statistics>
 <total>
