@@ -62,7 +62,7 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   cd "$CURRENT_PATH"/solidity-foundry-playwright-wagmi-tools
   rm -rf ./main.zip
   rm -rf ./dapp-e2e-*
-  wget https://github.com/re-nft/dapp-e2e-example/archive/refs/heads/main.zip
+  wget https://github.com/jg8481/dapp-e2e-example/archive/refs/heads/main.zip
   unzip ./main.zip
   rm -rf ./main.zip
   cd "$CURRENT_PATH"
