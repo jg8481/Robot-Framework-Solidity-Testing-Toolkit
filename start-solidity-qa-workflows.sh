@@ -556,7 +556,7 @@ if [ "$1" == "Start-Forked-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   echo
   sleep 10
   DEPLOYED_CONTRACT_ADDRESS=$(cat ./logs/forge-compile-and-deployment.log | grep "Deployed to" | awk '{print $3}')
-  echo "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.env
+  echo -n "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.env
   #echo "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.txt
   #tail -n -1 ./anvil-smartcontract-address.txt > ./anvil-smartcontract-address.env
   #rm -rf ./anvil-smartcontract-address.txt
@@ -635,7 +635,7 @@ if [ "$1" == "Start-Default-Foundry-Anvil-Node-And-Wagmi-dApp" ]; then
   echo
   sleep 10
   DEPLOYED_CONTRACT_ADDRESS=$(cat ./logs/forge-compile-and-deployment.log | grep "Deployed to" | awk '{print $3}')
-  echo "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.env
+  echo -n "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.env
   #echo "$DEPLOYED_CONTRACT_ADDRESS" > ./anvil-smartcontract-address.txt
   #tail -n -1 ./anvil-smartcontract-address.txt > ./anvil-smartcontract-address.env
   #rm -rf ./anvil-smartcontract-address.txt
