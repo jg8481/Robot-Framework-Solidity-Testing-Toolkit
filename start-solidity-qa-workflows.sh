@@ -761,13 +761,13 @@ if [ "$1" == "Stop-And-Clean-Up-Docker-Bot-RPA-Tasks" ]; then
   docker stop $(docker ps -a -q) &&
   docker rm $(docker ps -a -q)
   cd ./alchemy-sdk-docker-blockchain-tools
-  docker compose -f docker compose.yml down
-  docker compose -f docker compose.yml rm -f
-  docker compose -f docker compose.yml build
+  docker compose -f docker-compose.yml down
+  docker compose -f docker-compose.yml rm -f
+  docker compose -f docker-compose.yml build
   cd ./infura-websocket-docker-blockchain-tools
-  docker compose -f docker compose.yml down
-  docker compose -f docker compose.yml rm -f
-  docker compose -f docker compose.yml build
+  docker compose -f docker-compose.yml down
+  docker compose -f docker-compose.yml rm -f
+  docker compose -f docker-compose.yml build
   TIMESTAMP2=$(date)
   echo "This build ended on $TIMESTAMP2."
 fi
