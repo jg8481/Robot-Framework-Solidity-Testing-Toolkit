@@ -1,0 +1,31 @@
+==============================================================================
+Robotframework-Hardhat-Test-Keywords                                          
+==============================================================================
+HARDHAT ETHERS.JS TEST 1 : Get the deployed smart contract using t... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 2 : Get token name from the deployed smart ... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 3 : Get token symbol from the deployed smar... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 4 : Get the decimals from the deployed smar... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 5 : Get total token supply from the deploye... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 6 : Get balance of tokens from the address ... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 7 : Transfer tokens to a target address fro... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 8 : Get balance of tokens from the address ... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 9 : Approve a specific amount of tokens for... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 10 : Transfer tokens from a target address ... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 11 : Increase the allowance of the spender ... | PASS |
+------------------------------------------------------------------------------
+HARDHAT ETHERS.JS TEST 12 : Decrease the allowance of the spender ... | PASS |
+------------------------------------------------------------------------------
+Robotframework-Hardhat-Test-Keywords                                  | PASS |
+12 tests, 12 passed, 0 failed
+==============================================================================
+Output:  NONE

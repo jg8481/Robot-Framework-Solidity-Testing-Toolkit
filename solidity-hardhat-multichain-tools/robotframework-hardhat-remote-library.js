@@ -210,5 +210,15 @@ lib.decreaseSpenderAllowance = async function(str) {
 };
 
 if (!module.parent) {
-    const server = new robot.Server([lib], { host: 'localhost', port: 8270 });
+    (async () => {
+        const testToken = await ethers.getContractFactory('Token');
+        const deployToken = await testToken.deploy();
+        await deployToken.deployed();
+        console.log(`TestToken has been deployed to: ${deployToken.address}`);
+        process.env.CONTRACT_ADDRESS = deployToken.address;
+        new robot.Server([lib], { host: 'localhost', port: 8270 });
+    })().catch((error) => {
+        console.error(error);
+        process.exit(1);
+    });
 }

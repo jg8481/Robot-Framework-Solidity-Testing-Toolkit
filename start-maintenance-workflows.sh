@@ -16,6 +16,27 @@ ensure_bats_installed() {
   fi
 }
 
+remote_server_port_open() {
+  if command -v nc >/dev/null 2>&1; then
+    nc -z localhost 8270 2>/dev/null
+    return $?
+  fi
+  (echo >/dev/tcp/127.0.0.1/8270) >/dev/null 2>&1
+}
+
+wait_for_hardhat_remote_server() {
+  local log_file=$1
+  for _ in $(seq 1 60); do
+    if grep -q "Robot Framework remote server starting" "$log_file" 2>/dev/null && remote_server_port_open; then
+      return 0
+    fi
+    sleep 1
+  done
+  echo "Hardhat Robot Framework remote server did not become ready in time."
+  cat "$log_file" 2>/dev/null || true
+  return 1
+}
+
 clear
 TIMESTAMP=$(date)
 
@@ -69,7 +90,7 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
   # npm audit fix --force
   echo
   echo
-  clear
+  clear 2>/dev/null || true
   bats -h > /dev/null && 
   if [ $? -eq 0 ]; then
     echo
@@ -108,9 +129,15 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   rm -rf ./utest/unit-test-resources/robotframework-hardhat-test-keywords.robot
   export CURRENT_PATH=$(pwd)
   cd ./solidity-hardhat-multichain-tools
-  source ./hardhat-environment-variables.env 
-  nohup node ./robotframework-hardhat-remote-library.js > "$CURRENT_PATH"/utest/unit-test-resources/robotframework-hardhat-remote-library-standalone-mode.unit-test-log  &
-  sleep 5
+  source ./hardhat-environment-variables.env
+  export CONTRACT_ADDRESS
+  UNIT_TEST_LOG="$CURRENT_PATH"/utest/unit-test-resources/robotframework-hardhat-remote-library-standalone-mode.unit-test-log
+  nohup node ./robotframework-hardhat-remote-library.js > "$UNIT_TEST_LOG" 2>&1 &
+  wait_for_hardhat_remote_server "$UNIT_TEST_LOG"
+  DEPLOYED_ADDRESS=$(grep "TestToken has been deployed to:" "$UNIT_TEST_LOG" | awk '{print $NF}')
+  if [ -n "$DEPLOYED_ADDRESS" ]; then
+    export CONTRACT_ADDRESS="$DEPLOYED_ADDRESS"
+  fi
   cd "$CURRENT_PATH"
   cd ./utest
   # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &&
@@ -125,7 +152,7 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   # npm audit fix --force
   echo
   echo
-  clear
+  clear 2>/dev/null || true
   bats -h > /dev/null && 
   if [ $? -eq 0 ]; then
     echo

@@ -1,0 +1,22 @@
+TestToken has been deployed to: 0x5FbDB2315678afecb367f032d93F642f64180aa3
+Robot Framework remote server starting at localhost:8270
+getContract keyword ran on Mon May 18 2026 22:47:49 GMT-0400 (Eastern Daylight Time)
+getName keyword ran on Mon May 18 2026 22:47:49 GMT-0400 (Eastern Daylight Time)
+getSymbol keyword ran on Mon May 18 2026 22:47:49 GMT-0400 (Eastern Daylight Time)
+getDefaultDecimals keyword ran on Mon May 18 2026 22:47:50 GMT-0400 (Eastern Daylight Time)
+getTotalSupply keyword ran on Mon May 18 2026 22:47:50 GMT-0400 (Eastern Daylight Time)
+getTokenBalanceAddress keyword ran on Mon May 18 2026 22:47:50 GMT-0400 (Eastern Daylight Time)
+getBalanceOfAddress keyword ran on Mon May 18 2026 22:47:50 GMT-0400 (Eastern Daylight Time)
+getReceiverTargetAddress keyword ran on Mon May 18 2026 22:47:50 GMT-0400 (Eastern Daylight Time)
+transferToTargetAddress keyword ran on Mon May 18 2026 22:47:50 GMT-0400 (Eastern Daylight Time)
+getBalanceOfAddress keyword ran on Mon May 18 2026 22:47:51 GMT-0400 (Eastern Daylight Time)
+approveSpenderAmount keyword ran on Mon May 18 2026 22:47:51 GMT-0400 (Eastern Daylight Time)
+showSpenderAllowance keyword ran on Mon May 18 2026 22:47:51 GMT-0400 (Eastern Daylight Time)
+getTokenBalanceAddress keyword ran on Mon May 18 2026 22:47:51 GMT-0400 (Eastern Daylight Time)
+getReceiverTargetAddress keyword ran on Mon May 18 2026 22:47:51 GMT-0400 (Eastern Daylight Time)
+Sender's available allowance: 199300.0
+transferFromTargetAddress keyword ran on Mon May 18 2026 22:47:51 GMT-0400 (Eastern Daylight Time)
+Allowance will be increased by this amount: 2000
+increaseSpenderAllowance keyword ran on Mon May 18 2026 22:47:51 GMT-0400 (Eastern Daylight Time)
+Allowance will be decreased by this amount: 1000
+decreaseSpenderAllowance keyword ran on Mon May 18 2026 22:47:51 GMT-0400 (Eastern Daylight Time)
