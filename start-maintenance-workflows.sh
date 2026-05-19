@@ -2,6 +2,20 @@
 
 set -uo pipefail
 
+export TERM=${TERM:-xterm-256color}
+
+ensure_bats_installed() {
+  if command -v bats >/dev/null 2>&1; then
+    return 0
+  fi
+  if [ "$(uname -s)" = "Linux" ] && command -v apt-get >/dev/null 2>&1; then
+    sudo apt-get update
+    sudo apt-get install -y bats
+  else
+    npm install -g bats
+  fi
+}
+
 clear
 TIMESTAMP=$(date)
 
@@ -49,7 +63,7 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
   # nvm install 18
   # nvm use 18
   # nvm alias default 18
-  npm install -g bats
+  ensure_bats_installed
   # npm install robotremote
   # npm update
   # npm audit fix --force
@@ -63,7 +77,7 @@ if [ "$1" == "Run-Acceptance-Tests" ]; then
     echo
   else 
     echo
-    echo "WARNING! BATS did not install properly. Please check the 'npm install -g bats' installation command and the 'start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux' script."
+    echo "WARNING! BATS did not install properly. Install bats with apt on Linux or npm on macOS."
     echo
     exit 1
   fi
@@ -105,7 +119,7 @@ if [ "$1" == "Run-Unit-Tests" ]; then
   # nvm install 18
   # nvm use 18
   # nvm alias default 18
-  npm install -g bats
+  ensure_bats_installed
   # npm install robotremote
   # npm update
   # npm audit fix --force
@@ -119,7 +133,7 @@ if [ "$1" == "Run-Unit-Tests" ]; then
     echo
   else 
     echo
-    echo "WARNING! BATS did not install properly. Please check the 'npm install -g bats' installation command and the 'start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux' script."
+    echo "WARNING! BATS did not install properly. Install bats with apt on Linux or npm on macOS."
     echo
     exit 1
   fi

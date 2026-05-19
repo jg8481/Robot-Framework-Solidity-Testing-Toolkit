@@ -16,7 +16,7 @@ jobs:
       - name: Install all required Robot Framework dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-venv
+          sudo apt-get install -y python3-venv bats
           python3 --version
           python3 -m venv venv
           source venv/bin/activate
@@ -27,7 +27,8 @@ jobs:
           echo "${GITHUB_WORKSPACE}/venv/bin" >> "$GITHUB_PATH"
       - name: Install NodeJS and all required Hardhat dependencies
         run: |
-          bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
+          npm ci
+          cd solidity-hardhat-multichain-tools && npx hardhat compile
           node --version
       - name: Run all unit tests using the BATS test framework
         run: |
@@ -43,7 +44,7 @@ jobs:
       - name: Install all required Robot Framework dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-venv
+          sudo apt-get install -y python3-venv bats
           python3 --version
           python3 -m venv venv
           source venv/bin/activate
@@ -54,7 +55,8 @@ jobs:
           echo "${GITHUB_WORKSPACE}/venv/bin" >> "$GITHUB_PATH"
       - name: Install NodeJS and all required Hardhat dependencies
         run: |
-          bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux
+          npm ci
+          cd solidity-hardhat-multichain-tools && npx hardhat compile
           node --version
       - name: Run all acceptance tests using the BATS test framework
         run: |

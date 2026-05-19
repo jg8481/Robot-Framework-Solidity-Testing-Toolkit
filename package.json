@@ -1,0 +1,15 @@
+{
+  "name": "robot-framework-solidity-testing-toolkit",
+  "private": true,
+  "description": "Node dependencies for Hardhat and Robot Framework remote libraries",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "hardhat": "^2.22.17"
+  },
+  "dependencies": {
+    "@truffle/contract": "^4.6.9",
+    "ethers": "5.7.2",
+    "robotremote": "^1.1.0",
+    "web3": "^4.16.0"
+  }
+}

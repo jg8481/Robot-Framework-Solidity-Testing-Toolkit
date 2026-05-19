@@ -35,6 +35,15 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   echo
   echo "This command will install all of the required Node.js packages. This project was built using a stable LTS Node.js version. This run started on $TIMESTAMP."
   echo
+  if [ "$(uname -s)" = "Linux" ]; then
+    npm ci
+    cd ./solidity-hardhat-multichain-tools
+    npx hardhat compile
+    cd ..
+    TIMESTAMP2=$(date)
+    echo "This run ended on $TIMESTAMP2."
+    exit 0
+  fi
   ## If you're using a Linux Distro, make sure that wget is installed.
   brew install libusb
   rm -rf $HOME/.foundry
@@ -77,7 +86,7 @@ if [ "$1" == "Install-Tools-On-MacOS-Or-Linux" ]; then
   npm install -g solhint
   npm install -g solgraph
   npm install -g surya
-  npm install --save-dev hardhat
+  npm install --save-dev hardhat@^2.22.17
   npm install --save-dev @nomicfoundation/hardhat-toolbox@2
   npm install ethers@5.7.2
   #npm install --save-dev @nomicfoundation/hardhat-toolbox
