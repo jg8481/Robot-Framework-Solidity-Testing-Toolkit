@@ -4,7 +4,7 @@ A fully local Robot Framework + DataDriver workflow that runs the Alchemy MCP Se
 ["Example Prompts"](https://github.com/alchemyplatform/alchemy-mcp-server#example-prompts) through a
 [Codename Goose](https://block.github.io/goose/) AI Agent powered by a **local Ollama model**.
 
-This folder mirrors the design of `Robot-Framework-AI-Agent-Datadriver`, but every prompt is handled
+This folder mirrors the design of [Robot-Framework-AI-Agent-Datadriver](https://github.com/jg8481/Robot-Framework-AI-Agent-Datadriver), but every prompt is handled
 by the **local Goose CLI on this machine** (no cloud LLM providers). Goose
 reaches Alchemy's blockchain APIs through the Alchemy MCP Server, which is registered as a Goose
 `stdio` extension in `automation-resources/config.yaml`.
