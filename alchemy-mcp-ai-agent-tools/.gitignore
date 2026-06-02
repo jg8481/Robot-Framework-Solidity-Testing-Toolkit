@@ -1,0 +1,8 @@
+venv
+.env
+*.pyc
+__pycache__
+nohup.*
+*.DS_Store
+automation-resources/ai-agent-output-collector/ollama-output.log
+alchemy-mcp-server

@@ -73,6 +73,9 @@ In the future I plan to expand this toolkit into the following areas.
 - Create an Alchemy powered bot utilizing [their SDK](https://www.alchemy.com/sdk).
   - Progress:
     - (September 2, 2024 - **Ready To Use**) Created an Alchemy SDK Bot that runs within a Docker Container.
+- Create a local AI agent assistant utilizing [Codename Goose](https://block.github.io/goose/), [Ollama](https://ollama.com/), and secure [MCP Servers](https://www.pulsemcp.com/servers) all controlled with Robot Framework DataDriver RPA.
+  - Progress:
+    - (June 2, 2026 - **Ready To Use**) Created a local Codename Goose AI Agent + Ollama workflow that runs the [Alchemy MCP Server](https://github.com/alchemyplatform/alchemy-mcp-server) "Example Prompts" from a [robotframework-datadriver](https://github.com/Snooz82/robotframework-datadriver) CSV file. This runs locally on your own hardware and does not use Docker. More information can be found in the `alchemy-mcp-ai-agent-tools` folder.
 - Attempt to create Robot Framework automation utilizing the [Foundry toolkit](https://github.com/foundry-rs/foundry).
   - Progress:
     - (March 4, 2024 - **Ready To Use**) Created working parallel running Foundry and Playwright tests that runs checks on a mock wallet dApp connected to a local Anvil node. 
@@ -139,6 +142,15 @@ bash ./start-solidity-qa-workflows.sh Run-Smart-Contract-Tests-Default-Truffle-D
 
 ---->>>> Interactive Tests For Deployed Smart Contracts Using Foundry <<<<----
 bash ./start-solidity-qa-workflows.sh Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests
+
+---->>>> Local Codename Goose AI Agent + Ollama Running Alchemy MCP Server Prompts Powered by Robot Framework DataDriver RPA (Local Only, No Docker) <<<<----
+bash ./start-solidity-qa-workflows.sh Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server
+bash ./start-solidity-qa-workflows.sh Run-Datadriven-Alchemy-MCP-Local-AI-Tasks <ROBOT_FRAMEWORK_TAGS>
+
+Here are Robot Framework Tag examples that run specific Alchemy MCP AI agent prompts
+bash ./start-solidity-qa-workflows.sh Run-Datadriven-Alchemy-MCP-Local-AI-Tasks Prices
+bash ./start-solidity-qa-workflows.sh Run-Datadriven-Alchemy-MCP-Local-AI-Tasks PriceHistoryORTokens
+The available tags are... Prices, NFTs, Tokens, Transactions, PriceHistory, Transfers
 ```
 ### [Example Workflow 1] -> Deploy then test a smart contract using the built-in Hardhat Network Ethereum Node and node-robotremoteserver (on MacOS or Linux)
 From the commands posted above, here is an example workflow (with screenshots) below that will work reliably as long as both the basic technical requirements and the `bash ./start-solidity-qa-workflows.sh Install-Tools-On-MacOS-Or-Linux` command have been completed without issues.

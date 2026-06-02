@@ -3,6 +3,61 @@
 clear
 TIMESTAMP=$(date)
 NODEJS_VERSION="22"
+ALCHEMY_MCP_TOOLS_DIR="alchemy-mcp-ai-agent-tools"
+
+## This local-only helper prepares the Codename Goose AI Agent + Ollama runtime and wires in
+## the locally built Alchemy MCP Server as a Goose stdio extension. Docker is intentionally
+## never used by this workflow. The Goose AI Agent runs locally from Ollama on this machine.
+alchemy_mcp_local_agent_setup() {
+  pkill goose > /dev/null 2>&1
+  sleep 2s
+  killall goose > /dev/null 2>&1
+  sleep 2s
+  pkill ollama > /dev/null 2>&1
+  sleep 2s
+  killall ollama > /dev/null 2>&1
+  sleep 2s
+  toolkit_root=$(pwd)
+  cd "$toolkit_root"
+  mkdir -p "$HOME/.config/goose"
+  ALCHEMY_MCP_INDEX="$toolkit_root/$ALCHEMY_MCP_TOOLS_DIR/alchemy-mcp-server/dist/index.js"
+  if [ ! -f "$ALCHEMY_MCP_INDEX" ]; then
+    echo
+    echo "[WARNING] The local Alchemy MCP Server build was not found at $ALCHEMY_MCP_INDEX"
+    echo "Run this first ---> bash ./start-solidity-qa-workflows.sh Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server"
+    echo
+  fi
+  if [ -z "${ALCHEMY_API_KEY:-}" ]; then
+    echo
+    echo "[WARNING] The ALCHEMY_API_KEY environment variable is not set. The Alchemy MCP Server needs it for live blockchain data."
+    echo "Get a key at https://www.alchemy.com/ then run ---> export ALCHEMY_API_KEY=your_key_here"
+    echo
+  fi
+  ## Generate the active Goose config from the template, injecting the local MCP server path and API key.
+  sed -e "s|__ALCHEMY_MCP_INDEX__|${ALCHEMY_MCP_INDEX}|g" \
+      -e "s|__ALCHEMY_API_KEY__|${ALCHEMY_API_KEY:-}|g" \
+      "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/config.yaml" > "$HOME/.config/goose/config.yaml"
+  cp "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/permission.yaml" "$HOME/.config/goose/permission.yaml"
+  goose update > /dev/null 2>&1
+  brew update > /dev/null 2>&1
+  brew services start ollama
+  brew services restart ollama
+  sleep 10s
+  ollama --version > "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"
+  echo >> "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"
+  ollama list >> "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"
+  if grep -q "NAME" "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"; then
+    echo
+    echo "This alchemy_mcp_local_agent_setup will continue."
+    echo
+  else
+    echo
+    echo "[WARNING] Ollama has not been installed properly, or you are not connected to the Internet. If this was an intentional offline run, this will continue."
+    echo "Please read this documentation to fix Codename Goose and Ollama issues ---> https://block.github.io/goose/docs/getting-started/providers#local-llms-ollama"
+    echo "The suggested models used with this toolkit are mistral or qwen3 for now. Update the GOOSE_MODEL value in config.yaml to match the model you pulled."
+    echo
+  fi
+}
 
 if [ "$1" == "Stop-Local-Blockchain-Nodes-And-Delete-Logs" ]; then
   echo
@@ -821,6 +876,85 @@ if [ "$1" == "Run-Infura-Websocket-Bot-RPA-Tasks" ]; then
   echo "This test run ended on $TIMESTAMP2."
 fi
 
+if [ "$1" == "Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server" ]; then
+  echo
+  echo "------------------------------------[[[[ Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server ]]]]------------------------------------"
+  echo
+  echo "This command installs the local Codename Goose AI Agent and Ollama, then builds the local Alchemy MCP Server. This is a LOCAL Ollama setup and Docker is never used. This run started on $TIMESTAMP."
+  echo
+  toolkit_root=$(pwd)
+  cd "$toolkit_root"
+  ## Install the Ollama local LLM runtime and the Codename Goose AI Agent CLI (local, no Docker).
+  brew install ollama
+  brew services start ollama
+  curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | CONFIGURE=false bash
+  echo
+  echo "Pulling the default local model used by the provided config.yaml (mistral)..."
+  ollama pull mistral
+  echo
+  ## Build the local Alchemy MCP Server that ships in the alchemy-mcp-server-main folder.
+  ALCHEMY_MCP_SOURCE=""
+  if [ -d "$toolkit_root/../alchemy-mcp-server-main" ]; then
+    ALCHEMY_MCP_SOURCE="$toolkit_root/../alchemy-mcp-server-main"
+  elif [ -d "$toolkit_root/alchemy-mcp-server-main" ]; then
+    ALCHEMY_MCP_SOURCE="$toolkit_root/alchemy-mcp-server-main"
+  fi
+  if [ -z "$ALCHEMY_MCP_SOURCE" ]; then
+    echo
+    echo "[ERROR] Could not find the alchemy-mcp-server-main folder. Place it next to this toolkit folder (or inside it) and run this command again."
+    echo
+    exit 1
+  fi
+  rm -rf "$toolkit_root/$ALCHEMY_MCP_TOOLS_DIR/alchemy-mcp-server"
+  cp -R "$ALCHEMY_MCP_SOURCE" "$toolkit_root/$ALCHEMY_MCP_TOOLS_DIR/alchemy-mcp-server"
+  cd "$toolkit_root/$ALCHEMY_MCP_TOOLS_DIR/alchemy-mcp-server"
+  npm install
+  npm run build
+  cd "$toolkit_root"
+  echo
+  echo "Done. Before running tasks, export your Alchemy API key ---> export ALCHEMY_API_KEY=your_key_here"
+  echo "Then run ---> bash ./start-solidity-qa-workflows.sh Run-Datadriven-Alchemy-MCP-Local-AI-Tasks Prices"
+  echo
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+fi
+
+if [ "$1" == "Run-Datadriven-Alchemy-MCP-Local-AI-Tasks" ]; then
+  if [ -z "$2" ]; then
+    echo
+    echo "[ERROR] The second argument (Robot Framework Tag) should not be blank."
+    echo "The available tags are... Prices, NFTs, Tokens, Transactions, PriceHistory, Transfers"
+    echo
+    exit 1
+  fi
+  alchemy_mcp_local_agent_setup
+  echo
+  echo "------------------------------------[[[[ Run-Datadriven-Alchemy-MCP-Local-AI-Tasks ]]]]------------------------------------"
+  echo
+  echo "This command runs datadriven Alchemy MCP Server 'Example Prompts' through the local Goose AI Agent on Ollama. This run started on $TIMESTAMP."
+  echo
+  toolkit_root=$(pwd)
+  cd "$toolkit_root"
+  pip3 install virtualenv --user > /dev/null 2>&1
+  virtualenv -p python3 venv > /dev/null 2>&1
+  source venv/bin/activate
+  pip3 install -r ./"$ALCHEMY_MCP_TOOLS_DIR"/automation-resources/requirements.txt > /dev/null 2>&1
+  sleep 5
+  robot --skiponfailure "$2" --rpa --variable INCLUDED_TAG:"$2" --report NONE --log robotframework-alchemy-mcp-local-ai-agent-log.html --output robotframework-alchemy-mcp-local-ai-agent-output.xml -d ./"$ALCHEMY_MCP_TOOLS_DIR"/logs ./"$ALCHEMY_MCP_TOOLS_DIR"/robotframework-alchemy-mcp-local-ai-agent.robot
+  echo
+  TIMESTAMP2=$(date)
+  echo "This run ended on $TIMESTAMP2."
+  pkill goose > /dev/null 2>&1
+  sleep 2s
+  killall goose > /dev/null 2>&1
+  sleep 2s
+  pkill ollama > /dev/null 2>&1
+  sleep 2s
+  killall ollama > /dev/null 2>&1
+  sleep 2s
+  exit
+fi
+
 usage_explanation() {
   echo
   echo
@@ -871,6 +1005,15 @@ usage_explanation() {
   echo
   echo "---->>>> Interactive Tests For Deployed Smart Contracts Using Foundry <<<<----"
   echo "bash ./start-solidity-qa-workflows.sh Run-Parallel-Smart-Contract-Foundry-And-Playwright-Browser-Tests"
+  echo
+  echo "---->>>> Local Codename Goose AI Agent + Ollama Running Alchemy MCP Server Prompts Powered by Robot Framework DataDriver RPA (Local Only, No Docker) <<<<----"
+  echo "bash ./start-solidity-qa-workflows.sh Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Datadriven-Alchemy-MCP-Local-AI-Tasks <ROBOT_FRAMEWORK_TAGS>"
+  echo
+  echo "Here are Robot Framework Tag examples that run specific Alchemy MCP AI agent prompts"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Datadriven-Alchemy-MCP-Local-AI-Tasks Prices"
+  echo "bash ./start-solidity-qa-workflows.sh Run-Datadriven-Alchemy-MCP-Local-AI-Tasks PriceHistoryORTokens"
+  echo "The available tags are... Prices, NFTs, Tokens, Transactions, PriceHistory, Transfers"
   echo
   cat ./notes-images-and-demonstrations/NOTES.md 2> /dev/null
   echo

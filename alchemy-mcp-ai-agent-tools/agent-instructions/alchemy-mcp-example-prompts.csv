@@ -1,0 +1,9 @@
+${GOOSE_AI_PROMPT},${INSTRUCTION_TYPE},${REPORT_NUMBER},[Tags]
+'What is the current price of Bitcoin and Ethereum?',User_Prompt,1,Prices
+'Show me the NFTs owned by the wallet 0x1234...5678 on Ethereum.',User_Prompt,2,NFTs
+'What tokens does wallet 0xabcd...6789 hold across Ethereum and Base?',User_Prompt,3,Tokens
+'Get me the transaction history for 0x9876...5432.',User_Prompt,4,Transactions
+'Show me the price history of Ethereum from January 1st to today with daily intervals.',User_Prompt,5,PriceHistory
+'Get me Bitcoin price data for the last week with hourly intervals.',User_Prompt,6,PriceHistory
+'Show me ETH price performance for the past month.',User_Prompt,7,PriceHistory
+'What ERC-20 transfers happened to address 0x1234...5678 in the last 100 blocks?',User_Prompt,8,Transfers

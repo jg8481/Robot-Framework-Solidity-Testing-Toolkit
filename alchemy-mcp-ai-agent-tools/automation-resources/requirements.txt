@@ -1,0 +1,6 @@
+robotframework
+robotframework-pabot
+robotframework-csvlibrary
+robotframework-datadriver
+six
+psutil

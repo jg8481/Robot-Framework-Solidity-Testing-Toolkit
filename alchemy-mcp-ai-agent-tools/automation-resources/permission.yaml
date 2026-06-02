@@ -1,0 +1,33 @@
+user:
+  always_allow:
+  - developer__shell
+  - computercontroller__web_scrape
+  - computercontroller__computer_control
+  - computercontroller__cache
+  - memory__remember_memory
+  - memory__retrieve_memories
+  - computercontroller__pdf_tool
+  - computercontroller__make_presentation
+  - developer__text_editor
+  - computercontroller__docx_tool
+  - computercontroller__xlsx_tool
+  - computercontroller__automation_script
+  - memory__remove_memory_category
+  - memory__remove_specific_memory
+  - alchemy__fetchTokenPriceBySymbol
+  - alchemy__fetchTokenPriceByAddress
+  - alchemy__fetchTokenPriceHistoryBySymbol
+  - alchemy__fetchTokenPriceHistoryByTimeFrame
+  - alchemy__fetchTokensOwnedByMultichainAddresses
+  - alchemy__fetchAddressTransactionHistory
+  - alchemy__fetchTransfers
+  - alchemy__fetchNftsOwnedByMultichainAddresses
+  - alchemy__fetchNftContractDataByMultichainAddress
+  - alchemy__listSupportedNetworks
+  ask_before: []
+  never_allow:
+  - developer__screen_capture
+  - developer__image_processor
+  - developer__list_windows
+  - alchemy__sendTransaction
+  - alchemy__swap
