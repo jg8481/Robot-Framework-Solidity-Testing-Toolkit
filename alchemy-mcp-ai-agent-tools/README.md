@@ -4,8 +4,8 @@ A fully local Robot Framework + DataDriver workflow that runs the Alchemy MCP Se
 ["Example Prompts"](https://github.com/alchemyplatform/alchemy-mcp-server#example-prompts) through a
 [Codename Goose](https://block.github.io/goose/) AI Agent powered by a **local Ollama model**.
 
-This tool experiment mirrors the design of [Robot-Framework-AI-Agent-Datadriver](https://github.com/jg8481/Robot-Framework-AI-Agent-Datadriver), but every prompt is handled
-by a **locally installed Goose CLI** (no cloud LLM providers). Goose
+This folder mirrors the design of `Robot-Framework-AI-Agent-Datadriver`, but every prompt is handled
+by the **local Goose CLI on this machine** (no cloud LLM providers). Goose
 reaches Alchemy's blockchain APIs through the Alchemy MCP Server, which is registered as a Goose
 `stdio` extension in `automation-resources/config.yaml`.
 
@@ -66,6 +66,12 @@ This command:
 3. Pulls the default `mistral` model used by `automation-resources/config.yaml`.
 4. Copies `alchemy-mcp-server-main` into `alchemy-mcp-ai-agent-tools/alchemy-mcp-server`, then runs
    `npm install` and `npm run build` to produce `alchemy-mcp-server/dist/index.js`.
+
+> **The upstream `alchemy-mcp-server-main` is a third-party project and is never modified.** The build
+> step only patches the local copy it creates inside `alchemy-mcp-ai-agent-tools/alchemy-mcp-server`
+> (a git-ignored build artifact). The one compatibility fix it applies moves the `instructions` field
+> into the second `McpServer()` argument, which newer `@modelcontextprotocol/sdk` releases require. If
+> the upstream already uses that form, the patch does nothing.
 
 > Want a different model (for example `qwen3`)? Run `ollama pull qwen3` and change the `GOOSE_MODEL`
 > value in `alchemy-mcp-ai-agent-tools/automation-resources/config.yaml` to match.

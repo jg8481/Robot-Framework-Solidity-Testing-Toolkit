@@ -908,6 +908,12 @@ if [ "$1" == "Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server" ]; then
   rm -rf "$toolkit_root/$ALCHEMY_MCP_TOOLS_DIR/alchemy-mcp-server"
   cp -R "$ALCHEMY_MCP_SOURCE" "$toolkit_root/$ALCHEMY_MCP_TOOLS_DIR/alchemy-mcp-server"
   cd "$toolkit_root/$ALCHEMY_MCP_TOOLS_DIR/alchemy-mcp-server"
+  ## The upstream alchemy-mcp-server-main is a third-party project and is left untouched.
+  ## Newer @modelcontextprotocol/sdk releases reject the 'instructions' field inside the first
+  ## McpServer() argument (it now belongs in the second ServerOptions argument). Apply that small
+  ## compatibility fix to THIS local copy only so the TypeScript build succeeds. If the upstream
+  ## already uses the two-argument form, this substitution simply does nothing.
+  perl -0777 -i -pe 's/(version: pkg\.version,)\s*\n\s*(instructions:)/$1\n  }, {\n    $2/' index.ts || true
   npm install
   npm run build
   cd "$toolkit_root"
