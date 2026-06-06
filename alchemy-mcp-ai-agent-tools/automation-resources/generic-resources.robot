@@ -5,20 +5,24 @@ Library                   Process
 Library                   String
 
 *** Variables ***
-${RETRY}    100
+${RETRY}    3
 ${DELAY}    2
+## Fallback value. The main suite normally overrides this. It is the per-call
+## time limit (in seconds) enforced on every local Goose AI Agent invocation so
+## a stalled local model can never hang the automation run.
+${LLM_TIME_CONSTRAINT}    240
 
 *** Keywords ***
 
 Wait Until Local Goose Prompt Succeeds
-    [Timeout]    60 minutes
+    [Timeout]    30 minutes
     [Arguments]    ${GOOSE_AI_PROMPT}
     Wait Until Keyword Succeeds    ${RETRY} times    0.25 seconds    Run Local Goose Prompt And Check Output    ${GOOSE_AI_PROMPT}
 
 Run Local Goose Prompt And Check Output
     [Arguments]    ${GOOSE_AI_PROMPT}
     Sleep    ${DELAY} seconds
-    ${OUTPUT}=    Send Local AI Agent Prompt Message    ${GOOSE_AI_PROMPT}
+    ${OUTPUT}=    Send Local AI Agent Prompt Message    ${GOOSE_AI_PROMPT}    ${LLM_TIME_CONSTRAINT}
     ## This local-only design uses the Alchemy MCP Server as a Goose stdio extension running through Ollama.
     ## The Docker and cloud-provider examples are intentionally not used here.
     ## https://block.github.io/goose/blog/2025/03/31/goose-benchmark/#technical-challenges-with-open-models
@@ -33,14 +37,14 @@ Run Local Goose Prompt And Check Output
     Set Suite Variable    ${OUTPUT}
 
 Wait Until Local Goose Instruction File Succeeds
-    [Timeout]    120 minutes
+    [Timeout]    60 minutes
     [Arguments]    ${GOOSE_AI_PROMPT}
     Wait Until Keyword Succeeds    ${RETRY} times    0.25 seconds    Run Local Goose Instruction File Succeeds    ${GOOSE_AI_PROMPT}
 
 Run Local Goose Instruction File Succeeds
     [Arguments]    ${GOOSE_AI_PROMPT}
     Sleep    ${DELAY} seconds
-    ${OUTPUT}=    Send Local AI Agent Instruction File    ${GOOSE_AI_PROMPT}
+    ${OUTPUT}=    Send Local AI Agent Instruction File    ${GOOSE_AI_PROMPT}    ${LLM_TIME_CONSTRAINT}
     Should Not Contain    ${OUTPUT}    crates/goose/src/agents/truncate.rs
     Should Not Contain    ${OUTPUT}    goose::agents::truncate:
     Should Not Contain    ${OUTPUT}    Please retry if you think this is a transient or recoverable error.
