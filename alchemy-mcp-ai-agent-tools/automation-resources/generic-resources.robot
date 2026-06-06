@@ -33,7 +33,9 @@ Run Local Goose Prompt And Check Output
     Should Not Contain Any    ${OUTPUT}    UNAVAILABLE    ERROR    Request failed    400 Bad Request    Server error    Ran into this error
     Should Not Contain Any    ${OUTPUT}    extension_name:    uri:    Tool not found
     Should Not Contain Any    ${OUTPUT}    platform    search_available_extensions    remember_memory
-    Should Not Contain Any    ${OUTPUT}    。    、    大    澳    中    一    ·    文
+    ## CJK guard for detecting non-English (Chinese/Japanese) responses, a known open-model quirk.
+    ## '·' (U+00B7) is intentionally excluded: Goose prints it in its startup banner every run.
+    Should Not Contain Any    ${OUTPUT}    。    、    大    澳    中    一    文
     Set Suite Variable    ${OUTPUT}
 
 Wait Until Local Goose Instruction File Succeeds
@@ -51,7 +53,9 @@ Run Local Goose Instruction File Succeeds
     Should Not Contain Any    ${OUTPUT}    UNAVAILABLE    ERROR    Request failed    400 Bad Request    Server error    Ran into this error
     Should Not Contain Any    ${OUTPUT}    extension_name:    uri:    Tool not found
     Should Not Contain Any    ${OUTPUT}    platform    search_available_extensions    remember_memory
-    Should Not Contain Any    ${OUTPUT}    。    、    大    澳    中    一    ·    文
+    ## CJK guard for detecting non-English (Chinese/Japanese) responses, a known open-model quirk.
+    ## '·' (U+00B7) is intentionally excluded: Goose prints it in its startup banner every run.
+    Should Not Contain Any    ${OUTPUT}    。    、    大    澳    中    一    文
     Set Suite Variable    ${OUTPUT}
 
 Run Goose AI Based On Instruction Type

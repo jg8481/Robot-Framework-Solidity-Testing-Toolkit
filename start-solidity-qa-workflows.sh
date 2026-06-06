@@ -89,7 +89,7 @@ alchemy_mcp_local_agent_setup() {
     echo
     echo "[WARNING] Ollama has not been installed properly, or you are not connected to the Internet. If this was an intentional offline run, this will continue."
     echo "Please read this documentation to fix Codename Goose and Ollama issues ---> https://block.github.io/goose/docs/getting-started/providers#local-llms-ollama"
-    echo "The suggested models used with this toolkit are mistral or qwen3 for now. Update the GOOSE_MODEL value in config.yaml to match the model you pulled."
+    echo "The suggested model for this toolkit is qwen2.5:14b because it handles MCP tool calling well. Update the GOOSE_MODEL value in config.yaml to match the model you pulled."
     echo
   fi
 }
@@ -930,8 +930,9 @@ if [ "$1" == "Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server" ]; then
   echo "Starting the local Ollama server from the official app bundle..."
   start_local_ollama_server
   echo
-  echo "Pulling the default local model used by the provided config.yaml (mistral)..."
-  "$(ollama_bin)" pull mistral
+  echo "Pulling the default local model used by the provided config.yaml (qwen2.5:14b)..."
+  echo "This model handles MCP tool calling far better than smaller open models."
+  "$(ollama_bin)" pull qwen2.5:14b
   echo
   ## Build the local Alchemy MCP Server that ships in the alchemy-mcp-server-main folder.
   ALCHEMY_MCP_SOURCE=""

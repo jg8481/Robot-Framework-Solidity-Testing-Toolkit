@@ -2,7 +2,7 @@ GOOSE_CLI_MIN_PRIORITY: 0.8
 OLLAMA_HOST: localhost
 GOOSE_PROVIDER: ollama
 GOOSE_MODE: auto
-GOOSE_MODEL: mistral
+GOOSE_MODEL: qwen2.5:14b
 extensions:
   computercontroller:
     bundled: true
