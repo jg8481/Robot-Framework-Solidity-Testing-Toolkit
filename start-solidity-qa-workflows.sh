@@ -5,6 +5,42 @@ TIMESTAMP=$(date)
 NODEJS_VERSION="22"
 ALCHEMY_MCP_TOOLS_DIR="alchemy-mcp-ai-agent-tools"
 
+## Resolve a working Ollama executable. The official Ollama macOS app bundle is preferred because
+## it ships the Metal llama-server runner. The Homebrew 'ollama' formula on Apple Silicon omits
+## that runner, which makes model calls fail with HTTP 500 (llama-server binary not found).
+ollama_bin() {
+  if [ -x "/Applications/Ollama.app/Contents/Resources/ollama" ]; then
+    echo "/Applications/Ollama.app/Contents/Resources/ollama"
+  else
+    command -v ollama
+  fi
+}
+
+## Start a local Ollama server from the official app bundle and wait until the HTTP API is ready.
+## This deliberately avoids the broken Homebrew formula service.
+start_local_ollama_server() {
+  ## Stop any pre-existing server (broken formula service or a stale process) to free port 11434.
+  brew services stop ollama > /dev/null 2>&1
+  pkill -x ollama > /dev/null 2>&1
+  pkill -x Ollama > /dev/null 2>&1
+  sleep 2s
+  OLLAMA_CLI="$(ollama_bin)"
+  if [ -z "$OLLAMA_CLI" ]; then
+    echo
+    echo "[WARNING] Could not locate an Ollama executable. Install it first ---> bash ./start-solidity-qa-workflows.sh Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server"
+    echo
+    return 1
+  fi
+  nohup "$OLLAMA_CLI" serve > /tmp/ollama-local-serve.log 2>&1 &
+  ## Wait up to ~30 seconds for the API to respond before continuing.
+  for _ in $(seq 1 30); do
+    if curl -fsS http://localhost:11434/api/version > /dev/null 2>&1; then
+      break
+    fi
+    sleep 1
+  done
+}
+
 ## This local-only helper prepares the Codename Goose AI Agent + Ollama runtime and wires in
 ## the locally built Alchemy MCP Server as a Goose stdio extension. Docker is intentionally
 ## never used by this workflow. The Goose AI Agent runs locally from Ollama on this machine.
@@ -40,12 +76,11 @@ alchemy_mcp_local_agent_setup() {
   cp "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/permission.yaml" "$HOME/.config/goose/permission.yaml"
   goose update > /dev/null 2>&1
   brew update > /dev/null 2>&1
-  brew services start ollama
-  brew services restart ollama
-  sleep 10s
-  ollama --version > "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"
+  start_local_ollama_server
+  OLLAMA_CLI="$(ollama_bin)"
+  "$OLLAMA_CLI" --version > "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"
   echo >> "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"
-  ollama list >> "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"
+  "$OLLAMA_CLI" list >> "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"
   if grep -q "NAME" "./$ALCHEMY_MCP_TOOLS_DIR/automation-resources/ai-agent-output-collector/ollama-output.log"; then
     echo
     echo "This alchemy_mcp_local_agent_setup will continue."
@@ -885,12 +920,18 @@ if [ "$1" == "Get-Codename-Goose-AI-Agent-And-Build-Alchemy-MCP-Server" ]; then
   toolkit_root=$(pwd)
   cd "$toolkit_root"
   ## Install the Ollama local LLM runtime and the Codename Goose AI Agent CLI (local, no Docker).
-  brew install ollama
-  brew services start ollama
+  ## Use the official Ollama macOS app (cask). The Homebrew 'ollama' formula on Apple Silicon does
+  ## NOT ship the Metal llama-server runner, so every model call fails with HTTP 500. The official
+  ## app bundles that runner, so local model calls work reliably.
+  brew services stop ollama > /dev/null 2>&1
+  brew install --cask ollama-app
   curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | CONFIGURE=false bash
   echo
+  echo "Starting the local Ollama server from the official app bundle..."
+  start_local_ollama_server
+  echo
   echo "Pulling the default local model used by the provided config.yaml (mistral)..."
-  ollama pull mistral
+  "$(ollama_bin)" pull mistral
   echo
   ## Build the local Alchemy MCP Server that ships in the alchemy-mcp-server-main folder.
   ALCHEMY_MCP_SOURCE=""
