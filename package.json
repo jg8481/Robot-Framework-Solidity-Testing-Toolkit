@@ -9,7 +9,7 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.6",
     "@truffle/contract": "^4.6.9",
-    "ethers": "5.7.2",
+    "ethers": "6.16.0",
     "robotremote": "^1.1.0",
     "web3": "^4.16.0"
   }
