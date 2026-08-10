@@ -3,7 +3,7 @@
   "private": true,
   "description": "Node dependencies for Hardhat and Robot Framework remote libraries",
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomicfoundation/hardhat-toolbox": "^7.0.0",
     "hardhat": "^2.22.17"
   },
   "dependencies": {
